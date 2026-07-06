@@ -825,18 +825,21 @@
       <div class="btn-group"><a href="contact.html" class="btn-primary">Go to full contact page →</a></div>
     </div>
     <div class="form-card reveal">
+      <form action="https://formspree.io/f/xgojqzjj" method="POST">
       <div class="form-row">
-        <div class="form-field"><label>First name</label><input type="text" placeholder="Jamie"></div>
-        <div class="form-field"><label>Last name</label><input type="text" placeholder="Lee"></div>
+        <div class="form-field"><label>First name</label><input name="first_name" type="text" placeholder="Jamie" required></div>
+        <div class="form-field"><label>Last name</label><input name="last_name" type="text" placeholder="Lee" required></div>
       </div>
-      <div class="form-row"><div class="form-field full"><label>Email</label><input type="email" placeholder="jamie@email.com"></div></div>
+      <div class="form-row"><div class="form-field full"><label>Email</label><input name="email" type="email" placeholder="jamie@email.com" required></div></div>
       <div class="form-row">
-        <div class="form-field"><label>Property address or suburb</label><input type="text" placeholder="e.g. Earlwood NSW"></div>
-        <div class="form-field"><label>Project type</label><select><option value="">Select…</option><option>Duplex</option><option>Townhouses</option><option>Small apartments</option><option>Mixed use</option><option>Other</option></select></div>
+        <div class="form-field"><label>Property address or suburb</label><input name="address" type="text" placeholder="e.g. Earlwood NSW" required></div>
+        <div class="form-field"><label>Project type</label><select name="project_type"><option value="">Select…</option><option>Duplex</option><option>Townhouses</option><option>Small apartments</option><option>Mixed use</option><option>Other</option></select></div>
       </div>
-      <div class="form-row"><div class="form-field full"><label>Where are you up to?</label><select><option value="">Select…</option><option>Considering buying a site</option><option>Already own the site</option><option>Have a concept in mind</option><option>Ready to lodge</option></select></div></div>
-      <div class="form-row"><div class="form-field full"><label>Message</label><textarea placeholder="Tell us about the project or question…"></textarea></div></div>
-      <button type="button" class="form-submit">Send message →</button>
+      <div class="form-row"><div class="form-field full"><label>Where are you up to?</label><select name="stage"><option value="">Select…</option><option>Considering buying a site</option><option>Already own the site</option><option>Have a concept in mind</option><option>Ready to lodge</option></select></div></div>
+      <div class="form-row"><div class="form-field full"><label>Message</label><textarea name="message" placeholder="Tell us about the project or question…"></textarea></div></div>
+      <input type="hidden" name="_subject" value="New enquiry from whatcani.build">
+      <button type="submit" class="form-submit">Send message →</button>
+      </form>
     </div>
   </div>
 </section>

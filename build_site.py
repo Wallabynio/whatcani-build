@@ -986,10 +986,11 @@ PAGE_DATA = {
     <div class="card-white reveal" style="border-radius:22px;padding:48px;text-align:center;max-width:640px;margin:0 auto;">
       <div style="font-family:'Inter Tight',sans-serif;font-weight:700;font-size:22px;color:var(--black);margin-bottom:12px;">Get new articles direct to your inbox</div>
       <p style="font-size:15px;color:#2A2825;line-height:1.65;margin-bottom:28px;">One email when we publish. No marketing. Unsubscribe anytime.</p>
-      <div style="display:flex;gap:12px;max-width:420px;margin:0 auto;">
-        <input type="email" placeholder="your@email.com" style="flex:1;background:#F7F7F7;border:1px solid rgba(0,0,0,0.1);border-radius:12px;padding:13px 16px;color:var(--black);font-family:'Inter',sans-serif;font-size:14.5px;outline:none;">
-        <button type="button" style="background:var(--orange);color:var(--black);border:none;padding:13px 22px;border-radius:12px;font-size:14.5px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;white-space:nowrap;">Subscribe</button>
-      </div>
+      <form action="https://formspree.io/f/xaqgkbrd" method="POST" style="display:flex;gap:12px;max-width:420px;margin:0 auto;">
+        <input name="email" type="email" placeholder="your@email.com" required style="flex:1;background:#F7F7F7;border:1px solid rgba(0,0,0,0.1);border-radius:12px;padding:13px 16px;color:var(--black);font-family:'Inter',sans-serif;font-size:14.5px;outline:none;">
+        <input type="hidden" name="_subject" value="New newsletter subscriber">
+        <button type="submit" style="background:var(--orange);color:var(--black);border:none;padding:13px 22px;border-radius:12px;font-size:14.5px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;white-space:nowrap;">Subscribe</button>
+      </form>
     </div>
   </div>
 </section>
@@ -1267,30 +1268,33 @@ PAGE_DATA = {
       </div>
     </div>
     <div class="form-card reveal">
+      <form action="https://formspree.io/f/xgojqzjj" method="POST">
       <div style="font-family:'Inter Tight',sans-serif;font-weight:700;font-size:20px;color:var(--black);margin-bottom:24px;">Tell us about your project</div>
       <div class="form-row">
-        <div class="form-field"><label>First name</label><input type="text" placeholder="Jamie"></div>
-        <div class="form-field"><label>Last name</label><input type="text" placeholder="Lee"></div>
+        <div class="form-field"><label>First name</label><input name="first_name" type="text" placeholder="Jamie" required></div>
+        <div class="form-field"><label>Last name</label><input name="last_name" type="text" placeholder="Lee" required></div>
       </div>
-      <div class="form-row"><div class="form-field full"><label>Email address</label><input type="email" placeholder="jamie@email.com"></div></div>
-      <div class="form-row"><div class="form-field full"><label>Phone (optional)</label><input type="tel" placeholder="+61 4xx xxx xxx"></div></div>
+      <div class="form-row"><div class="form-field full"><label>Email address</label><input name="email" type="email" placeholder="jamie@email.com" required></div></div>
+      <div class="form-row"><div class="form-field full"><label>Phone (optional)</label><input name="phone" type="tel" placeholder="+61 4xx xxx xxx"></div></div>
       <div class="form-row">
-        <div class="form-field"><label>Property address or suburb</label><input type="text" placeholder="e.g. Earlwood NSW 2206"></div>
+        <div class="form-field"><label>Property address or suburb</label><input name="address" type="text" placeholder="e.g. Earlwood NSW 2206" required></div>
         <div class="form-field"><label>Project type</label>
-          <select><option value="">Select…</option><option>Duplex / dual occupancy</option><option>Townhouses</option><option>Small apartment building</option><option>Mixed use</option><option>Other residential</option><option>Not sure yet</option></select>
+          <select name="project_type"><option value="">Select…</option><option>Duplex / dual occupancy</option><option>Townhouses</option><option>Small apartment building</option><option>Mixed use</option><option>Other residential</option><option>Not sure yet</option></select>
         </div>
       </div>
       <div class="form-row"><div class="form-field full"><label>Where are you up to?</label>
-        <select><option value="">Select…</option><option>Considering buying a site</option><option>Already own the site</option><option>Have a concept in mind</option><option>Ready to lodge</option></select>
+        <select name="stage"><option value="">Select…</option><option>Considering buying a site</option><option>Already own the site</option><option>Have a concept in mind</option><option>Ready to lodge</option></select>
       </div></div>
       <div class="form-row"><div class="form-field full"><label>Service you're interested in</label>
-        <select><option value="">Select…</option><option>Site Check ($600)</option><option>Feasibility &amp; Strategy ($1,700–$3,900)</option><option>Pre-Design Brief ($1,000–$2,500)</option><option>DA / CDC Report ($3,000–$7,900)</option><option>Not sure — advise me</option></select>
+        <select name="service"><option value="">Select…</option><option>Site Check ($600)</option><option>Feasibility &amp; Strategy ($1,700–$3,900)</option><option>Pre-Design Brief ($1,000–$2,500)</option><option>DA / CDC Report ($3,000–$7,900)</option><option>Not sure — advise me</option></select>
       </div></div>
       <div class="form-row"><div class="form-field full"><label>Tell us about the project</label>
-        <textarea placeholder="Address, what you're considering, any specific questions…" style="min-height:130px;"></textarea>
+        <textarea name="message" placeholder="Address, what you're considering, any specific questions…" style="min-height:130px;"></textarea>
       </div></div>
-      <button type="button" class="form-submit">Send enquiry →</button>
+      <input type="hidden" name="_subject" value="New enquiry from whatcani.build">
+      <button type="submit" class="form-submit">Send enquiry →</button>
       <p style="text-align:center;margin-top:16px;font-size:13px;color:#8A8782;">We respond within 2 business days. No charge for the first conversation.</p>
+      </form>
     </div>
   </div>
 </section>
