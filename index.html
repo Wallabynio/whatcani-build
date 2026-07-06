@@ -317,12 +317,14 @@
     opacity:0;animation:fadeUp .9s ease forwards .58s;}
 
   /* STREET — hero animation: one street, four uplift pathways */
-  .street-stage{margin-top:70px;width:100%;max-width:1080px;aspect-ratio:1080/520;
-    position:relative;border-radius:28px;
-    background:linear-gradient(160deg,#0d0d0d,#080808);
-    border:1px solid var(--hairline);overflow:hidden;
-    opacity:0;animation:fadeUp 1s ease forwards .75s;
-    box-shadow:0 40px 80px -20px rgba(0,0,0,0.8);}
+  .street-stage{margin-top:56px;width:min(600px,100%,64vh);aspect-ratio:1/1;
+    position:relative;background:transparent;
+    opacity:0;animation:fadeUp 1s ease forwards .75s;}
+  @media(max-width:600px){
+    .street-stage{width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);
+      margin-top:40px;max-height:none;}
+    .street-readout{top:16px;right:20px;}
+  }
   .street-svg{position:absolute;inset:0;width:100%;height:100%;display:block;}
   .street-road{fill:none;stroke:rgba(255,255,255,0.06);stroke-width:44;stroke-linecap:round;}
   .street-lane{fill:none;stroke:rgba(255,255,255,0.18);stroke-width:2;
@@ -330,9 +332,9 @@
   .street-path{fill:none;stroke:var(--orange);stroke-width:3.5;
     stroke-linecap:round;stroke-linejoin:round;
     filter:drop-shadow(0 0 6px rgba(255,119,0,0.50));
-    stroke-dasharray:1200;stroke-dashoffset:1200;
+    stroke-dasharray:1620;stroke-dashoffset:1620;
     animation:streetDraw 14s linear infinite;}
-  @keyframes streetDraw{0%{stroke-dashoffset:1200;opacity:1;}2%{stroke-dashoffset:1200;}
+  @keyframes streetDraw{0%{stroke-dashoffset:1620;opacity:1;}2%{stroke-dashoffset:1620;}
     76%{stroke-dashoffset:0;}92%{stroke-dashoffset:0;opacity:1;}
     98%,100%{stroke-dashoffset:0;opacity:0;}}
   .street-ground{stroke:rgba(255,255,255,0.22);stroke-width:1.5;stroke-linecap:round;}
@@ -341,17 +343,17 @@
   .dw2{animation:dwPop2 14s cubic-bezier(.2,.8,.2,1) infinite;}
   .dw3{animation:dwPop3 14s cubic-bezier(.2,.8,.2,1) infinite;}
   .dw4{animation:dwPop4 14s cubic-bezier(.2,.8,.2,1) infinite;}
-  @keyframes dwPop1{0%,12%{opacity:0;transform:translateY(14px) scale(.55);}
-    16%{opacity:1;transform:translateY(0) scale(1.05);}18%{transform:scale(1);}
+  @keyframes dwPop1{0%,11%{opacity:0;transform:translateY(14px) scale(.55);}
+    15%{opacity:1;transform:translateY(0) scale(1.05);}17%{transform:scale(1);}
     92%{opacity:1;transform:scale(1);}98%,100%{opacity:0;transform:scale(1);}}
-  @keyframes dwPop2{0%,28%{opacity:0;transform:translateY(14px) scale(.55);}
-    32%{opacity:1;transform:translateY(0) scale(1.05);}34%{transform:scale(1);}
+  @keyframes dwPop2{0%,27%{opacity:0;transform:translateY(14px) scale(.55);}
+    31%{opacity:1;transform:translateY(0) scale(1.05);}33%{transform:scale(1);}
     92%{opacity:1;transform:scale(1);}98%,100%{opacity:0;transform:scale(1);}}
-  @keyframes dwPop3{0%,45%{opacity:0;transform:translateY(14px) scale(.55);}
-    49%{opacity:1;transform:translateY(0) scale(1.05);}51%{transform:scale(1);}
+  @keyframes dwPop3{0%,38%{opacity:0;transform:translateY(14px) scale(.55);}
+    42%{opacity:1;transform:translateY(0) scale(1.05);}44%{transform:scale(1);}
     92%{opacity:1;transform:scale(1);}98%,100%{opacity:0;transform:scale(1);}}
-  @keyframes dwPop4{0%,64%{opacity:0;transform:translateY(14px) scale(.55);}
-    68%{opacity:1;transform:translateY(0) scale(1.05);}70%{transform:scale(1);}
+  @keyframes dwPop4{0%,67%{opacity:0;transform:translateY(14px) scale(.55);}
+    71%{opacity:1;transform:translateY(0) scale(1.05);}73%{transform:scale(1);}
     92%{opacity:1;transform:scale(1);}98%,100%{opacity:0;transform:scale(1);}}
   .street-readout{position:absolute;top:24px;right:28px;text-align:right;}
   .street-readout .nums{position:relative;height:34px;
@@ -366,10 +368,10 @@
   .nums .n2{animation:numShow2 14s ease infinite;}
   .nums .n3{animation:numShow3 14s ease infinite;}
   .nums .n4{animation:numShow4 14s ease infinite;}
-  @keyframes numShow1{0%,13%{opacity:0;}15%,26%{opacity:1;}28%,100%{opacity:0;}}
-  @keyframes numShow2{0%,28%{opacity:0;}30%,43%{opacity:1;}45%,100%{opacity:0;}}
-  @keyframes numShow3{0%,45%{opacity:0;}47%,62%{opacity:1;}64%,100%{opacity:0;}}
-  @keyframes numShow4{0%,64%{opacity:0;}66%,92%{opacity:1;}98%,100%{opacity:0;}}
+  @keyframes numShow1{0%,12%{opacity:0;}14%,25%{opacity:1;}27%,100%{opacity:0;}}
+  @keyframes numShow2{0%,27%{opacity:0;}29%,36%{opacity:1;}38%,100%{opacity:0;}}
+  @keyframes numShow3{0%,38%{opacity:0;}40%,65%{opacity:1;}67%,100%{opacity:0;}}
+  @keyframes numShow4{0%,67%{opacity:0;}69%,92%{opacity:1;}98%,100%{opacity:0;}}
   @media(prefers-reduced-motion:reduce){
     .street-path{animation:none;stroke-dashoffset:0;opacity:1;}
     .dw{animation:none;opacity:1;transform:none;}
@@ -377,17 +379,6 @@
     .nums .n4{opacity:1;}
   }
 
-  /* stage chrome (shared) */
-  .scan-grid{position:absolute;inset:0;
-    background-image:linear-gradient(rgba(255,255,255,0.05) 1px,transparent 1px),
-      linear-gradient(90deg,rgba(255,255,255,0.05) 1px,transparent 1px);
-    background-size:38px 38px;
-    mask-image:radial-gradient(ellipse 70% 70% at 50% 50%,black 40%,transparent 90%);}
-  .scan-corner{position:absolute;width:18px;height:18px;border-color:rgba(255,255,255,0.3);}
-  .scan-corner.tl{top:20px;left:20px;border-top:2px solid;border-left:2px solid;border-radius:4px 0 0 0;}
-  .scan-corner.tr{top:20px;right:20px;border-top:2px solid;border-right:2px solid;border-radius:0 4px 0 0;}
-  .scan-corner.bl{bottom:20px;left:20px;border-bottom:2px solid;border-left:2px solid;border-radius:0 0 0 4px;}
-  .scan-corner.br{bottom:20px;right:20px;border-bottom:2px solid;border-right:2px solid;border-radius:0 0 4px 0;}
 
   /* INDEX GRIDS */
   .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
@@ -501,23 +492,20 @@
     <a href="services.html" class="btn-secondary">See our services</a>
   </div>
   <div class="street-stage">
-    <div class="scan-grid"></div>
-    <div class="scan-corner tl"></div><div class="scan-corner tr"></div>
-    <div class="scan-corner bl"></div><div class="scan-corner br"></div>
-    <svg class="street-svg" viewBox="0 0 1080 520" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+    <svg class="street-svg" viewBox="0 0 720 720" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
       <!-- the street -->
-      <path class="street-road" d="M -30,440 C 160,440 240,362 370,348 C 500,334 540,300 660,290 C 780,280 800,218 930,200 C 1020,188 1064,182 1110,178"/>
-      <path class="street-lane" d="M -30,440 C 160,440 240,362 370,348 C 500,334 540,300 660,290 C 780,280 800,218 930,200 C 1020,188 1064,182 1110,178"/>
+      <path class="street-road" d="M -40,620 C 200,620 420,600 500,500 C 570,410 380,380 260,340 C 140,300 160,220 300,190 C 440,160 560,150 760,120"/>
+      <path class="street-lane" d="M -40,620 C 200,620 420,600 500,500 C 570,410 380,380 260,340 C 140,300 160,220 300,190 C 440,160 560,150 760,120"/>
       <!-- the planning pathway tracing the street -->
-      <path class="street-path" d="M -30,440 C 160,440 240,362 370,348 C 500,334 540,300 660,290 C 780,280 800,218 930,200 C 1020,188 1064,182 1110,178"/>
+      <path class="street-path" d="M -40,620 C 200,620 420,600 500,500 C 570,410 380,380 260,340 C 140,300 160,220 300,190 C 440,160 560,150 760,120"/>
       <!-- lot ground lines -->
-      <line class="street-ground" x1="108" y1="385" x2="192" y2="385"/>
-      <line class="street-ground" x1="315" y1="320" x2="425" y2="320"/>
-      <line class="street-ground" x1="548" y1="480" x2="732" y2="480"/>
-      <line class="street-ground" x1="812" y1="400" x2="1028" y2="400"/>
+      <line class="street-ground" x1="96" y1="584" x2="224" y2="584"/>
+      <line class="street-ground" x1="575" y1="632" x2="685" y2="632"/>
+      <line class="street-ground" x1="254" y1="542" x2="406" y2="542"/>
+      <line class="street-ground" x1="470" y1="324" x2="650" y2="324"/>
       <!-- dwellings pop up as the pathway reaches each lot -->
       <g class="dw dw1" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
-        <g transform="translate(96.75,276.5) scale(0.30)">
+        <g transform="translate(103.2,468.4) scale(0.32)">
 
     <g transform="matrix(1,0,0,1,-1062.992126,-336.614173)">
         <g transform="matrix(1,0,0,1,547.178172,-17.716535)">
@@ -538,7 +526,7 @@
         </g>
       </g>
       <g class="dw dw2" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
-        <g transform="translate(327.4,176.2) scale(0.24)">
+        <g transform="translate(587.4,488.2) scale(0.24)">
 
     <g transform="matrix(1,0,0,1,-1062.992126,-950.363283)">
         <g transform="matrix(1,0,0,1,547.178172,-17.716535)">
@@ -565,7 +553,7 @@
         </g>
       </g>
       <g class="dw dw3" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
-        <g transform="translate(558,322) scale(0.30)">
+        <g transform="translate(261.6,409.8) scale(0.25)">
 
     <g transform="matrix(1,0,0,1,-966.934422,-1800.535988)">
         <g transform="matrix(1,0,0,1,547.178172,-17.716535)">
@@ -604,7 +592,7 @@
         </g>
       </g>
       <g class="dw dw4" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
-        <g transform="translate(825.1,232) scale(0.28)">
+        <g transform="translate(478.7,180) scale(0.24)">
 
     <g transform="matrix(1,0,0,1,-901.50888,-2580.708661)">
         <g transform="matrix(1,0,0,1,547.178172,-17.716535)">
