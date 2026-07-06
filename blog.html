@@ -100,7 +100,7 @@
   .parallax-band .pb-img{
     position:absolute;inset:-30% 0;
     background-size:cover;background-position:center;background-attachment:fixed;
-    filter:brightness(0.65);
+    filter:brightness(0.75);
     will-change:transform;
   }
   .parallax-band .pb-overlay{
@@ -252,6 +252,37 @@
   }
 
 
+
+  /* ARTICLE FLOATING CARD */
+  .article-overlay{position:fixed;inset:0;z-index:400;background:rgba(0,0,0,0.8);
+    display:none;align-items:center;justify-content:center;padding:5vh 4vw;}
+  .article-overlay.open{display:flex;}
+  .article-card{position:relative;background:var(--white);border-radius:24px;
+    max-width:860px;width:100%;max-height:88vh;overflow-y:auto;
+    padding:32px 60px 56px;color:#2A2825;-webkit-overflow-scrolling:touch;}
+  .article-close{position:sticky;top:0;margin-left:auto;display:flex;align-items:center;justify-content:center;
+    width:44px;height:44px;border-radius:50%;background:var(--white);
+    border:1px solid var(--card-hairline);cursor:pointer;z-index:2;
+    box-shadow:0 4px 16px rgba(0,0,0,0.12);}
+  .article-close:hover{border-color:var(--blue);}
+  .article-body h2{font-family:'Inter Tight',sans-serif;font-weight:800;font-size:26px;
+    letter-spacing:-0.02em;color:var(--black);margin-bottom:10px;line-height:1.25;}
+  .article-body .article-meta{font-size:13px;color:#8A8782;margin-bottom:32px;}
+  .article-body h3{font-family:'Inter Tight',sans-serif;font-weight:700;font-size:19px;
+    letter-spacing:-0.01em;color:var(--black);margin:32px 0 14px;}
+  .article-body p{font-size:15.5px;color:#2A2825;line-height:1.75;margin-bottom:16px;}
+  .article-body table{width:100%;border-collapse:collapse;margin:8px 0 16px;font-size:14px;}
+  .article-body th{font-family:'Inter Tight',sans-serif;font-weight:700;color:var(--black);
+    text-align:left;padding:10px 12px;border:1px solid var(--card-hairline);background:rgba(0,0,0,0.04);}
+  .article-body td{padding:10px 12px;border:1px solid var(--card-hairline);vertical-align:top;line-height:1.6;color:#2A2825;}
+  .article-body .refs p{font-size:13.5px;line-height:1.65;margin-bottom:10px;word-break:break-word;}
+  .article-body a{color:var(--orange);text-decoration:none;}
+  @media(max-width:600px){
+    .article-card{padding:20px 22px 40px;border-radius:18px;}
+    .article-body h2{font-size:22px;}
+    .article-body table{font-size:12.5px;}
+    .article-body th,.article-body td{padding:8px;}
+  }
 </style>
 </head>
 <body>
@@ -306,79 +337,74 @@
     <div class="blog-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
       
 <div class="card-white reveal" style="border-radius:22px;overflow:hidden;padding:0;display:flex;flex-direction:column;">
-  <div style="height:200px;background-image:url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=70');background-size:cover;background-position:center;filter:brightness(0.85);"></div>
+  <div style="height:200px;background-image:url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=70');background-size:cover;background-position:center;filter:brightness(0.98);"></div>
   <div style="padding:32px 28px 36px;flex:1;display:flex;flex-direction:column;">
     <span style="font-size:12px;font-weight:700;color:var(--orange);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px;display:block;">Feasibility</span>
     <h3 style="font-family:'Inter Tight',sans-serif;font-weight:700;font-size:20px;letter-spacing:-0.015em;color:var(--black);margin-bottom:12px;line-height:1.3;">DA vs CDC: which path suits your project?</h3>
     <p style="font-size:14.5px;color:#2A2825;line-height:1.65;flex:1;">The choice between a Development Application and a Complying Development Certificate shapes your timeline, risk profile, and design flexibility. Here's how to think through the decision before you commit to either.</p>
     <div style="margin-top:20px;display:flex;align-items:center;justify-content:space-between;">
-      <span style="font-size:13px;color:#8A8782;">12 Jun 2026 · 6 min read</span>
-      <a href="#" style="font-size:13.5px;font-weight:700;color:var(--orange);text-decoration:none;">Read →</a>
+      <span style="font-size:13px;color:#8A8782;">9 Jul 2026 · 10 min read</span>
+      <a href="#" id="open-article-1" style="font-size:13.5px;font-weight:700;color:var(--orange);text-decoration:none;">Read →</a>
     </div>
   </div>
 </div>
       
 <div class="card-white reveal" style="border-radius:22px;overflow:hidden;padding:0;display:flex;flex-direction:column;">
-  <div style="height:200px;background-image:url('https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=70');background-size:cover;background-position:center;filter:brightness(0.85);"></div>
+  <div style="height:200px;background-image:url('https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=70');background-size:cover;background-position:center;filter:brightness(0.98);"></div>
   <div style="padding:32px 28px 36px;flex:1;display:flex;flex-direction:column;">
     <span style="font-size:12px;font-weight:700;color:var(--orange);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px;display:block;">Planning guides</span>
     <h3 style="font-family:'Inter Tight',sans-serif;font-weight:700;font-size:20px;letter-spacing:-0.015em;color:var(--black);margin-bottom:12px;line-height:1.3;">What zoning R2 actually means for your site</h3>
     <p style="font-size:14.5px;color:#2A2825;line-height:1.65;flex:1;">R2 Low Density Residential is one of the most common zones in Sydney, and one of the most misunderstood. Here's what it permits, what it prohibits, and what your LEP says about your specific site.</p>
     <div style="margin-top:20px;display:flex;align-items:center;justify-content:space-between;">
-      <span style="font-size:13px;color:#8A8782;">4 Jun 2026 · 5 min read</span>
-      <a href="#" style="font-size:13.5px;font-weight:700;color:var(--orange);text-decoration:none;">Read →</a>
+      <span style="font-size:13px;color:#8A8782;">16 Jul 2026</span>
     </div>
   </div>
 </div>
       
 <div class="card-white reveal" style="border-radius:22px;overflow:hidden;padding:0;display:flex;flex-direction:column;">
-  <div style="height:200px;background-image:url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=70');background-size:cover;background-position:center;filter:brightness(0.85);"></div>
+  <div style="height:200px;background-image:url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=70');background-size:cover;background-position:center;filter:brightness(0.98);"></div>
   <div style="padding:32px 28px 36px;flex:1;display:flex;flex-direction:column;">
     <span style="font-size:12px;font-weight:700;color:var(--orange);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px;display:block;">Development tips</span>
     <h3 style="font-family:'Inter Tight',sans-serif;font-weight:700;font-size:20px;letter-spacing:-0.015em;color:var(--black);margin-bottom:12px;line-height:1.3;">5 things to check before buying a development site</h3>
     <p style="font-size:14.5px;color:#2A2825;line-height:1.65;flex:1;">Most development sites that fail do so because of information that was available before purchase. Here are the five checks every buyer should run before exchanging contracts.</p>
     <div style="margin-top:20px;display:flex;align-items:center;justify-content:space-between;">
-      <span style="font-size:13px;color:#8A8782;">22 May 2026 · 7 min read</span>
-      <a href="#" style="font-size:13.5px;font-weight:700;color:var(--orange);text-decoration:none;">Read →</a>
+      <span style="font-size:13px;color:#8A8782;">23 Jul 2026</span>
     </div>
   </div>
 </div>
       
 <div class="card-white reveal" style="border-radius:22px;overflow:hidden;padding:0;display:flex;flex-direction:column;">
-  <div style="height:200px;background-image:url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=70');background-size:cover;background-position:center;filter:brightness(0.85);"></div>
+  <div style="height:200px;background-image:url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=70');background-size:cover;background-position:center;filter:brightness(0.98);"></div>
   <div style="padding:32px 28px 36px;flex:1;display:flex;flex-direction:column;">
     <span style="font-size:12px;font-weight:700;color:var(--orange);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px;display:block;">Policy updates</span>
     <h3 style="font-family:'Inter Tight',sans-serif;font-weight:700;font-size:20px;letter-spacing:-0.015em;color:var(--black);margin-bottom:12px;line-height:1.3;">Housing SEPP changes: what they mean for duplexes</h3>
     <p style="font-size:14.5px;color:#2A2825;line-height:1.65;flex:1;">The Housing SEPP has been amended multiple times since 2021. Here's a plain-language summary of where things currently stand for duplex and dual occupancy development in NSW.</p>
     <div style="margin-top:20px;display:flex;align-items:center;justify-content:space-between;">
-      <span style="font-size:13px;color:#8A8782;">15 May 2026 · 8 min read</span>
-      <a href="#" style="font-size:13.5px;font-weight:700;color:var(--orange);text-decoration:none;">Read →</a>
+      <span style="font-size:13px;color:#8A8782;">30 Jul 2026</span>
     </div>
   </div>
 </div>
       
 <div class="card-white reveal" style="border-radius:22px;overflow:hidden;padding:0;display:flex;flex-direction:column;">
-  <div style="height:200px;background-image:url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=70');background-size:cover;background-position:center;filter:brightness(0.85);"></div>
+  <div style="height:200px;background-image:url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=70');background-size:cover;background-position:center;filter:brightness(0.98);"></div>
   <div style="padding:32px 28px 36px;flex:1;display:flex;flex-direction:column;">
     <span style="font-size:12px;font-weight:700;color:var(--orange);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px;display:block;">Case study</span>
     <h3 style="font-family:'Inter Tight',sans-serif;font-weight:700;font-size:20px;letter-spacing:-0.015em;color:var(--black);margin-bottom:12px;line-height:1.3;">Townhouse feasibility: inner west site, 2025</h3>
     <p style="font-size:14.5px;color:#2A2825;line-height:1.65;flex:1;">A walkthrough of a real feasibility review — how we assessed a 650m² site in the inner west, what the controls allowed, what the numbers looked like, and what we recommended.</p>
     <div style="margin-top:20px;display:flex;align-items:center;justify-content:space-between;">
-      <span style="font-size:13px;color:#8A8782;">8 May 2026 · 10 min read</span>
-      <a href="#" style="font-size:13.5px;font-weight:700;color:var(--orange);text-decoration:none;">Read →</a>
+      <span style="font-size:13px;color:#8A8782;">6 Aug 2026</span>
     </div>
   </div>
 </div>
       
 <div class="card-white reveal" style="border-radius:22px;overflow:hidden;padding:0;display:flex;flex-direction:column;">
-  <div style="height:200px;background-image:url('https://images.unsplash.com/photo-1590650153855-d9e808231d41?w=800&q=70');background-size:cover;background-position:center;filter:brightness(0.85);"></div>
+  <div style="height:200px;background-image:url('https://images.unsplash.com/photo-1590650153855-d9e808231d41?w=800&q=70');background-size:cover;background-position:center;filter:brightness(0.98);"></div>
   <div style="padding:32px 28px 36px;flex:1;display:flex;flex-direction:column;">
     <span style="font-size:12px;font-weight:700;color:var(--orange);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px;display:block;">Feasibility</span>
     <h3 style="font-family:'Inter Tight',sans-serif;font-weight:700;font-size:20px;letter-spacing:-0.015em;color:var(--black);margin-bottom:12px;line-height:1.3;">Understanding FSR: floor space ratio explained</h3>
     <p style="font-size:14.5px;color:#2A2825;line-height:1.65;flex:1;">Floor Space Ratio (FSR) is the single most important number in most residential feasibilities. Here's what it means, how it's calculated, and how to use it to size a development before you engage an architect.</p>
     <div style="margin-top:20px;display:flex;align-items:center;justify-content:space-between;">
-      <span style="font-size:13px;color:#8A8782;">1 May 2026 · 6 min read</span>
-      <a href="#" style="font-size:13.5px;font-weight:700;color:var(--orange);text-decoration:none;">Read →</a>
+      <span style="font-size:13px;color:#8A8782;">13 Aug 2026</span>
     </div>
   </div>
 </div>
@@ -398,6 +424,92 @@
     </div>
   </div>
 </section>
+
+
+<!-- ARTICLE 1 FLOATING CARD -->
+<div class="article-overlay" id="article-1" role="dialog" aria-modal="true" aria-label="DA vs CDC: which path suits your project?">
+  <div class="article-card">
+    <button class="article-close" aria-label="Close article and return to the blog"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4B8FE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    <div class="article-body">
+<span style="font-size:12px;font-weight:700;color:var(--orange);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px;display:block;">Feasibility</span>
+<h2>DA vs CDC: which path suits your project?</h2>
+<div class="article-meta">9 Jul 2026 &middot; 10 min read</div>
+
+<p>The core distinction is this: a Complying Development Certificate (CDC) is a fast-tracked, rules-based approval for standard, low-impact projects, while a Development Application (DA) is a slower, merit-based assessment that buys you more design flexibility and discretion from council planners. Choosing between them is primarily a feasibility decision about how tightly your design can fit the code, how much risk you can tolerate, and how much control you need over the outcome.</p>
+
+<h3>1. What DA and CDC actually are</h3>
+<p>A Development Application in NSW is a formal request for development consent under the Environmental Planning and Assessment Act 1979, assessed by your local council against State Environmental Planning Policies (SEPPs), the Local Environmental Plan (LEP) and relevant Development Control Plans (DCPs). It is merit-based: planners weigh impacts (bulk and scale, overshadowing, character, traffic, heritage, amenity) and can exercise discretion, request changes, or refuse the application outright.</p>
+<p>A Complying Development Certificate is a combined planning and construction approval for straightforward development that meets pre-set numerical standards in State codes, most commonly the Housing and other Codes SEPP. If the proposal and site meet every listed control (height, setbacks, private open space, landscaping, car parking, etc.), an accredited certifier or council must issue the CDC within statutory time frames; if it fails any control, the application simply cannot proceed as complying development.</p>
+<p>Under current NSW settings, all DA and CDC applications must be lodged through the NSW Planning Portal, with defined document sets (plans, reports, certificates) and online payment of fees. This means both pathways now share a digitised process, but they diverge sharply in how they treat discretion, public participation, and time frames.</p>
+
+<h3>2. Timeframes: speed vs certainty</h3>
+<p>CDC approvals are typically issued within 10&ndash;20 business days for standard projects, and as little as 10 days under the NSW Housing Pattern Book complying development pathway, provided the proposal is fully compliant and the documentation is complete. This accelerated turn-around is a deliberate policy choice: complying development is meant to clear low-impact, standardised projects quickly, freeing councils from routine assessments.</p>
+<p>DA assessments routinely take months rather than weeks, with published ranges of roughly 3&ndash;12 months depending on council resourcing, complexity, neighbour objections and the need for redesign. The process includes notification periods, possible referrals to design review panels or heritage advisers, and iterative negotiations over changes, all of which extend the timeline and can introduce significant uncertainty.</p>
+<p>In practice, the time advantage of a CDC evaporates if your design only marginally fits the codes and needs repeated redesign to achieve strict compliance. Conversely, although DAs are slower on paper, a well-prepared DA that aligns with council controls and engages stakeholders early can avoid major delays, particularly in councils with established processes for pre-lodgement meetings and design review.</p>
+
+<h3>3. Risk profile: approval risk vs design risk</h3>
+<p>Risk under a CDC pathway is primarily binary: if your project and site satisfy every relevant standard, approval must be granted; if not, it cannot be approved as complying development at all. The approval risk is lower once compliance is proven, but the design risk is higher upfront because even minor deviations (for example, a setback short by a few hundred millimetres) can force a complete change of pathway.</p>
+<p>By contrast, DA outcomes sit on a spectrum: council planners can approve, approve with conditions, or refuse, and they may accept modest variations from numeric standards where the overall impact is acceptable. This introduces higher approval risk in the sense that outcomes are less predictable, but lower design risk in that you can argue for performance-based solutions rather than strict rule adherence.</p>
+<p>Neighbour and community risk also diverge. CDCs generally do not require formal neighbour notification or a public exhibition period, which limits third-party input and objection risk but can create political and reputational sensitivities where projects are perceived as &ldquo;bypassing council&rdquo;. DAs require public notification and allow submissions; objections can delay assessment, trigger additional conditions, or even lead to refusal, particularly in politically sensitive or character-focused neighbourhoods.</p>
+<p>For complex or contentious projects, some practitioners treat the DA process as a managed risk environment: you accept the possibility of objection and delay in exchange for the chance to negotiate outcomes, adjust the design, and demonstrate merit. For standard low-impact work in benign contexts, a CDC often represents a lower-risk pathway provided feasibility work confirms compliance at the outset.</p>
+
+<h3>4. Design flexibility and project typology</h3>
+<p>CDC standards are tight and prescriptive. They specify maximum heights, setbacks, site coverage, private open space, car parks, and sometimes materiality or fa&ccedil;ade treatments, with little scope to deviate without leaving the complying development framework. For straightforward detached dwellings, secondary dwellings, simple extensions, and some duplex or small commercial projects, these standards can be met with relatively conventional designs.</p>
+<p>DA assessment, being merit-based, allows more freedom to pursue non-standard forms, complex site responses (steep slopes, irregular lots), and context-specific design moves that might not sit neatly within CDC tables. Heritage-listed properties, conservation areas, mixed-use developments, and ambitious architectural projects almost always require DA because the planning system expects case-by-case evaluation of their impacts and contributions.</p>
+<p>Recent NSW policy proposals around &ldquo;CDC variations&rdquo; aim to allow minor deviations from strict complying development standards while retaining a fast-track character, but these mechanisms are still emerging and details are subject to change. Until they are fully implemented, the working assumption should be that CDCs are effectively zero-tolerance on standards, and anything non-standard belongs in a DA.</p>
+<p>For production-heavy or design-intensive projects (for example, high-concept dwellings or small studios where spatial and aesthetic choices are central), the DA pathway typically aligns better with the need to negotiate unusual solutions with planners. For more utilitarian builds where speed and cost control dominate over formal innovation, CDC is closer to a code-compliant checklist that trades flexibility for predictability.</p>
+
+<h3>5. Practical feasibility: how to decide DA vs CDC</h3>
+<p>NSW practice increasingly treats DA vs CDC as a feasibility question answered early, before detailed design fees are committed. Typical feasibility steps include: checking zoning and overlays, reviewing the applicable SEPP codes and LEP/DCP controls, mapping site constraints (slope, flooding, heritage, easements), and sketching test layouts against key CDC standards such as setbacks, private open space, and solar access.</p>
+<p>Pre-lodgement meetings with council planners are recommended for both pathways but are especially useful if you anticipate needing a DA; they allow you to test appetite for variations and to identify likely conditions or concerns before committing to a design. For CDC, feasibility often involves liaison with an accredited certifier early on, to confirm that the site and concept are genuinely eligible under the chosen code.</p>
+<p>Documentation demands are similar at a baseline level: both pathways require site plans, floor plans, elevations, sections, BASIX certificates for residential projects, and design verification statements confirming code compliance. DA typically adds impact assessments (Statement of Environmental Effects, traffic reports, heritage reports, view or overshadowing studies), whereas CDC focuses on evidence that each relevant numeric control is satisfied.</p>
+<p>Costs are highly project-specific, but available industry guidance suggests that CDC approvals have lower and more predictable statutory costs due to shorter time frames and simpler documentation, whereas DAs tend to incur higher council fees and professional costs over longer assessment periods. This distinction is material in feasibility studies, but should be weighed against the potential for expensive redesign if you attempt a marginal CDC and later discover it does not comply.</p>
+
+<h3>6. Summary table: key differentiators</h3>
+<table>
+  <tr><th>Dimension</th><th>Complying Development Certificate (CDC)</th><th>Development Application (DA)</th></tr>
+  <tr><td>Legal basis</td><td>Fast-tracked approval under SEPP complying development codes; issued by council or accredited certifier if standards met.</td><td>Merit-based council consent under Environmental Planning and Assessment Act, LEP and DCP.</td></tr>
+  <tr><td>Timeframe</td><td>Typically 10&ndash;20 business days; some pattern-book pathways around 10 days.</td><td>Often 3&ndash;12 months depending on council, complexity and objections.</td></tr>
+  <tr><td>Assessment style</td><td>Tick-box compliance with predefined numeric standards; no discretion once rules are set.</td><td>Discretionary assessment of impacts and merit; capacity for conditions and negotiated changes.</td></tr>
+  <tr><td>Design flexibility</td><td>Low; little tolerance for deviation from prescribed controls.</td><td>Higher; non-standard designs can be assessed case-by-case.</td></tr>
+  <tr><td>Neighbour input</td><td>Generally no formal notification or public exhibition.</td><td>Mandatory notification and opportunity for submissions.</td></tr>
+  <tr><td>Typical projects</td><td>Standard houses, secondary dwellings, simple extensions, some duplex and small commercial where site and design are straightforward.</td><td>Complex, heritage-affected, mixed-use, or contextually sensitive developments; ambitious or unusual architecture.</td></tr>
+  <tr><td>Primary risks</td><td>High design risk if initial feasibility is poor; ineligible projects cannot proceed as CDC at all.</td><td>Higher approval and time risk from objections and planner discretion, but better scope to negotiate and adapt.</td></tr>
+  <tr><td>Cost tendencies</td><td>Lower and more predictable statutory and consultant costs due to speed and standardisation.</td><td>Higher and more variable costs from extended assessment, additional reports and potential redesign.</td></tr>
+</table>
+
+<h3>7. Critical limitations and uncertainties</h3>
+<p>Most publicly available commentary on DA vs CDC in NSW comes from consultants, designers, builders or certifiers with commercial interests in particular pathways, which introduces bias in favour of whichever process they specialise in or can deliver fastest. These sources rarely provide systematic empirical data on approval times, refusal rates or cost differentials, and instead rely on indicative ranges and anecdotal experience, which limits the statistical robustness of their claims.</p>
+<p>The regulatory framework is also volatile. NSW has recently proposed new &ldquo;complying development variations&rdquo; pathways to allow minor deviations from CDC standards, but these are subject to ongoing consultation and may change materially before full implementation. Relying on early descriptions of such mechanisms for strategic decision-making is therefore risky; project teams should treat them as provisional until the final instruments are gazetted.</p>
+<p>Finally, while rules-based CDC pathways appear more objective, their strictness means small errors in interpretation or documentation can have disproportionate consequences, and guidance on how certifiers will treat borderline cases is limited. DA processes, despite their flexibility, suffer from inconsistency between councils and over time, and there is little publicly accessible, peer-reviewed research quantifying this variation across NSW, which leaves practitioners reliant on local experience rather than generalisable evidence.</p>
+
+<h3>References</h3>
+<div class="refs">
+<p>AllCert Group. (2026, February 5). Complying development certificate &ndash; Fast CDC approval. AllCert Group Pty Ltd. <a href="https://allcertgroup.com.au/services/complying-development-certificate/" target="_blank" rel="noopener">https://allcertgroup.com.au/services/complying-development-certificate/</a></p>
+<p>Approved. (n.d.). What is a complying development certificate? Approved Building Certifiers. <a href="https://www.approved.au/blog/what-is-a-complying-development-certificate" target="_blank" rel="noopener">https://www.approved.au/blog/what-is-a-complying-development-certificate</a></p>
+<p>Artico Homes. (2026, April 13). Duplex approvals NSW: CDC vs DA, steps and common traps. Artico Homes. <a href="https://articohomes.com.au/duplex-approvals-nsw-cdc-vs-da/" target="_blank" rel="noopener">https://articohomes.com.au/duplex-approvals-nsw-cdc-vs-da/</a></p>
+<p>Castle Crew. (2025, February 25). Understanding the CDC vs DA approval processes in NSW. Castle Crew. <a href="https://www.castlecrew.com.au/understanding-the-cdc-vs-da-approval-processes-in-nsw" target="_blank" rel="noopener">https://www.castlecrew.com.au/understanding-the-cdc-vs-da-approval-processes-in-nsw</a></p>
+<p>Crush Architecture. (2026, March 23). CDC vs DA &ndash; Understanding building approvals in NSW. Crush Architecture. <a href="https://crusharchitecture.com.au/blog/cdc-vs-da-nsw/" target="_blank" rel="noopener">https://crusharchitecture.com.au/blog/cdc-vs-da-nsw/</a></p>
+<p>Dura Group. (2025, July 10). Understanding DA vs CDC approvals in NSW. Dura Group. <a href="https://www.duragroup.com.au/builder/da-vs-cdc-approvals/" target="_blank" rel="noopener">https://www.duragroup.com.au/builder/da-vs-cdc-approvals/</a></p>
+<p>Duplex Building Design. (2025, December 16). NSW development approval process: DA vs CDC, steps, fees. Duplex Building Design. <a href="https://duplexbuildingdesign.com/development-approval-process-nsw/" target="_blank" rel="noopener">https://duplexbuildingdesign.com/development-approval-process-nsw/</a></p>
+<p>Lindsay Taylor Lawyers. (2016, October 28). Changes to complying development in NSW. Lindsay Taylor Lawyers. <a href="https://www.lindsaytaylorlawyers.com.au/in_focus/changes-to-complying-development-in-nsw/" target="_blank" rel="noopener">https://www.lindsaytaylorlawyers.com.au/in_focus/changes-to-complying-development-in-nsw/</a></p>
+<p>M+M Architects. (2025, March 26). DA vs CDC &ndash; What&rsquo;s the difference? M+M Architects. <a href="https://mmarchitects.com.au/da-vs-cdc/" target="_blank" rel="noopener">https://mmarchitects.com.au/da-vs-cdc/</a></p>
+<p>Mileham. (2025, February 28). DA vs. CDC &ndash; What&rsquo;s the difference? Mileham. <a href="https://www.mileham.com.au/blog/da-vs-cdc" target="_blank" rel="noopener">https://www.mileham.com.au/blog/da-vs-cdc</a></p>
+<p>MK. (2026, June 9). Complying development variations NSW: New CDC pathway &hellip; MK. <a href="https://mk.com.au/complying-development-variations-nsw/" target="_blank" rel="noopener">https://mk.com.au/complying-development-variations-nsw/</a></p>
+<p>My Building Certifier. (n.d.). Submitting a complying development certificate application [PDF]. My Building Certifier. <a href="https://mybuildingcertifier.com.au/forms/Submitting-a-Complying-Development-Certificate-Application.pdf" target="_blank" rel="noopener">https://mybuildingcertifier.com.au/forms/Submitting-a-Complying-Development-Certificate-Application.pdf</a></p>
+<p>NSW Department of Planning and Environment. (2018, March 1). How to use complying development [Video]. YouTube. <a href="https://www.youtube.com/watch?v=5_F_AOLG36I" target="_blank" rel="noopener">https://www.youtube.com/watch?v=5_F_AOLG36I</a></p>
+<p>NSW Department of Planning and Environment. (2026, June 24). Complying development &ndash; NSW Planning Portal. NSW Government. <a href="https://www.planning.nsw.gov.au/assess-and-regulate/development-assessment/planning-approval-pathways/complying-development" target="_blank" rel="noopener">https://www.planning.nsw.gov.au/assess-and-regulate/development-assessment/planning-approval-pathways/complying-development</a></p>
+<p>NSW Department of Planning and Environment. (n.d.). Complying development &ndash; Department of Planning and Environment. NSW Government. <a href="https://www.planningportal.nsw.gov.au/onlinecdc" target="_blank" rel="noopener">https://www.planningportal.nsw.gov.au/onlinecdc</a></p>
+<p>Sorensen Design. (2026, March 4). Understanding the development application process in NSW. Sorensen Design Studio. <a href="https://sorensendesign.com.au/news/understanding-the-development-application-process-in-nsw" target="_blank" rel="noopener">https://sorensendesign.com.au/news/understanding-the-development-application-process-in-nsw</a></p>
+<p>Stoneybark. (2026, May 24). Complying development certificate (CDC) NSW. Stoneybark. <a href="https://stoneybark.com.au/complying-development-certificate/" target="_blank" rel="noopener">https://stoneybark.com.au/complying-development-certificate/</a></p>
+<p>Taylor, D. (2023, February 20). NSW planning approvals &ndash; DA vs CC vs CDC [Video]. YouTube. <a href="https://www.youtube.com/watch?v=GSRfeh7hzVg" target="_blank" rel="noopener">https://www.youtube.com/watch?v=GSRfeh7hzVg</a></p>
+<p>DMR Designs. (2018, December 31). DA plans vs CDC plans. DMR Designs. <a href="https://www.dmrdesigns.com.au/blog/tag/DA+plans+vs+CDC+plans" target="_blank" rel="noopener">https://www.dmrdesigns.com.au/blog/tag/DA+plans+vs+CDC+plans</a></p>
+<p>C&amp;A Surveyors. (2025, August 31). CDC vs DA in NSW: What&rsquo;s the difference? C&amp;A Surveyors. <a href="https://candasurveyors.com.au/blog/cdc-vs-da-in-nsw-whats-the-difference/" target="_blank" rel="noopener">https://candasurveyors.com.au/blog/cdc-vs-da-in-nsw-whats-the-difference/</a></p>
+</div>
+
+    </div>
+  </div>
+</div>
 
 <footer>
   <div class="footer-inner">
@@ -424,6 +536,10 @@
         Sydney &amp; NSW<br>
         Response within 1 business day
       </p>
+      <a href="https://www.linkedin.com/company/whatcanibuild/" target="_blank" rel="noopener" aria-label="whatcani.build on LinkedIn" style="display:inline-flex;align-items:center;gap:8px;margin-top:14px;font-size:14px;font-weight:600;color:var(--muted);text-decoration:none;">
+        <svg width="18" height="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="var(--blue)" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.59 0 4.26 2.37 4.26 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.11 20.45H3.55V9h3.56v11.45z"/></svg>
+        LinkedIn
+      </a>
     </div>
   </div>
   <div class="footer-bottom wrap">
@@ -473,6 +589,22 @@
     },{passive:true});
   }
 
+
+  // Article floating card
+  const artOverlay = document.getElementById('article-1');
+  const artOpen = document.getElementById('open-article-1');
+  if(artOverlay && artOpen){
+    const artClose = () => { artOverlay.classList.remove('open'); document.body.style.overflow=''; };
+    artOpen.addEventListener('click', (e) => {
+      e.preventDefault();
+      artOverlay.classList.add('open');
+      artOverlay.querySelector('.article-card').scrollTop = 0;
+      document.body.style.overflow='hidden';
+    });
+    artOverlay.querySelector('.article-close').addEventListener('click', artClose);
+    artOverlay.addEventListener('click', (e) => { if(e.target === artOverlay) artClose(); });
+    document.addEventListener('keydown', (e) => { if(e.key === 'Escape') artClose(); });
+  }
 </script>
 </body>
 </html>
