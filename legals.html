@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Legal Information — Terms &amp; Privacy — whatcani.build</title>
+<meta name="description" content="Terms of engagement, privacy policy and disclaimers for whatcani.build (Bakos &amp; Evans Pty Ltd).">
+<style>
+
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Inter+Tight:wght@500;600;700;800&display=swap');
+  :root{
+    --black:#000000; --white:#FFFFFF;
+    --orange:#FF7700; --orange-soft:rgba(255,119,0,0.12);
+    --orange-border:rgba(255,119,0,0.30);
+    --blue:#4B8FE0; --blue-soft:rgba(75,143,224,0.14);
+    --blue-border:rgba(75,143,224,0.28);
+    --muted:#B8B6B0; --card-muted:#4A4845;
+    --hairline:rgba(255,255,255,0.1);
+    --card-hairline:rgba(0,0,0,0.09);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--black);color:var(--white);
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+    overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+  ::selection{background:var(--orange);color:var(--black);}
+
+  /* NAV */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:200;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:20px 5vw;
+    backdrop-filter:blur(24px) saturate(160%);
+    -webkit-backdrop-filter:blur(24px) saturate(160%);
+    background:rgba(0,0,0,0.72);
+    border-bottom:1px solid var(--hairline);
+    transition:padding .3s ease;
+  }
+  .logo{font-family:'Inter Tight',sans-serif;font-weight:700;font-size:20.4px;
+    letter-spacing:-0.02em;color:var(--white);text-decoration:none;}
+  .logo span{color:var(--orange);}
+  .nav-links{display:flex;gap:32px;list-style:none;}
+  .nav-links a{color:var(--white);text-decoration:none;font-size:15px;font-weight:500;
+    opacity:0.82;transition:opacity .25s ease;letter-spacing:-0.01em;}
+  .nav-links a:hover,.nav-links a.active{opacity:1;color:var(--orange);}
+  .nav-right{display:flex;align-items:center;gap:16px;}
+  .nav-cta{background:var(--orange);color:var(--black);padding:9px 20px;
+    border-radius:100px;font-size:13.5px;font-weight:700;text-decoration:none;
+    transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s ease;}
+  .nav-cta:hover{transform:scale(1.04);box-shadow:0 8px 24px rgba(255,119,0,0.4);}
+
+  /* HAMBURGER */
+  .hamburger{
+    display:none;flex-direction:column;justify-content:center;
+    gap:5px;cursor:pointer;padding:6px;background:none;border:none;
+    z-index:300;
+  }
+  .hamburger span{
+    display:block;width:24px;height:2px;background:var(--white);
+    border-radius:2px;transition:transform .35s cubic-bezier(.2,.8,.2,1),opacity .3s ease;
+    transform-origin:center;
+  }
+  .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0);}
+  .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+  /* MOBILE MENU OVERLAY */
+  .mobile-menu{
+    position:fixed;inset:0;z-index:150;
+    background:rgba(0,0,0,0.97);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    gap:0;
+    opacity:0;pointer-events:none;
+    transition:opacity .4s cubic-bezier(.2,.8,.2,1);
+  }
+  .mobile-menu.open{opacity:1;pointer-events:all;}
+  .mobile-menu a{
+    color:var(--white);text-decoration:none;
+    font-family:'Inter Tight',sans-serif;font-weight:700;
+    font-size:clamp(2rem,6vw,3.2rem);letter-spacing:-0.02em;
+    padding:18px 0;line-height:1;
+    transition:color .2s ease,transform .2s ease;
+    transform:translateY(12px);opacity:0;
+  }
+  .mobile-menu.open a{transform:translateY(0);opacity:1;}
+  .mobile-menu a:hover{color:var(--orange);}
+  .mobile-menu a.cta-link{
+    margin-top:28px;background:var(--orange);color:var(--black);
+    padding:16px 40px;border-radius:100px;font-size:1.1rem;
+  }
+  .mobile-menu .divider{
+    width:40px;height:1px;background:var(--hairline);margin:12px 0;
+  }
+
+  /* PARALLAX BAND */
+  .parallax-band{
+    position:relative;height:340px;overflow:hidden;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .parallax-band .pb-img{
+    position:absolute;inset:-30% 0;
+    background-size:cover;background-position:center;background-attachment:fixed;
+    filter:brightness(0.65);
+    will-change:transform;
+  }
+  .parallax-band .pb-overlay{
+    position:absolute;inset:0;
+    background:linear-gradient(to bottom,rgba(0,0,0,0.25),rgba(0,0,0,0.05),rgba(0,0,0,0.25));
+  }
+  /* pb-label removed — parallax bands are image-only */
+
+  /* SHARED SECTION STYLES */
+  section{padding:120px 6vw;}
+  .wrap{max-width:1180px;margin:0 auto;}
+  .on-black{background:var(--black);color:var(--white);}
+  .on-white{background:var(--white);color:var(--black);}
+  .section-head{text-align:center;max-width:580px;margin:0 auto 72px;}
+  .tag{display:block;font-size:13px;font-weight:700;letter-spacing:0.06em;
+    text-transform:uppercase;margin-bottom:14px;color:var(--orange);}
+  .section-head h2{font-family:'Inter Tight',sans-serif;font-weight:800;
+    font-size:clamp(2rem,3.6vw,3rem);letter-spacing:-0.03em;line-height:1.1;
+    color:var(--white);}
+  .on-white .section-head h2{color:var(--black);}
+  .section-head p{margin-top:18px;font-size:18px;line-height:1.6;color:var(--muted);}
+  .on-white .section-head p{color:var(--card-muted);}
+
+  /* CARDS */
+  .card-white{background:var(--white);border:1px solid var(--card-hairline);
+    border-radius:22px;padding:38px;}
+  .card-white h3{font-family:'Inter Tight',sans-serif;font-weight:700;font-size:21px;
+    letter-spacing:-0.015em;color:var(--black);margin-bottom:12px;line-height:1.25;}
+  .card-white p{font-size:15.5px;color:#2A2825;line-height:1.65;}
+
+  /* BUTTONS */
+  .btn-primary{background:var(--orange);color:var(--black);padding:14px 28px;
+    border-radius:100px;font-size:15px;font-weight:700;text-decoration:none;
+    display:inline-flex;align-items:center;gap:8px;
+    transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s ease;}
+  .btn-primary:hover{transform:translateY(-3px) scale(1.02);
+    box-shadow:0 14px 32px rgba(255,119,0,0.4);}
+  .btn-secondary{background:rgba(255,255,255,0.07);color:var(--white);
+    border:1px solid var(--hairline);padding:14px 28px;border-radius:100px;
+    font-size:15px;font-weight:600;text-decoration:none;backdrop-filter:blur(10px);
+    transition:background .3s ease,transform .3s ease;}
+  .btn-secondary:hover{background:rgba(255,255,255,0.13);transform:translateY(-3px);}
+  .btn-outline-dark{background:transparent;color:var(--black);
+    border:2px solid var(--black);padding:13px 28px;border-radius:100px;
+    font-size:15px;font-weight:700;text-decoration:none;
+    transition:background .3s ease,color .3s ease;}
+  .btn-outline-dark:hover{background:var(--black);color:var(--white);}
+  .btn-group{display:flex;gap:14px;flex-wrap:wrap;margin-top:32px;}
+
+  /* STEP/ICON CHIP */
+  .icon-chip{width:51px;height:51px;border-radius:13px;
+    background:var(--blue-soft);border:1px solid var(--blue-border);
+    display:flex;align-items:center;justify-content:center;
+    margin-bottom:20px;flex-shrink:0;}
+
+  /* REVEAL ANIMATION */
+  .reveal{opacity:0;transform:translateY(28px);
+    transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1);}
+  .reveal.visible{opacity:1;transform:translateY(0);}
+
+  /* PAGE HERO (inner pages) */
+  .page-hero{
+    min-height:52vh;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;text-align:center;
+    padding:160px 6vw 100px;position:relative;overflow:hidden;
+    background:var(--black);
+  }
+  .page-hero h1{font-family:'Inter Tight',sans-serif;font-weight:800;
+    font-size:clamp(2.4rem,5.5vw,4.8rem);letter-spacing:-0.035em;
+    line-height:1.06;max-width:900px;color:var(--white);}
+  .page-hero h1 span{color:var(--orange);font-style:italic;}
+  .page-hero p{margin-top:22px;font-size:clamp(1rem,1.6vw,1.25rem);
+    color:var(--muted);max-width:580px;line-height:1.6;}
+  .page-glow{position:absolute;width:700px;height:700px;top:50%;left:50%;
+    transform:translate(-50%,-50%);pointer-events:none;
+    background:radial-gradient(circle,rgba(255,119,0,0.12) 0%,transparent 70%);}
+
+  /* FOOTER */
+  footer{border-top:1px solid var(--hairline);padding:52px 6vw;
+    background:var(--black);}
+  .footer-inner{max-width:1180px;margin:0 auto;
+    display:flex;align-items:flex-start;justify-content:space-between;
+    flex-wrap:wrap;gap:32px;}
+  .footer-logo{font-family:'Inter Tight',sans-serif;font-weight:700;
+    font-size:18px;color:var(--white);text-decoration:none;}
+  .footer-logo span{color:var(--orange);}
+  .footer-nav{display:flex;flex-direction:column;gap:12px;}
+  .footer-nav-title{font-size:12px;font-weight:700;color:var(--orange);
+    letter-spacing:0.06em;text-transform:uppercase;margin-bottom:4px;}
+  .footer-nav a{color:var(--muted);text-decoration:none;font-size:14.5px;
+    transition:color .25s ease;}
+  .footer-nav a:hover{color:var(--white);}
+  .footer-bottom{border-top:1px solid var(--hairline);
+    padding-top:24px;margin-top:36px;
+    display:flex;align-items:center;justify-content:space-between;
+    flex-wrap:wrap;gap:12px;}
+  .footer-copy{font-size:13px;color:var(--muted);}
+  .footer-tagline{font-size:13px;color:var(--muted);font-style:italic;}
+
+  /* FORM */
+  .form-card{background:var(--white);border:1px solid var(--card-hairline);
+    border-radius:24px;padding:44px;}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
+  .form-field{display:flex;flex-direction:column;gap:8px;}
+  .form-field.full{grid-column:1/-1;}
+  .form-field label{font-size:13px;font-weight:600;color:#444;letter-spacing:0.01em;}
+  .form-field input,.form-field select,.form-field textarea{
+    background:#F7F7F7;border:1px solid rgba(0,0,0,0.1);border-radius:12px;
+    padding:13px 16px;color:var(--black);font-family:'Inter',sans-serif;
+    font-size:14.5px;outline:none;
+    transition:border-color .25s ease,background .25s ease;}
+  .form-field input:focus,.form-field select:focus,.form-field textarea:focus{
+    border-color:var(--orange);background:var(--white);}
+  .form-field textarea{resize:vertical;min-height:110px;font-family:inherit;}
+  .form-submit{width:100%;background:var(--orange);color:var(--black);border:none;
+    padding:16px;border-radius:100px;font-size:15px;font-weight:700;cursor:pointer;
+    margin-top:8px;font-family:'Inter',sans-serif;
+    transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s ease;}
+  .form-submit:hover{transform:translateY(-2px) scale(1.01);
+    box-shadow:0 14px 32px rgba(255,119,0,0.35);}
+
+  /* RESPONSIVE */
+  @media(max-width:900px){
+    .nav-links,.nav-cta{display:none;}
+    .hamburger{display:flex;}
+    /* Inner page grids — 2-col max at tablet */
+    .about-grid-2col,
+    [style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr !important;}
+    [style*="grid-template-columns:repeat(3"]{grid-template-columns:1fr !important;}
+    [style*="grid-template-columns:repeat(4"]{grid-template-columns:1fr 1fr !important;}
+    [style*="grid-template-columns:1fr 1.6fr"]{grid-template-columns:1fr !important;}
+    [style*="grid-template-columns:1fr 1fr;gap:48px"]{grid-template-columns:1fr !important;}
+  }
+  @media(max-width:600px){
+    section{padding:80px 5vw;}
+    .footer-inner{flex-direction:column;gap:28px;}
+    /* Everything single column on mobile */
+    .form-row{grid-template-columns:1fr !important;}
+    [style*="grid-template-columns"]{grid-template-columns:1fr !important;}
+    [style*="display:flex;gap:12px;"]{flex-direction:column;}
+    /* All multi-col grids → 1 col */
+    .blog-grid{grid-template-columns:1fr !important;}
+    .steps{grid-template-columns:1fr !important;}
+    .pricing-preview{grid-template-columns:1fr !important;}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{animation-duration:.01ms !important;transition-duration:.01ms !important;}
+    .parallax-band .pb-img{background-attachment:scroll;}
+  }
+
+
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo">whatcani<span>.build</span></a>
+  <ul class="nav-links">
+    <li><a href="about.html" >About us</a></li>
+    <li><a href="services.html" >Services</a></li>
+    <li><a href="pricing.html" >Pricing</a></li>
+    <li><a href="blog.html" >Blog</a></li>
+    <li><a href="testimonials.html" >Testimonials</a></li>
+    <li><a href="contact.html" >Contact us</a></li>
+    <li><a href="legals.html" class="active">Legals</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="contact.html" class="nav-cta">Get a site review</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="about.html">About us</a>
+  <a href="services.html">Services</a>
+  <a href="pricing.html">Pricing</a>
+  <a href="blog.html">Blog</a>
+  <a href="testimonials.html">Testimonials</a>
+  <a href="contact.html">Contact us</a>
+  <a href="legals.html">Legals</a>
+  <div class="divider"></div>
+  <a href="contact.html" class="cta-link">Get a site review →</a>
+</div>
+
+<div class="page-hero" style="min-height:36vh;">
+  <div class="page-glow"></div>
+  <h1>Legal <span>information.</span></h1>
+  <p>Sales terms and conditions, privacy policy, and website terms of use for whatcani.build (Bakos &amp; Evans Pty Ltd, ABN 25 622 644 464).</p>
+</div>
+
+<section class="on-black">
+  <div class="wrap">
+    <div class="card-white" style="border-radius:24px;padding:56px 60px;max-width:860px;margin:0 auto;">
+      <p style="font-size:13px;color:#8A8782;margin-bottom:48px;">Last revised: 1 January 2026 &middot; Bakos &amp; Evans Pty Ltd t/as What Can I Build (ABN 25 622 644 464)</p>
+
+      <!-- SALES TERMS -->
+      <h2 style="font-family:'Inter Tight',sans-serif;font-weight:800;font-size:26px;letter-spacing:-0.02em;color:var(--black);margin-bottom:32px;padding-bottom:16px;border-bottom:2px solid rgba(255,119,0,0.3);">Sales terms and conditions</h2>
+
+      <div style="margin-bottom:36px;">
+        <h3 style="font-family:'Inter Tight',sans-serif;font-weight:700;font-size:18px;color:var(--black);margin-bottom:14px;">1. Agreement</h3>
+        <div style="font-size:15px;color:#2A2825;line-height:1.85;">
+          <p style="margin-bottom:10px;">1.1. These terms are between Bakos &amp; Evans Pty Ltd t/as What Can I Build (ABN 25 622 644 464) (referred to as &ldquo;<strong>we</strong>&rdquo; or &ldquo;<strong>us</strong>&rdquo;) and you, the person or organisation who or which purchases pre-planning reports from us (referred to as &ldquo;<strong>you</strong>&rdquo;).</p>
+          <p style="margin-bottom:10px;">1.2. All reports are purchased through our website accessible at <a href="http://www.whatcani.build" style="color:var(--orange);">www.whatcani.build</a> (<strong>Site</strong>).</p>
+          <p style="margin-bottom:10px;">1.3. These terms, together with the purchase order form the agreement under which we will supply reports to you (<strong>Agreement</strong>).</p>
+          <p style="margin-bottom:10px;">1.4. No change to this Agreement will be effective unless agreed to by us in writing.</p>
+          <p style="margin-bottom:0;">1.5. This Agreement supersedes any terms and conditions that previously governed the supply of reports from us to you.</p>
+        </div>
+      </div>
+
+      <div style="margin-bottom:36px;">
+        <h3 style="font-family:'Inter Tight',sans-serif;font-weight:700;font-size:18px;color:var(--black);margin-bottom:14px;">2. Quotations and Orders</h3>
+        <div style="font-size:15px;color:#2A2825;line-height:1.85;">
+          <p style="margin-bottom:10px;">2.1. The reports we generate are based on information you provide to us. You are solely responsible for ensuring the accuracy and correctness of information you provide to us.</p>
+          <p style="margin-bottom:10px;">2.2. Any quotation given by us is merely an invitation to treat and does not constitute a contractual offer. All quotations lapse 30 days after issue but we may vary or withdraw a quotation at any time.</p>
+          <p style="margin-bottom:10px;">2.3. You must place orders for reports in accordance with our processes, as notified by us through the Site from time to time.</p>
+          <p style="margin-bottom:10px;">2.4. We are not obliged to accept an order from you. If you place an order with us, it becomes binding once we give you notice that we have accepted the order or otherwise take action to fulfil its terms.</p>
+          <p style="margin-bottom:0;">2.5. Once an order is accepted it cannot be altered or modified without our prior written consent, which may be withheld in our absolute discretion.</p>
+        </div>
+      </div>
+
+      <div style="margin-bottom:36px;">
+        <h3 style="font-family:'Inter Tight',sans-serif;font-weight:700;font-size:18px;color:var(--black);margin-bottom:14px;">3. Price and Payment</h3>
+        <div style="font-size:15px;color:#2A2825;line-height:1.85;">
+          <p style="margin-bottom:10px;">3.1. Prices for the reports are as set out in our quote to you.</p>
+          <p style="margin-bottom:10px;">3.2. All amounts are stated in Australian dollars. All quoted prices include goods and services tax.</p>
+          <p style="margin-bottom:10px;">3.3. All reports are to be paid for at the time you submit the order. Payment must be made by way of electronic funds transfer using the merchant facility available on our Site.</p>
+          <p style="margin-bottom:0;">3.4. We will invoice you for reports you have ordered once we accept the order.</p>
+        </div>
+      </div>
+
+      <div style="margin-bottom:36px;">
+        <h3 style="font-family:'Inter Tight',sans-serif;font-weight:700;font-size:18px;color:var(--black);margin-bottom:14px;">4. Delivery</h3>
+        <div style="font-size:15px;color:#2A2825;line-height:1.85;">
+          <p style="margin-bottom:10px;">4.1. Once a report has been generated it will be sent to your nominated email address.</p>
+          <p style="margin-bottom:0;">4.2. Delivery times are estimates only. We are not liable for any loss or damage caused by any delay in delivery.</p>
+        </div>
+      </div>
+
+      <div style="margin-bottom:36px;">
+        <h3 style="font-family:'Inter Tight',sans-serif;font-weight:700;font-size:18px;color:var(--black);margin-bottom:14px;">5. Cancellation</h3>
+        <div style="font-size:15px;color:#2A2825;line-height:1.85;">
+          <p style="margin-bottom:10px;">5.1. Due to the nature of our business, generally an order cannot be cancelled once it is accepted by us unless:</p>
+          <p style="margin-bottom:10px;padding-left:20px;">(a) we have given our prior written consent; and</p>
+          <p style="margin-bottom:0;padding-left:20px;">(b) you pay any cancellation charges, being a reasonable and genuine pre-estimate of our loss, as notified by us.</p>
+        </div>
+      </div>
+
+      <div style="margin-bottom:36px;">
+        <h3 style="font-family:'Inter Tight',sans-serif;font-weight:700;font-size:18px;color:var(--black);margin-bottom:14px;">6. Intellectual Property Rights</h3>
+        <div style="font-size:15px;color:#2A2825;line-height:1.85;">
+          <p style="margin-bottom:10px;">6.1. The reports we supply contain material which is owned by or licensed to us and is protected by Australian and international laws. We own the intellectual property rights in the reports including but not limited to copyright. No right or licence is granted to you, except the right to use the reports for your personal purposes.</p>
+          <p style="margin-bottom:10px;">6.2. You must not:</p>
+          <p style="margin-bottom:10px;padding-left:20px;">(a) remove, deface, destroy or conceal in any way any trade mark, brand name, insignia, label or other marking placed on our reports;</p>
+          <p style="margin-bottom:10px;padding-left:20px;">(b) create derivative works from our reports; or</p>
+          <p style="margin-bottom:0;padding-left:20px;">(c) use our reports for commercial purposes including on-sale to third parties.</p>
+        </div>
+      </div>
+
+      <div style="margin-bottom:36px;">
+        <h3 style="font-family:'Inter Tight',sans-serif;font-weight:700;font-size:18px;color:var(--black);margin-bottom:14px;">7. Limitation of Liability</h3>
+        <div style="font-size:15px;color:#2A2825;line-height:1.85;">
+          <p style="margin-bottom:10px;">7.1. Certain legislation including the Australian Consumer Law (<strong>ACL</strong>) in the <em>Competition and Consumer Act 2010</em> (Cth) may confer you with rights, warranties, guarantees and remedies relating to our services that cannot be excluded or modified.</p>
+          <p style="margin-bottom:10px;">7.2. Nothing in this Agreement is to be read as excluding, restricting or modifying the application of the Australian Consumer Law (<strong>ACL</strong>) or the application of any equivalent legislation that cannot by law be excluded, restricted or modified.</p>
+          <p style="margin-bottom:10px;">7.3. Our liability for breach of the consumer guarantees under the ACL is limited at our option to supplying the services again or paying the cost of supplying the services again.</p>
+          <p style="margin-bottom:10px;">7.4. Subject to clause 7.3 and to the extent permitted by law, we exclude all other guarantees, conditions and warranties, whether or not implied by law, which would otherwise be implied concerning our services.</p>
+          <p style="margin-bottom:0;">7.5. To the extent permitted by law, we exclude all liability for any claim (whether direct, indirect, incidental, special and/or consequential) for loss of profits, revenue, production, opportunity, access to markets, goodwill, reputation or any loss or damage relating to business interruption or otherwise suffered by you or made against you arising out of or in connection with your inability to access or use the reports or the late supply of reports, even if we were expressly advised of the likelihood of such loss or damage.</p>
+        </div>
+      </div>
+
+      <div style="margin-bottom:56px;">
+        <h3 style="font-family:'Inter Tight',sans-serif;font-weight:700;font-size:18px;color:var(--black);margin-bottom:14px;">8. General</h3>
+        <div style="font-size:15px;color:#2A2825;line-height:1.85;">
+          <p style="margin-bottom:10px;">8.1. <strong>Force majeure:</strong> To the fullest extent permitted by law, we will not be liable for any delay or failure to perform our obligations under this Agreement, if such delay is due to any circumstances beyond our control.</p>
+          <p style="margin-bottom:10px;">8.2. <strong>Severance:</strong> If any provision in this Agreement is unenforceable, illegal or void then it is severed and the rest of this Agreement remains in force.</p>
+          <p style="margin-bottom:10px;">8.3. <strong>Governing law:</strong> This Agreement is governed by the laws in force in New South Wales and the parties submit to the exclusive jurisdiction of the courts in New South Wales and the Commonwealth of Australia.</p>
+          <p style="margin-bottom:0;">8.4. <strong>Entire agreement:</strong> This Agreement represents the entire agreement between the parties in relation to its subject matter and supersedes any prior arrangements, whether oral or in writing.</p>
+        </div>
+      </div>
+
+      <!-- PRIVACY POLICY -->
+      <h2 style="font-family:'Inter Tight',sans-serif;font-weight:800;font-size:26px;letter-spacing:-0.02em;color:var(--black);margin-bottom:32px;padding-bottom:16px;border-bottom:2px solid rgba(255,119,0,0.3);">Privacy policy</h2>
+
+      <div style="font-size:15px;color:#2A2825;line-height:1.85;margin-bottom:56px;">
+        <p style="margin-bottom:16px;">Bakos &amp; Evans Pty Ltd trading as What Can I Build (ABN 25 622 644 464) (referred to as &ldquo;<strong>we</strong>&rdquo; and &ldquo;<strong>us</strong>&rdquo;) is not currently subject to the requirements of the Privacy Act 1988 (Cth). To be clear, we have not opted in to this scheme.</p>
+        <p style="margin-bottom:16px;">However, we recognise that securing the privacy of your information is important and we are committed to protecting and maintaining the privacy, accuracy and security of your information. This Privacy Policy sets out our policy relating to the collection, use and disclosure of your information (including personal information).</p>
+        <p style="margin-bottom:24px;">This Privacy Policy applies to all your dealings with us whether using the What Can I Build website (<a href="http://www.whatcani.build" style="color:var(--orange);">www.whatcani.build</a>) (<strong>Site</strong>), in writing or in person. You consent to be bound by this Privacy Policy.</p>
+
+        <h3 style="font-family:'Inter Tight',sans-serif;font-weight:700;font-size:16px;color:var(--black);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.04em;">What information do we collect?</h3>
+        <p style="margin-bottom:10px;"><em>Personal Information</em></p>
+        <p style="margin-bottom:10px;">We sell pre-planning reports (<strong>Reports</strong>). If you are a client, we will collect the following personal information to enable us to generate a Report:</p>
+        <p style="margin-bottom:6px;padding-left:20px;">a) your name;</p>
+        <p style="margin-bottom:6px;padding-left:20px;">b) your contact details, including email address, mailing or street address and/or telephone number; and</p>
+        <p style="margin-bottom:16px;padding-left:20px;">c) your financial information including credit card or payment details to enable us to process your payment.</p>
+        <p style="margin-bottom:10px;">If the client is a company, we will collect this personal information for your nominated contact person.</p>
+        <p style="margin-bottom:10px;">If you supply goods or services to us we will collect such personal information as is necessary to enable us to obtain goods or services from you. This may include your (or your nominated contact person&rsquo;s) name and contact details as well as bank account or payment details.</p>
+        <p style="margin-bottom:10px;">If you interact with us via our social media pages, we may also collect personal information from your social media accounts.</p>
+        <p style="margin-bottom:10px;">If you apply for a job with us, you will provide us with personal information for the purpose of that application. This information may include your employment and educational background, and other personal information which you choose to provide.</p>
+        <p style="margin-bottom:10px;"><em>Other information</em></p>
+        <p style="margin-bottom:24px;">We collect other information (which is not personal information) from you when you use our Site and through your dealings with us. The type of information we collect will depend on the nature of your dealings with us. Such information is de-identified and/or aggregated and cannot be reasonably linked to your identity.</p>
+
+        <h3 style="font-family:'Inter Tight',sans-serif;font-weight:700;font-size:16px;color:var(--black);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.04em;">How do we collect personal information?</h3>
+        <p style="margin-bottom:24px;">We collect personal information directly from you whenever it is reasonable and practical to do so.</p>
+
+        <h3 style="font-family:'Inter Tight',sans-serif;font-weight:700;font-size:16px;color:var(--black);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.04em;">How do we use information?</h3>
+        <p style="margin-bottom:10px;"><em>Personal information</em></p>
+        <p style="margin-bottom:10px;">We primarily collect personal information to enable us to generate and provide Reports to you. In addition to using your personal information to provide Reports to you, we may use your personal information:</p>
+        <p style="margin-bottom:6px;padding-left:20px;">a) to verify your identity;</p>
+        <p style="margin-bottom:6px;padding-left:20px;">b) to contact and communicate with you;</p>
+        <p style="margin-bottom:6px;padding-left:20px;">c) for internal record keeping and administrative purposes;</p>
+        <p style="margin-bottom:6px;padding-left:20px;">d) for advertising and marketing, including to send you promotional information about our products or services and information about third parties that we consider may be of interest to you; and</p>
+        <p style="margin-bottom:16px;padding-left:20px;">e) to improve our product and service offering.</p>
+        <p style="margin-bottom:10px;">If you apply for a job with us, we will hold, use and disclose that information solely for the purpose of considering your application.</p>
+        <p style="margin-bottom:10px;"><em>Other information</em></p>
+        <p style="margin-bottom:10px;">We may use de-identified and/or aggregated non-personal information we collect from you:</p>
+        <p style="margin-bottom:6px;padding-left:20px;">a) for analytics, research and business development, including to operate and improve our Site and social media pages; and</p>
+        <p style="margin-bottom:24px;padding-left:20px;">b) for social profiling purposes including to profile the people using our Site and products.</p>
+
+        <h3 style="font-family:'Inter Tight',sans-serif;font-weight:700;font-size:16px;color:var(--black);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.04em;">What personal information do we disclose?</h3>
+        <p style="margin-bottom:10px;">We may provide your personal information to:</p>
+        <p style="margin-bottom:6px;padding-left:20px;">a) enable us to provide our services to you; and</p>
+        <p style="margin-bottom:16px;padding-left:20px;">b) government and regulatory authorities, as required or authorised by law.</p>
+        <p style="margin-bottom:24px;">We will not sell, rent or lease your personal information to others. However, we may use and on-sell de-identified, aggregated information for social profiling, business development, forecasting and research purposes. You will not be able to be identified from this information.</p>
+
+        <h3 style="font-family:'Inter Tight',sans-serif;font-weight:700;font-size:16px;color:var(--black);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.04em;">If you choose not to provide personal information</h3>
+        <p style="margin-bottom:24px;">In your dealings with us, you may choose not to provide personal information to us, however, this will affect your ability to purchase Reports from us and use our Site.</p>
+
+        <h3 style="font-family:'Inter Tight',sans-serif;font-weight:700;font-size:16px;color:var(--black);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.04em;">Do we disclose personal information overseas?</h3>
+        <p style="margin-bottom:10px;">We do not disclose personal information overseas.</p>
+        <p style="margin-bottom:24px;">We may disclose de-identified and/or aggregated information to third parties who collect and process data, such as Google Analytics or other relevant businesses.</p>
+
+        <h3 style="font-family:'Inter Tight',sans-serif;font-weight:700;font-size:16px;color:var(--black);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.04em;">Opting out of advertising and marketing materials</h3>
+        <p style="margin-bottom:24px;">If you would prefer not to receive promotional or other material from us, please let us know by sending an email to <a href="mailto:hello@whatcani.build" style="color:var(--orange);">hello@whatcani.build</a> and we will respect your request. Alternatively, simply select the &ldquo;unsubscribe&rdquo; option in any of the emails that you receive from us.</p>
+
+        <h3 style="font-family:'Inter Tight',sans-serif;font-weight:700;font-size:16px;color:var(--black);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.04em;">Third party sites</h3>
+        <p style="margin-bottom:24px;">Our Site may contain links/plug-ins to other sites. We are not responsible for the content of, or the privacy practices or policies of, those sites.</p>
+
+        <h3 style="font-family:'Inter Tight',sans-serif;font-weight:700;font-size:16px;color:var(--black);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.04em;">Use of cookies and web beacons</h3>
+        <p style="margin-bottom:10px;">A cookie is a small message given to your web browser by our web server. The browser stores the message in a text file, and the message is then sent back to the server each time the browser requests a page from the server. We use cookies to provide us with anonymous aggregate information on how people use our Site and to help us to know what they find interesting and useful on our Site. We do not store personal information such as email addresses or other details in a cookie.</p>
+        <p style="margin-bottom:10px;">Most web browsers are set up to accept cookies. If you do not wish to receive cookies, you may be able to change the settings on your web browser to refuse all cookies or to notify you each time a cookie is sent to your computer, giving you the choice whether to accept it or not.</p>
+        <p style="margin-bottom:24px;">We may use web beacons on our Site from time to time. Web beacons (also known as Clear GIFs) are small pieces of code placed on a web page to monitor the visitor&rsquo;s behaviour and collect data about the visitor&rsquo;s viewing of a web page.</p>
+
+        <h3 style="font-family:'Inter Tight',sans-serif;font-weight:700;font-size:16px;color:var(--black);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.04em;">How do we keep personal information secure?</h3>
+        <p style="margin-bottom:10px;">We take commercially reasonable steps to protect all personal information which we hold from misuse, loss and from unauthorised access, modification or disclosure.</p>
+        <p style="margin-bottom:24px;">While we take great care to protect your personal information on our Site, no data transmission over the internet can be guaranteed to be 100% secure. Accordingly, we cannot ensure or warrant the security of any information that you send to us or receive from us online.</p>
+
+        <h3 style="font-family:'Inter Tight',sans-serif;font-weight:700;font-size:16px;color:var(--black);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.04em;">Updates to this privacy policy</h3>
+        <p style="margin-bottom:24px;">This Privacy Policy will be reviewed and updated by us from time to time. Updated versions of this policy will be published on this Site.</p>
+
+        <h3 style="font-family:'Inter Tight',sans-serif;font-weight:700;font-size:16px;color:var(--black);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.04em;">Contacting us</h3>
+        <p>We welcome your comments. If you have any questions or concerns about our Privacy Policy, please <a href="contact.html" style="color:var(--orange);">contact us</a>.</p>
+      </div>
+
+      <!-- WEBSITE TERMS OF USE -->
+      <h2 style="font-family:'Inter Tight',sans-serif;font-weight:800;font-size:26px;letter-spacing:-0.02em;color:var(--black);margin-bottom:32px;padding-bottom:16px;border-bottom:2px solid rgba(255,119,0,0.3);">Website terms of use</h2>
+
+      <div style="font-size:15px;color:#2A2825;line-height:1.85;">
+        <p style="margin-bottom:16px;">This website (<strong>Site</strong>) is operated by Bakos &amp; Evans Pty Ltd trading as What Can I Build (ABN 25 622 644 464) (referred to as &ldquo;<strong>we</strong>&rdquo; and &ldquo;<strong>us</strong>&rdquo;). The Site can be accessed at <a href="http://www.whatcani.build" style="color:var(--orange);">www.whatcani.build</a>.</p>
+
+        <p style="margin-bottom:10px;"><strong>Consent:</strong> By accessing and using our Site, you agree to these Terms of Use (<strong>Terms</strong>). Please read these Terms carefully. If you have any queries please contact us using the contact details set out on the Site.</p>
+        <p style="margin-bottom:10px;"><strong>Variation to Terms:</strong> We may change these Terms from time to time. The new terms will be posted on the Site.</p>
+        <p style="margin-bottom:10px;"><strong>Variation to Content:</strong> We may change the content available on the Site. We will endeavour to keep our Site up-to-date but are not liable if any content is inaccurate or out-of-date.</p>
+        <p style="margin-bottom:10px;"><strong>Information:</strong> The information contained on our Site consists of general information only. While we use reasonable attempts to ensure the accuracy and completeness of our content, we make no representations or warranties in relation to it.</p>
+        <p style="margin-bottom:10px;"><strong>Intellectual property rights:</strong> All intellectual property rights in the content and functions of our Site are owned or licensed to us. You may print a copy of any part of this Site which you have properly gained access to for your personal and non-commercial use.</p>
+        <p style="margin-bottom:16px;">You must not otherwise copy, modify, adapt, distribute, frame, link, reproduce, republish, download, display, post, transmit, decompile or sell in any form or by any means any intellectual property rights belonging or licensed to us.</p>
+        <p style="margin-bottom:16px;"><strong>Communications:</strong> Our Site contains facilities that enable visitors to communicate with us. In making use of those facilities you must not upload, submit or transmit any communication or content that:</p>
+        <p style="margin-bottom:6px;padding-left:20px;">a) is harmful, threatening, unlawful, defamatory or offensive;</p>
+        <p style="margin-bottom:6px;padding-left:20px;">b) infringes third party rights, including intellectual property, publicity, privacy or proprietary rights; or</p>
+        <p style="margin-bottom:16px;padding-left:20px;">c) makes false claims or misrepresentations, including those relating to yourself, your age, another person, your affiliation with any person or entity, including us or your ownership of a property.</p>
+        <p style="margin-bottom:10px;"><strong>Prohibited conduct:</strong> In using our Site you must not:</p>
+        <p style="margin-bottom:6px;padding-left:20px;">a) do anything that could damage, disable, overburden, impair or interfere with the proper operation of our Site; or</p>
+        <p style="margin-bottom:16px;padding-left:20px;">b) engage in data mining, use robots or similar data gathering or extraction methods.</p>
+        <p style="margin-bottom:10px;"><strong>Our rights:</strong> We may at any time for any reason:</p>
+        <p style="margin-bottom:6px;padding-left:20px;">a) suspend your use of our Site;</p>
+        <p style="margin-bottom:6px;padding-left:20px;">b) cancel any or all our products or services; and</p>
+        <p style="margin-bottom:16px;padding-left:20px;">c) block access to all or any part of our Site.</p>
+        <p style="margin-bottom:10px;"><strong>Disclaimers:</strong> We endeavour to keep our Site and content up-to-date and accurate. However, you acknowledge that we are not responsible or liable for:</p>
+        <p style="margin-bottom:6px;padding-left:20px;">a) the accuracy, appropriateness, suitability for use or completeness of content provided on the Site or any errors inherent in that content;</p>
+        <p style="margin-bottom:6px;padding-left:20px;">b) any delay, suspension or cancellation of our products or services; and</p>
+        <p style="margin-bottom:16px;padding-left:20px;">c) our Site being error-free, defect-free or free from external intruders (hackers), virus or worm attacks, denial of service attacks, and persons having unauthorised access to our Site or systems.</p>
+        <p style="margin-bottom:10px;"><strong>Indemnity:</strong> You indemnify us and hold us harmless from any claims, losses, liabilities, damages, costs and expenses of any kind arising out of your actions which damage, disable, overburden, impair or interfere with the proper operation of our Site.</p>
+        <p style="margin-bottom:10px;"><strong>Third party websites and advertising:</strong> Our Site may contain links to third party websites, advertising and content. We are not responsible for any third party websites that you access through our Site or any third party advertising or content posted on our Site.</p>
+        <p style="margin-bottom:10px;"><strong>Severability:</strong> Each clause in these Terms is severable. If anything becomes illegal, unenforceable, or invalid in any jurisdiction, it is to be treated as severed in that jurisdiction only. The rest of these Terms will not be affected.</p>
+        <p style="margin-bottom:0;"><strong>Governing law and jurisdiction:</strong> These Terms are governed by the law of New South Wales. You submit to the non-exclusive jurisdiction of its courts.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <a href="index.html" class="footer-logo">whatcani<span>.build</span></a>
+      <p style="margin-top:14px;font-size:14px;color:var(--muted);max-width:240px;line-height:1.6;">
+        Planning-led feasibility and approvals for small to mid-scale developments in Sydney and NSW.
+      </p>
+    </div>
+    <div class="footer-nav">
+      <div class="footer-nav-title">Pages</div>
+    <a href="about.html">About us</a>
+    <a href="services.html">Services</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="blog.html">Blog</a>
+    <a href="testimonials.html">Testimonials</a>
+    <a href="contact.html">Contact us</a>
+    <a href="legals.html">Legals</a>
+    </div>
+    <div>
+      <div class="footer-nav-title">Contact</div>
+      <p style="font-size:14px;color:var(--muted);line-height:1.8;">
+        Bakos &amp; Evans Pty Ltd<br>
+        Sydney &amp; NSW<br>
+        Response within 1 business day
+      </p>
+    </div>
+  </div>
+  <div class="footer-bottom wrap">
+    <div class="footer-copy">© Bakos &amp; Evans Pty Ltd ABN 25 622 644 464. 2026. All prices include GST.</div>
+    <div class="footer-tagline">Built on expertise. Delivered with clarity.</div>
+  </div>
+</footer>
+<script>
+
+  // Scroll reveal — threshold:0 + rootMargin ensures tall elements always trigger
+  const ro = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){e.target.classList.add('visible');ro.unobserve(e.target);}
+    });
+  },{threshold:0, rootMargin:'0px 0px -60px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+
+  // Hamburger
+  const ham = document.getElementById('hamburger');
+  const mob = document.getElementById('mobile-menu');
+  if(ham && mob){
+    ham.addEventListener('click',()=>{
+      const open = ham.classList.toggle('open');
+      mob.classList.toggle('open');
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    mob.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+      ham.classList.remove('open');
+      mob.classList.remove('open');
+      document.body.style.overflow='';
+    }));
+  }
+
+  // Parallax (CSS background-attachment:fixed handles most of it;
+  // this adds a subtle JS layer for browsers that don't support it well)
+  const bands = document.querySelectorAll('.pb-img');
+  if(bands.length && window.matchMedia('(prefers-reduced-motion:no-preference)').matches){
+    window.addEventListener('scroll',()=>{
+      const sy = window.scrollY;
+      bands.forEach(b=>{
+        const rect = b.closest('.parallax-band').getBoundingClientRect();
+        if(rect.bottom > 0 && rect.top < window.innerHeight){
+          const pct = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
+          b.style.transform = `translateY(${(pct - 0.5) * 60}px)`;
+        }
+      });
+    },{passive:true});
+  }
+
+</script>
+</body>
+</html>

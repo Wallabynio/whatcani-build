@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Testimonials — Client Outcomes — whatcani.build</title>
+<meta name="description" content="Read what developers, builders and investors say about working with whatcani.build on their NSW planning projects.">
+<style>
+
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Inter+Tight:wght@500;600;700;800&display=swap');
+  :root{
+    --black:#000000; --white:#FFFFFF;
+    --orange:#FF7700; --orange-soft:rgba(255,119,0,0.12);
+    --orange-border:rgba(255,119,0,0.30);
+    --blue:#4B8FE0; --blue-soft:rgba(75,143,224,0.14);
+    --blue-border:rgba(75,143,224,0.28);
+    --muted:#B8B6B0; --card-muted:#4A4845;
+    --hairline:rgba(255,255,255,0.1);
+    --card-hairline:rgba(0,0,0,0.09);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--black);color:var(--white);
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+    overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+  ::selection{background:var(--orange);color:var(--black);}
+
+  /* NAV */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:200;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:20px 5vw;
+    backdrop-filter:blur(24px) saturate(160%);
+    -webkit-backdrop-filter:blur(24px) saturate(160%);
+    background:rgba(0,0,0,0.72);
+    border-bottom:1px solid var(--hairline);
+    transition:padding .3s ease;
+  }
+  .logo{font-family:'Inter Tight',sans-serif;font-weight:700;font-size:20.4px;
+    letter-spacing:-0.02em;color:var(--white);text-decoration:none;}
+  .logo span{color:var(--orange);}
+  .nav-links{display:flex;gap:32px;list-style:none;}
+  .nav-links a{color:var(--white);text-decoration:none;font-size:15px;font-weight:500;
+    opacity:0.82;transition:opacity .25s ease;letter-spacing:-0.01em;}
+  .nav-links a:hover,.nav-links a.active{opacity:1;color:var(--orange);}
+  .nav-right{display:flex;align-items:center;gap:16px;}
+  .nav-cta{background:var(--orange);color:var(--black);padding:9px 20px;
+    border-radius:100px;font-size:13.5px;font-weight:700;text-decoration:none;
+    transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s ease;}
+  .nav-cta:hover{transform:scale(1.04);box-shadow:0 8px 24px rgba(255,119,0,0.4);}
+
+  /* HAMBURGER */
+  .hamburger{
+    display:none;flex-direction:column;justify-content:center;
+    gap:5px;cursor:pointer;padding:6px;background:none;border:none;
+    z-index:300;
+  }
+  .hamburger span{
+    display:block;width:24px;height:2px;background:var(--white);
+    border-radius:2px;transition:transform .35s cubic-bezier(.2,.8,.2,1),opacity .3s ease;
+    transform-origin:center;
+  }
+  .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0);}
+  .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+  /* MOBILE MENU OVERLAY */
+  .mobile-menu{
+    position:fixed;inset:0;z-index:150;
+    background:rgba(0,0,0,0.97);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    gap:0;
+    opacity:0;pointer-events:none;
+    transition:opacity .4s cubic-bezier(.2,.8,.2,1);
+  }
+  .mobile-menu.open{opacity:1;pointer-events:all;}
+  .mobile-menu a{
+    color:var(--white);text-decoration:none;
+    font-family:'Inter Tight',sans-serif;font-weight:700;
+    font-size:clamp(2rem,6vw,3.2rem);letter-spacing:-0.02em;
+    padding:18px 0;line-height:1;
+    transition:color .2s ease,transform .2s ease;
+    transform:translateY(12px);opacity:0;
+  }
+  .mobile-menu.open a{transform:translateY(0);opacity:1;}
+  .mobile-menu a:hover{color:var(--orange);}
+  .mobile-menu a.cta-link{
+    margin-top:28px;background:var(--orange);color:var(--black);
+    padding:16px 40px;border-radius:100px;font-size:1.1rem;
+  }
+  .mobile-menu .divider{
+    width:40px;height:1px;background:var(--hairline);margin:12px 0;
+  }
+
+  /* PARALLAX BAND */
+  .parallax-band{
+    position:relative;height:340px;overflow:hidden;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .parallax-band .pb-img{
+    position:absolute;inset:-30% 0;
+    background-size:cover;background-position:center;background-attachment:fixed;
+    filter:brightness(0.65);
+    will-change:transform;
+  }
+  .parallax-band .pb-overlay{
+    position:absolute;inset:0;
+    background:linear-gradient(to bottom,rgba(0,0,0,0.25),rgba(0,0,0,0.05),rgba(0,0,0,0.25));
+  }
+  /* pb-label removed — parallax bands are image-only */
+
+  /* SHARED SECTION STYLES */
+  section{padding:120px 6vw;}
+  .wrap{max-width:1180px;margin:0 auto;}
+  .on-black{background:var(--black);color:var(--white);}
+  .on-white{background:var(--white);color:var(--black);}
+  .section-head{text-align:center;max-width:580px;margin:0 auto 72px;}
+  .tag{display:block;font-size:13px;font-weight:700;letter-spacing:0.06em;
+    text-transform:uppercase;margin-bottom:14px;color:var(--orange);}
+  .section-head h2{font-family:'Inter Tight',sans-serif;font-weight:800;
+    font-size:clamp(2rem,3.6vw,3rem);letter-spacing:-0.03em;line-height:1.1;
+    color:var(--white);}
+  .on-white .section-head h2{color:var(--black);}
+  .section-head p{margin-top:18px;font-size:18px;line-height:1.6;color:var(--muted);}
+  .on-white .section-head p{color:var(--card-muted);}
+
+  /* CARDS */
+  .card-white{background:var(--white);border:1px solid var(--card-hairline);
+    border-radius:22px;padding:38px;}
+  .card-white h3{font-family:'Inter Tight',sans-serif;font-weight:700;font-size:21px;
+    letter-spacing:-0.015em;color:var(--black);margin-bottom:12px;line-height:1.25;}
+  .card-white p{font-size:15.5px;color:#2A2825;line-height:1.65;}
+
+  /* BUTTONS */
+  .btn-primary{background:var(--orange);color:var(--black);padding:14px 28px;
+    border-radius:100px;font-size:15px;font-weight:700;text-decoration:none;
+    display:inline-flex;align-items:center;gap:8px;
+    transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s ease;}
+  .btn-primary:hover{transform:translateY(-3px) scale(1.02);
+    box-shadow:0 14px 32px rgba(255,119,0,0.4);}
+  .btn-secondary{background:rgba(255,255,255,0.07);color:var(--white);
+    border:1px solid var(--hairline);padding:14px 28px;border-radius:100px;
+    font-size:15px;font-weight:600;text-decoration:none;backdrop-filter:blur(10px);
+    transition:background .3s ease,transform .3s ease;}
+  .btn-secondary:hover{background:rgba(255,255,255,0.13);transform:translateY(-3px);}
+  .btn-outline-dark{background:transparent;color:var(--black);
+    border:2px solid var(--black);padding:13px 28px;border-radius:100px;
+    font-size:15px;font-weight:700;text-decoration:none;
+    transition:background .3s ease,color .3s ease;}
+  .btn-outline-dark:hover{background:var(--black);color:var(--white);}
+  .btn-group{display:flex;gap:14px;flex-wrap:wrap;margin-top:32px;}
+
+  /* STEP/ICON CHIP */
+  .icon-chip{width:51px;height:51px;border-radius:13px;
+    background:var(--blue-soft);border:1px solid var(--blue-border);
+    display:flex;align-items:center;justify-content:center;
+    margin-bottom:20px;flex-shrink:0;}
+
+  /* REVEAL ANIMATION */
+  .reveal{opacity:0;transform:translateY(28px);
+    transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1);}
+  .reveal.visible{opacity:1;transform:translateY(0);}
+
+  /* PAGE HERO (inner pages) */
+  .page-hero{
+    min-height:52vh;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;text-align:center;
+    padding:160px 6vw 100px;position:relative;overflow:hidden;
+    background:var(--black);
+  }
+  .page-hero h1{font-family:'Inter Tight',sans-serif;font-weight:800;
+    font-size:clamp(2.4rem,5.5vw,4.8rem);letter-spacing:-0.035em;
+    line-height:1.06;max-width:900px;color:var(--white);}
+  .page-hero h1 span{color:var(--orange);font-style:italic;}
+  .page-hero p{margin-top:22px;font-size:clamp(1rem,1.6vw,1.25rem);
+    color:var(--muted);max-width:580px;line-height:1.6;}
+  .page-glow{position:absolute;width:700px;height:700px;top:50%;left:50%;
+    transform:translate(-50%,-50%);pointer-events:none;
+    background:radial-gradient(circle,rgba(255,119,0,0.12) 0%,transparent 70%);}
+
+  /* FOOTER */
+  footer{border-top:1px solid var(--hairline);padding:52px 6vw;
+    background:var(--black);}
+  .footer-inner{max-width:1180px;margin:0 auto;
+    display:flex;align-items:flex-start;justify-content:space-between;
+    flex-wrap:wrap;gap:32px;}
+  .footer-logo{font-family:'Inter Tight',sans-serif;font-weight:700;
+    font-size:18px;color:var(--white);text-decoration:none;}
+  .footer-logo span{color:var(--orange);}
+  .footer-nav{display:flex;flex-direction:column;gap:12px;}
+  .footer-nav-title{font-size:12px;font-weight:700;color:var(--orange);
+    letter-spacing:0.06em;text-transform:uppercase;margin-bottom:4px;}
+  .footer-nav a{color:var(--muted);text-decoration:none;font-size:14.5px;
+    transition:color .25s ease;}
+  .footer-nav a:hover{color:var(--white);}
+  .footer-bottom{border-top:1px solid var(--hairline);
+    padding-top:24px;margin-top:36px;
+    display:flex;align-items:center;justify-content:space-between;
+    flex-wrap:wrap;gap:12px;}
+  .footer-copy{font-size:13px;color:var(--muted);}
+  .footer-tagline{font-size:13px;color:var(--muted);font-style:italic;}
+
+  /* FORM */
+  .form-card{background:var(--white);border:1px solid var(--card-hairline);
+    border-radius:24px;padding:44px;}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
+  .form-field{display:flex;flex-direction:column;gap:8px;}
+  .form-field.full{grid-column:1/-1;}
+  .form-field label{font-size:13px;font-weight:600;color:#444;letter-spacing:0.01em;}
+  .form-field input,.form-field select,.form-field textarea{
+    background:#F7F7F7;border:1px solid rgba(0,0,0,0.1);border-radius:12px;
+    padding:13px 16px;color:var(--black);font-family:'Inter',sans-serif;
+    font-size:14.5px;outline:none;
+    transition:border-color .25s ease,background .25s ease;}
+  .form-field input:focus,.form-field select:focus,.form-field textarea:focus{
+    border-color:var(--orange);background:var(--white);}
+  .form-field textarea{resize:vertical;min-height:110px;font-family:inherit;}
+  .form-submit{width:100%;background:var(--orange);color:var(--black);border:none;
+    padding:16px;border-radius:100px;font-size:15px;font-weight:700;cursor:pointer;
+    margin-top:8px;font-family:'Inter',sans-serif;
+    transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s ease;}
+  .form-submit:hover{transform:translateY(-2px) scale(1.01);
+    box-shadow:0 14px 32px rgba(255,119,0,0.35);}
+
+  /* RESPONSIVE */
+  @media(max-width:900px){
+    .nav-links,.nav-cta{display:none;}
+    .hamburger{display:flex;}
+    /* Inner page grids — 2-col max at tablet */
+    .about-grid-2col,
+    [style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr !important;}
+    [style*="grid-template-columns:repeat(3"]{grid-template-columns:1fr !important;}
+    [style*="grid-template-columns:repeat(4"]{grid-template-columns:1fr 1fr !important;}
+    [style*="grid-template-columns:1fr 1.6fr"]{grid-template-columns:1fr !important;}
+    [style*="grid-template-columns:1fr 1fr;gap:48px"]{grid-template-columns:1fr !important;}
+  }
+  @media(max-width:600px){
+    section{padding:80px 5vw;}
+    .footer-inner{flex-direction:column;gap:28px;}
+    /* Everything single column on mobile */
+    .form-row{grid-template-columns:1fr !important;}
+    [style*="grid-template-columns"]{grid-template-columns:1fr !important;}
+    [style*="display:flex;gap:12px;"]{flex-direction:column;}
+    /* All multi-col grids → 1 col */
+    .blog-grid{grid-template-columns:1fr !important;}
+    .steps{grid-template-columns:1fr !important;}
+    .pricing-preview{grid-template-columns:1fr !important;}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{animation-duration:.01ms !important;transition-duration:.01ms !important;}
+    .parallax-band .pb-img{background-attachment:scroll;}
+  }
+
+
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo">whatcani<span>.build</span></a>
+  <ul class="nav-links">
+    <li><a href="about.html" >About us</a></li>
+    <li><a href="services.html" >Services</a></li>
+    <li><a href="pricing.html" >Pricing</a></li>
+    <li><a href="blog.html" >Blog</a></li>
+    <li><a href="testimonials.html" class="active">Testimonials</a></li>
+    <li><a href="contact.html" >Contact us</a></li>
+    <li><a href="legals.html" >Legals</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="contact.html" class="nav-cta">Get a site review</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="about.html">About us</a>
+  <a href="services.html">Services</a>
+  <a href="pricing.html">Pricing</a>
+  <a href="blog.html">Blog</a>
+  <a href="testimonials.html">Testimonials</a>
+  <a href="contact.html">Contact us</a>
+  <a href="legals.html">Legals</a>
+  <div class="divider"></div>
+  <a href="contact.html" class="cta-link">Get a site review →</a>
+</div>
+
+<div class="page-hero">
+  <div class="page-glow"></div>
+  <h1>What our clients<br><span>actually say.</span></h1>
+  <p>Specific outcomes, real projects, honest results. We'll replace these placeholders with real client testimonials as the practice grows.</p>
+</div>
+
+<div class="parallax-band">
+  <div class="pb-img" style="background-image:url('https://images.unsplash.com/photo-1431540015161-0bf868a2d407?w=1600&q=80');"></div>
+  <div class="pb-overlay"></div>
+</div>
+
+<section class="on-black">
+  <div class="wrap" style="display:grid;grid-template-columns:1fr 1fr;gap:28px;">
+    
+<div class="card-white reveal" style="border-radius:24px;padding:44px 40px;">
+  <div style="font-size:56px;color:var(--orange);font-family:Georgia,serif;line-height:1;margin-bottom:10px;">"</div>
+  <p style="font-size:18px;line-height:1.7;color:var(--black);font-style:italic;margin-bottom:28px;">Before we signed on the site in Earlwood, we needed to know whether we could get a townhouse development through. The feasibility review gave us a zoning read, a realistic yield number, and a clear DA risk profile — in a week. We proceeded. The DA lodged six months later with no surprises.</p>
+  <div style="padding-top:22px;border-top:1px solid rgba(0,0,0,0.09);">
+    <div style="font-weight:700;font-size:15px;color:var(--black);">Owner-developer</div>
+    <div style="font-size:13.5px;color:#8A8782;margin-top:4px;">Townhouse development · Inner west Sydney, 2025</div>
+  </div>
+</div>
+    
+<div class="card-white reveal" style="border-radius:24px;padding:44px 40px;">
+  <div style="font-size:56px;color:var(--orange);font-family:Georgia,serif;line-height:1;margin-bottom:10px;">"</div>
+  <p style="font-size:18px;line-height:1.7;color:var(--black);font-style:italic;margin-bottom:28px;">We'd already had an architect do a sketch scheme that didn't stack up with council controls. The pre-design brief fixed that — it gave us the envelope to design within and a planning argument ready to go. Saved us at least one full redesign cycle and probably $15,000 in abortive design fees.</p>
+  <div style="padding-top:22px;border-top:1px solid rgba(0,0,0,0.09);">
+    <div style="font-weight:700;font-size:15px;color:var(--black);">Residential builder</div>
+    <div style="font-size:13.5px;color:#8A8782;margin-top:4px;">Pre-design brief engagement · Northern suburbs Sydney, 2025</div>
+  </div>
+</div>
+    
+<div class="card-white reveal" style="border-radius:24px;padding:44px 40px;">
+  <div style="font-size:56px;color:var(--orange);font-family:Georgia,serif;line-height:1;margin-bottom:10px;">"</div>
+  <p style="font-size:18px;line-height:1.7;color:var(--black);font-style:italic;margin-bottom:28px;">We came in with a concept for a dual occupancy that we thought was straightforward. The site check flagged a heritage conservation area overlay we'd completely missed. It changed our approach entirely — and saved us from lodging a DA that would have been refused.</p>
+  <div style="padding-top:22px;border-top:1px solid rgba(0,0,0,0.09);">
+    <div style="font-weight:700;font-size:15px;color:var(--black);">Property investor</div>
+    <div style="font-size:13.5px;color:#8A8782;margin-top:4px;">Site Check review · Inner south Sydney, 2025</div>
+  </div>
+</div>
+    
+<div class="card-white reveal" style="border-radius:24px;padding:44px 40px;">
+  <div style="font-size:56px;color:var(--orange);font-family:Georgia,serif;line-height:1;margin-bottom:10px;">"</div>
+  <p style="font-size:18px;line-height:1.7;color:var(--black);font-style:italic;margin-bottom:28px;">The feasibility report was the clearest piece of planning advice I've received in 15 years of developing. Plain language, specific numbers, and a clear recommendation with the reasoning shown. Exactly what you need before you commit to an architect.</p>
+  <div style="padding-top:22px;border-top:1px solid rgba(0,0,0,0.09);">
+    <div style="font-weight:700;font-size:15px;color:var(--black);">Developer</div>
+    <div style="font-size:13.5px;color:#8A8782;margin-top:4px;">Feasibility &amp; strategy review · Northern beaches, 2025</div>
+  </div>
+</div>
+  </div>
+  <div style="text-align:center;margin-top:56px;">
+    <div class="card-white reveal" style="border-radius:20px;padding:40px;max-width:600px;margin:0 auto;display:inline-block;">
+      <div style="font-family:'Inter Tight',sans-serif;font-weight:700;font-size:20px;color:var(--black);margin-bottom:10px;">Are you a past client?</div>
+      <p style="font-size:15px;color:#2A2825;line-height:1.65;margin-bottom:22px;">We'd genuinely appreciate a few sentences about your experience. Specific outcomes — project type, council, what changed — are the most useful to future clients.</p>
+      <a href="contact.html" class="btn-primary">Get in touch →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <a href="index.html" class="footer-logo">whatcani<span>.build</span></a>
+      <p style="margin-top:14px;font-size:14px;color:var(--muted);max-width:240px;line-height:1.6;">
+        Planning-led feasibility and approvals for small to mid-scale developments in Sydney and NSW.
+      </p>
+    </div>
+    <div class="footer-nav">
+      <div class="footer-nav-title">Pages</div>
+    <a href="about.html">About us</a>
+    <a href="services.html">Services</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="blog.html">Blog</a>
+    <a href="testimonials.html">Testimonials</a>
+    <a href="contact.html">Contact us</a>
+    <a href="legals.html">Legals</a>
+    </div>
+    <div>
+      <div class="footer-nav-title">Contact</div>
+      <p style="font-size:14px;color:var(--muted);line-height:1.8;">
+        Bakos &amp; Evans Pty Ltd<br>
+        Sydney &amp; NSW<br>
+        Response within 1 business day
+      </p>
+    </div>
+  </div>
+  <div class="footer-bottom wrap">
+    <div class="footer-copy">© Bakos &amp; Evans Pty Ltd ABN 25 622 644 464. 2026. All prices include GST.</div>
+    <div class="footer-tagline">Built on expertise. Delivered with clarity.</div>
+  </div>
+</footer>
+<script>
+
+  // Scroll reveal — threshold:0 + rootMargin ensures tall elements always trigger
+  const ro = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){e.target.classList.add('visible');ro.unobserve(e.target);}
+    });
+  },{threshold:0, rootMargin:'0px 0px -60px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+
+  // Hamburger
+  const ham = document.getElementById('hamburger');
+  const mob = document.getElementById('mobile-menu');
+  if(ham && mob){
+    ham.addEventListener('click',()=>{
+      const open = ham.classList.toggle('open');
+      mob.classList.toggle('open');
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    mob.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+      ham.classList.remove('open');
+      mob.classList.remove('open');
+      document.body.style.overflow='';
+    }));
+  }
+
+  // Parallax (CSS background-attachment:fixed handles most of it;
+  // this adds a subtle JS layer for browsers that don't support it well)
+  const bands = document.querySelectorAll('.pb-img');
+  if(bands.length && window.matchMedia('(prefers-reduced-motion:no-preference)').matches){
+    window.addEventListener('scroll',()=>{
+      const sy = window.scrollY;
+      bands.forEach(b=>{
+        const rect = b.closest('.parallax-band').getBoundingClientRect();
+        if(rect.bottom > 0 && rect.top < window.innerHeight){
+          const pct = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
+          b.style.transform = `translateY(${(pct - 0.5) * 60}px)`;
+        }
+      });
+    },{passive:true});
+  }
+
+</script>
+</body>
+</html>
