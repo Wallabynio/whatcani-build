@@ -408,6 +408,7 @@ PAGE_DATA = {
 <link rel="preload" as="image" href="https://images.unsplash.com/photo-1659684382003-709720aaef16?w=1600&q=70&auto=format">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#000000">
+<link rel="icon" type="image/svg+xml" href="logo-mark.svg">
 <meta name="author" content="Bakos &amp; Evans Pty Ltd">
 <meta property="og:title" content="About Us — The Practice — whatcani.build">
 <meta property="og:description" content="Learn about whatcani.build, the principals, and the practice's scope of work in NSW urban planning.">
@@ -525,6 +526,7 @@ PAGE_DATA = {
 <link rel="preload" as="image" href="https://images.unsplash.com/photo-1772325935870-55c544250ad6?w=1600&q=70&auto=format">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#000000">
+<link rel="icon" type="image/svg+xml" href="logo-mark.svg">
 <meta name="author" content="Bakos &amp; Evans Pty Ltd">
 <meta property="og:title" content="Services — Planning Feasibility & Approvals — whatcani.build">
 <meta property="og:description" content="Full details on our three planning services: feasibility, pre-design briefs, and DA/CDC approvals for Sydney and NSW.">
@@ -670,6 +672,7 @@ PAGE_DATA = {
 <link rel="preload" as="image" href="https://images.unsplash.com/photo-1772325482422-55bc8dd65662?w=1600&q=70&auto=format">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#000000">
+<link rel="icon" type="image/svg+xml" href="logo-mark.svg">
 <meta name="author" content="Bakos &amp; Evans Pty Ltd">
 <meta property="og:title" content="Pricing — Fixed Fees for NSW Planning Services — whatcani.build">
 <meta property="og:description" content="Transparent, GST-inclusive pricing for planning feasibility, pre-design briefs, and DA/CDC reports in Sydney and NSW.">
@@ -816,6 +819,7 @@ PAGE_DATA = {
 <link rel="preload" as="image" href="https://images.unsplash.com/photo-1659684383836-b6f4ea679689?w=1600&q=70&auto=format">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#000000">
+<link rel="icon" type="image/svg+xml" href="logo-mark.svg">
 <meta name="author" content="Bakos &amp; Evans Pty Ltd">
 <meta property="og:title" content="Blog — Planning Insights for NSW Developers — whatcani.build">
 <meta property="og:description" content="Plain-language guides to the NSW planning system for developers, investors and owner-builders.">
@@ -1108,6 +1112,7 @@ PAGE_DATA = {
 <link rel="preload" as="image" href="https://images.unsplash.com/photo-1650345895974-5d543d56c399?w=1600&q=70&auto=format">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#000000">
+<link rel="icon" type="image/svg+xml" href="logo-mark.svg">
 <meta name="author" content="Bakos &amp; Evans Pty Ltd">
 <meta property="og:title" content="Testimonials — Client Outcomes — whatcani.build">
 <meta property="og:description" content="Read what developers, builders and investors say about working with whatcani.build on their NSW planning projects.">
@@ -1201,6 +1206,7 @@ PAGE_DATA = {
 <link rel="preload" as="image" href="https://images.unsplash.com/photo-1605186532063-9e62dd3494c2?w=1600&q=70&auto=format">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#000000">
+<link rel="icon" type="image/svg+xml" href="logo-mark.svg">
 <meta name="author" content="Bakos &amp; Evans Pty Ltd">
 <meta property="og:title" content="Contact Us — Talk to a Sydney Planning Consultant — whatcani.build">
 <meta property="og:description" content="Get in touch with whatcani.build for planning feasibility, pre-design briefs, and DA/CDC advice in Sydney and NSW.">
@@ -1304,6 +1310,7 @@ PAGE_DATA = {
 <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#000000">
+<link rel="icon" type="image/svg+xml" href="logo-mark.svg">
 <meta name="author" content="Bakos &amp; Evans Pty Ltd">
 <meta property="og:title" content="Legal Information — Terms &amp; Privacy — whatcani.build">
 <meta property="og:description" content="Terms of engagement, privacy policy and disclaimers for whatcani.build (Bakos &amp; Evans Pty Ltd).">
