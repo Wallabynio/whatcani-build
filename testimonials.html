@@ -272,6 +272,156 @@
   }
 
 
+
+  /* ===== REVERSED (LIGHT) SECTIONS ===== */
+  .on-white{background:var(--white);color:var(--black);}
+  .on-white .hero-glow{opacity:0.10!important;}
+  /* --- text sitting directly on the light background --- */
+  .on-white .wrap h1,.on-white .wrap h2,.on-white .wrap h3,.on-white .wrap h4,
+  .on-white .section-head h2{color:var(--black)!important;}
+  .on-white .wrap p,.on-white .wrap li,.on-white .section-head p{color:var(--card-muted)!important;}
+  .on-white .wrap div{color:var(--black)!important;}
+  .on-white .section-more a{color:var(--black)!important;}
+  .on-white input,.on-white select,.on-white textarea{
+    background:#F7F7F7!important;color:var(--black)!important;border-color:rgba(0,0,0,0.12)!important;}
+  .on-white ::placeholder{color:#8A8782!important;}
+  /* --- dark boxes ON the light background (declared after, so they win) --- */
+  .on-white .card-white,.on-white .step,.on-white .price-card,
+  .on-white .testi-card,.on-white .team-card,.on-white .snap-card,
+  .on-white .lga-col,.on-white .faq details,.on-white .cmp-wrap,.on-white .stat-cell{
+    background:var(--black)!important;border-color:rgba(255,255,255,0.18)!important;}
+  .on-white .steps{background:rgba(255,255,255,0.18)!important;border-color:rgba(0,0,0,0.14)!important;}
+  .on-white .stat-strip{background:rgba(255,255,255,0.18)!important;border-color:rgba(0,0,0,0.14)!important;}
+  .on-white .card-white h2,.on-white .card-white h3,.on-white .card-white h4,
+  .on-white .step h3,.on-white .price-card h3,.on-white .testi-card h3,
+  .on-white .team-card h3,.on-white .snap-card h3,.on-white .team-name,
+  .on-white .price-amount,.on-white .faq summary,
+  .on-white .cmp-table thead th,.on-white .cmp-table td:first-child{color:var(--white)!important;}
+  .on-white .card-white p,.on-white .card-white li,.on-white .step p,
+  .on-white .price-card p,.on-white .price-desc,.on-white .testi-card p,
+  .on-white .testi-quote,.on-white .team-card p,.on-white .team-bio,
+  .on-white .snap-card p,.on-white .faq .faq-a,.on-white .faq .faq-a p,
+  .on-white .cmp-table td,.on-white .stat-lab{color:var(--muted)!important;}
+  .on-white .card-white div,.on-white .price-card div,.on-white .testi-card div,
+  .on-white .team-card div,.on-white .snap-card div,.on-white .lga-col div,
+  .on-white .stat-cell div{color:var(--white)!important;}
+  .on-white .lga-col li{color:var(--white)!important;background:rgba(255,255,255,0.06)!important;
+    border-color:rgba(255,255,255,0.18)!important;}
+  .on-white .stat-num,.on-white .lga-col h3,.on-white .snap-meta{color:var(--orange)!important;}
+  .on-white .stat-lab{color:var(--muted)!important;}
+  .on-white .card-white input,.on-white .card-white select,.on-white .card-white textarea{
+    background:#F7F7F7!important;color:var(--black)!important;}
+  .on-white .testi-author,.on-white .snap-stat,
+  .on-white .card-white div[style*="border-top"],
+  .on-white .testi-card div[style*="border-top"]{border-top-color:rgba(255,255,255,0.18)!important;}
+  .on-white .card-white span,.on-white .price-card span,.on-white .testi-card span,
+  .on-white .team-card span,.on-white .snap-card span,.on-white .lga-col span,
+  .on-white .stat-cell span,.on-white .faq span{color:var(--muted)!important;}
+  .on-white .wrap span[style*="var(--orange)"]{color:var(--orange)!important;}
+  .on-white .step:hover{background:#141414!important;}
+  /* --- additional dark boxes on light sections --- */
+  .on-white .price-card-full,.on-white .service-card,.on-white .form-card{
+    background:var(--black)!important;border-color:rgba(255,255,255,0.18)!important;}
+  .on-white .service-card:hover{background:#141414!important;}
+  .on-white .price-card-full h2,.on-white .price-card-full h3,.on-white .price-card-full h4,
+  .on-white .service-card h2,.on-white .service-card h3,.on-white .form-card h3{color:var(--white)!important;}
+  .on-white .price-card-full p,.on-white .service-card p,.on-white .form-card p{color:var(--muted)!important;}
+  .on-white .price-card-full div,.on-white .service-card div,.on-white .form-card div{color:var(--white)!important;}
+  .on-white .price-card-full span,.on-white .service-card span,.on-white .form-card span{color:var(--muted)!important;}
+  .on-white .price-card-full li,.on-white .service-card li{color:var(--muted)!important;}
+  .on-white .form-field label{color:#CFCDC8!important;}
+  .on-white .form-card input,.on-white .form-card select,.on-white .form-card textarea{
+    background:rgba(255,255,255,0.06)!important;color:var(--white)!important;
+    border-color:rgba(255,255,255,0.18)!important;}
+  .on-white .form-card select option{background:#111111;color:var(--white);}
+  .on-white .team-tag{color:var(--muted)!important;border-color:rgba(255,255,255,0.18)!important;}
+  .on-white .service-meta{border-top-color:rgba(255,255,255,0.18)!important;}
+  .on-white .service-num,.on-white .service-meta,.on-white .step-index{color:var(--orange)!important;}
+  .on-white .price-badge{color:var(--black)!important;}
+  .on-white .steps{background:rgba(255,255,255,0.22)!important;}
+  .on-white .card-white .btn-outline-dark,.on-white .price-card .btn-outline-dark{
+    color:var(--white)!important;border-color:var(--white)!important;}
+  .on-white .card-white .btn-outline-dark:hover{background:var(--white)!important;color:var(--black)!important;}
+
+  /* eyebrow tags: orange fails contrast on white, so use black on light sections */
+  .on-white .tag{color:var(--black)!important;}
+  .on-white .wrap span.tag{color:var(--black)!important;}
+  .on-white .card-white .tag,.on-white .service-card .tag,
+  .on-white .price-card-full .tag,.on-white .form-card .tag{color:var(--orange)!important;}
+  .on-white .team-role{color:var(--orange)!important;}
+
+  /* ===== STAT STRIP ===== */
+  .stat-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+    background:var(--hairline);border:1px solid var(--hairline);border-radius:20px;overflow:hidden;}
+  .on-white .stat-strip{background:rgba(255,255,255,0.18);border-color:rgba(0,0,0,0.14);}
+  .stat-cell{background:rgba(255,255,255,0.03);padding:30px 22px;text-align:center;}
+  .stat-num{font-family:'Inter Tight',sans-serif;font-weight:800;font-size:25px;
+    letter-spacing:-0.02em;color:var(--orange);line-height:1.15;}
+  .stat-lab{font-size:13.5px;color:var(--muted);margin-top:8px;line-height:1.5;}
+
+  /* ===== COMPARISON TABLE ===== */
+  .cmp-wrap{overflow-x:auto;border:1px solid var(--hairline);border-radius:20px;background:rgba(255,255,255,0.03);}
+  .on-white .cmp-wrap{border-color:rgba(255,255,255,0.18);}
+  .cmp-table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:660px;}
+  .cmp-table th,.cmp-table td{padding:16px 18px;text-align:left;vertical-align:top;
+    border-bottom:1px solid var(--hairline);line-height:1.6;}
+  .cmp-table thead th{font-family:'Inter Tight',sans-serif;font-weight:700;font-size:14px;
+    color:var(--white);background:rgba(255,255,255,0.05);}
+  .cmp-table td:first-child{font-weight:600;color:var(--white);width:160px;}
+  .cmp-table td{color:var(--muted);}
+  .cmp-table tr:last-child td{border-bottom:none;}
+
+  /* ===== FAQ ACCORDION ===== */
+  .faq{display:flex;flex-direction:column;gap:12px;}
+  .faq details{border:1px solid var(--hairline);border-radius:16px;
+    background:rgba(255,255,255,0.03);overflow:hidden;transition:border-color .3s ease;}
+  .on-white .faq details{background:var(--black);border-color:rgba(255,255,255,0.18);}
+  .faq details[open]{border-color:var(--blue-border);}
+  .faq summary{cursor:pointer;list-style:none;padding:20px 56px 20px 22px;position:relative;
+    font-family:'Inter Tight',sans-serif;font-weight:600;font-size:16.5px;
+    color:var(--white);line-height:1.45;}
+  .faq summary::-webkit-details-marker{display:none;}
+  .faq summary::after{content:"";position:absolute;right:24px;top:50%;width:10px;height:10px;
+    border-right:2px solid var(--blue);border-bottom:2px solid var(--blue);
+    transform:translateY(-70%) rotate(45deg);transition:transform .3s ease;}
+  .faq details[open] summary::after{transform:translateY(-25%) rotate(-135deg);}
+  .faq .faq-a{padding:0 22px 22px;font-size:15px;line-height:1.7;color:var(--muted);}
+  .faq .faq-a p+p{margin-top:12px;}
+
+  /* ===== LGA COVERAGE ===== */
+  .lga-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .lga-col{border:1px solid var(--hairline);border-radius:18px;padding:26px 24px;
+    background:rgba(255,255,255,0.03);}
+  .on-white .lga-col{background:var(--black);border-color:rgba(255,255,255,0.18);}
+  .lga-col h3{font-family:'Inter Tight',sans-serif;font-weight:700;font-size:13px;
+    letter-spacing:0.06em;text-transform:uppercase;color:var(--orange);margin-bottom:15px;}
+  .lga-col ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px;}
+  .lga-col li{font-size:13.5px;padding:6px 12px;border-radius:100px;
+    background:rgba(255,255,255,0.06);border:1px solid var(--hairline);color:var(--white);}
+
+  /* ===== PROJECT SNAPSHOTS ===== */
+  .snap-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;}
+  .snap-card{border:1px solid var(--hairline);border-radius:20px;padding:30px 28px;
+    background:rgba(255,255,255,0.03);transition:transform .4s ease,border-color .4s ease;}
+  .on-white .snap-card{background:var(--black);border-color:rgba(255,255,255,0.18);}
+  .snap-card:hover{transform:translateY(-4px);border-color:var(--orange-border);}
+  .snap-meta{font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;
+    color:var(--orange);margin-bottom:12px;}
+  .snap-card h3{font-family:'Inter Tight',sans-serif;font-weight:700;font-size:18px;
+    letter-spacing:-0.015em;color:var(--white);margin-bottom:10px;line-height:1.35;}
+  .snap-card p{font-size:14.5px;line-height:1.65;color:var(--muted);}
+  .snap-stat{margin-top:20px;padding-top:16px;border-top:1px solid var(--hairline);
+    display:flex;gap:26px;flex-wrap:wrap;}
+  .snap-stat div{font-size:12.5px;color:var(--muted);}
+  .snap-stat strong{display:block;font-family:'Inter Tight',sans-serif;font-size:17px;
+    font-weight:800;color:var(--white);letter-spacing:-0.01em;margin-bottom:2px;}
+
+  @media(max-width:900px){
+    .stat-strip{grid-template-columns:1fr 1fr;}
+    .lga-grid{grid-template-columns:1fr;}
+    .snap-grid{grid-template-columns:1fr;}
+  }
+
 </style>
 </head>
 <body>
@@ -316,7 +466,7 @@
   <div class="pb-overlay"></div>
 </div>
 
-<section class="on-black">
+<section class="on-white">
   <div class="wrap" style="display:grid;grid-template-columns:1fr 1fr;gap:28px;">
     
 <div class="card-white reveal" style="border-radius:24px;padding:44px 40px;">
@@ -364,6 +514,43 @@
   </div>
 </section>
 
+
+<section class="on-black">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="tag">Project snapshots</span>
+      <h2>What the work looks like</h2>
+      <p>The same engagements described above, summarised as outcomes. Client names are withheld; the councils, project types and results are as reported by the clients.</p>
+    </div>
+    <div class="snap-grid">
+    <div class="snap-card reveal">
+      <div class="snap-meta">Townhouse feasibility &middot; 2025</div>
+      <h3>Corner site, Earlwood &mdash; Canterbury-Bankstown</h3>
+      <p>An owner-developer three weeks from exchange needed to know whether the R3 zoning would carry four townhouses. We tested the envelope against the Canterbury-Bankstown DCP setbacks and came back with a realistic yield of three, plus a DA risk profile their lender could work with.</p>
+      <div class="snap-stat"><div><strong>Three</strong>Realistic yield, not four</div><div><strong>6 days</strong>Turnaround</div><div><strong>Pre-exchange</strong>Advice landed</div></div>
+    </div>
+    <div class="snap-card reveal">
+      <div class="snap-meta">Pre-design brief &middot; 2025</div>
+      <h3>Dual occupancy, Ryde</h3>
+      <p>A builder&rsquo;s first scheme breached the 8.5-metre height control and fell short on landscaped area &mdash; found only after it had been paid for. We reset the envelope against the Ryde LEP before the redesign began.</p>
+      <div class="snap-stat"><div><strong>~$15,000</strong>Abortive design fees avoided</div><div><strong>Nil</strong>Amended plans required</div></div>
+    </div>
+    <div class="snap-card reveal">
+      <div class="snap-meta">Site Check &middot; 2025</div>
+      <h3>Marrickville &mdash; Inner West</h3>
+      <p>A $600 Site Check picked up that the property sat inside a heritage conservation area, something two agents and the buyer&rsquo;s own searches had missed. The dual-occupancy DA was shelved and an extension pathway pursued instead.</p>
+      <div class="snap-stat"><div><strong>$600</strong>Cost of the check</div><div><strong>DA withdrawn</strong>Before lodgement</div></div>
+    </div>
+    <div class="snap-card reveal">
+      <div class="snap-meta">Feasibility &amp; pathway review &middot; 2025</div>
+      <h3>Duplex, Caringbah &mdash; Sutherland Shire</h3>
+      <p>A developer of fifteen years wanted a clear call on pathway. The review set out floor space ratio, minimum frontage and the likely conditions, and recommended complying development over a DA.</p>
+      <div class="snap-stat"><div><strong>16 days</strong>To certificate</div><div><strong>CDC</strong>Pathway recommended</div></div>
+    </div>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="footer-inner">
     <div>
@@ -397,7 +584,7 @@
   </div>
   <div class="footer-bottom wrap">
     <div class="footer-copy">© Bakos &amp; Evans Pty Ltd ABN 25 622 644 464. 2026. All prices include GST.</div>
-    <div class="footer-tagline">Straight planning advice, in before the money's spent.</div>
+    <div class="footer-tagline">Planning advice that lands before the money's spent.</div>
   </div>
 </footer>
 <script>

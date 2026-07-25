@@ -272,7 +272,237 @@
   }
 
 
+
+  /* ===== REVERSED (LIGHT) SECTIONS ===== */
+  .on-white{background:var(--white);color:var(--black);}
+  .on-white .hero-glow{opacity:0.10!important;}
+  /* --- text sitting directly on the light background --- */
+  .on-white .wrap h1,.on-white .wrap h2,.on-white .wrap h3,.on-white .wrap h4,
+  .on-white .section-head h2{color:var(--black)!important;}
+  .on-white .wrap p,.on-white .wrap li,.on-white .section-head p{color:var(--card-muted)!important;}
+  .on-white .wrap div{color:var(--black)!important;}
+  .on-white .section-more a{color:var(--black)!important;}
+  .on-white input,.on-white select,.on-white textarea{
+    background:#F7F7F7!important;color:var(--black)!important;border-color:rgba(0,0,0,0.12)!important;}
+  .on-white ::placeholder{color:#8A8782!important;}
+  /* --- dark boxes ON the light background (declared after, so they win) --- */
+  .on-white .card-white,.on-white .step,.on-white .price-card,
+  .on-white .testi-card,.on-white .team-card,.on-white .snap-card,
+  .on-white .lga-col,.on-white .faq details,.on-white .cmp-wrap,.on-white .stat-cell{
+    background:var(--black)!important;border-color:rgba(255,255,255,0.18)!important;}
+  .on-white .steps{background:rgba(255,255,255,0.18)!important;border-color:rgba(0,0,0,0.14)!important;}
+  .on-white .stat-strip{background:rgba(255,255,255,0.18)!important;border-color:rgba(0,0,0,0.14)!important;}
+  .on-white .card-white h2,.on-white .card-white h3,.on-white .card-white h4,
+  .on-white .step h3,.on-white .price-card h3,.on-white .testi-card h3,
+  .on-white .team-card h3,.on-white .snap-card h3,.on-white .team-name,
+  .on-white .price-amount,.on-white .faq summary,
+  .on-white .cmp-table thead th,.on-white .cmp-table td:first-child{color:var(--white)!important;}
+  .on-white .card-white p,.on-white .card-white li,.on-white .step p,
+  .on-white .price-card p,.on-white .price-desc,.on-white .testi-card p,
+  .on-white .testi-quote,.on-white .team-card p,.on-white .team-bio,
+  .on-white .snap-card p,.on-white .faq .faq-a,.on-white .faq .faq-a p,
+  .on-white .cmp-table td,.on-white .stat-lab{color:var(--muted)!important;}
+  .on-white .card-white div,.on-white .price-card div,.on-white .testi-card div,
+  .on-white .team-card div,.on-white .snap-card div,.on-white .lga-col div,
+  .on-white .stat-cell div{color:var(--white)!important;}
+  .on-white .lga-col li{color:var(--white)!important;background:rgba(255,255,255,0.06)!important;
+    border-color:rgba(255,255,255,0.18)!important;}
+  .on-white .stat-num,.on-white .lga-col h3,.on-white .snap-meta{color:var(--orange)!important;}
+  .on-white .stat-lab{color:var(--muted)!important;}
+  .on-white .card-white input,.on-white .card-white select,.on-white .card-white textarea{
+    background:#F7F7F7!important;color:var(--black)!important;}
+  .on-white .testi-author,.on-white .snap-stat,
+  .on-white .card-white div[style*="border-top"],
+  .on-white .testi-card div[style*="border-top"]{border-top-color:rgba(255,255,255,0.18)!important;}
+  .on-white .card-white span,.on-white .price-card span,.on-white .testi-card span,
+  .on-white .team-card span,.on-white .snap-card span,.on-white .lga-col span,
+  .on-white .stat-cell span,.on-white .faq span{color:var(--muted)!important;}
+  .on-white .wrap span[style*="var(--orange)"]{color:var(--orange)!important;}
+  .on-white .step:hover{background:#141414!important;}
+  /* --- additional dark boxes on light sections --- */
+  .on-white .price-card-full,.on-white .service-card,.on-white .form-card{
+    background:var(--black)!important;border-color:rgba(255,255,255,0.18)!important;}
+  .on-white .service-card:hover{background:#141414!important;}
+  .on-white .price-card-full h2,.on-white .price-card-full h3,.on-white .price-card-full h4,
+  .on-white .service-card h2,.on-white .service-card h3,.on-white .form-card h3{color:var(--white)!important;}
+  .on-white .price-card-full p,.on-white .service-card p,.on-white .form-card p{color:var(--muted)!important;}
+  .on-white .price-card-full div,.on-white .service-card div,.on-white .form-card div{color:var(--white)!important;}
+  .on-white .price-card-full span,.on-white .service-card span,.on-white .form-card span{color:var(--muted)!important;}
+  .on-white .price-card-full li,.on-white .service-card li{color:var(--muted)!important;}
+  .on-white .form-field label{color:#CFCDC8!important;}
+  .on-white .form-card input,.on-white .form-card select,.on-white .form-card textarea{
+    background:rgba(255,255,255,0.06)!important;color:var(--white)!important;
+    border-color:rgba(255,255,255,0.18)!important;}
+  .on-white .form-card select option{background:#111111;color:var(--white);}
+  .on-white .team-tag{color:var(--muted)!important;border-color:rgba(255,255,255,0.18)!important;}
+  .on-white .service-meta{border-top-color:rgba(255,255,255,0.18)!important;}
+  .on-white .service-num,.on-white .service-meta,.on-white .step-index{color:var(--orange)!important;}
+  .on-white .price-badge{color:var(--black)!important;}
+  .on-white .steps{background:rgba(255,255,255,0.22)!important;}
+  .on-white .card-white .btn-outline-dark,.on-white .price-card .btn-outline-dark{
+    color:var(--white)!important;border-color:var(--white)!important;}
+  .on-white .card-white .btn-outline-dark:hover{background:var(--white)!important;color:var(--black)!important;}
+
+  /* eyebrow tags: orange fails contrast on white, so use black on light sections */
+  .on-white .tag{color:var(--black)!important;}
+  .on-white .wrap span.tag{color:var(--black)!important;}
+  .on-white .card-white .tag,.on-white .service-card .tag,
+  .on-white .price-card-full .tag,.on-white .form-card .tag{color:var(--orange)!important;}
+  .on-white .team-role{color:var(--orange)!important;}
+
+  /* ===== STAT STRIP ===== */
+  .stat-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+    background:var(--hairline);border:1px solid var(--hairline);border-radius:20px;overflow:hidden;}
+  .on-white .stat-strip{background:rgba(255,255,255,0.18);border-color:rgba(0,0,0,0.14);}
+  .stat-cell{background:rgba(255,255,255,0.03);padding:30px 22px;text-align:center;}
+  .stat-num{font-family:'Inter Tight',sans-serif;font-weight:800;font-size:25px;
+    letter-spacing:-0.02em;color:var(--orange);line-height:1.15;}
+  .stat-lab{font-size:13.5px;color:var(--muted);margin-top:8px;line-height:1.5;}
+
+  /* ===== COMPARISON TABLE ===== */
+  .cmp-wrap{overflow-x:auto;border:1px solid var(--hairline);border-radius:20px;background:rgba(255,255,255,0.03);}
+  .on-white .cmp-wrap{border-color:rgba(255,255,255,0.18);}
+  .cmp-table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:660px;}
+  .cmp-table th,.cmp-table td{padding:16px 18px;text-align:left;vertical-align:top;
+    border-bottom:1px solid var(--hairline);line-height:1.6;}
+  .cmp-table thead th{font-family:'Inter Tight',sans-serif;font-weight:700;font-size:14px;
+    color:var(--white);background:rgba(255,255,255,0.05);}
+  .cmp-table td:first-child{font-weight:600;color:var(--white);width:160px;}
+  .cmp-table td{color:var(--muted);}
+  .cmp-table tr:last-child td{border-bottom:none;}
+
+  /* ===== FAQ ACCORDION ===== */
+  .faq{display:flex;flex-direction:column;gap:12px;}
+  .faq details{border:1px solid var(--hairline);border-radius:16px;
+    background:rgba(255,255,255,0.03);overflow:hidden;transition:border-color .3s ease;}
+  .on-white .faq details{background:var(--black);border-color:rgba(255,255,255,0.18);}
+  .faq details[open]{border-color:var(--blue-border);}
+  .faq summary{cursor:pointer;list-style:none;padding:20px 56px 20px 22px;position:relative;
+    font-family:'Inter Tight',sans-serif;font-weight:600;font-size:16.5px;
+    color:var(--white);line-height:1.45;}
+  .faq summary::-webkit-details-marker{display:none;}
+  .faq summary::after{content:"";position:absolute;right:24px;top:50%;width:10px;height:10px;
+    border-right:2px solid var(--blue);border-bottom:2px solid var(--blue);
+    transform:translateY(-70%) rotate(45deg);transition:transform .3s ease;}
+  .faq details[open] summary::after{transform:translateY(-25%) rotate(-135deg);}
+  .faq .faq-a{padding:0 22px 22px;font-size:15px;line-height:1.7;color:var(--muted);}
+  .faq .faq-a p+p{margin-top:12px;}
+
+  /* ===== LGA COVERAGE ===== */
+  .lga-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .lga-col{border:1px solid var(--hairline);border-radius:18px;padding:26px 24px;
+    background:rgba(255,255,255,0.03);}
+  .on-white .lga-col{background:var(--black);border-color:rgba(255,255,255,0.18);}
+  .lga-col h3{font-family:'Inter Tight',sans-serif;font-weight:700;font-size:13px;
+    letter-spacing:0.06em;text-transform:uppercase;color:var(--orange);margin-bottom:15px;}
+  .lga-col ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px;}
+  .lga-col li{font-size:13.5px;padding:6px 12px;border-radius:100px;
+    background:rgba(255,255,255,0.06);border:1px solid var(--hairline);color:var(--white);}
+
+  /* ===== PROJECT SNAPSHOTS ===== */
+  .snap-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;}
+  .snap-card{border:1px solid var(--hairline);border-radius:20px;padding:30px 28px;
+    background:rgba(255,255,255,0.03);transition:transform .4s ease,border-color .4s ease;}
+  .on-white .snap-card{background:var(--black);border-color:rgba(255,255,255,0.18);}
+  .snap-card:hover{transform:translateY(-4px);border-color:var(--orange-border);}
+  .snap-meta{font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;
+    color:var(--orange);margin-bottom:12px;}
+  .snap-card h3{font-family:'Inter Tight',sans-serif;font-weight:700;font-size:18px;
+    letter-spacing:-0.015em;color:var(--white);margin-bottom:10px;line-height:1.35;}
+  .snap-card p{font-size:14.5px;line-height:1.65;color:var(--muted);}
+  .snap-stat{margin-top:20px;padding-top:16px;border-top:1px solid var(--hairline);
+    display:flex;gap:26px;flex-wrap:wrap;}
+  .snap-stat div{font-size:12.5px;color:var(--muted);}
+  .snap-stat strong{display:block;font-family:'Inter Tight',sans-serif;font-size:17px;
+    font-weight:800;color:var(--white);letter-spacing:-0.01em;margin-bottom:2px;}
+
+  @media(max-width:900px){
+    .stat-strip{grid-template-columns:1fr 1fr;}
+    .lga-grid{grid-template-columns:1fr;}
+    .snap-grid{grid-template-columns:1fr;}
+  }
+
 </style>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "How long does a feasibility review take?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Five to seven business days from engagement for a full feasibility and planning strategy. A Site Check on a single address comes back in three business days. If you are working to an exchange date, tell us at the outset and we will confirm timing before you commit."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What is the difference between a DA and a CDC?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "A Development Application is assessed by council on merit, so there is room to argue variations, but it takes longer. A Complying Development Certificate is a rules-based approval issued by council or an accredited certifier, which is far quicker, but every control has to be met exactly. Which one suits you is a feasibility question rather than a preference."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What do I get for the $600 Site Check?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "A written read on a single address: the zone and its objectives, the key LEP controls covering height, floor space ratio, minimum lot size and setbacks, any SEPP overlays that apply, and a plain-English view of what is realistically possible. It is built for sizing up a site before you buy."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Can you tell me how many dwellings I can fit?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "We give you a realistic yield rather than a theoretical maximum - what the controls allow once setbacks, height, landscaped area, private open space and parking are applied, and what councils in that area are approving in practice. Theoretical yields are where most feasibilities come unstuck."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What is a clause 4.6 variation?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Clause 4.6 of a Local Environmental Plan lets you seek consent for development that does not meet a development standard, most often height or floor space ratio, where you can show compliance is unreasonable or unnecessary in the circumstances and there are sufficient environmental planning grounds. It applies to DAs only; complying development has no equivalent."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Do you lodge the application for us?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes. For DA and CDC work we prepare the Statement of Environmental Effects and the planning argument, fold the specialist reports into it, and coordinate lodgement through the NSW Planning Portal. Post-lodgement council liaison is charged hourly at a rate stated upfront."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Do we need an architect first?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Usually it works the other way around. A pre-design planning brief sets the envelope and the key numbers before your architect starts, which is the cheapest point to discover a scheme does not fit. Briefing an architect without that framework is the most common cause of wasted design fees."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Which councils do you work with?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Most of our work sits across Sydney - Inner West, Canterbury-Bankstown, Ryde, Sutherland Shire, Bayside, Georges River, Parramatta and the northern councils - along with the Central Coast, Illawarra and Blue Mountains. If your council is not one we work in often, we will tell you upfront."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Are the fees genuinely fixed?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes. Every engagement starts with a written fee agreement setting out the scope and the fee, GST inclusive. If the scope changes, we agree that in writing before doing the work. The only hourly item is post-lodgement council liaison, at a rate stated before you engage us."
+   }
+  }
+ ]
+}
+</script>
 </head>
 <body>
 <nav>
@@ -316,7 +546,7 @@
   <div class="pb-overlay"></div>
 </div>
 
-<section class="on-black">
+<section class="on-white">
   <div class="wrap" style="max-width:880px;">
     <div class="section-head reveal" style="text-align:left;max-width:100%;margin-bottom:48px;">
       <span class="tag">Before you buy or commit</span>
@@ -386,7 +616,7 @@
   <div class="pb-overlay"></div>
 </div>
 
-<section class="on-black">
+<section class="on-white">
   <div class="wrap" style="max-width:880px;">
     <div class="section-head reveal" style="text-align:left;max-width:100%;margin-bottom:48px;">
       <span class="tag">When you're ready to lodge</span>
@@ -413,6 +643,82 @@
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+
+<section class="on-black">
+  <div class="wrap" style="max-width:1000px;">
+    <div class="section-head reveal">
+      <span class="tag">Choosing a pathway</span>
+      <h2>DA or CDC, side by side</h2>
+      <p>The two approval pathways behave differently on time, risk and design freedom. This is the short version &mdash; we work it through properly against your site in a feasibility.</p>
+    </div>
+    <div class="cmp-wrap reveal">
+      <table class="cmp-table">
+        <thead><tr><th></th><th>Complying Development (CDC)</th><th>Development Application (DA)</th></tr></thead>
+        <tbody>
+          <tr><td>Who assesses it</td><td>Council or a private accredited certifier</td><td>Council, as the consent authority</td></tr>
+          <tr><td>How it&rsquo;s judged</td><td>Against fixed numeric standards &mdash; pass or fail</td><td>On merit, with planner discretion</td></tr>
+          <tr><td>Typical timeframe</td><td>Around 10&ndash;20 business days</td><td>Commonly 3&ndash;12 months</td></tr>
+          <tr><td>Neighbour notification</td><td>Generally none</td><td>Required, with a submission period</td></tr>
+          <tr><td>Design flexibility</td><td>Low &mdash; every control has to be met</td><td>Higher &mdash; variations can be argued</td></tr>
+          <tr><td>Variations</td><td>Not available; a near miss ends the pathway</td><td>Clause 4.6 requests where justified</td></tr>
+          <tr><td>Best suited to</td><td>Standard dwellings, duplexes and secondary dwellings on clean sites</td><td>Heritage, irregular or constrained sites, and anything non-standard</td></tr>
+          <tr><td>Main risk</td><td>Design risk &mdash; small non-compliances stop it entirely</td><td>Time and approval risk</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="text-align:center;margin-top:20px;font-size:13.5px;color:var(--muted);">Indicative only. Timeframes vary with the council, the site and how complete the lodgement is.</p>
+  </div>
+</section>
+
+<section class="on-white">
+  <div class="wrap" style="max-width:840px;">
+    <div class="section-head reveal">
+      <span class="tag">Common questions</span>
+      <h2>Questions we get asked</h2>
+      <p>The things developers, builders and owners ask us most often before they engage.</p>
+    </div>
+    <div class="faq reveal">
+      <details>
+        <summary>How long does a feasibility review take?</summary>
+        <div class="faq-a"><p>Five to seven business days from engagement for a full feasibility and planning strategy. A Site Check on a single address comes back in three business days. If you are working to an exchange date, tell us at the outset and we will confirm timing before you commit.</p></div>
+      </details>
+      <details>
+        <summary>What is the difference between a DA and a CDC?</summary>
+        <div class="faq-a"><p>A Development Application is assessed by council on merit, so there is room to argue variations, but it takes longer. A Complying Development Certificate is a rules-based approval issued by council or an accredited certifier, which is far quicker, but every control has to be met exactly. Which one suits you is a feasibility question rather than a preference.</p></div>
+      </details>
+      <details>
+        <summary>What do I get for the $600 Site Check?</summary>
+        <div class="faq-a"><p>A written read on a single address: the zone and its objectives, the key LEP controls covering height, floor space ratio, minimum lot size and setbacks, any SEPP overlays that apply, and a plain-English view of what is realistically possible. It is built for sizing up a site before you buy.</p></div>
+      </details>
+      <details>
+        <summary>Can you tell me how many dwellings I can fit?</summary>
+        <div class="faq-a"><p>We give you a realistic yield rather than a theoretical maximum &mdash; what the controls allow once setbacks, height, landscaped area, private open space and parking are applied, and what councils in that area are approving in practice. Theoretical yields are where most feasibilities come unstuck.</p></div>
+      </details>
+      <details>
+        <summary>What is a clause 4.6 variation?</summary>
+        <div class="faq-a"><p>Clause 4.6 of a Local Environmental Plan lets you seek consent for development that does not meet a development standard, most often height or floor space ratio, where you can show compliance is unreasonable or unnecessary in the circumstances and there are sufficient environmental planning grounds. It applies to DAs only; complying development has no equivalent.</p></div>
+      </details>
+      <details>
+        <summary>Do you lodge the application for us?</summary>
+        <div class="faq-a"><p>Yes. For DA and CDC work we prepare the Statement of Environmental Effects and the planning argument, fold the specialist reports into it, and coordinate lodgement through the NSW Planning Portal. Post-lodgement council liaison is charged hourly at a rate stated upfront.</p></div>
+      </details>
+      <details>
+        <summary>Do we need an architect first?</summary>
+        <div class="faq-a"><p>Usually it works the other way around. A pre-design planning brief sets the envelope and the key numbers before your architect starts, which is the cheapest point to discover a scheme does not fit. Briefing an architect without that framework is the most common cause of wasted design fees.</p></div>
+      </details>
+      <details>
+        <summary>Which councils do you work with?</summary>
+        <div class="faq-a"><p>Most of our work sits across Sydney &mdash; Inner West, Canterbury-Bankstown, Ryde, Sutherland Shire, Bayside, Georges River, Parramatta and the northern councils &mdash; along with the Central Coast, Illawarra and Blue Mountains. If your council is not one we work in often, we will tell you upfront.</p></div>
+      </details>
+      <details>
+        <summary>Are the fees genuinely fixed?</summary>
+        <div class="faq-a"><p>Yes. Every engagement starts with a written fee agreement setting out the scope and the fee, GST inclusive. If the scope changes, we agree that in writing before doing the work. The only hourly item is post-lodgement council liaison, at a rate stated before you engage us.</p></div>
+      </details>
+    </div>
+    <div style="text-align:center;margin-top:40px;"><a href="contact.html" class="btn-primary">Ask us about your site &rarr;</a></div>
   </div>
 </section>
 
@@ -449,7 +755,7 @@
   </div>
   <div class="footer-bottom wrap">
     <div class="footer-copy">© Bakos &amp; Evans Pty Ltd ABN 25 622 644 464. 2026. All prices include GST.</div>
-    <div class="footer-tagline">Straight planning advice, in before the money's spent.</div>
+    <div class="footer-tagline">Planning advice that lands before the money's spent.</div>
   </div>
 </footer>
 <script>

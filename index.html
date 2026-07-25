@@ -408,7 +408,7 @@
   .price-amount{font-family:'Inter Tight',sans-serif;font-weight:800;font-size:28px;letter-spacing:-0.02em;margin-bottom:14px;color:var(--black);}
   .price-amount span{font-size:14px;font-weight:600;color:#8A8782;}
   .price-desc{font-size:14px;color:#2A2825;line-height:1.6;flex:1;}
-  .price-badge{display:inline-block;background:var(--orange);color:var(--white);font-size:11px;font-weight:700;padding:4px 10px;border-radius:100px;margin-bottom:12px;letter-spacing:0.02em;width:fit-content;}
+  .price-badge{display:inline-block;background:var(--orange);color:var(--black);font-size:11px;font-weight:700;padding:4px 10px;border-radius:100px;margin-bottom:12px;letter-spacing:0.02em;width:fit-content;}
   .testi-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
   .testi-card{background:var(--white);border:1px solid var(--card-hairline);border-radius:22px;padding:36px;transition:transform .4s ease,box-shadow .4s ease;}
   .testi-card:hover{transform:translateY(-4px);box-shadow:0 20px 40px -10px rgba(0,0,0,0.15);}
@@ -450,6 +450,156 @@
     .testi-grid{grid-template-columns:1fr !important;}
     .team-preview{grid-template-columns:1fr !important;}
     .pricing-preview .price-card{margin-bottom:4px;}
+  }
+
+
+  /* ===== REVERSED (LIGHT) SECTIONS ===== */
+  .on-white{background:var(--white);color:var(--black);}
+  .on-white .hero-glow{opacity:0.10!important;}
+  /* --- text sitting directly on the light background --- */
+  .on-white .wrap h1,.on-white .wrap h2,.on-white .wrap h3,.on-white .wrap h4,
+  .on-white .section-head h2{color:var(--black)!important;}
+  .on-white .wrap p,.on-white .wrap li,.on-white .section-head p{color:var(--card-muted)!important;}
+  .on-white .wrap div{color:var(--black)!important;}
+  .on-white .section-more a{color:var(--black)!important;}
+  .on-white input,.on-white select,.on-white textarea{
+    background:#F7F7F7!important;color:var(--black)!important;border-color:rgba(0,0,0,0.12)!important;}
+  .on-white ::placeholder{color:#8A8782!important;}
+  /* --- dark boxes ON the light background (declared after, so they win) --- */
+  .on-white .card-white,.on-white .step,.on-white .price-card,
+  .on-white .testi-card,.on-white .team-card,.on-white .snap-card,
+  .on-white .lga-col,.on-white .faq details,.on-white .cmp-wrap,.on-white .stat-cell{
+    background:var(--black)!important;border-color:rgba(255,255,255,0.18)!important;}
+  .on-white .steps{background:rgba(255,255,255,0.18)!important;border-color:rgba(0,0,0,0.14)!important;}
+  .on-white .stat-strip{background:rgba(255,255,255,0.18)!important;border-color:rgba(0,0,0,0.14)!important;}
+  .on-white .card-white h2,.on-white .card-white h3,.on-white .card-white h4,
+  .on-white .step h3,.on-white .price-card h3,.on-white .testi-card h3,
+  .on-white .team-card h3,.on-white .snap-card h3,.on-white .team-name,
+  .on-white .price-amount,.on-white .faq summary,
+  .on-white .cmp-table thead th,.on-white .cmp-table td:first-child{color:var(--white)!important;}
+  .on-white .card-white p,.on-white .card-white li,.on-white .step p,
+  .on-white .price-card p,.on-white .price-desc,.on-white .testi-card p,
+  .on-white .testi-quote,.on-white .team-card p,.on-white .team-bio,
+  .on-white .snap-card p,.on-white .faq .faq-a,.on-white .faq .faq-a p,
+  .on-white .cmp-table td,.on-white .stat-lab{color:var(--muted)!important;}
+  .on-white .card-white div,.on-white .price-card div,.on-white .testi-card div,
+  .on-white .team-card div,.on-white .snap-card div,.on-white .lga-col div,
+  .on-white .stat-cell div{color:var(--white)!important;}
+  .on-white .lga-col li{color:var(--white)!important;background:rgba(255,255,255,0.06)!important;
+    border-color:rgba(255,255,255,0.18)!important;}
+  .on-white .stat-num,.on-white .lga-col h3,.on-white .snap-meta{color:var(--orange)!important;}
+  .on-white .stat-lab{color:var(--muted)!important;}
+  .on-white .card-white input,.on-white .card-white select,.on-white .card-white textarea{
+    background:#F7F7F7!important;color:var(--black)!important;}
+  .on-white .testi-author,.on-white .snap-stat,
+  .on-white .card-white div[style*="border-top"],
+  .on-white .testi-card div[style*="border-top"]{border-top-color:rgba(255,255,255,0.18)!important;}
+  .on-white .card-white span,.on-white .price-card span,.on-white .testi-card span,
+  .on-white .team-card span,.on-white .snap-card span,.on-white .lga-col span,
+  .on-white .stat-cell span,.on-white .faq span{color:var(--muted)!important;}
+  .on-white .wrap span[style*="var(--orange)"]{color:var(--orange)!important;}
+  .on-white .step:hover{background:#141414!important;}
+  /* --- additional dark boxes on light sections --- */
+  .on-white .price-card-full,.on-white .service-card,.on-white .form-card{
+    background:var(--black)!important;border-color:rgba(255,255,255,0.18)!important;}
+  .on-white .service-card:hover{background:#141414!important;}
+  .on-white .price-card-full h2,.on-white .price-card-full h3,.on-white .price-card-full h4,
+  .on-white .service-card h2,.on-white .service-card h3,.on-white .form-card h3{color:var(--white)!important;}
+  .on-white .price-card-full p,.on-white .service-card p,.on-white .form-card p{color:var(--muted)!important;}
+  .on-white .price-card-full div,.on-white .service-card div,.on-white .form-card div{color:var(--white)!important;}
+  .on-white .price-card-full span,.on-white .service-card span,.on-white .form-card span{color:var(--muted)!important;}
+  .on-white .price-card-full li,.on-white .service-card li{color:var(--muted)!important;}
+  .on-white .form-field label{color:#CFCDC8!important;}
+  .on-white .form-card input,.on-white .form-card select,.on-white .form-card textarea{
+    background:rgba(255,255,255,0.06)!important;color:var(--white)!important;
+    border-color:rgba(255,255,255,0.18)!important;}
+  .on-white .form-card select option{background:#111111;color:var(--white);}
+  .on-white .team-tag{color:var(--muted)!important;border-color:rgba(255,255,255,0.18)!important;}
+  .on-white .service-meta{border-top-color:rgba(255,255,255,0.18)!important;}
+  .on-white .service-num,.on-white .service-meta,.on-white .step-index{color:var(--orange)!important;}
+  .on-white .price-badge{color:var(--black)!important;}
+  .on-white .steps{background:rgba(255,255,255,0.22)!important;}
+  .on-white .card-white .btn-outline-dark,.on-white .price-card .btn-outline-dark{
+    color:var(--white)!important;border-color:var(--white)!important;}
+  .on-white .card-white .btn-outline-dark:hover{background:var(--white)!important;color:var(--black)!important;}
+
+  /* eyebrow tags: orange fails contrast on white, so use black on light sections */
+  .on-white .tag{color:var(--black)!important;}
+  .on-white .wrap span.tag{color:var(--black)!important;}
+  .on-white .card-white .tag,.on-white .service-card .tag,
+  .on-white .price-card-full .tag,.on-white .form-card .tag{color:var(--orange)!important;}
+  .on-white .team-role{color:var(--orange)!important;}
+
+  /* ===== STAT STRIP ===== */
+  .stat-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+    background:var(--hairline);border:1px solid var(--hairline);border-radius:20px;overflow:hidden;}
+  .on-white .stat-strip{background:rgba(255,255,255,0.18);border-color:rgba(0,0,0,0.14);}
+  .stat-cell{background:rgba(255,255,255,0.03);padding:30px 22px;text-align:center;}
+  .stat-num{font-family:'Inter Tight',sans-serif;font-weight:800;font-size:25px;
+    letter-spacing:-0.02em;color:var(--orange);line-height:1.15;}
+  .stat-lab{font-size:13.5px;color:var(--muted);margin-top:8px;line-height:1.5;}
+
+  /* ===== COMPARISON TABLE ===== */
+  .cmp-wrap{overflow-x:auto;border:1px solid var(--hairline);border-radius:20px;background:rgba(255,255,255,0.03);}
+  .on-white .cmp-wrap{border-color:rgba(255,255,255,0.18);}
+  .cmp-table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:660px;}
+  .cmp-table th,.cmp-table td{padding:16px 18px;text-align:left;vertical-align:top;
+    border-bottom:1px solid var(--hairline);line-height:1.6;}
+  .cmp-table thead th{font-family:'Inter Tight',sans-serif;font-weight:700;font-size:14px;
+    color:var(--white);background:rgba(255,255,255,0.05);}
+  .cmp-table td:first-child{font-weight:600;color:var(--white);width:160px;}
+  .cmp-table td{color:var(--muted);}
+  .cmp-table tr:last-child td{border-bottom:none;}
+
+  /* ===== FAQ ACCORDION ===== */
+  .faq{display:flex;flex-direction:column;gap:12px;}
+  .faq details{border:1px solid var(--hairline);border-radius:16px;
+    background:rgba(255,255,255,0.03);overflow:hidden;transition:border-color .3s ease;}
+  .on-white .faq details{background:var(--black);border-color:rgba(255,255,255,0.18);}
+  .faq details[open]{border-color:var(--blue-border);}
+  .faq summary{cursor:pointer;list-style:none;padding:20px 56px 20px 22px;position:relative;
+    font-family:'Inter Tight',sans-serif;font-weight:600;font-size:16.5px;
+    color:var(--white);line-height:1.45;}
+  .faq summary::-webkit-details-marker{display:none;}
+  .faq summary::after{content:"";position:absolute;right:24px;top:50%;width:10px;height:10px;
+    border-right:2px solid var(--blue);border-bottom:2px solid var(--blue);
+    transform:translateY(-70%) rotate(45deg);transition:transform .3s ease;}
+  .faq details[open] summary::after{transform:translateY(-25%) rotate(-135deg);}
+  .faq .faq-a{padding:0 22px 22px;font-size:15px;line-height:1.7;color:var(--muted);}
+  .faq .faq-a p+p{margin-top:12px;}
+
+  /* ===== LGA COVERAGE ===== */
+  .lga-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .lga-col{border:1px solid var(--hairline);border-radius:18px;padding:26px 24px;
+    background:rgba(255,255,255,0.03);}
+  .on-white .lga-col{background:var(--black);border-color:rgba(255,255,255,0.18);}
+  .lga-col h3{font-family:'Inter Tight',sans-serif;font-weight:700;font-size:13px;
+    letter-spacing:0.06em;text-transform:uppercase;color:var(--orange);margin-bottom:15px;}
+  .lga-col ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px;}
+  .lga-col li{font-size:13.5px;padding:6px 12px;border-radius:100px;
+    background:rgba(255,255,255,0.06);border:1px solid var(--hairline);color:var(--white);}
+
+  /* ===== PROJECT SNAPSHOTS ===== */
+  .snap-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;}
+  .snap-card{border:1px solid var(--hairline);border-radius:20px;padding:30px 28px;
+    background:rgba(255,255,255,0.03);transition:transform .4s ease,border-color .4s ease;}
+  .on-white .snap-card{background:var(--black);border-color:rgba(255,255,255,0.18);}
+  .snap-card:hover{transform:translateY(-4px);border-color:var(--orange-border);}
+  .snap-meta{font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;
+    color:var(--orange);margin-bottom:12px;}
+  .snap-card h3{font-family:'Inter Tight',sans-serif;font-weight:700;font-size:18px;
+    letter-spacing:-0.015em;color:var(--white);margin-bottom:10px;line-height:1.35;}
+  .snap-card p{font-size:14.5px;line-height:1.65;color:var(--muted);}
+  .snap-stat{margin-top:20px;padding-top:16px;border-top:1px solid var(--hairline);
+    display:flex;gap:26px;flex-wrap:wrap;}
+  .snap-stat div{font-size:12.5px;color:var(--muted);}
+  .snap-stat strong{display:block;font-family:'Inter Tight',sans-serif;font-size:17px;
+    font-weight:800;color:var(--white);letter-spacing:-0.01em;margin-bottom:2px;}
+
+  @media(max-width:900px){
+    .stat-strip{grid-template-columns:1fr 1fr;}
+    .lga-grid{grid-template-columns:1fr;}
+    .snap-grid{grid-template-columns:1fr;}
   }
 
 </style>
@@ -646,11 +796,11 @@
   <div class="pb-img" style="background-image:url('images/home-facade-sunset.jpg');"></div>
   <div class="pb-overlay"></div>
 </div>
-<section class="on-black">
+<section class="on-white">
   <div class="how wrap">
     <div class="steps">
       <div class="step reveal"><span class="step-index">01</span><div class="icon-chip"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4B8FE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></div><h3>Send your site</h3><p>An address, a concept, or a problem. No formal brief required.</p></div>
-      <div class="step reveal"><span class="step-index">02</span><div class="icon-chip"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4B8FE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div><h3>We assess it</h3><p>Zoning, the LEP and DCP controls, a realistic building envelope and yield — checked against what councils are actually approving.</p></div>
+      <div class="step reveal"><span class="step-index">02</span><div class="icon-chip"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4B8FE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div><h3>We assess it</h3><p>Zoning, the LEP and DCP controls, a realistic building envelope and yield — checked against what councils are approving in practice.</p></div>
       <div class="step reveal"><span class="step-index">03</span><div class="icon-chip"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4B8FE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div><h3>You get a call</h3><p>Go, pause, or stop — with the reasoning, the key numbers, and a plain-English next step.</p></div>
       <div class="step reveal"><span class="step-index">04</span><div class="icon-chip"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4B8FE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9,11 12,14 22,4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div><h3>You move, efficiently</h3><p>Brief your architect, builder or lender with exactly what they need.</p></div>
     </div>
@@ -662,7 +812,19 @@
   <div class="pb-img" style="background-image:url('images/aerial-estate.jpg');"></div>
   <div class="pb-overlay"></div>
 </div>
-<section class="on-black" id="services">
+
+<section class="on-black">
+  <div class="wrap">
+    <div class="stat-strip reveal">
+      <div class="stat-cell"><div class="stat-num">Since 2017</div><div class="stat-lab">Advising on NSW planning</div></div>
+      <div class="stat-cell"><div class="stat-num">2 business days</div><div class="stat-lab">Typical reply to a new enquiry</div></div>
+      <div class="stat-cell"><div class="stat-num">From $600</div><div class="stat-lab">Site Check, GST inclusive</div></div>
+      <div class="stat-cell"><div class="stat-num">Fixed fees</div><div class="stat-lab">Agreed in writing before we start</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="on-white" id="services">
   <div class="wrap">
     <div class="section-head reveal">
       <span class="tag">Services</span>
@@ -674,21 +836,21 @@
         <span class="service-num">01 — Before you buy or commit</span>
         <div class="icon-chip"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4B8FE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
         <h3>Early-stage feasibility &amp; planning strategy</h3>
-        <p>A straight read on your zoning, the controls that bite, realistic yield, and whether DA or complying development is the smarter path — with a go, pause, or stop at the end of it.</p>
+        <p>A full read on your zoning, the controls that bite, realistic yield, and whether DA or complying development is the smarter path — with a go, pause, or stop at the end of it.</p>
         <div class="service-meta">→ From $1,700 incl. GST · 5–7 business days</div>
       </div>
       <div class="service-card reveal">
         <span class="service-num">02 — Before you brief your architect</span>
         <div class="icon-chip"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4B8FE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M5 20V8l7-6 7 6v12"/><path d="M9 20v-6h6v6"/></svg></div>
         <h3>Pre-design planning briefs &amp; envelope testing</h3>
-        <p>A practical massing and envelope test, turned into a brief your architect can start designing to straight away.</p>
+        <p>A practical massing and envelope test, turned into a brief your architect can pick up and run with.</p>
         <div class="service-meta">→ From $1,000 incl. GST · 4–6 business days</div>
       </div>
       <div class="service-card reveal">
         <span class="service-num">03 — When you're ready to lodge</span>
         <div class="icon-chip"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4B8FE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg></div>
         <h3>DA / CDC approvals &amp; planning reports</h3>
-        <p>Statement of Environmental Effects, clause 4.6 variation requests, and a planning argument your consent authority can actually say yes to — lodged through the NSW Planning Portal.</p>
+        <p>Statement of Environmental Effects, clause 4.6 variation requests, and a planning argument your consent authority can say yes to — lodged through the NSW Planning Portal.</p>
         <div class="service-meta">→ From $3,000 incl. GST · scoped per project</div>
       </div>
     </div>
@@ -706,7 +868,7 @@
     <div class="section-head reveal">
       <span class="tag">Pricing</span>
       <h2>Fixed fees, agreed upfront</h2>
-      <p>Transparent, GST-inclusive pricing you can actually compare.</p>
+      <p>Transparent, GST-inclusive pricing you can compare line for line.</p>
     </div>
     <div class="pricing-preview">
       <div class="price-card reveal">
@@ -749,11 +911,11 @@
   <div class="pb-img" style="background-image:url('images/duplex-brick.jpg');"></div>
   <div class="pb-overlay"></div>
 </div>
-<section class="on-black" id="about">
+<section class="on-white" id="about">
   <div class="wrap">
     <div class="section-head reveal">
       <span class="tag">The practice</span>
-      <h2>The planners you'll actually be dealing with.</h2>
+      <h2>The planners you'll be dealing with.</h2>
       <p>We started whatcani.build after watching too many good projects come unstuck early — not because the site was wrong, but because the planning advice turned up too late. Next year we tick over ten years of getting it in first.</p>
     </div>
     <div class="team-preview">
@@ -770,7 +932,7 @@
           <img src="data:image/jpeg;base64,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" alt="Nathan Evans" style="width:88px;height:88px;border-radius:50%;object-fit:cover;flex-shrink:0;border:2px solid rgba(255,119,0,0.35);">
           <div><div class="team-name">Nathan Evans</div><div class="team-role">Principal — Design &amp; Approvals</div></div>
         </div>
-        <p class="team-bio">Nathan is the design-literate half of the practice — he reads plans, sections and massing fluently enough to pick up planning issues while a scheme can still be changed cheaply. He leads the pre-design and approvals work, from envelope testing through to DA and CDC lodgement, turning planning controls into briefs architects can design to and planning reports councils can actually approve.</p>
+        <p class="team-bio">Nathan is the design-literate half of the practice — he reads plans, sections and massing fluently enough to pick up planning issues while a scheme can still be changed cheaply. He leads the pre-design and approvals work, from envelope testing through to DA and CDC lodgement, turning planning controls into briefs architects can design to and planning reports councils can approve.</p>
         <div class="team-tags"><span class="team-tag">DA / CDC Approvals</span><span class="team-tag">Envelope Testing</span><span class="team-tag">Council Coordination</span></div>
       </div>
     </div>
@@ -810,7 +972,7 @@
   <div class="pb-img" style="background-image:url('images/builder-on-frame.jpg');"></div>
   <div class="pb-overlay"></div>
 </div>
-<section class="on-black" id="contact" style="position:relative;overflow:hidden;">
+<section class="on-white" id="contact" style="position:relative;overflow:hidden;">
   <div class="hero-glow" style="opacity:0.3;top:30%;pointer-events:none;position:absolute;"></div>
   <div class="wrap contact-grid-idx">
     <div class="contact-info reveal">
@@ -877,7 +1039,7 @@
   </div>
   <div class="footer-bottom wrap">
     <div class="footer-copy">© Bakos &amp; Evans Pty Ltd ABN 25 622 644 464. 2026. All prices include GST.</div>
-    <div class="footer-tagline">Straight planning advice, in before the money's spent.</div>
+    <div class="footer-tagline">Planning advice that lands before the money's spent.</div>
   </div>
 </footer>
 <script>

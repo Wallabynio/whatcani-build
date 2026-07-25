@@ -319,6 +319,156 @@
     .article-body table{font-size:12.5px;display:block;overflow-x:auto;}
     .article-body th,.article-body td{padding:8px;}
   }
+
+  /* ===== REVERSED (LIGHT) SECTIONS ===== */
+  .on-white{background:var(--white);color:var(--black);}
+  .on-white .hero-glow{opacity:0.10!important;}
+  /* --- text sitting directly on the light background --- */
+  .on-white .wrap h1,.on-white .wrap h2,.on-white .wrap h3,.on-white .wrap h4,
+  .on-white .section-head h2{color:var(--black)!important;}
+  .on-white .wrap p,.on-white .wrap li,.on-white .section-head p{color:var(--card-muted)!important;}
+  .on-white .wrap div{color:var(--black)!important;}
+  .on-white .section-more a{color:var(--black)!important;}
+  .on-white input,.on-white select,.on-white textarea{
+    background:#F7F7F7!important;color:var(--black)!important;border-color:rgba(0,0,0,0.12)!important;}
+  .on-white ::placeholder{color:#8A8782!important;}
+  /* --- dark boxes ON the light background (declared after, so they win) --- */
+  .on-white .card-white,.on-white .step,.on-white .price-card,
+  .on-white .testi-card,.on-white .team-card,.on-white .snap-card,
+  .on-white .lga-col,.on-white .faq details,.on-white .cmp-wrap,.on-white .stat-cell{
+    background:var(--black)!important;border-color:rgba(255,255,255,0.18)!important;}
+  .on-white .steps{background:rgba(255,255,255,0.18)!important;border-color:rgba(0,0,0,0.14)!important;}
+  .on-white .stat-strip{background:rgba(255,255,255,0.18)!important;border-color:rgba(0,0,0,0.14)!important;}
+  .on-white .card-white h2,.on-white .card-white h3,.on-white .card-white h4,
+  .on-white .step h3,.on-white .price-card h3,.on-white .testi-card h3,
+  .on-white .team-card h3,.on-white .snap-card h3,.on-white .team-name,
+  .on-white .price-amount,.on-white .faq summary,
+  .on-white .cmp-table thead th,.on-white .cmp-table td:first-child{color:var(--white)!important;}
+  .on-white .card-white p,.on-white .card-white li,.on-white .step p,
+  .on-white .price-card p,.on-white .price-desc,.on-white .testi-card p,
+  .on-white .testi-quote,.on-white .team-card p,.on-white .team-bio,
+  .on-white .snap-card p,.on-white .faq .faq-a,.on-white .faq .faq-a p,
+  .on-white .cmp-table td,.on-white .stat-lab{color:var(--muted)!important;}
+  .on-white .card-white div,.on-white .price-card div,.on-white .testi-card div,
+  .on-white .team-card div,.on-white .snap-card div,.on-white .lga-col div,
+  .on-white .stat-cell div{color:var(--white)!important;}
+  .on-white .lga-col li{color:var(--white)!important;background:rgba(255,255,255,0.06)!important;
+    border-color:rgba(255,255,255,0.18)!important;}
+  .on-white .stat-num,.on-white .lga-col h3,.on-white .snap-meta{color:var(--orange)!important;}
+  .on-white .stat-lab{color:var(--muted)!important;}
+  .on-white .card-white input,.on-white .card-white select,.on-white .card-white textarea{
+    background:#F7F7F7!important;color:var(--black)!important;}
+  .on-white .testi-author,.on-white .snap-stat,
+  .on-white .card-white div[style*="border-top"],
+  .on-white .testi-card div[style*="border-top"]{border-top-color:rgba(255,255,255,0.18)!important;}
+  .on-white .card-white span,.on-white .price-card span,.on-white .testi-card span,
+  .on-white .team-card span,.on-white .snap-card span,.on-white .lga-col span,
+  .on-white .stat-cell span,.on-white .faq span{color:var(--muted)!important;}
+  .on-white .wrap span[style*="var(--orange)"]{color:var(--orange)!important;}
+  .on-white .step:hover{background:#141414!important;}
+  /* --- additional dark boxes on light sections --- */
+  .on-white .price-card-full,.on-white .service-card,.on-white .form-card{
+    background:var(--black)!important;border-color:rgba(255,255,255,0.18)!important;}
+  .on-white .service-card:hover{background:#141414!important;}
+  .on-white .price-card-full h2,.on-white .price-card-full h3,.on-white .price-card-full h4,
+  .on-white .service-card h2,.on-white .service-card h3,.on-white .form-card h3{color:var(--white)!important;}
+  .on-white .price-card-full p,.on-white .service-card p,.on-white .form-card p{color:var(--muted)!important;}
+  .on-white .price-card-full div,.on-white .service-card div,.on-white .form-card div{color:var(--white)!important;}
+  .on-white .price-card-full span,.on-white .service-card span,.on-white .form-card span{color:var(--muted)!important;}
+  .on-white .price-card-full li,.on-white .service-card li{color:var(--muted)!important;}
+  .on-white .form-field label{color:#CFCDC8!important;}
+  .on-white .form-card input,.on-white .form-card select,.on-white .form-card textarea{
+    background:rgba(255,255,255,0.06)!important;color:var(--white)!important;
+    border-color:rgba(255,255,255,0.18)!important;}
+  .on-white .form-card select option{background:#111111;color:var(--white);}
+  .on-white .team-tag{color:var(--muted)!important;border-color:rgba(255,255,255,0.18)!important;}
+  .on-white .service-meta{border-top-color:rgba(255,255,255,0.18)!important;}
+  .on-white .service-num,.on-white .service-meta,.on-white .step-index{color:var(--orange)!important;}
+  .on-white .price-badge{color:var(--black)!important;}
+  .on-white .steps{background:rgba(255,255,255,0.22)!important;}
+  .on-white .card-white .btn-outline-dark,.on-white .price-card .btn-outline-dark{
+    color:var(--white)!important;border-color:var(--white)!important;}
+  .on-white .card-white .btn-outline-dark:hover{background:var(--white)!important;color:var(--black)!important;}
+
+  /* eyebrow tags: orange fails contrast on white, so use black on light sections */
+  .on-white .tag{color:var(--black)!important;}
+  .on-white .wrap span.tag{color:var(--black)!important;}
+  .on-white .card-white .tag,.on-white .service-card .tag,
+  .on-white .price-card-full .tag,.on-white .form-card .tag{color:var(--orange)!important;}
+  .on-white .team-role{color:var(--orange)!important;}
+
+  /* ===== STAT STRIP ===== */
+  .stat-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+    background:var(--hairline);border:1px solid var(--hairline);border-radius:20px;overflow:hidden;}
+  .on-white .stat-strip{background:rgba(255,255,255,0.18);border-color:rgba(0,0,0,0.14);}
+  .stat-cell{background:rgba(255,255,255,0.03);padding:30px 22px;text-align:center;}
+  .stat-num{font-family:'Inter Tight',sans-serif;font-weight:800;font-size:25px;
+    letter-spacing:-0.02em;color:var(--orange);line-height:1.15;}
+  .stat-lab{font-size:13.5px;color:var(--muted);margin-top:8px;line-height:1.5;}
+
+  /* ===== COMPARISON TABLE ===== */
+  .cmp-wrap{overflow-x:auto;border:1px solid var(--hairline);border-radius:20px;background:rgba(255,255,255,0.03);}
+  .on-white .cmp-wrap{border-color:rgba(255,255,255,0.18);}
+  .cmp-table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:660px;}
+  .cmp-table th,.cmp-table td{padding:16px 18px;text-align:left;vertical-align:top;
+    border-bottom:1px solid var(--hairline);line-height:1.6;}
+  .cmp-table thead th{font-family:'Inter Tight',sans-serif;font-weight:700;font-size:14px;
+    color:var(--white);background:rgba(255,255,255,0.05);}
+  .cmp-table td:first-child{font-weight:600;color:var(--white);width:160px;}
+  .cmp-table td{color:var(--muted);}
+  .cmp-table tr:last-child td{border-bottom:none;}
+
+  /* ===== FAQ ACCORDION ===== */
+  .faq{display:flex;flex-direction:column;gap:12px;}
+  .faq details{border:1px solid var(--hairline);border-radius:16px;
+    background:rgba(255,255,255,0.03);overflow:hidden;transition:border-color .3s ease;}
+  .on-white .faq details{background:var(--black);border-color:rgba(255,255,255,0.18);}
+  .faq details[open]{border-color:var(--blue-border);}
+  .faq summary{cursor:pointer;list-style:none;padding:20px 56px 20px 22px;position:relative;
+    font-family:'Inter Tight',sans-serif;font-weight:600;font-size:16.5px;
+    color:var(--white);line-height:1.45;}
+  .faq summary::-webkit-details-marker{display:none;}
+  .faq summary::after{content:"";position:absolute;right:24px;top:50%;width:10px;height:10px;
+    border-right:2px solid var(--blue);border-bottom:2px solid var(--blue);
+    transform:translateY(-70%) rotate(45deg);transition:transform .3s ease;}
+  .faq details[open] summary::after{transform:translateY(-25%) rotate(-135deg);}
+  .faq .faq-a{padding:0 22px 22px;font-size:15px;line-height:1.7;color:var(--muted);}
+  .faq .faq-a p+p{margin-top:12px;}
+
+  /* ===== LGA COVERAGE ===== */
+  .lga-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .lga-col{border:1px solid var(--hairline);border-radius:18px;padding:26px 24px;
+    background:rgba(255,255,255,0.03);}
+  .on-white .lga-col{background:var(--black);border-color:rgba(255,255,255,0.18);}
+  .lga-col h3{font-family:'Inter Tight',sans-serif;font-weight:700;font-size:13px;
+    letter-spacing:0.06em;text-transform:uppercase;color:var(--orange);margin-bottom:15px;}
+  .lga-col ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px;}
+  .lga-col li{font-size:13.5px;padding:6px 12px;border-radius:100px;
+    background:rgba(255,255,255,0.06);border:1px solid var(--hairline);color:var(--white);}
+
+  /* ===== PROJECT SNAPSHOTS ===== */
+  .snap-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;}
+  .snap-card{border:1px solid var(--hairline);border-radius:20px;padding:30px 28px;
+    background:rgba(255,255,255,0.03);transition:transform .4s ease,border-color .4s ease;}
+  .on-white .snap-card{background:var(--black);border-color:rgba(255,255,255,0.18);}
+  .snap-card:hover{transform:translateY(-4px);border-color:var(--orange-border);}
+  .snap-meta{font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;
+    color:var(--orange);margin-bottom:12px;}
+  .snap-card h3{font-family:'Inter Tight',sans-serif;font-weight:700;font-size:18px;
+    letter-spacing:-0.015em;color:var(--white);margin-bottom:10px;line-height:1.35;}
+  .snap-card p{font-size:14.5px;line-height:1.65;color:var(--muted);}
+  .snap-stat{margin-top:20px;padding-top:16px;border-top:1px solid var(--hairline);
+    display:flex;gap:26px;flex-wrap:wrap;}
+  .snap-stat div{font-size:12.5px;color:var(--muted);}
+  .snap-stat strong{display:block;font-family:'Inter Tight',sans-serif;font-size:17px;
+    font-weight:800;color:var(--white);letter-spacing:-0.01em;margin-bottom:2px;}
+
+  @media(max-width:900px){
+    .stat-strip{grid-template-columns:1fr 1fr;}
+    .lga-grid{grid-template-columns:1fr;}
+    .snap-grid{grid-template-columns:1fr;}
+  }
+
 </style>
 </head>
 <body>
@@ -363,7 +513,7 @@
   <div class="pb-overlay"></div>
 </div>
 
-<section class="on-black">
+<section class="on-white">
   <div class="wrap">
     <div class="section-head reveal">
       <span class="tag">Latest articles</span>
@@ -392,7 +542,8 @@
     <h3 style="font-family:'Inter Tight',sans-serif;font-weight:700;font-size:20px;letter-spacing:-0.015em;color:var(--black);margin-bottom:12px;line-height:1.3;">What zoning R2 actually means for your site</h3>
     <p style="font-size:14.5px;color:#2A2825;line-height:1.65;flex:1;">R2 Low Density Residential is one of the most common zones in Sydney, and one of the most misunderstood. Here's what it permits, what it prohibits, and what your LEP says about your specific site.</p>
     <div style="margin-top:20px;display:flex;align-items:center;justify-content:space-between;">
-      <span style="font-size:13px;color:#8A8782;">23 Jul 2026</span>
+      <span style="font-size:13px;color:#8A8782;">23 Jul 2026 &middot; 9 min read</span>
+      <a href="#" id="open-article-2" style="font-size:13.5px;font-weight:700;color:var(--orange);text-decoration:none;">Read &rarr;</a>
     </div>
   </div>
 </div>
@@ -498,7 +649,7 @@
 
 <h3>5. Practical feasibility: how to decide DA vs CDC</h3>
 <p>NSW practice increasingly treats DA vs CDC as a feasibility question answered early, before detailed design fees are committed. Typical feasibility steps include: checking zoning and overlays, reviewing the applicable SEPP codes and LEP/DCP controls, mapping site constraints (slope, flooding, heritage, easements), and sketching test layouts against key CDC standards such as setbacks, private open space, and solar access.</p>
-<p>Pre-lodgement meetings with council planners are recommended for both pathways but are especially useful if you anticipate needing a DA; they allow you to test appetite for variations and to identify likely conditions or concerns before committing to a design. For CDC, feasibility often involves liaison with an accredited certifier early on, to confirm the site and concept are actually eligible under the chosen code.</p>
+<p>Pre-lodgement meetings with council planners are recommended for both pathways but are especially useful if you anticipate needing a DA; they allow you to test appetite for variations and to identify likely conditions or concerns before committing to a design. For CDC, feasibility often involves liaison with an accredited certifier early on, to confirm the site and concept are eligible under the chosen code.</p>
 <p>Documentation demands are similar at a baseline level: both pathways require site plans, floor plans, elevations, sections, BASIX certificates for residential projects, and design verification statements confirming code compliance. DA typically adds impact assessments (Statement of Environmental Effects, traffic reports, heritage reports, view or overshadowing studies), whereas CDC focuses on evidence that each relevant numeric control is satisfied.</p>
 <p>Costs are highly project-specific, but available industry guidance suggests that CDC approvals have lower and more predictable statutory costs due to shorter time frames and simpler documentation, whereas DAs tend to incur higher council fees and professional costs over longer assessment periods. This distinction is material in feasibility studies, but should be weighed against the potential for expensive redesign if you attempt a marginal CDC and later discover it does not comply.</p>
 
@@ -581,9 +732,84 @@
   </div>
   <div class="footer-bottom wrap">
     <div class="footer-copy">© Bakos &amp; Evans Pty Ltd ABN 25 622 644 464. 2026. All prices include GST.</div>
-    <div class="footer-tagline">Straight planning advice, in before the money's spent.</div>
+    <div class="footer-tagline">Planning advice that lands before the money's spent.</div>
   </div>
 </footer>
+
+<!-- ARTICLE 2 FLOATING CARD -->
+<div class="article-overlay" id="article-2" role="dialog" aria-modal="true" aria-label="What zoning R2 actually means for your site">
+  <div class="article-card">
+    <button class="article-close" aria-label="Close article and return to the blog"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4B8FE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    <div class="article-body">
+<span style="font-size:12px;font-weight:700;color:var(--orange);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px;display:block;">Planning guides</span>
+<h2>What zoning R2 actually means for your site</h2>
+<div class="article-meta">23 Jul 2026 &middot; 9 min read</div>
+
+<p>R2 Low Density Residential is the most common residential zone in Sydney, and the one most often misread. The zone label tells you which uses are on the menu; it does not tell you what you can build. The numbers that decide that &mdash; minimum lot size, height, floor space ratio, setbacks, landscaped area &mdash; sit in separate clauses of your Local Environmental Plan, in the Development Control Plan behind it, and increasingly in a State policy that overrides both. Two sites in the same R2 zone, a few streets apart, can carry very different development.</p>
+
+<h3>1. Where the R2 rules actually come from</h3>
+<p>R2 is not a council invention. It is one of the standard residential zones in the Standard Instrument (Local Environmental Plans) Order 2006, the template every council in NSW must use when it writes its LEP. That is why the zone name, the zone objectives and the broad shape of the land use table look familiar from one council to the next: they are drawn from a single State template rather than written locally.</p>
+<p>The standard objectives of the R2 zone are to provide for the housing needs of the community within a low density residential environment, and to enable other land uses that provide facilities or services to meet the day to day needs of residents. Those objectives matter more than they appear. When a proposal sits at the edge of a control, an assessing planner will test it against the objectives of the zone, and a scheme that plainly reads as medium density in a low density street will struggle regardless of how the numbers stack up.</p>
+<p>Beneath the objectives sits the land use table, which sorts every use into three buckets: permitted without consent, permitted with consent, and prohibited. Councils adapt the table within limits, so R2 in Ryde is not identical to R2 in Sutherland Shire. The zone gets you to the right chapter; only the specific LEP tells you the rules.</p>
+
+<h3>2. What you can build in R2</h3>
+<p>The core of the R2 land use table is a dwelling house, a secondary dwelling (a granny flat), a dual occupancy and semi-detached dwellings, all with development consent. Around that core, most councils also permit a longer list with consent: boarding houses, child care centres, community facilities, educational establishments, group homes, health consulting rooms, home businesses and home industries, neighbourhood shops, respite day care centres and, in some LEPs, shop top housing. The exact list is set by your council&rsquo;s land use table, and the differences between councils are real.</p>
+<p>Two State reforms have widened that core materially. From 1 July 2024, dual occupancies and semi-detached dwellings became permissible with consent across R2 zones throughout NSW, removing the patchwork where some councils allowed duplexes and neighbouring councils did not. From 28 February 2025, the second stage of the Low and Mid-Rise Housing Policy went further, permitting terraces, manor houses and multi dwelling housing, and in places low-rise residential flat buildings, on R2 land within roughly 800 metres walking distance of a list of nominated town centres and transport hubs.</p>
+<p>That second reform is geographically targeted rather than universal. Whether your R2 site sits inside or outside one of those walking catchments is often the single largest determinant of what it is worth, and it is not something the zone colour on a map will tell you.</p>
+
+<h3>3. The controls that actually decide yield</h3>
+<p>Permissibility is the beginning of the analysis, not the end. In practice the binding constraints are numerical, and they live outside the land use table:</p>
+<p><strong>Minimum lot size.</strong> Clause 4.1 of the LEP sets the minimum lot size for subdivision, commonly 450 square metres in R2 but ranging widely by council and by locality. It is the control that most often decides whether a dual occupancy can be subdivided into two saleable lots, which is usually where the margin sits.</p>
+<p><strong>Height of buildings.</strong> Mapped under clause 4.3, typically 8.5 or 9.5 metres in R2. The difference between those two figures decides whether a genuine two-storey scheme with a pitched roof works on a sloping site.</p>
+<p><strong>Floor space ratio.</strong> Mapped under clause 4.4 where it applies. Not every R2 area has a mapped FSR, and where it does not, bulk is governed by height, setbacks and landscaped area instead.</p>
+<p><strong>The DCP layer.</strong> Setbacks, landscaped area, deep soil, private open space, solar access, driveway widths, parking and tree retention are usually in the Development Control Plan rather than the LEP. A DCP is not law in the same way an LEP is, but a scheme that ignores it will attract conditions, objections and delay.</p>
+<p>Under the Stage 2 reforms, dual occupancy on qualifying R2 land is subject to non-discretionary development standards, including a minimum lot size of 450 square metres, a minimum lot width of 12 metres, a maximum floor space ratio of 0.65:1 and a maximum height of 9.5 metres, with subdivision permitted down to 225 square metres per lot at a minimum 6 metre width. These State standards override the equivalent LEP and DCP provisions, except where the local control is more generous.</p>
+
+<h3>4. What R2 prohibits, and where projects come unstuck</h3>
+<p>Outside the mapped Stage 2 catchments, residential flat buildings remain prohibited in R2, as do most commercial, retail beyond a neighbourhood shop, and industrial uses. Prohibition is absolute: there is no variation clause that makes a prohibited use permissible, and clause 4.6 cannot be used to overcome it. This is a common and expensive misunderstanding &mdash; clause 4.6 varies a development standard such as height or floor space ratio, not the permissibility of a use.</p>
+<p>The more frequent problem, though, is not the zone at all. It is the overlays sitting on top of it. Heritage conservation areas, bushfire prone land, flood planning areas, acid sulfate soils, biodiversity values land, and easements or rights of carriageway do not change what the zone permits, but any one of them can stop a scheme or reshape it entirely. A site can be perfectly zoned for a duplex and still be undevelopable in the form the buyer had in mind. Checking the zone without checking the overlays is the single most common failure we see in pre-purchase due diligence.</p>
+
+<h3>5. Practical implications for a feasibility</h3>
+<p>A defensible R2 feasibility works through four questions in order. Is the use permissible under this council&rsquo;s land use table, and does the Housing SEPP widen that? Does the site meet the numeric thresholds for the form you want, particularly minimum lot size and width? What do the overlays and site constraints do to the developable envelope once setbacks, landscaped area and deep soil are applied? And finally, what is this council actually approving on comparable sites, which is a question the controls alone will not answer.</p>
+<p>Yield should be derived from that sequence, not assumed from the zone. The gap between a theoretical yield calculated off site area and a realistic yield after controls and constraints are applied is routinely one dwelling, and one dwelling is usually the difference between a project that works and one that does not.</p>
+
+<h3>6. Summary table: reading an R2 site</h3>
+<table>
+  <tr><th>Question</th><th>Where the answer sits</th><th>Why it matters</th></tr>
+  <tr><td>Is the use permitted?</td><td>LEP land use table for Zone R2, as widened by the Housing SEPP</td><td>Prohibition cannot be varied; clause 4.6 does not apply to permissibility.</td></tr>
+  <tr><td>Can it be subdivided?</td><td>LEP clause 4.1 minimum lot size; Housing SEPP standards where they apply</td><td>Usually decides whether two saleable lots are achievable.</td></tr>
+  <tr><td>How tall?</td><td>LEP clause 4.3 and the height of buildings map</td><td>8.5 versus 9.5 metres often decides two storeys on a slope.</td></tr>
+  <tr><td>How much floor area?</td><td>LEP clause 4.4 where FSR is mapped; otherwise height and setbacks</td><td>Not all R2 land has a mapped FSR.</td></tr>
+  <tr><td>What shape can it take?</td><td>Council DCP: setbacks, landscaped area, deep soil, private open space, parking</td><td>Drives the real envelope more than most buyers expect.</td></tr>
+  <tr><td>Is it in a reform catchment?</td><td>Low and Mid-Rise Housing Policy mapping, by walking distance to nominated centres</td><td>Can be the difference between a duplex and townhouses.</td></tr>
+  <tr><td>What else is on the land?</td><td>Heritage, bushfire, flood, biodiversity and acid sulfate mapping; title and easements</td><td>Overlays stop more R2 projects than the zone itself.</td></tr>
+</table>
+
+<h3>7. Critical limitations and uncertainties</h3>
+<p>Much of the accessible commentary on R2 zoning and the low and mid-rise reforms is published by designers, builders, certifiers and agents with a commercial interest in a particular outcome, and it tends to describe the most favourable reading of the rules rather than the assessed reality. Very little of it is accompanied by data on approval rates, refusals or the conditions councils are imposing under the new standards.</p>
+<p>The policy settings are also still moving. The Low and Mid-Rise Housing Policy has commenced in stages, its mapped catchments and non-discretionary standards have been refined since first exhibition, and councils have applied them inconsistently while their own instruments catch up. Where a State standard and a local control conflict, the resolution is not always obvious on the face of the documents, and practice is still forming.</p>
+<p>Finally, none of this substitutes for the instruments themselves. The only reliable answer for a specific property comes from that council&rsquo;s LEP and DCP as currently in force, the mapping on the NSW Planning Portal, the title and any restrictions on it, and where the question is finely balanced, a pre-lodgement discussion with the council. Zone labels are a starting point for a conversation, not a development yield.</p>
+
+<h3>References</h3>
+<div class="refs">
+<p>Allen Price &amp; Associates. (2025). How NSW&rsquo;s planning reforms are changing R2 zones. Allen Price &amp; Associates. <a href="https://allenprice.com.au/blog/how-nsws-planning-reforms-are-changing-r2-zones/" target="_blank" rel="noopener">https://allenprice.com.au/blog/how-nsws-planning-reforms-are-changing-r2-zones/</a></p>
+<p>Baiss Designs. (2025). Stage 2 of NSW&rsquo;s low and mid-rise housing reforms now in effect. Baiss Designs. <a href="https://baissdesigns.com.au/news/stage-2-of-nsws-low-and-mid-rise-housing-reforms-now-in-effect/" target="_blank" rel="noopener">https://baissdesigns.com.au/news/stage-2-of-nsws-low-and-mid-rise-housing-reforms-now-in-effect/</a></p>
+<p>Bartier Perry. (2025). Low and Mid-Rise Housing Policy &ndash; Stage 2 is here! Bartier Perry Lawyers. <a href="https://www.bartier.com.au/insights/articles/low-and-mid-rise-housing-policy-stage-2-is-here" target="_blank" rel="noopener">https://www.bartier.com.au/insights/articles/low-and-mid-rise-housing-policy-stage-2-is-here</a></p>
+<p>Duplex Building Design. (2025). NSW&rsquo;s low and mid-rise housing reforms (Stage 2): What you need to know. Duplex Building Design. <a href="https://duplexbuildingdesign.com/nsws-low-and-mid-rise-housing-reforms-stage-2-what-you-need-to-know/" target="_blank" rel="noopener">https://duplexbuildingdesign.com/nsws-low-and-mid-rise-housing-reforms-stage-2-what-you-need-to-know/</a></p>
+<p>Feasly. (2025). NSW low and mid-rise housing reform: Developer guide. Feasly. <a href="https://www.feasly.com.au/guides/nsw-low-and-mid-rise-housing-reform-developer-guide" target="_blank" rel="noopener">https://www.feasly.com.au/guides/nsw-low-and-mid-rise-housing-reform-developer-guide</a></p>
+<p>instantSEE. (n.d.). Medium density housing SEPP NSW: What it means. instantSEE. <a href="https://instantsee.com.au/guides/medium-density-housing-sepp-nsw" target="_blank" rel="noopener">https://instantsee.com.au/guides/medium-density-housing-sepp-nsw</a></p>
+<p>instantSEE. (n.d.). R2 zone NSW: What you can build on low density. instantSEE. <a href="https://instantsee.com.au/guides/r2-zone-nsw" target="_blank" rel="noopener">https://instantsee.com.au/guides/r2-zone-nsw</a></p>
+<p>NSW Department of Planning, Housing and Infrastructure. (n.d.). Low and Mid-Rise Housing Policy: Summary of key provisions. NSW Government. <a href="https://www.planning.nsw.gov.au/policy-and-legislation/housing/low-and-mid-rise-housing-policy/summary-of-key-provisions" target="_blank" rel="noopener">https://www.planning.nsw.gov.au/policy-and-legislation/housing/low-and-mid-rise-housing-policy/summary-of-key-provisions</a></p>
+<p>NSW Department of Planning. (2011). Practice note PN 11-001: Preparing LEPs using the Standard Instrument &ndash; standard clauses [PDF]. NSW Government. <a href="https://www.planning.nsw.gov.au/sites/default/files/2023-04/practice-note-pn-11-001-preparing-leps-using-the-standard-instrument-standard-clauses.pdf" target="_blank" rel="noopener">https://www.planning.nsw.gov.au/sites/default/files/2023-04/practice-note-pn-11-001-preparing-leps-using-the-standard-instrument-standard-clauses.pdf</a></p>
+<p>NSW Legislation. (n.d.). Standard Instrument&mdash;Principal Local Environmental Plan (2006 EPI 155a). NSW Government. <a href="https://legislation.nsw.gov.au/view/whole/html/inforce/current/epi-2006-155a" target="_blank" rel="noopener">https://legislation.nsw.gov.au/view/whole/html/inforce/current/epi-2006-155a</a></p>
+<p>Owner Inspections. (n.d.). R2 vs R3 zoning in NSW explained. Owner Inspections. <a href="https://ownerinspections.com.au/articles/what-is-land-zoning-r2-vs-r3-zoning" target="_blank" rel="noopener">https://ownerinspections.com.au/articles/what-is-land-zoning-r2-vs-r3-zoning</a></p>
+<p>Town Planning Online. (n.d.). NSW planning zones explained &mdash; LEP land use zones. Town Planning Online. <a href="https://www.townplanning.com.au/nsw/zones" target="_blank" rel="noopener">https://www.townplanning.com.au/nsw/zones</a></p>
+<p>Zoning NSW Reports. (n.d.). What is R2 zoning in NSW? Uses, controls and examples. Zoning NSW Reports. <a href="https://www.zoningnswreports.com.au/guides/what-is-r2-zoning-nsw" target="_blank" rel="noopener">https://www.zoningnswreports.com.au/guides/what-is-r2-zoning-nsw</a></p>
+</div>
+    </div>
+  </div>
+</div>
+
 <script>
 
   // Scroll reveal — threshold:0 + rootMargin ensures tall elements always trigger
@@ -627,21 +853,23 @@
   }
 
 
-  // Article floating card
-  const artOverlay = document.getElementById('article-1');
-  const artOpen = document.getElementById('open-article-1');
-  if(artOverlay && artOpen){
-    const artClose = () => { artOverlay.classList.remove('open'); document.body.style.overflow=''; };
-    artOpen.addEventListener('click', (e) => {
+  // Article floating cards (works for any number of articles)
+  document.querySelectorAll('.article-overlay').forEach((overlay) => {
+    const opener = document.getElementById('open-' + overlay.id);
+    if(!opener) return;
+    const close = () => { overlay.classList.remove('open'); document.body.style.overflow=''; };
+    opener.addEventListener('click', (e) => {
       e.preventDefault();
-      artOverlay.classList.add('open');
-      artOverlay.querySelector('.article-card').scrollTop = 0;
+      overlay.classList.add('open');
+      overlay.querySelector('.article-card').scrollTop = 0;
       document.body.style.overflow='hidden';
     });
-    artOverlay.querySelector('.article-close').addEventListener('click', artClose);
-    artOverlay.addEventListener('click', (e) => { if(e.target === artOverlay) artClose(); });
-    document.addEventListener('keydown', (e) => { if(e.key === 'Escape') artClose(); });
-  }
+    overlay.querySelector('.article-close').addEventListener('click', close);
+    overlay.addEventListener('click', (e) => { if(e.target === overlay) close(); });
+    document.addEventListener('keydown', (e) => {
+      if(e.key === 'Escape' && overlay.classList.contains('open')) close();
+    });
+  });
 </script>
 </body>
 </html>
