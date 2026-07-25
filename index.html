@@ -598,18 +598,21 @@
   .on-white .team-card h3,.on-white .snap-card h3,.on-white .team-name,
   .on-white .price-amount,.on-white .faq summary,
   .on-white .cmp-table thead th,.on-white .cmp-table td:first-child{color:var(--white)!important;}
+  .on-white .cmp-table th,.on-white .cmp-table td{border-bottom-color:rgba(255,255,255,0.18)!important;}
+  .on-white .cmp-table thead th{background:rgba(255,255,255,0.05)!important;}
   .on-white .card-white p,.on-white .card-white li,.on-white .step p,
   .on-white .price-card p,.on-white .price-desc,.on-white .testi-card p,
   .on-white .testi-quote,.on-white .team-card p,.on-white .team-bio,
   .on-white .snap-card p,.on-white .faq .faq-a,.on-white .faq .faq-a p,
-  .on-white .cmp-table td,.on-white .stat-lab{color:var(--muted)!important;}
+  .on-white .cmp-table td{color:var(--muted)!important;}
   .on-white .card-white div,.on-white .price-card div,.on-white .testi-card div,
   .on-white .team-card div,.on-white .snap-card div,.on-white .lga-col div,
   .on-white .stat-cell div{color:var(--white)!important;}
+  .on-white .snap-card strong{color:var(--white)!important;}
   .on-white .lga-col li{color:var(--white)!important;background:rgba(255,255,255,0.06)!important;
     border-color:rgba(255,255,255,0.18)!important;}
-  .on-white .stat-num,.on-white .lga-col h3,.on-white .snap-meta{color:var(--orange)!important;}
-  .on-white .stat-lab{color:var(--muted)!important;}
+  .on-white .stat-cell .stat-num,.on-white .lga-col h3,.on-white .snap-card .snap-meta{color:var(--orange)!important;}
+  .on-white .stat-cell .stat-lab{color:var(--muted)!important;}
   .on-white .card-white input,.on-white .card-white select,.on-white .card-white textarea{
     background:#F7F7F7!important;color:var(--black)!important;}
   .on-white .testi-author,.on-white .snap-stat,
@@ -637,8 +640,8 @@
   .on-white .form-card select option{background:#111111;color:var(--white);}
   .on-white .team-tag{color:var(--muted)!important;border-color:rgba(255,255,255,0.18)!important;}
   .on-white .service-meta{border-top-color:rgba(255,255,255,0.18)!important;}
-  .on-white .service-num,.on-white .service-meta,.on-white .step-index{color:var(--orange)!important;}
-  .on-white .price-badge{color:var(--black)!important;}
+  .on-white .service-card .service-num,.on-white .service-card .service-meta,.on-white .step-index{color:var(--orange)!important;}
+  .on-white .price-card-full .price-badge,.on-white .price-badge{color:var(--black)!important;}
   .on-white .steps{background:rgba(255,255,255,0.22)!important;}
   .on-white .card-white .btn-outline-dark,.on-white .price-card .btn-outline-dark{
     color:var(--white)!important;border-color:var(--white)!important;}
@@ -649,73 +652,73 @@
   .on-white .wrap span.tag{color:var(--black)!important;}
   .on-white .card-white .tag,.on-white .service-card .tag,
   .on-white .price-card-full .tag,.on-white .form-card .tag{color:var(--orange)!important;}
-  .on-white .team-role{color:var(--orange)!important;}
+  .on-white .team-card .team-role{color:var(--orange)!important;}
 
   /* ===== STAT STRIP ===== */
   .stat-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
-    background:var(--hairline);border:1px solid var(--hairline);border-radius:20px;overflow:hidden;}
+    background:var(--card-hairline);border:1px solid var(--card-hairline);border-radius:20px;overflow:hidden;}
   .on-white .stat-strip{background:rgba(255,255,255,0.18);border-color:rgba(0,0,0,0.14);}
-  .stat-cell{background:rgba(255,255,255,0.03);padding:30px 22px;text-align:center;}
+  .stat-cell{background:var(--white);padding:30px 22px;text-align:center;}
   .stat-num{font-family:'Inter Tight',sans-serif;font-weight:800;font-size:25px;
-    letter-spacing:-0.02em;color:var(--orange);line-height:1.15;}
-  .stat-lab{font-size:13.5px;color:var(--muted);margin-top:8px;line-height:1.5;}
+    letter-spacing:-0.02em;color:var(--black);line-height:1.15;}
+  .stat-lab{font-size:13.5px;color:var(--card-muted);margin-top:8px;line-height:1.5;}
 
   /* ===== COMPARISON TABLE ===== */
-  .cmp-wrap{overflow-x:auto;border:1px solid var(--hairline);border-radius:20px;background:rgba(255,255,255,0.03);}
+  .cmp-wrap{overflow-x:auto;border:1px solid var(--card-hairline);border-radius:20px;background:var(--white);}
   .on-white .cmp-wrap{border-color:rgba(255,255,255,0.18);}
   .cmp-table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:660px;}
   .cmp-table th,.cmp-table td{padding:16px 18px;text-align:left;vertical-align:top;
-    border-bottom:1px solid var(--hairline);line-height:1.6;}
+    border-bottom:1px solid var(--card-hairline);line-height:1.6;}
   .cmp-table thead th{font-family:'Inter Tight',sans-serif;font-weight:700;font-size:14px;
-    color:var(--white);background:rgba(255,255,255,0.05);}
-  .cmp-table td:first-child{font-weight:600;color:var(--white);width:160px;}
-  .cmp-table td{color:var(--muted);}
+    color:var(--black);background:rgba(0,0,0,0.035);}
+  .cmp-table td:first-child{font-weight:600;color:var(--black);width:160px;}
+  .cmp-table td{color:var(--card-muted);}
   .cmp-table tr:last-child td{border-bottom:none;}
 
   /* ===== FAQ ACCORDION ===== */
   .faq{display:flex;flex-direction:column;gap:12px;}
-  .faq details{border:1px solid var(--hairline);border-radius:16px;
-    background:rgba(255,255,255,0.03);overflow:hidden;transition:border-color .3s ease;}
+  .faq details{border:1px solid var(--card-hairline);border-radius:16px;
+    background:var(--white);overflow:hidden;transition:border-color .3s ease;}
   .on-white .faq details{background:var(--black);border-color:rgba(255,255,255,0.18);}
   .faq details[open]{border-color:var(--blue-border);}
   .faq summary{cursor:pointer;list-style:none;padding:20px 56px 20px 22px;position:relative;
     font-family:'Inter Tight',sans-serif;font-weight:600;font-size:16.5px;
-    color:var(--white);line-height:1.45;}
+    color:var(--black);line-height:1.45;}
   .faq summary::-webkit-details-marker{display:none;}
   .faq summary::after{content:"";position:absolute;right:24px;top:50%;width:10px;height:10px;
     border-right:2px solid var(--blue);border-bottom:2px solid var(--blue);
     transform:translateY(-70%) rotate(45deg);transition:transform .3s ease;}
   .faq details[open] summary::after{transform:translateY(-25%) rotate(-135deg);}
-  .faq .faq-a{padding:0 22px 22px;font-size:15px;line-height:1.7;color:var(--muted);}
+  .faq .faq-a{padding:0 22px 22px;font-size:15px;line-height:1.7;color:var(--card-muted);}
   .faq .faq-a p+p{margin-top:12px;}
 
   /* ===== LGA COVERAGE ===== */
   .lga-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
-  .lga-col{border:1px solid var(--hairline);border-radius:18px;padding:26px 24px;
-    background:rgba(255,255,255,0.03);}
+  .lga-col{border:1px solid var(--card-hairline);border-radius:18px;padding:26px 24px;
+    background:var(--white);}
   .on-white .lga-col{background:var(--black);border-color:rgba(255,255,255,0.18);}
   .lga-col h3{font-family:'Inter Tight',sans-serif;font-weight:700;font-size:13px;
-    letter-spacing:0.06em;text-transform:uppercase;color:var(--orange);margin-bottom:15px;}
+    letter-spacing:0.06em;text-transform:uppercase;color:var(--black);margin-bottom:15px;}
   .lga-col ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px;}
   .lga-col li{font-size:13.5px;padding:6px 12px;border-radius:100px;
-    background:rgba(255,255,255,0.06);border:1px solid var(--hairline);color:var(--white);}
+    background:rgba(0,0,0,0.04);border:1px solid var(--card-hairline);color:var(--black);}
 
   /* ===== PROJECT SNAPSHOTS ===== */
   .snap-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;}
-  .snap-card{border:1px solid var(--hairline);border-radius:20px;padding:30px 28px;
-    background:rgba(255,255,255,0.03);transition:transform .4s ease,border-color .4s ease;}
+  .snap-card{border:1px solid var(--card-hairline);border-radius:20px;padding:30px 28px;
+    background:var(--white);transition:transform .4s ease,border-color .4s ease;}
   .on-white .snap-card{background:var(--black);border-color:rgba(255,255,255,0.18);}
   .snap-card:hover{transform:translateY(-4px);border-color:var(--orange-border);}
   .snap-meta{font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;
-    color:var(--orange);margin-bottom:12px;}
+    color:var(--black);margin-bottom:12px;}
   .snap-card h3{font-family:'Inter Tight',sans-serif;font-weight:700;font-size:18px;
-    letter-spacing:-0.015em;color:var(--white);margin-bottom:10px;line-height:1.35;}
-  .snap-card p{font-size:14.5px;line-height:1.65;color:var(--muted);}
-  .snap-stat{margin-top:20px;padding-top:16px;border-top:1px solid var(--hairline);
+    letter-spacing:-0.015em;color:var(--black);margin-bottom:10px;line-height:1.35;}
+  .snap-card p{font-size:14.5px;line-height:1.65;color:var(--card-muted);}
+  .snap-stat{margin-top:20px;padding-top:16px;border-top:1px solid var(--card-hairline);
     display:flex;gap:26px;flex-wrap:wrap;}
-  .snap-stat div{font-size:12.5px;color:var(--muted);}
+  .snap-stat div{font-size:12.5px;color:var(--card-muted);}
   .snap-stat strong{display:block;font-family:'Inter Tight',sans-serif;font-size:17px;
-    font-weight:800;color:var(--white);letter-spacing:-0.01em;margin-bottom:2px;}
+    font-weight:800;color:var(--black);letter-spacing:-0.01em;margin-bottom:2px;}
 
   @media(max-width:900px){
     .stat-strip{grid-template-columns:1fr 1fr;}
@@ -841,10 +844,10 @@
 <section class="on-white">
   <div class="how wrap">
     <div class="steps">
-      <div class="step reveal"><span class="step-index">01</span><div class="icon-chip"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4B8FE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></div><h3>Send your site</h3><p>An address, a concept, or a problem. No formal brief required.</p></div>
-      <div class="step reveal"><span class="step-index">02</span><div class="icon-chip"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4B8FE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div><h3>We assess it</h3><p>Zoning, the LEP and DCP controls, a realistic building envelope and yield — checked against what councils are approving in practice.</p></div>
-      <div class="step reveal"><span class="step-index">03</span><div class="icon-chip"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4B8FE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div><h3>You get a call</h3><p>Go, pause, or stop — with the reasoning, the key numbers, and a plain-English next step.</p></div>
-      <div class="step reveal"><span class="step-index">04</span><div class="icon-chip"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4B8FE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9,11 12,14 22,4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div><h3>You move, efficiently</h3><p>Brief your architect, builder or lender with exactly what they need.</p></div>
+      <div class="step reveal"><span class="step-index">01</span><div class="icon-chip"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></div><h3>Send your site</h3><p>An address, a concept, or a problem. No formal brief required.</p></div>
+      <div class="step reveal"><span class="step-index">02</span><div class="icon-chip"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div><h3>We assess it</h3><p>Zoning, the LEP and DCP controls, a realistic building envelope and yield — checked against what councils are approving in practice.</p></div>
+      <div class="step reveal"><span class="step-index">03</span><div class="icon-chip"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div><h3>You get a call</h3><p>Go, pause, or stop — with the reasoning, the key numbers, and a plain-English next step.</p></div>
+      <div class="step reveal"><span class="step-index">04</span><div class="icon-chip"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9,11 12,14 22,4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div><h3>You move, efficiently</h3><p>Brief your architect, builder or lender with exactly what they need.</p></div>
     </div>
   </div>
 </section>
@@ -876,21 +879,21 @@
     <div class="services-grid">
       <div class="service-card reveal">
         <span class="service-num">01 — Before you buy or commit</span>
-        <div class="icon-chip"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4B8FE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+        <div class="icon-chip"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
         <h3>Early-stage feasibility &amp; planning strategy</h3>
         <p>A full read on your zoning, the controls that bite, realistic yield, and whether DA or complying development is the smarter path — with a go, pause, or stop at the end of it.</p>
         <div class="service-meta">→ From $1,700 incl. GST · 5–7 business days</div>
       </div>
       <div class="service-card reveal">
         <span class="service-num">02 — Before you brief your architect</span>
-        <div class="icon-chip"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4B8FE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M5 20V8l7-6 7 6v12"/><path d="M9 20v-6h6v6"/></svg></div>
+        <div class="icon-chip"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M5 20V8l7-6 7 6v12"/><path d="M9 20v-6h6v6"/></svg></div>
         <h3>Pre-design planning briefs &amp; envelope testing</h3>
         <p>A practical massing and envelope test, turned into a brief your architect can pick up and run with.</p>
         <div class="service-meta">→ From $1,000 incl. GST · 4–6 business days</div>
       </div>
       <div class="service-card reveal">
         <span class="service-num">03 — When you're ready to lodge</span>
-        <div class="icon-chip"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4B8FE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg></div>
+        <div class="icon-chip"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg></div>
         <h3>DA / CDC approvals &amp; planning reports</h3>
         <p>Statement of Environmental Effects, clause 4.6 variation requests, and a planning argument your consent authority can say yes to — lodged through the NSW Planning Portal.</p>
         <div class="service-meta">→ From $3,000 incl. GST · scoped per project</div>
@@ -915,7 +918,7 @@
     <div class="pricing-preview">
       <div class="price-card reveal">
         <span class="price-badge">Fastest entry</span>
-        <div class="icon-chip"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4B8FE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13,2 3,14 12,14 11,22 21,10 12,10"/></svg></div>
+        <div class="icon-chip"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13,2 3,14 12,14 11,22 21,10 12,10"/></svg></div>
         <div class="price-name">Site Check</div>
         <div class="price-from">Single address review</div>
         <div class="price-amount">$600</div>
@@ -923,21 +926,21 @@
       </div>
       <div class="price-card featured reveal">
         <span class="price-badge">Most common</span>
-        <div class="icon-chip"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4B8FE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg></div>
+        <div class="icon-chip"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg></div>
         <div class="price-name">Feasibility &amp; Strategy</div>
         <div class="price-from">Full planning review</div>
         <div class="price-amount">$1,700<span>–$3,900</span></div>
         <div class="price-desc">Zoning, yield, massing, pathway and written recommendation.</div>
       </div>
       <div class="price-card reveal">
-        <div class="icon-chip"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4B8FE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M5 20V8l7-6 7 6v12"/><path d="M9 20v-6h6v6"/></svg></div>
+        <div class="icon-chip"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M5 20V8l7-6 7 6v12"/><path d="M9 20v-6h6v6"/></svg></div>
         <div class="price-name">Pre-Design Brief</div>
         <div class="price-from">Envelope testing</div>
         <div class="price-amount">$1,000<span>–$2,500</span></div>
         <div class="price-desc">Planning brief and massing tests for your architect.</div>
       </div>
       <div class="price-card reveal">
-        <div class="icon-chip"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4B8FE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg></div>
+        <div class="icon-chip"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg></div>
         <div class="price-name">DA / CDC Report</div>
         <div class="price-from">Lodgement-ready</div>
         <div class="price-amount">$3,000<span>–$7,900</span></div>
@@ -1022,9 +1025,9 @@
       <h2>Talk to us about your site.</h2>
       <p>Send us the address and a few lines on what you're weighing up. We'll get back to you within two business days — no charge for that first chat. Our fees are fixed, GST-inclusive, and set to be within reach of serious small developers.</p>
       <div class="contact-detail">
-        <div class="contact-detail-row"><span class="contact-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4B8FE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></span>Sydney &amp; NSW</div>
-        <div class="contact-detail-row"><span class="contact-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4B8FE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 3H8a2 2 0 0 0-2 2v2h12V5a2 2 0 0 0-2-2z"/></svg></span>Bakos &amp; Evans Pty Ltd</div>
-        <div class="contact-detail-row"><span class="contact-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4B8FE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg></span>Response within 2 business days</div>
+        <div class="contact-detail-row"><span class="contact-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></span>Sydney &amp; NSW</div>
+        <div class="contact-detail-row"><span class="contact-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 3H8a2 2 0 0 0-2 2v2h12V5a2 2 0 0 0-2-2z"/></svg></span>Bakos &amp; Evans Pty Ltd</div>
+        <div class="contact-detail-row"><span class="contact-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg></span>Response within 2 business days</div>
       </div>
       <div class="btn-group"><a href="contact.html" class="btn-primary">Go to full contact page →</a></div>
     </div>
