@@ -336,9 +336,9 @@
   .scene{position:absolute;inset:0;perspective:1000px;
     perspective-origin:50% var(--po);}
   .scene-glow{position:absolute;left:50%;top:42%;width:min(1200px,150vw);height:min(1200px,150vw);
-    transform:translate(-50%,-50%);pointer-events:none;
+    transform:translate(-50%,-50%) translateZ(0);pointer-events:none;
     background:radial-gradient(circle,rgba(255,119,0,0.16) 0%,rgba(255,119,0,0.05) 38%,transparent 68%);
-    opacity:calc(0.35 + 0.65 * var(--lift));transition:opacity .2s linear;}
+    opacity:.35;will-change:opacity;}
   .world{position:absolute;left:50%;top:50%;width:0;height:0;
     transform-style:preserve-3d;
     transform:translate3d(0,var(--ty),var(--tz))
@@ -346,20 +346,21 @@
               translate3d(var(--cx),var(--cy),0);
     will-change:transform;}
 
+    /* The static ground — grid, road, kerbs, edge fade — is painted once into a
+     canvas at load. A bitmap costs the compositor almost nothing to re-scale,
+     where the same artwork as live SVG had to be re-rasterised every frame. */
   .ground{position:absolute;left:0;top:0;width:2400px;height:1800px;
-    transform-style:preserve-3d;overflow:visible;}
-  .ground .g-grid line{stroke:rgba(255,255,255,0.05);stroke-width:1;}
-  .ground .g-grid line.maj{stroke:rgba(255,255,255,0.085);}
-  .rd-edge{fill:none;stroke:rgba(255,255,255,0.16);stroke-width:96;
+    display:block;overflow:visible;
+    /* own compositor layer: the bitmap is uploaded once and then simply
+       transformed, instead of being re-rasterised on every scroll frame */
+    transform:translateZ(0);backface-visibility:hidden;}
+  .ground-ov{pointer-events:none;}
+  .rd-halo{fill:none;stroke:rgba(255,119,0,0.22);stroke-width:17;
     stroke-linecap:round;stroke-linejoin:round;}
-  .rd-fill{fill:none;stroke:#080808;stroke-width:90;
-    stroke-linecap:round;stroke-linejoin:round;}
-  .rd-lane{fill:none;stroke:rgba(255,255,255,0.20);stroke-width:2.6;
-    stroke-linecap:round;stroke-dasharray:18 22;}
   .rd-path{fill:none;stroke:var(--orange);stroke-width:5;
-    stroke-linecap:round;stroke-linejoin:round;
-    filter:drop-shadow(0 0 7px rgba(255,119,0,0.55));}
-  .rd-head{fill:var(--orange);filter:drop-shadow(0 0 10px rgba(255,119,0,0.9));}
+    stroke-linecap:round;stroke-linejoin:round;}
+  .rd-head{fill:var(--orange);}
+  .rd-head-glow{fill:rgba(255,119,0,0.30);}
 
   /* things that sit flat on the ground plane */
   .prop{position:absolute;left:0;top:0;width:0;height:0;transform-style:preserve-3d;}
@@ -387,9 +388,8 @@
               rotateX(calc(-1 * var(--tilt))) scale(var(--cs,1));
     opacity:var(--o,0);}
   .lot-tag{display:inline-flex;align-items:center;gap:9px;white-space:nowrap;
-    background:rgba(0,0,0,0.72);border:1px solid var(--orange-border);
-    border-radius:100px;padding:7px 15px 7px 9px;
-    backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);}
+    background:rgba(0,0,0,0.86);border:1px solid var(--orange-border);
+    border-radius:100px;padding:7px 15px 7px 9px;}
   .lot-tag i{font-style:normal;display:inline-flex;align-items:center;justify-content:center;
     width:22px;height:22px;border-radius:50%;background:var(--orange);color:var(--black);
     font-family:'Inter Tight',sans-serif;font-weight:800;font-size:12px;}
@@ -411,20 +411,20 @@
   .pr-bush .cnp{opacity:.8;}
 
   /* atmosphere */
-  .fog-far{position:absolute;left:0;right:0;top:0;height:38%;pointer-events:none;
+  .fog-far{position:absolute;left:0;right:0;top:0;height:38%;pointer-events:none;transform:translateZ(0);
     background:linear-gradient(to bottom,var(--black) 4%,rgba(0,0,0,0.72) 34%,transparent 100%);}
-  .fog-near{position:absolute;left:0;right:0;bottom:0;height:34%;pointer-events:none;
+  .fog-near{position:absolute;left:0;right:0;bottom:0;height:34%;pointer-events:none;transform:translateZ(0);
     background:linear-gradient(to top,var(--black) 4%,rgba(0,0,0,0.72) 40%,transparent 100%);}
   .scene-dim{position:absolute;inset:0;pointer-events:none;background:var(--black);
-    opacity:calc(var(--dim,1) - 0.18);}
-  .fog-side{position:absolute;inset:0;pointer-events:none;
+    opacity:.82;will-change:opacity;transform:translateZ(0);}
+  .fog-side{position:absolute;inset:0;pointer-events:none;transform:translateZ(0);
     background:radial-gradient(ellipse 78% 72% at 50% 48%,transparent 46%,rgba(0,0,0,0.72) 100%);}
 
   /* ---- hero copy layer ---- */
   .hero-copy{position:absolute;inset:0;z-index:5;display:flex;flex-direction:column;
     align-items:center;justify-content:center;text-align:center;
-    padding:132px 6vw 96px;pointer-events:none;
-    opacity:var(--copy-o,1);transform:translateY(var(--copy-y,0px)) scale(var(--copy-s,1));}
+    padding:132px 6vw 96px;pointer-events:none;will-change:opacity,transform;
+    transform:translate3d(0,var(--copy-y,0px),0) scale(var(--copy-s,1));}
   .hero-copy > *{pointer-events:auto;}
   .hero-copy .eyebrow{animation:fadeUp .8s ease forwards .1s;}
   .hero-copy h1{animation:fadeUp .9s ease forwards .25s;}
@@ -433,7 +433,7 @@
 
   /* ---- HUD ---- */
   .hud{position:absolute;inset:0;z-index:6;pointer-events:none;
-    padding:104px 5vw 40px;opacity:var(--hud-o,0);}
+    padding:104px 5vw 40px;opacity:0;will-change:opacity;transform:translateZ(0);}
   .hud-readout{position:absolute;top:118px;right:5vw;text-align:right;}
   .hud-readout .nums{position:relative;height:36px;
     font-family:'Inter Tight',sans-serif;font-size:29px;font-weight:800;
@@ -452,14 +452,14 @@
     transition:opacity .3s ease;}
   .hud-bar{position:absolute;left:5vw;right:5vw;bottom:44px;height:2px;
     background:rgba(255,255,255,0.12);border-radius:2px;overflow:hidden;}
-  .hud-bar i{display:block;height:100%;width:calc(var(--p,0) * 100%);
-    background:var(--orange);border-radius:2px;}
+  .hud-bar i{display:block;height:100%;width:100%;transform-origin:left center;
+    transform:scaleX(var(--p,0));background:var(--orange);border-radius:2px;}
 
   /* ---- scroll hint ---- */
   .scroll-hint{position:absolute;left:50%;bottom:30px;transform:translateX(-50%);
     z-index:7;display:flex;flex-direction:column;align-items:center;gap:9px;
     font-size:11px;font-weight:700;letter-spacing:0.14em;color:var(--muted);
-    opacity:var(--hint-o,1);pointer-events:none;}
+    pointer-events:none;will-change:opacity;}
   .scroll-hint .mouse{width:22px;height:34px;border:1.5px solid rgba(255,255,255,0.4);
     border-radius:12px;position:relative;}
   .scroll-hint .mouse::after{content:'';position:absolute;left:50%;top:7px;
@@ -472,8 +472,8 @@
   .hero-close{position:absolute;inset:0;z-index:8;display:flex;flex-direction:column;
     align-items:center;justify-content:center;text-align:center;padding:120px 6vw 110px;
     background:radial-gradient(ellipse 92% 74% at 50% 52%,rgba(0,0,0,0.90) 0%,rgba(0,0,0,0.78) 42%,rgba(0,0,0,0.30) 100%);
-    opacity:var(--close-o,0);pointer-events:none;
-    transform:translateY(var(--close-y,18px));}
+    opacity:0;pointer-events:none;will-change:opacity,transform;
+    transform:translate3d(0,var(--close-y,18px),0);}
   .hero-close.live{pointer-events:auto;}
   .hero-close h2{font-family:'Inter Tight',sans-serif;font-weight:800;
     font-size:clamp(2rem,4.4vw,3.5rem);line-height:1.06;letter-spacing:-0.035em;
@@ -482,6 +482,16 @@
   .hero-close p{margin-top:20px;font-size:clamp(1rem,1.5vw,1.2rem);color:var(--muted);
     max-width:600px;line-height:1.55;}
   .hero-close .hero-actions{margin-top:34px;opacity:1;animation:none;}
+
+  /* while the hero is pinned, drop the nav's backdrop blur — compositing a
+     blur over a continuously repainting 3D scene is the single most expensive
+     thing a browser can be asked to do on this page */
+  body.hero-live nav{backdrop-filter:none;-webkit-backdrop-filter:none;
+    background:rgba(0,0,0,0.92);}
+  /* fallback if the device can't hold frame rate */
+  .hero-stage.lite .prop:not(.dw){display:none;}
+  .hero-stage.lite .scene-glow{display:none;}
+  .hero-stage.lite .shadow{display:none;}
 
   @media(max-width:900px){
     .hud-note{display:none;}
@@ -763,24 +773,12 @@
     <div class="scene">
       <div class="scene-glow"></div>
       <div class="world" id="heroWorld">
-        <svg class="ground" id="heroGround" viewBox="0 0 1200 900" preserveAspectRatio="none" aria-hidden="true">
-          <defs>
-            <radialGradient id="hgFade" gradientUnits="userSpaceOnUse" cx="600" cy="450" r="900">
-              <stop offset="0%" stop-color="#ffffff" stop-opacity="1"/>
-              <stop offset="48%" stop-color="#ffffff" stop-opacity="0.92"/>
-              <stop offset="78%" stop-color="#ffffff" stop-opacity="0.45"/>
-              <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
-            </radialGradient>
-            <mask id="hgMask"><rect x="-520" y="-420" width="2320" height="1820" fill="url(#hgFade)"/></mask>
-          </defs>
-          <g class="g-grid" id="heroGrid" mask="url(#hgMask)"></g>
-          <g mask="url(#hgMask)">
-          <path class="rd-edge" d="M -318,-82 L 60,50 C 260,120 300,250 470,330 C 640,410 620,540 760,620 C 900,700 980,760 1150,870 L 1486,1087"/>
-          <path class="rd-fill" d="M -318,-82 L 60,50 C 260,120 300,250 470,330 C 640,410 620,540 760,620 C 900,700 980,760 1150,870 L 1486,1087"/>
-          <path class="rd-lane" d="M -318,-82 L 60,50 C 260,120 300,250 470,330 C 640,410 620,540 760,620 C 900,700 980,760 1150,870 L 1486,1087"/>
-          </g>
+        <canvas class="ground" id="heroGround" width="1600" height="1200" aria-hidden="true"></canvas>
+        <svg class="ground ground-ov" id="heroOv" viewBox="0 0 1200 900" preserveAspectRatio="none" aria-hidden="true">
+          <path class="rd-halo" id="heroHalo" d="M 60,50 C 260,120 300,250 470,330 C 640,410 620,540 760,620 C 900,700 980,760 1150,870"/>
           <path class="rd-path" id="heroPath" d="M 60,50 C 260,120 300,250 470,330 C 640,410 620,540 760,620 C 900,700 980,760 1150,870"/>
-          <circle class="rd-head" id="heroHead" cx="60" cy="50" r="7" opacity="0"/>
+          <circle class="rd-head-glow" id="heroHeadGlow" cx="60" cy="50" r="16" opacity="0"/>
+          <circle class="rd-head" id="heroHead" cx="60" cy="50" r="6" opacity="0"/>
         </svg>
 
         <div class="prop dw" id="dw1" data-t="0.160" data-side="-1" data-off="230">
@@ -1136,8 +1134,9 @@
   // this adds a subtle JS layer for browsers that don't support it well)
   const bands = document.querySelectorAll('.pb-img');
   if(bands.length && window.matchMedia('(prefers-reduced-motion:no-preference)').matches){
-    window.addEventListener('scroll',()=>{
-      const sy = window.scrollY;
+    let bandTick = false;
+    const runBands = () => {
+      bandTick = false;
       bands.forEach(b=>{
         const rect = b.closest('.parallax-band').getBoundingClientRect();
         if(rect.bottom > 0 && rect.top < window.innerHeight){
@@ -1145,6 +1144,11 @@
           b.style.transform = `translateY(${(pct - 0.5) * 60}px)`;
         }
       });
+    };
+    // rAF-throttled: reading layout on every scroll event forced a synchronous
+    // re-layout of the whole page and fought the hero for frame budget
+    window.addEventListener('scroll',()=>{
+      if(!bandTick){ bandTick = true; requestAnimationFrame(runBands); }
     },{passive:true});
   }
 
@@ -1161,28 +1165,77 @@
     const world  = document.getElementById('heroWorld');
     const path   = document.getElementById('heroPath');
     const headDot= document.getElementById('heroHead');
-    const grid   = document.getElementById('heroGrid');
+    const headGlow= document.getElementById('heroHeadGlow');
+    const halo   = document.getElementById('heroHalo');
     const copy   = document.getElementById('heroCopy');
     const hud    = document.getElementById('heroHud');
     const closeP = document.getElementById('heroClose');
     const hint   = document.getElementById('heroHint');
     const note   = document.getElementById('heroNote');
+    const glow   = stage.querySelector('.scene-glow');
+    const dim    = stage.querySelector('.scene-dim');
     const nums   = stage.querySelectorAll('.hud-readout .nums > span');
 
     const S = 2, GW = 1200 * S, GH = 900 * S;
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const small  = window.matchMedia('(max-width: 760px)').matches;
 
-    /* ---- cadastral grid ---- */
-    let g = '';
-    for(let x = 0; x <= 1200; x += 60) g += '<line class="' + (x % 240 === 0 ? 'maj' : '') + '" x1="' + x + '" y1="0" x2="' + x + '" y2="900"/>';
-    for(let y = 0; y <= 900;  y += 60) g += '<line class="' + (y % 240 === 0 ? 'maj' : '') + '" x1="0" y1="' + y + '" x2="1200" y2="' + y + '"/>';
-    grid.innerHTML = g;
+    /* ---- static ground painted once into a bitmap ----------------------
+       Grid, road, kerbs and the soft edge fade never change, so they are
+       drawn a single time. The compositor then only has to re-scale a
+       texture as the camera moves, instead of re-rasterising vector
+       artwork on every scroll frame. ------------------------------------ */
+    (function paintGround(){
+      const cv = document.getElementById('heroGround');
+      if(!cv || !cv.getContext) return;
+      const BW = cv.width, BH = cv.height;
+      const x = cv.getContext('2d');
+      x.setTransform(BW / 1200, 0, 0, BH / 900, 0, 0);
+
+      x.lineWidth = 1;
+      for(let i = 0; i <= 1200; i += 60){
+        x.strokeStyle = (i % 240 === 0) ? 'rgba(255,255,255,0.085)' : 'rgba(255,255,255,0.05)';
+        x.beginPath(); x.moveTo(i, -300); x.lineTo(i, 1200); x.stroke();
+      }
+      for(let i = 0; i <= 900; i += 60){
+        x.strokeStyle = (i % 240 === 0) ? 'rgba(255,255,255,0.085)' : 'rgba(255,255,255,0.05)';
+        x.beginPath(); x.moveTo(-300, i); x.lineTo(1500, i); x.stroke();
+      }
+
+      function road(){
+        x.beginPath();
+        x.moveTo(-318, -82); x.lineTo(60, 50);
+        x.bezierCurveTo(260, 120, 300, 250, 470, 330);
+        x.bezierCurveTo(640, 410, 620, 540, 760, 620);
+        x.bezierCurveTo(900, 700, 980, 760, 1150, 870);
+        x.lineTo(1486, 1087);
+      }
+      x.lineCap = 'round'; x.lineJoin = 'round';
+      road(); x.strokeStyle = 'rgba(255,255,255,0.16)'; x.lineWidth = 96; x.stroke();
+      road(); x.strokeStyle = '#080808';                x.lineWidth = 90; x.stroke();
+      x.save();
+      x.setLineDash([18, 22]);
+      road(); x.strokeStyle = 'rgba(255,255,255,0.20)'; x.lineWidth = 2.6; x.stroke();
+      x.restore();
+
+      /* soft radial fade so the site dissolves into black at its edges */
+      const g = x.createRadialGradient(600, 450, 0, 600, 450, 900);
+      g.addColorStop(0.00, 'rgba(255,255,255,1)');
+      g.addColorStop(0.48, 'rgba(255,255,255,0.92)');
+      g.addColorStop(0.78, 'rgba(255,255,255,0.45)');
+      g.addColorStop(1.00, 'rgba(255,255,255,0)');
+      x.globalCompositeOperation = 'destination-in';
+      x.fillStyle = g;
+      x.fillRect(-320, -420, 2320, 1820);
+      x.globalCompositeOperation = 'source-over';
+    })();
 
     /* ---- road geometry ---- */
     const LEN = path.getTotalLength();
     path.style.strokeDasharray  = LEN;
     path.style.strokeDashoffset = LEN;
+    halo.style.strokeDasharray  = LEN;
+    halo.style.strokeDashoffset = LEN;
 
     function at(t){
       t = t < 0 ? 0 : t > 1 ? 1 : t;
@@ -1217,17 +1270,13 @@
 
     /* t along the street, which side, how far off, type, scale */
     const PROPS = [
-      [0.030,-1,175,'gum',1.00],  [0.055, 1,160,'tree',0.92], [0.085,-1,255,'tree',1.05],
-      [0.110, 1,300,'gum',0.86],  [0.135,-1,110,'light',1.0], [0.170, 1,175,'bush',1.0],
-      [0.205,-1,330,'fence',1.0], [0.230, 1,235,'tree',1.0],  [0.255,-1,150,'person',0.95],
-      [0.285, 1,120,'peg',1.0],   [0.310,-1,290,'gum',1.05],  [0.340, 1,340,'tree',0.9],
-      [0.400,-1,165,'tree',1.0],  [0.430, 1,115,'light',1.0], [0.455,-1,255,'bush',1.1],
-      [0.485, 1,300,'fence',1.0], [0.515,-1,330,'gum',0.95],  [0.545, 1,150,'person',1.0],
-      [0.570,-1,120,'peg',1.0],   [0.650, 1,170,'tree',1.05], [0.680,-1,115,'light',1.0],
-      [0.705, 1,300,'gum',1.0],   [0.735,-1,330,'tree',0.92], [0.765, 1,245,'bush',1.0],
-      [0.790,-1,155,'person',0.9],[0.870, 1,165,'tree',1.0],  [0.895,-1,215,'gum',1.0],
-      [0.920, 1,120,'light',1.0], [0.945,-1,300,'tree',0.95], [0.965, 1,330,'fence',1.0],
-      [0.985,-1,140,'bush',1.0]
+      [0.035,-1,180,'gum',1.00],  [0.075, 1,230,'tree',1.00], [0.115,-1,300,'tree',1.05],
+      [0.145, 1,115,'light',1.00],[0.205,-1,330,'fence',1.00],[0.250, 1,165,'person',0.95],
+      [0.295,-1,250,'gum',1.05],  [0.340, 1,330,'tree',0.90], [0.420,-1,120,'light',1.00],
+      [0.455, 1,270,'bush',1.10], [0.500,-1,330,'gum',0.95],  [0.545, 1,160,'person',1.00],
+      [0.650,-1,175,'tree',1.05], [0.690, 1,120,'light',1.00],[0.730,-1,320,'gum',1.00],
+      [0.775, 1,250,'bush',1.00], [0.880,-1,175,'tree',1.00], [0.915, 1,125,'light',1.00],
+      [0.950,-1,310,'gum',0.95],  [0.975, 1,330,'fence',1.00]
     ];
 
     const smallProps = [];
@@ -1268,6 +1317,10 @@
     });
 
     /* ---- helpers ---- */
+    function setv(el, k, v){                 /* skip no-op style writes */
+      if(el['_' + k] === v) return;
+      el['_' + k] = v; el.style.setProperty(k, v);
+    }
     const cl  = function(v){ return v < 0 ? 0 : v > 1 ? 1 : v; };
     const seg = function(v,a,b){ return cl((v - a) / (b - a)); };
     const sm  = function(t){ return t * t * (3 - 2 * t); };
@@ -1303,15 +1356,20 @@
       st.setProperty('--cx',   (-cx).toFixed(1) + 'px');
       st.setProperty('--cy',   (-cy).toFixed(1) + 'px');
       st.setProperty('--po',   lp(46, 42, k).toFixed(1) + '%');
-      st.setProperty('--lift', sm(seg(p, 0.02, 0.35)).toFixed(3));
-      st.setProperty('--dim', (1 - sm(seg(p, 0.00, 0.16)) * 0.82).toFixed(3));
+      glow.style.opacity = (0.35 + 0.65 * sm(seg(p, 0.02, 0.35))).toFixed(3);
+      dim.style.opacity  = (0.82 - sm(seg(p, 0.00, 0.16)) * 0.82).toFixed(3);
       st.setProperty('--p',    p.toFixed(4));
 
       /* pathway */
-      path.style.strokeDashoffset = (LEN * (1 - u)).toFixed(1);
-      headDot.setAttribute('cx', q.x.toFixed(1));
-      headDot.setAttribute('cy', q.y.toFixed(1));
-      headDot.setAttribute('opacity', (u > 0.004 && u < 0.997) ? '1' : '0');
+      const off = (LEN * (1 - u)).toFixed(1);
+      path.style.strokeDashoffset = off;
+      halo.style.strokeDashoffset = off;
+      const hv = (u > 0.004 && u < 0.997) ? '1' : '0';
+      [headDot, headGlow].forEach(function(el){
+        el.setAttribute('cx', q.x.toFixed(1));
+        el.setAttribute('cy', q.y.toFixed(1));
+        el.setAttribute('opacity', hv);
+      });
 
       /* dwellings */
       let act = 0;
@@ -1319,22 +1377,22 @@
         d._next = DW[i+1] ? DW[i+1].t : 1.30;
         const g1 = sm(seg(u, d.t - 0.010, d.t + 0.070));
         const g2 = sm(seg(u, d.t + 0.030, d.t + 0.105));
-        d.bb.style.setProperty('--q',  g1.toFixed(3));
-        d.bb.style.setProperty('--qx', (0.88 + 0.12 * g1).toFixed(3));
-        d.bb.style.setProperty('--o',  cl(g1 * 1.7).toFixed(3));
-        d.shadow.style.setProperty('--q', g1.toFixed(3));
-        d.pad.style.setProperty('--q', sm(seg(u, d.t - 0.075, d.t + 0.015)).toFixed(3));
+        setv(d.bb, '--q',  g1.toFixed(3));
+        setv(d.bb, '--qx', (0.88 + 0.12 * g1).toFixed(3));
+        setv(d.bb, '--o',  cl(g1 * 1.7).toFixed(3));
+        setv(d.shadow, '--q', g1.toFixed(3));
+        setv(d.pad, '--q', sm(seg(u, d.t - 0.075, d.t + 0.015)).toFixed(3));
         const g3 = g2 * (1 - sm(seg(u, d._next - 0.055, d._next + 0.020)));
-        d.tag.style.setProperty('--o',  g3.toFixed(3));
-        d.tag.style.setProperty('--cs', (1.90 + 0.35 * g2).toFixed(3));
+        setv(d.tag, '--o',  g3.toFixed(3));
+        setv(d.tag, '--cs', (1.90 + 0.35 * g2).toFixed(3));
         if(g1 > 0.45) act = d.n;
       });
 
       /* small props */
       smallProps.forEach(function(s){
         const v = sm(seg(u, s.t - 0.025, s.t + 0.045));
-        s.el.style.setProperty('--q', v.toFixed(3));
-        s.el.style.setProperty('--o', cl(v * 1.8).toFixed(3));
+        setv(s.el, '--q', v.toFixed(2));
+        setv(s.el, '--o', cl(v * 1.8).toFixed(2));
       });
 
       /* readout */
@@ -1347,32 +1405,46 @@
       /* copy, hud, closing panel */
       const fade = sm(seg(p, 0.045, 0.215));
       if(reduce){
-        copy.style.setProperty('--copy-o', 1);
+        copy.style.opacity = 1;
         copy.style.setProperty('--copy-y', '0px');
         copy.style.setProperty('--copy-s', 1);
-        hud.style.setProperty('--hud-o', 0);
-        closeP.style.setProperty('--close-o', 0);
-        if(hint) hint.style.setProperty('--hint-o', 0);
+        hud.style.opacity = 0;
+        closeP.style.opacity = 0;
+        if(hint) hint.style.opacity = 0;
         return;
       }
-      copy.style.setProperty('--copy-o', (1 - fade).toFixed(3));
+      copy.style.opacity = (1 - fade).toFixed(3);
       copy.style.setProperty('--copy-y', (-46 * fade).toFixed(1) + 'px');
       copy.style.setProperty('--copy-s', (1 - 0.045 * fade).toFixed(3));
       copy.style.pointerEvents = fade > 0.5 ? 'none' : '';
 
       const hudO = sm(seg(p, 0.17, 0.27)) * (1 - sm(seg(p, 0.88, 0.96)));
-      hud.style.setProperty('--hud-o', hudO.toFixed(3));
+      hud.style.opacity = hudO.toFixed(3);
 
       const cO = sm(seg(p, 0.905, 0.995));
-      closeP.style.setProperty('--close-o', cO.toFixed(3));
+      closeP.style.opacity = cO.toFixed(3);
       closeP.style.setProperty('--close-y', (22 * (1 - cO)).toFixed(1) + 'px');
       closeP.classList.toggle('live', cO > 0.6);
 
-      if(hint) hint.style.setProperty('--hint-o', (1 - sm(seg(p, 0.005, 0.055))).toFixed(3));
+      if(hint) hint.style.opacity = (1 - sm(seg(p, 0.005, 0.055))).toFixed(3);
     }
 
     /* ---- scroll driver ---- */
-    let ticking = false, lastP = -1;
+    let ticking = false, lastP = -1, wasLive = false;
+
+    /* If the machine can't hold a frame rate, quietly shed the cheapest
+       detail rather than stuttering through the whole sequence. */
+    let fTime = 0, fCount = 0, fLast = 0, checked = false;
+    function sample(){
+      if(checked) return;
+      const now = performance.now();
+      if(fLast && now - fLast < 200){ fTime += now - fLast; fCount++; }
+      fLast = now;
+      if(fCount === 45){
+        checked = true;
+        if(fTime / fCount > 30) stage.classList.add('lite');
+      }
+    }
     function frame(){
       ticking = false;
       const vh = window.innerHeight;
@@ -1382,9 +1454,12 @@
       const p = cl(y / span);
 
       if(!reduce){
+        const live = y > 0 && y < span;
         if(y <= 0){ stage.classList.remove('is-pinned','is-after'); }
         else if(y >= span){ stage.classList.remove('is-pinned'); stage.classList.add('is-after'); }
         else { stage.classList.remove('is-after'); stage.classList.add('is-pinned'); }
+        if(live !== wasLive){ wasLive = live; document.body.classList.toggle('hero-live', live); }
+        if(live) sample();
       }
       if(Math.abs(p - lastP) > 0.0002 || lastP < 0){ lastP = p; render(reduce ? 0.90 : p); }
     }
