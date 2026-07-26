@@ -1,1480 +1,264 @@
-<!DOCTYPE html>
-<html lang="en-AU">
+<!doctype html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Planning & Feasibility for Sydney Developers — whatcani.build</title>
-<meta name="description" content="Planning-led feasibility and approvals for small to mid-scale developments in Sydney and NSW. Fixed fees, plain-language advice.">
-<link rel="canonical" href="https://whatcani.build/">
-<link rel="preconnect" href="https://images.unsplash.com" crossorigin>
-<link rel="preload" as="image" href="https://whatcani.build/images/home-facade-sunset.jpg">
-<meta name="robots" content="index, follow">
-<meta name="theme-color" content="#000000">
-<link rel="icon" type="image/svg+xml" href="logo-mark.svg">
-<meta name="author" content="Bakos &amp; Evans Pty Ltd">
-<meta property="og:title" content="Planning & Feasibility for Sydney Developers — whatcani.build">
-<meta property="og:description" content="Planning-led feasibility and approvals for small to mid-scale developments in Sydney and NSW. Fixed fees, plain-language advice.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://whatcani.build/">
-<meta property="og:site_name" content="whatcani.build">
-<meta property="og:locale" content="en_AU">
-<meta property="og:image" content="https://whatcani.build/images/home-facade-sunset.jpg">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Planning & Feasibility for Sydney Developers — whatcani.build">
-<meta name="twitter:description" content="Planning-led feasibility and approvals for small to mid-scale developments in Sydney and NSW. Fixed fees, plain-language advice.">
-<meta name="twitter:image" content="https://whatcani.build/images/home-facade-sunset.jpg">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "whatcani.build",
-  "legalName": "Bakos & Evans Pty Ltd",
-  "identifier": "ABN 25 622 644 464",
-  "url": "https://whatcani.build/",
-  "description": "Planning-led feasibility and approvals for small to mid-scale developments in Sydney and NSW. Fixed fees, plain-language advice.",
-  "address": {"@type": "PostalAddress", "addressLocality": "Sydney", "addressRegion": "NSW", "addressCountry": "AU"},
-  "areaServed": {"@type": "State", "name": "New South Wales"},
-  "sameAs": ["https://www.linkedin.com/company/whatcanibuild/"],
-  "priceRange": "$600 - $7,900",
-  "founder": [
-    {"@type": "Person", "name": "Istvan Bakos"},
-    {"@type": "Person", "name": "Nathan Evans"}
-  ]
-}
-</script>
-<style>
-
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Inter+Tight:wght@500;600;700;800&display=swap');
-  :root{
-    --black:#000000; --white:#FFFFFF;
-    --orange:#FF7700; --orange-soft:rgba(255,119,0,0.12);
-    --orange-border:rgba(255,119,0,0.30);
-    --blue:#4B8FE0; --blue-soft:rgba(75,143,224,0.14);
-    --blue-border:rgba(75,143,224,0.28);
-    --muted:#B8B6B0; --card-muted:#4A4845;
-    --hairline:rgba(255,255,255,0.1);
-    --card-hairline:rgba(0,0,0,0.09);
-  }
-  *{margin:0;padding:0;box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{background:var(--black);color:var(--white);
-    font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
-    overflow-x:hidden;-webkit-font-smoothing:antialiased;}
-  ::selection{background:var(--orange);color:var(--black);}
-
-  /* NAV */
-  nav{
-    position:fixed;top:0;left:0;right:0;z-index:200;
-    display:flex;align-items:center;justify-content:space-between;
-    padding:20px 5vw;
-    backdrop-filter:blur(24px) saturate(160%);
-    -webkit-backdrop-filter:blur(24px) saturate(160%);
-    background:rgba(0,0,0,0.72);
-    border-bottom:1px solid var(--hairline);
-    transition:padding .3s ease;
-  }
-  .logo{font-family:'Inter Tight',sans-serif;font-weight:700;font-size:20.4px;
-    letter-spacing:-0.02em;color:var(--white);text-decoration:none;}
-  .logo span{color:var(--orange);}
-  .nav-links{display:flex;gap:32px;list-style:none;}
-  .nav-links a{color:var(--white);text-decoration:none;font-size:15px;font-weight:500;
-    opacity:0.82;transition:opacity .25s ease;letter-spacing:-0.01em;}
-  .nav-links a:hover,.nav-links a.active{opacity:1;color:var(--orange);}
-  .nav-right{display:flex;align-items:center;gap:16px;}
-  .nav-cta{background:var(--orange);color:var(--black);padding:9px 20px;
-    border-radius:100px;font-size:13.5px;font-weight:700;text-decoration:none;
-    transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s ease;}
-  .nav-cta:hover{transform:scale(1.04);box-shadow:0 8px 24px rgba(255,119,0,0.4);}
-
-  /* HAMBURGER */
-  .hamburger{
-    display:none;flex-direction:column;justify-content:center;
-    gap:5px;cursor:pointer;padding:6px;background:none;border:none;
-    z-index:300;
-  }
-  .hamburger span{
-    display:block;width:24px;height:2px;background:var(--white);
-    border-radius:2px;transition:transform .35s cubic-bezier(.2,.8,.2,1),opacity .3s ease;
-    transform-origin:center;
-  }
-  .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
-  .hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0);}
-  .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
-
-  /* MOBILE MENU OVERLAY */
-  .mobile-menu{
-    position:fixed;inset:0;z-index:150;
-    background:rgba(0,0,0,0.97);
-    display:flex;flex-direction:column;align-items:center;justify-content:center;
-    gap:0;
-    opacity:0;pointer-events:none;
-    transition:opacity .4s cubic-bezier(.2,.8,.2,1);
-  }
-  .mobile-menu.open{opacity:1;pointer-events:all;}
-  .mobile-menu a{
-    color:var(--white);text-decoration:none;
-    font-family:'Inter Tight',sans-serif;font-weight:700;
-    font-size:clamp(2rem,6vw,3.2rem);letter-spacing:-0.02em;
-    padding:18px 0;line-height:1;
-    transition:color .2s ease,transform .2s ease;
-    transform:translateY(12px);opacity:0;
-  }
-  .mobile-menu.open a{transform:translateY(0);opacity:1;}
-  .mobile-menu a:hover{color:var(--orange);}
-  .mobile-menu a.cta-link{
-    margin-top:28px;background:var(--orange);color:var(--black);
-    padding:16px 40px;border-radius:100px;font-size:1.1rem;
-  }
-  .mobile-menu .divider{
-    width:40px;height:1px;background:var(--hairline);margin:12px 0;
-  }
-
-  /* PARALLAX BAND */
-  .parallax-band{
-    position:relative;height:340px;overflow:hidden;
-    display:flex;align-items:center;justify-content:center;
-  }
-  .parallax-band .pb-img{
-    position:absolute;inset:-30% 0;
-    background-size:cover;background-position:center;background-attachment:fixed;
-    filter:brightness(1);
-    will-change:transform;
-  }
-  .parallax-band .pb-overlay{
-    position:absolute;inset:0;
-    background:rgba(0,0,0,0.05);
-  }
-  /* pb-label removed — parallax bands are image-only */
-
-  /* SHARED SECTION STYLES */
-  section{padding:120px 6vw;}
-  .wrap{max-width:1180px;margin:0 auto;}
-  .on-black{background:var(--black);color:var(--white);}
-  .on-white{background:var(--white);color:var(--black);}
-  .section-head{text-align:center;max-width:580px;margin:0 auto 72px;}
-  .tag{display:block;font-size:13px;font-weight:700;letter-spacing:0.06em;
-    text-transform:uppercase;margin-bottom:14px;color:var(--orange);}
-  .section-head h2{font-family:'Inter Tight',sans-serif;font-weight:800;
-    font-size:clamp(2rem,3.6vw,3rem);letter-spacing:-0.03em;line-height:1.1;
-    color:var(--white);}
-  .on-white .section-head h2{color:var(--black);}
-  .section-head p{margin-top:18px;font-size:18px;line-height:1.6;color:var(--muted);}
-  .on-white .section-head p{color:var(--card-muted);}
-
-  /* CARDS */
-  .card-white{background:var(--white);border:1px solid var(--card-hairline);
-    border-radius:22px;padding:38px;}
-  .card-white h3{font-family:'Inter Tight',sans-serif;font-weight:700;font-size:21px;
-    letter-spacing:-0.015em;color:var(--black);margin-bottom:12px;line-height:1.25;}
-  .card-white p{font-size:15.5px;color:#2A2825;line-height:1.65;}
-
-  /* BUTTONS */
-  .btn-primary{background:var(--orange);color:var(--black);padding:14px 28px;
-    border-radius:100px;font-size:15px;font-weight:700;text-decoration:none;
-    display:inline-flex;align-items:center;gap:8px;
-    transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s ease;}
-  .btn-primary:hover{transform:translateY(-3px) scale(1.02);
-    box-shadow:0 14px 32px rgba(255,119,0,0.4);}
-  .btn-secondary{background:rgba(255,255,255,0.07);color:var(--white);
-    border:1px solid var(--hairline);padding:14px 28px;border-radius:100px;
-    font-size:15px;font-weight:600;text-decoration:none;backdrop-filter:blur(10px);
-    transition:background .3s ease,transform .3s ease;}
-  .btn-secondary:hover{background:rgba(255,255,255,0.13);transform:translateY(-3px);}
-  .btn-outline-dark{background:transparent;color:var(--black);
-    border:2px solid var(--black);padding:13px 28px;border-radius:100px;
-    font-size:15px;font-weight:700;text-decoration:none;
-    transition:background .3s ease,color .3s ease;}
-  .btn-outline-dark:hover{background:var(--black);color:var(--white);}
-  .btn-group{display:flex;gap:14px;flex-wrap:wrap;margin-top:32px;}
-
-  /* STEP/ICON CHIP */
-  .icon-chip{width:51px;height:51px;border-radius:13px;
-    background:var(--blue-soft);border:1px solid var(--blue-border);
-    display:flex;align-items:center;justify-content:center;
-    margin-bottom:20px;flex-shrink:0;}
-
-  /* REVEAL ANIMATION */
-  .reveal{opacity:0;transform:translateY(28px);
-    transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1);}
-  .reveal.visible{opacity:1;transform:translateY(0);}
-
-  /* PAGE HERO (inner pages) */
-  .page-hero{
-    min-height:52vh;display:flex;flex-direction:column;
-    align-items:center;justify-content:center;text-align:center;
-    padding:160px 6vw 100px;position:relative;overflow:hidden;
-    background:var(--black);
-  }
-  .page-hero h1{font-family:'Inter Tight',sans-serif;font-weight:800;
-    font-size:clamp(2.4rem,5.5vw,4.8rem);letter-spacing:-0.035em;
-    line-height:1.06;max-width:900px;color:var(--white);}
-  .page-hero h1 span{color:var(--orange);font-style:italic;}
-  .page-hero p{margin-top:22px;font-size:clamp(1rem,1.6vw,1.25rem);
-    color:var(--muted);max-width:580px;line-height:1.6;}
-  .page-glow{position:absolute;width:700px;height:700px;top:50%;left:50%;
-    transform:translate(-50%,-50%);pointer-events:none;
-    background:radial-gradient(circle,rgba(255,119,0,0.12) 0%,transparent 70%);}
-
-  /* FOOTER */
-  footer{border-top:1px solid var(--hairline);padding:52px 6vw;
-    background:var(--black);}
-  .footer-inner{max-width:1180px;margin:0 auto;
-    display:flex;align-items:flex-start;justify-content:space-between;
-    flex-wrap:wrap;gap:32px;}
-  .footer-logo{font-family:'Inter Tight',sans-serif;font-weight:700;
-    font-size:18px;color:var(--white);text-decoration:none;}
-  .footer-logo span{color:var(--orange);}
-  .footer-nav{display:flex;flex-direction:column;gap:12px;}
-  .footer-nav-title{font-size:12px;font-weight:700;color:var(--orange);
-    letter-spacing:0.06em;text-transform:uppercase;margin-bottom:4px;}
-  .footer-nav a{color:var(--muted);text-decoration:none;font-size:14.5px;
-    transition:color .25s ease;}
-  .footer-nav a:hover{color:var(--white);}
-  .footer-bottom{border-top:1px solid var(--hairline);
-    padding-top:24px;margin-top:36px;
-    display:flex;align-items:center;justify-content:space-between;
-    flex-wrap:wrap;gap:12px;}
-  .footer-copy{font-size:13px;color:var(--muted);}
-  .footer-tagline{font-size:13px;color:var(--muted);font-style:italic;}
-
-  /* FORM */
-  .form-card{background:var(--white);border:1px solid var(--card-hairline);
-    border-radius:24px;padding:44px;}
-  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
-  .form-field{display:flex;flex-direction:column;gap:8px;min-width:0;}
-  .form-field.full{grid-column:1/-1;}
-  .form-field label{font-size:13px;font-weight:600;color:#444;letter-spacing:0.01em;}
-  .form-field input,.form-field select,.form-field textarea{
-    width:100%;min-width:0;
-    background:#F7F7F7;border:1px solid rgba(0,0,0,0.1);border-radius:12px;
-    padding:13px 16px;color:var(--black);font-family:'Inter',sans-serif;
-    font-size:14.5px;outline:none;
-    transition:border-color .25s ease,background .25s ease;}
-  .form-field input:focus,.form-field select:focus,.form-field textarea:focus{
-    border-color:var(--orange);background:var(--white);}
-  .form-field textarea{resize:vertical;min-height:110px;font-family:inherit;}
-  .form-submit{width:100%;background:var(--orange);color:var(--black);border:none;
-    padding:16px;border-radius:100px;font-size:15px;font-weight:700;cursor:pointer;
-    margin-top:8px;font-family:'Inter',sans-serif;
-    transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s ease;}
-  .form-submit:hover{transform:translateY(-2px) scale(1.01);
-    box-shadow:0 14px 32px rgba(255,119,0,0.35);}
-
-  /* RESPONSIVE */
-  @media(max-width:900px){
-    .nav-links,.nav-cta{display:none;}
-    .hamburger{display:flex;}
-    /* Inner page grids — 2-col max at tablet */
-    .about-grid-2col,
-    [style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr !important;}
-    [style*="grid-template-columns:repeat(3"]{grid-template-columns:1fr !important;}
-    [style*="grid-template-columns:repeat(4"]{grid-template-columns:1fr 1fr !important;}
-    [style*="grid-template-columns:1fr 1.6fr"]{grid-template-columns:1fr !important;}
-    [style*="grid-template-columns:1fr 1fr;gap:48px"]{grid-template-columns:1fr !important;}
-  }
-  @media(max-width:600px){
-    section{padding:80px 5vw;}
-    .footer-inner{flex-direction:column;gap:28px;}
-    /* Everything single column on mobile */
-    .form-row{grid-template-columns:1fr !important;}
-    [style*="grid-template-columns"]{grid-template-columns:1fr !important;}
-    [style*="grid-template-columns"] > *{min-width:0;max-width:100%;}
-    [style*="display:flex;gap:12px;"]{flex-direction:column;}
-    /* All multi-col grids → 1 col */
-    .blog-grid{grid-template-columns:1fr !important;}
-    .steps{grid-template-columns:1fr !important;}
-    .pricing-preview{grid-template-columns:1fr !important;}
-  }
-  @media(prefers-reduced-motion:reduce){
-    *{animation-duration:.01ms !important;transition-duration:.01ms !important;}
-    .parallax-band .pb-img{background-attachment:scroll;}
-  }
-
-
-  @keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
-  @keyframes pulse{0%,100%{opacity:.7;transform:translate(-50%,-50%) scale(1);}50%{opacity:1;transform:translate(-50%,-50%) scale(1.08);}}
-  @keyframes blink{0%,100%{opacity:1;}50%{opacity:.3;}}
-  .hero{position:relative;min-height:100vh;display:flex;flex-direction:column;
-    align-items:center;justify-content:center;text-align:center;
-    padding:140px 6vw 100px;overflow:hidden;background:var(--black);}
-  .hero-glow{position:absolute;width:900px;height:900px;top:50%;left:50%;
-    transform:translate(-50%,-50%);pointer-events:none;
-    background:radial-gradient(circle,rgba(255,119,0,0.15) 0%,rgba(255,119,0,0.05) 40%,transparent 70%);
-    animation:pulse 8s ease-in-out infinite;}
-  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;
-    font-weight:600;letter-spacing:0.02em;color:var(--orange);
-    background:var(--orange-soft);border:1px solid var(--orange-border);
-    padding:7px 16px;border-radius:100px;margin-bottom:32px;
-    opacity:0;animation:fadeUp .8s ease forwards .1s;}
-  .eyebrow-dot{width:6px;height:6px;border-radius:50%;background:var(--orange);
-    animation:blink 2s ease-in-out infinite;flex-shrink:0;}
-  h1{font-family:'Inter Tight',sans-serif;font-weight:800;
-    font-size:clamp(2.6rem,6.2vw,5.4rem);line-height:1.04;
-    letter-spacing:-0.035em;max-width:1000px;color:var(--white);
-    opacity:0;animation:fadeUp .9s ease forwards .25s;}
-  h1 .accent{color:var(--orange);font-style:italic;font-weight:700;}
-  .hero-sub{margin-top:28px;font-size:clamp(1.1rem,1.76vw,1.4rem);
-    color:var(--muted);max-width:660px;line-height:1.55;font-weight:400;
-    opacity:0;animation:fadeUp .9s ease forwards .42s;}
-  .hero-actions{margin-top:44px;display:flex;gap:14px;flex-wrap:wrap;justify-content:center;
-    opacity:0;animation:fadeUp .9s ease forwards .58s;}
-
-  /* ===== HERO SCROLL DIORAMA =====================================
-     One street, four uplift pathways — scrubbed by scroll, in real 3D.
-     Everything is derived from a single 0→1 progress value, so scrolling
-     back reverses the scene exactly. ================================= */
-
-  .hero-track{position:relative;height:500vh;background:var(--black);}
-  .hero-stage{position:absolute;top:0;left:0;right:0;height:100vh;
-    overflow:hidden;background:var(--black);z-index:1;
-    --tilt:36deg; --head:-18deg; --nhead:calc(-1 * var(--head));
-    --tz:-1150px; --ty:6vh; --cx:0px; --cy:0px; --po:47%;
-    --lift:0;}
-  .hero-stage.is-pinned{position:fixed;}
-  .hero-stage.is-after{position:absolute;top:auto;bottom:0;}
-
-  .scene{position:absolute;inset:0;perspective:1000px;
-    perspective-origin:50% var(--po);}
-  .scene-glow{position:absolute;left:50%;top:42%;width:min(1200px,150vw);height:min(1200px,150vw);
-    transform:translate(-50%,-50%) translateZ(0);pointer-events:none;
-    background:radial-gradient(circle,rgba(255,119,0,0.16) 0%,rgba(255,119,0,0.05) 38%,transparent 68%);
-    opacity:.35;will-change:opacity;}
-  .world{position:absolute;left:50%;top:50%;width:0;height:0;
-    transform-style:preserve-3d;
-    transform:translate3d(0,var(--ty),var(--tz))
-              rotateX(var(--tilt)) rotateZ(var(--head))
-              translate3d(var(--cx),var(--cy),0);
-    will-change:transform;}
-
-    /* The static ground — grid, road, kerbs, edge fade — is painted once into a
-     canvas at load. A bitmap costs the compositor almost nothing to re-scale,
-     where the same artwork as live SVG had to be re-rasterised every frame. */
-  .ground{position:absolute;left:0;top:0;width:2400px;height:1800px;
-    display:block;overflow:visible;
-    /* own compositor layer: the bitmap is uploaded once and then simply
-       transformed, instead of being re-rasterised on every scroll frame */
-    transform:translateZ(0);backface-visibility:hidden;}
-  .ground-ov{pointer-events:none;}
-  .rd-halo{fill:none;stroke:rgba(255,119,0,0.22);stroke-width:17;
-    stroke-linecap:round;stroke-linejoin:round;}
-  .rd-path{fill:none;stroke:var(--orange);stroke-width:5;
-    stroke-linecap:round;stroke-linejoin:round;}
-  .rd-head{fill:var(--orange);}
-  .rd-head-glow{fill:rgba(255,119,0,0.30);}
-
-  /* things that sit flat on the ground plane */
-  .prop{position:absolute;left:0;top:0;width:0;height:0;transform-style:preserve-3d;}
-  .flat{position:absolute;left:0;top:0;width:var(--w);height:var(--h);
-    margin-left:calc(var(--w) / -2);margin-top:calc(var(--h) / -2);}
-  .lot-pad{border:1.5px dashed var(--orange-border);border-radius:6px;
-    background:rgba(255,119,0,0.045);opacity:var(--q,0);}
-  .shadow{background:radial-gradient(ellipse at center,rgba(0,0,0,0.75) 0%,rgba(0,0,0,0.35) 45%,transparent 72%);
-    opacity:calc(var(--q,0) * 0.9);}
-
-  /* things that stand up out of the ground */
-  .bb{position:absolute;left:0;top:0;width:var(--w);height:var(--h);
-    margin-left:calc(var(--w) / -2);margin-top:calc(var(--h) * -1);
-    transform-origin:50% 100%;
-    transform:rotateZ(var(--nhead)) rotateX(-90deg) scale3d(var(--qx,1),var(--q,1),1);
-    opacity:var(--o,1);}
-  .bb svg{display:block;width:100%;height:100%;overflow:visible;}
-
-  /* label chips — rotated to face the camera exactly */
-  .card3d{position:absolute;left:0;top:0;width:var(--w);height:var(--h);
-    display:flex;align-items:center;justify-content:center;
-    margin-left:calc(var(--w) / -2);margin-top:calc(var(--h) * -1);
-    transform-origin:50% 100%;
-    transform:translate3d(0,0,calc(var(--rz,0px) * var(--rzK,1))) rotateZ(var(--nhead))
-              rotateX(calc(-1 * var(--tilt))) scale(var(--cs,1));
-    opacity:var(--o,0);}
-  .lot-tag{display:inline-flex;align-items:center;gap:9px;white-space:nowrap;
-    background:rgba(0,0,0,0.86);border:1px solid var(--orange-border);
-    border-radius:100px;padding:7px 15px 7px 9px;}
-  .lot-tag i{font-style:normal;display:inline-flex;align-items:center;justify-content:center;
-    width:23px;height:23px;border-radius:50%;background:var(--orange);color:var(--black);
-    font-family:'Inter Tight',sans-serif;font-weight:800;font-size:12.5px;}
-  .lot-tag b{font-family:'Inter',sans-serif;font-weight:700;font-size:12px;
-    letter-spacing:0.06em;color:var(--white);}
-  .lot-tag em{font-style:normal;font-size:11.5px;font-weight:600;color:var(--orange);
-    letter-spacing:0.02em;}
-
-  /* small props — inline SVG only, design-system colours only */
-  .world .cnp{fill:none;stroke:var(--blue);stroke-width:2.6;}
-  .world .trk{fill:none;stroke:rgba(255,255,255,0.34);stroke-width:2.4;stroke-linecap:round;}
-  .world .br{fill:none;stroke:rgba(255,255,255,0.22);stroke-width:2;stroke-linecap:round;}
-  .world .sil{fill:rgba(255,255,255,0.55);}
-  .world .pole{fill:none;stroke:rgba(255,255,255,0.40);stroke-width:2.4;stroke-linecap:round;}
-  .world .lamp{fill:var(--orange);}
-  .world .stk{fill:none;stroke:var(--orange);stroke-width:2.6;stroke-linecap:round;}
-  .world .flg{fill:var(--orange);}
-  .world .rl{fill:none;stroke:rgba(255,255,255,0.22);stroke-width:2;stroke-linecap:round;}
-  .pr-bush .cnp{opacity:.8;}
-
-  /* atmosphere */
-  .fog-far{position:absolute;left:0;right:0;top:0;height:38%;pointer-events:none;transform:translateZ(0);
-    background:linear-gradient(to bottom,var(--black) 4%,rgba(0,0,0,0.72) 34%,transparent 100%);}
-  .fog-near{position:absolute;left:0;right:0;bottom:0;height:34%;pointer-events:none;transform:translateZ(0);
-    background:linear-gradient(to top,var(--black) 4%,rgba(0,0,0,0.72) 40%,transparent 100%);}
-  .scene-dim{position:absolute;inset:0;pointer-events:none;background:var(--black);
-    opacity:.82;will-change:opacity;transform:translateZ(0);}
-  .fog-side{position:absolute;inset:0;pointer-events:none;transform:translateZ(0);
-    background:radial-gradient(ellipse 78% 72% at 50% 48%,transparent 46%,rgba(0,0,0,0.72) 100%);}
-
-  /* ---- hero copy layer ---- */
-  .hero-copy{position:absolute;inset:0;z-index:5;display:flex;flex-direction:column;
-    align-items:center;justify-content:center;text-align:center;
-    padding:132px 6vw 96px;pointer-events:none;will-change:opacity,transform;
-    transform:translate3d(0,var(--copy-y,0px),0) scale(var(--copy-s,1));
-    /* sits above the scene so it reads on clean black at both ends */
-    z-index:8;}
-  .hero-copy > *{pointer-events:auto;}
-  .hero-copy .eyebrow{animation:fadeUp .8s ease forwards .1s;}
-  .hero-copy h1{animation:fadeUp .9s ease forwards .25s;}
-  .hero-copy .hero-sub{animation:fadeUp .9s ease forwards .42s;}
-  .hero-copy .hero-actions{animation:fadeUp .9s ease forwards .58s;}
-
-  /* ---- HUD ---- */
-  .hud{position:absolute;inset:0;z-index:6;pointer-events:none;
-    padding:104px 5vw 40px;opacity:0;will-change:opacity;transform:translateZ(0);}
-  .hud-readout{position:absolute;top:118px;right:5vw;text-align:right;}
-  .hud-readout .nums{position:relative;height:36px;
-    font-family:'Inter Tight',sans-serif;font-size:29px;font-weight:800;
-    color:var(--white);letter-spacing:-0.02em;}
-  .hud-readout .nums > span{position:absolute;right:0;top:0;white-space:nowrap;
-    opacity:0;transform:translateY(6px);transition:opacity .32s ease,transform .32s ease;}
-  .hud-readout .nums > span.on{opacity:1;transform:translateY(0);}
-  .hud-readout .nums .nm{font-family:'Inter',sans-serif;font-size:13px;font-weight:700;
-    letter-spacing:0.05em;color:var(--white);margin-left:9px;vertical-align:3px;}
-  .hud-readout .lbl{font-size:11px;color:var(--muted);font-weight:600;
-    letter-spacing:0.06em;margin-top:3px;}
-  .hud-note{position:absolute;left:5vw;bottom:76px;max-width:min(340px,50vw);text-align:left;}
-  .hud-note .k{font-size:11px;font-weight:700;letter-spacing:0.09em;color:var(--orange);
-    display:block;margin-bottom:7px;}
-  .hud-note .v{font-size:14.5px;line-height:1.55;color:var(--muted);
-    transition:opacity .3s ease;}
-  .hud-bar{position:absolute;left:5vw;right:5vw;bottom:44px;height:2px;
-    background:rgba(255,255,255,0.12);border-radius:2px;overflow:hidden;}
-  .hud-bar i{display:block;height:100%;width:100%;transform-origin:left center;
-    transform:scaleX(var(--p,0));background:var(--orange);border-radius:2px;}
-
-  /* ---- scroll hint ---- */
-  .scroll-hint{position:absolute;left:50%;bottom:30px;transform:translateX(-50%);
-    z-index:7;display:flex;flex-direction:column;align-items:center;gap:9px;
-    font-size:11px;font-weight:700;letter-spacing:0.14em;color:var(--muted);
-    pointer-events:none;will-change:opacity;}
-  .scroll-hint .mouse{width:22px;height:34px;border:1.5px solid rgba(255,255,255,0.4);
-    border-radius:12px;position:relative;}
-  .scroll-hint .mouse::after{content:'';position:absolute;left:50%;top:7px;
-    width:3px;height:6px;margin-left:-1.5px;border-radius:2px;background:var(--orange);
-    animation:hintDrop 1.8s ease-in-out infinite;}
-  @keyframes hintDrop{0%,100%{transform:translateY(0);opacity:1;}
-    55%{transform:translateY(10px);opacity:.25;}}
-
-  @media(max-width:900px){
-    .hud-readout{top:102px;}
-    .hud-readout .nums{font-size:24px;height:30px;}
-    /* the per-lot description moves to a centred caption so it still gets read */
-    .hud-note{left:6vw;right:6vw;bottom:62px;max-width:none;text-align:center;}
-    .hud-note .k{margin-bottom:5px;}
-    .hud-note .v{display:block;font-size:13.5px;line-height:1.5;color:var(--white);
-      opacity:.86;text-wrap:balance;}
-  }
-  @media(max-width:600px){
-    .hud-readout .nums{font-size:21px;height:27px;}
-    .hud-readout .nums .nm{font-size:11px;margin-left:6px;}
-    .hud-note{bottom:58px;}
-    .hud-note .v{font-size:13px;}
-  }
-  @media(max-width:760px){
-    .hero-track{height:400vh;}
-    /* lift the labels clear of their neighbours in the tighter layout */
-    .hero-stage{--rzK:1.4;}
-    .scene{perspective:760px;}
-    .hero-copy{padding:118px 6vw 80px;}
-    .lot-tag{padding:6px 13px 6px 7px;gap:8px;}
-    .lot-tag b{font-size:11.5px;}
-    .lot-tag em{display:none;}
-  }
-
-  @media(prefers-reduced-motion:reduce){
-    .hero-track{height:100vh;}
-    .hero-stage{position:absolute !important;top:0;bottom:auto;}
-    .scroll-hint,.hud-bar{display:none;}
-    .scroll-hint .mouse::after{animation:none;}
-  }
-
-
-  /* INDEX GRIDS */
-  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
-    background:var(--card-hairline);border-radius:24px;overflow:hidden;border:1px solid var(--card-hairline);}
-  .step{background:var(--white);padding:36px 28px 40px;transition:background .4s ease,transform .4s ease;}
-  .step:hover{background:#F5F5F5;transform:translateY(-4px);}
-  .step-index{font-family:'Inter Tight',sans-serif;font-size:13px;font-weight:700;color:var(--orange);letter-spacing:0.04em;margin-bottom:20px;display:block;}
-  .step h3{font-family:'Inter Tight',sans-serif;font-size:19px;font-weight:700;letter-spacing:-0.015em;margin-bottom:10px;line-height:1.3;color:var(--black);}
-  .step p{font-size:15px;color:#2A2825;line-height:1.6;}
-  .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
-    background:var(--hairline);border-radius:24px;overflow:hidden;border:1px solid var(--hairline);margin-top:0;}
-  .service-card{background:var(--white);padding:44px 32px 48px;transition:background .4s ease,transform .4s ease;}
-  .service-card:hover{background:#F5F5F5;transform:translateY(-4px);}
-  .service-num{font-family:'Inter Tight',sans-serif;font-size:13px;font-weight:700;color:var(--orange);letter-spacing:0.04em;margin-bottom:22px;display:block;}
-  .service-card h3{font-family:'Inter Tight',sans-serif;font-size:21px;font-weight:700;letter-spacing:-0.02em;line-height:1.25;margin-bottom:14px;color:var(--black);}
-  .service-card p{font-size:15.5px;color:#2A2825;line-height:1.65;margin-bottom:22px;}
-  .service-meta{display:flex;align-items:center;gap:8px;font-size:13.5px;color:var(--orange);font-weight:600;padding-top:20px;border-top:1px solid var(--card-hairline);}
-  .pricing-preview{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
-  .price-card{background:var(--white);border:1px solid var(--card-hairline);border-radius:20px;padding:32px 24px 28px;display:flex;flex-direction:column;transition:transform .4s ease,box-shadow .4s ease,border-color .4s ease;}
-  .price-card:hover{transform:translateY(-6px);box-shadow:0 24px 48px -12px rgba(0,0,0,0.2);border-color:var(--orange-border);}
-  .price-card.featured{border:2px solid var(--orange);box-shadow:0 0 0 4px var(--orange-soft);}
-  .price-name{font-family:'Inter Tight',sans-serif;font-weight:700;font-size:16px;margin-bottom:4px;color:var(--black);}
-  .price-from{font-size:12px;color:#8A8782;font-weight:600;letter-spacing:0.02em;text-transform:uppercase;margin-bottom:10px;}
-  .price-amount{font-family:'Inter Tight',sans-serif;font-weight:800;font-size:28px;letter-spacing:-0.02em;margin-bottom:14px;color:var(--black);}
-  .price-amount span{font-size:14px;font-weight:600;color:#8A8782;}
-  .price-desc{font-size:14px;color:#2A2825;line-height:1.6;flex:1;}
-  .price-badge{display:inline-block;background:var(--orange);color:var(--black);font-size:11px;font-weight:700;padding:4px 10px;border-radius:100px;margin-bottom:12px;letter-spacing:0.02em;width:fit-content;}
-  .testi-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
-  .testi-card{background:var(--white);border:1px solid var(--card-hairline);border-radius:22px;padding:36px;transition:transform .4s ease,box-shadow .4s ease;}
-  .testi-card:hover{transform:translateY(-4px);box-shadow:0 20px 40px -10px rgba(0,0,0,0.15);}
-  .testi-mark{font-size:44px;color:var(--orange);font-family:Georgia,serif;line-height:1;margin-bottom:6px;display:block;}
-  .testi-quote{font-size:16.5px;line-height:1.65;color:var(--black);font-style:italic;}
-  .testi-author{margin-top:22px;padding-top:18px;border-top:1px solid var(--card-hairline);}
-  .testi-author .n{font-weight:700;font-size:14px;color:var(--black);}
-  .testi-author .r{font-size:13px;color:#8A8782;margin-top:2px;}
-  .team-preview{display:grid;grid-template-columns:1fr 1fr;gap:32px;}
-  .team-card{background:var(--white);border:1px solid var(--card-hairline);border-radius:24px;padding:36px;display:flex;flex-direction:column;gap:20px;transition:transform .4s ease,box-shadow .4s ease;}
-  .team-card:hover{transform:translateY(-4px);box-shadow:0 24px 48px -12px rgba(0,0,0,0.15);}
-  .team-photo-wrap{display:flex;align-items:center;gap:20px;}
-  .team-avatar{width:88px;height:88px;border-radius:50%;flex-shrink:0;}
-  .team-name{font-family:'Inter Tight',sans-serif;font-weight:800;font-size:21px;letter-spacing:-0.02em;color:var(--black);}
-  .team-role{font-size:13.5px;color:var(--orange);font-weight:600;margin-top:3px;}
-  .team-bio{font-size:15px;color:#2A2825;line-height:1.7;}
-  .team-tags{display:flex;flex-wrap:wrap;gap:8px;}
-  .team-tag{font-size:12px;font-weight:600;color:#555;border:1px solid var(--card-hairline);padding:5px 11px;border-radius:100px;}
-  .section-more{text-align:center;margin-top:44px;}
-  .contact-grid-idx{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;}
-  .contact-info h2{font-family:'Inter Tight',sans-serif;font-weight:800;font-size:clamp(1.8rem,3vw,2.6rem);letter-spacing:-0.03em;line-height:1.12;margin-bottom:18px;color:var(--white);}
-  .contact-info p{font-size:16.5px;color:var(--muted);line-height:1.65;}
-  .contact-detail{margin-top:28px;display:flex;flex-direction:column;gap:14px;}
-  .contact-detail-row{display:flex;align-items:center;gap:12px;font-size:15px;color:var(--white);}
-  .contact-ic{width:44px;height:44px;border-radius:12px;background:var(--blue-soft);border:1px solid var(--blue-border);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-  @media(max-width:900px){
-    .steps{grid-template-columns:1fr 1fr;}
-    .services-grid{grid-template-columns:1fr;}
-    .pricing-preview{grid-template-columns:1fr 1fr;}
-    .testi-grid{grid-template-columns:1fr;}
-    .team-preview{grid-template-columns:1fr;}
-    .contact-grid-idx{grid-template-columns:1fr;gap:40px;}
-    .team-photo-wrap{flex-direction:column;align-items:flex-start;}
-  }
-  @media(max-width:600px){
-    .steps{grid-template-columns:1fr !important;}
-    .pricing-preview{grid-template-columns:1fr !important;}
-    .services-grid{grid-template-columns:1fr !important;}
-    .testi-grid{grid-template-columns:1fr !important;}
-    .team-preview{grid-template-columns:1fr !important;}
-    .pricing-preview .price-card{margin-bottom:4px;}
-  }
-
-
-  /* ===== REVERSED (LIGHT) SECTIONS ===== */
-  .on-white{background:var(--white);color:var(--black);}
-  .on-white .hero-glow{opacity:0.10!important;}
-  /* --- text sitting directly on the light background --- */
-  .on-white .wrap h1,.on-white .wrap h2,.on-white .wrap h3,.on-white .wrap h4,
-  .on-white .section-head h2{color:var(--black)!important;}
-  .on-white .wrap p,.on-white .wrap li,.on-white .section-head p{color:var(--card-muted)!important;}
-  .on-white .wrap div{color:var(--black)!important;}
-  .on-white .section-more a{color:var(--black)!important;}
-  .on-white input,.on-white select,.on-white textarea{
-    background:#F7F7F7!important;color:var(--black)!important;border-color:rgba(0,0,0,0.12)!important;}
-  .on-white ::placeholder{color:#8A8782!important;}
-  /* --- dark boxes ON the light background (declared after, so they win) --- */
-  .on-white .card-white,.on-white .step,.on-white .price-card,
-  .on-white .testi-card,.on-white .team-card,.on-white .snap-card,
-  .on-white .lga-col,.on-white .faq details,.on-white .cmp-wrap,.on-white .stat-cell{
-    background:var(--black)!important;border-color:rgba(255,255,255,0.18)!important;}
-  .on-white .steps{background:rgba(255,255,255,0.18)!important;border-color:rgba(0,0,0,0.14)!important;}
-  .on-white .stat-strip{background:rgba(255,255,255,0.18)!important;border-color:rgba(0,0,0,0.14)!important;}
-  .on-white .card-white h2,.on-white .card-white h3,.on-white .card-white h4,
-  .on-white .step h3,.on-white .price-card h3,.on-white .testi-card h3,
-  .on-white .team-card h3,.on-white .snap-card h3,.on-white .team-name,
-  .on-white .price-amount,.on-white .faq summary,
-  .on-white .cmp-table thead th,.on-white .cmp-table td:first-child{color:var(--white)!important;}
-  .on-white .cmp-table th,.on-white .cmp-table td{border-bottom-color:rgba(255,255,255,0.18)!important;}
-  .on-white .cmp-table thead th{background:rgba(255,255,255,0.05)!important;}
-  .on-white .card-white p,.on-white .card-white li,.on-white .step p,
-  .on-white .price-card p,.on-white .price-desc,.on-white .testi-card p,
-  .on-white .testi-quote,.on-white .team-card p,.on-white .team-bio,
-  .on-white .snap-card p,.on-white .faq .faq-a,.on-white .faq .faq-a p,
-  .on-white .cmp-table td{color:var(--muted)!important;}
-  .on-white .card-white div,.on-white .price-card div,.on-white .testi-card div,
-  .on-white .team-card div,.on-white .snap-card div,.on-white .lga-col div,
-  .on-white .stat-cell div{color:var(--white)!important;}
-  .on-white .snap-card strong{color:var(--white)!important;}
-  .on-white .lga-col li{color:var(--white)!important;background:rgba(255,255,255,0.06)!important;
-    border-color:rgba(255,255,255,0.18)!important;}
-  .on-white .stat-cell .stat-num,.on-white .lga-col h3,.on-white .snap-card .snap-meta{color:var(--orange)!important;}
-  .on-white .stat-cell .stat-lab{color:var(--muted)!important;}
-  .on-white .card-white input,.on-white .card-white select,.on-white .card-white textarea{
-    background:#F7F7F7!important;color:var(--black)!important;}
-  .on-white .testi-author,.on-white .snap-stat,
-  .on-white .card-white div[style*="border-top"],
-  .on-white .testi-card div[style*="border-top"]{border-top-color:rgba(255,255,255,0.18)!important;}
-  .on-white .card-white span,.on-white .price-card span,.on-white .testi-card span,
-  .on-white .team-card span,.on-white .snap-card span,.on-white .lga-col span,
-  .on-white .stat-cell span,.on-white .faq span{color:var(--muted)!important;}
-  .on-white .wrap span[style*="var(--orange)"]{color:var(--orange)!important;}
-  .on-white .step:hover{background:#141414!important;}
-  /* --- additional dark boxes on light sections --- */
-  .on-white .price-card-full,.on-white .service-card,.on-white .form-card{
-    background:var(--black)!important;border-color:rgba(255,255,255,0.18)!important;}
-  .on-white .service-card:hover{background:#141414!important;}
-  .on-white .price-card-full h2,.on-white .price-card-full h3,.on-white .price-card-full h4,
-  .on-white .service-card h2,.on-white .service-card h3,.on-white .form-card h3{color:var(--white)!important;}
-  .on-white .price-card-full p,.on-white .service-card p,.on-white .form-card p{color:var(--muted)!important;}
-  .on-white .price-card-full div,.on-white .service-card div,.on-white .form-card div{color:var(--white)!important;}
-  .on-white .price-card-full span,.on-white .service-card span,.on-white .form-card span{color:var(--muted)!important;}
-  .on-white .price-card-full li,.on-white .service-card li{color:var(--muted)!important;}
-  .on-white .form-field label{color:#CFCDC8!important;}
-  .on-white .form-card input,.on-white .form-card select,.on-white .form-card textarea{
-    background:rgba(255,255,255,0.06)!important;color:var(--white)!important;
-    border-color:rgba(255,255,255,0.18)!important;}
-  .on-white .form-card select option{background:#111111;color:var(--white);}
-  .on-white .team-tag{color:var(--muted)!important;border-color:rgba(255,255,255,0.18)!important;}
-  .on-white .service-meta{border-top-color:rgba(255,255,255,0.18)!important;}
-  .on-white .service-card .service-num,.on-white .service-card .service-meta,.on-white .step-index{color:var(--orange)!important;}
-  .on-white .price-card-full .price-badge,.on-white .price-badge{color:var(--black)!important;}
-  .on-white .steps{background:rgba(255,255,255,0.22)!important;}
-  .on-white .card-white .btn-outline-dark,.on-white .price-card .btn-outline-dark{
-    color:var(--white)!important;border-color:var(--white)!important;}
-  .on-white .card-white .btn-outline-dark:hover{background:var(--white)!important;color:var(--black)!important;}
-
-  /* eyebrow tags: orange fails contrast on white, so use black on light sections */
-  .on-white .tag{color:var(--black)!important;}
-  .on-white .wrap span.tag{color:var(--black)!important;}
-  .on-white .card-white .tag,.on-white .service-card .tag,
-  .on-white .price-card-full .tag,.on-white .form-card .tag{color:var(--orange)!important;}
-  .on-white .team-card .team-role{color:var(--orange)!important;}
-
-  /* ===== STAT STRIP ===== */
-  .stat-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
-    background:var(--card-hairline);border:1px solid var(--card-hairline);border-radius:20px;overflow:hidden;}
-  .on-white .stat-strip{background:rgba(255,255,255,0.18);border-color:rgba(0,0,0,0.14);}
-  .stat-cell{background:var(--white);padding:30px 22px;text-align:center;}
-  .stat-num{font-family:'Inter Tight',sans-serif;font-weight:800;font-size:25px;
-    letter-spacing:-0.02em;color:var(--black);line-height:1.15;}
-  .stat-lab{font-size:13.5px;color:var(--card-muted);margin-top:8px;line-height:1.5;}
-
-  /* ===== COMPARISON TABLE ===== */
-  .cmp-wrap{overflow-x:auto;border:1px solid var(--card-hairline);border-radius:20px;background:var(--white);}
-  .on-white .cmp-wrap{border-color:rgba(255,255,255,0.18);}
-  .cmp-table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:660px;}
-  .cmp-table th,.cmp-table td{padding:16px 18px;text-align:left;vertical-align:top;
-    border-bottom:1px solid var(--card-hairline);line-height:1.6;}
-  .cmp-table thead th{font-family:'Inter Tight',sans-serif;font-weight:700;font-size:14px;
-    color:var(--black);background:rgba(0,0,0,0.035);}
-  .cmp-table td:first-child{font-weight:600;color:var(--black);width:160px;}
-  .cmp-table td{color:var(--card-muted);}
-  .cmp-table tr:last-child td{border-bottom:none;}
-
-  /* ===== FAQ ACCORDION ===== */
-  .faq{display:flex;flex-direction:column;gap:12px;}
-  .faq details{border:1px solid var(--card-hairline);border-radius:16px;
-    background:var(--white);overflow:hidden;transition:border-color .3s ease;}
-  .on-white .faq details{background:var(--black);border-color:rgba(255,255,255,0.18);}
-  .faq details[open]{border-color:var(--blue-border);}
-  .faq summary{cursor:pointer;list-style:none;padding:20px 56px 20px 22px;position:relative;
-    font-family:'Inter Tight',sans-serif;font-weight:600;font-size:16.5px;
-    color:var(--black);line-height:1.45;}
-  .faq summary::-webkit-details-marker{display:none;}
-  .faq summary::after{content:"";position:absolute;right:24px;top:50%;width:10px;height:10px;
-    border-right:2px solid var(--blue);border-bottom:2px solid var(--blue);
-    transform:translateY(-70%) rotate(45deg);transition:transform .3s ease;}
-  .faq details[open] summary::after{transform:translateY(-25%) rotate(-135deg);}
-  .faq .faq-a{padding:0 22px 22px;font-size:15px;line-height:1.7;color:var(--card-muted);}
-  .faq .faq-a p+p{margin-top:12px;}
-
-  /* ===== LGA COVERAGE ===== */
-  .lga-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
-  .lga-col{border:1px solid var(--card-hairline);border-radius:18px;padding:26px 24px;
-    background:var(--white);}
-  .on-white .lga-col{background:var(--black);border-color:rgba(255,255,255,0.18);}
-  .lga-col h3{font-family:'Inter Tight',sans-serif;font-weight:700;font-size:13px;
-    letter-spacing:0.06em;text-transform:uppercase;color:var(--black);margin-bottom:15px;}
-  .lga-col ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px;}
-  .lga-col li{font-size:13.5px;padding:6px 12px;border-radius:100px;
-    background:rgba(0,0,0,0.04);border:1px solid var(--card-hairline);color:var(--black);}
-
-  /* ===== PROJECT SNAPSHOTS ===== */
-  .snap-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;}
-  .snap-card{border:1px solid var(--card-hairline);border-radius:20px;padding:30px 28px;
-    background:var(--white);transition:transform .4s ease,border-color .4s ease;}
-  .on-white .snap-card{background:var(--black);border-color:rgba(255,255,255,0.18);}
-  .snap-card:hover{transform:translateY(-4px);border-color:var(--orange-border);}
-  .snap-meta{font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;
-    color:var(--black);margin-bottom:12px;}
-  .snap-card h3{font-family:'Inter Tight',sans-serif;font-weight:700;font-size:18px;
-    letter-spacing:-0.015em;color:var(--black);margin-bottom:10px;line-height:1.35;}
-  .snap-card p{font-size:14.5px;line-height:1.65;color:var(--card-muted);}
-  .snap-stat{margin-top:20px;padding-top:16px;border-top:1px solid var(--card-hairline);
-    display:flex;gap:26px;flex-wrap:wrap;}
-  .snap-stat div{font-size:12.5px;color:var(--card-muted);}
-  .snap-stat strong{display:block;font-family:'Inter Tight',sans-serif;font-size:17px;
-    font-weight:800;color:var(--black);letter-spacing:-0.01em;margin-bottom:2px;}
-
-  @media(max-width:900px){
-    .stat-strip{grid-template-columns:1fr 1fr;}
-    .lga-grid{grid-template-columns:1fr;}
-    .snap-grid{grid-template-columns:1fr;}
-  }
-
-</style>
+<title>Cemetery Owners — Scenario 1 Negotiation | 17912</title>
+<meta name="description" content="UTS 17912 Development Negotiation and Community Engagement — Assessment 2 Part A. Cemetery Owners group negotiation project for Scenario 1: Lane Cove National Park access road, North Ryde.">
+<link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-<nav>
-  <a href="index.html" class="logo">whatcani<span>.build</span></a>
-  <ul class="nav-links">
-    <li><a href="about.html" >About us</a></li>
-    <li><a href="services.html" >Services</a></li>
-    <li><a href="pricing.html" >Pricing</a></li>
-    <li><a href="blog.html" >Blog</a></li>
-    <li><a href="testimonials.html" >Testimonials</a></li>
-    <li><a href="contact.html" >Contact us</a></li>
-    <li><a href="legals.html" >Legals</a></li>
-  </ul>
-  <div class="nav-right">
-    <a href="contact.html" class="nav-cta">Get a site review</a>
-    <button class="hamburger" id="hamburger" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
-<div class="mobile-menu" id="mobile-menu">
-  <a href="about.html">About us</a>
-  <a href="services.html">Services</a>
-  <a href="pricing.html">Pricing</a>
-  <a href="blog.html">Blog</a>
-  <a href="testimonials.html">Testimonials</a>
-  <a href="contact.html">Contact us</a>
-  <a href="legals.html">Legals</a>
-  <div class="divider"></div>
-  <a href="contact.html" class="cta-link">Get a site review →</a>
-</div>
 
-<section class="hero-track" id="hero-track">
-  <div class="hero-stage" id="heroStage">
-
-    <div class="scene">
-      <div class="scene-glow"></div>
-      <div class="world" id="heroWorld">
-        <canvas class="ground" id="heroGround" width="1600" height="1200" aria-hidden="true"></canvas>
-        <svg class="ground ground-ov" id="heroOv" viewBox="0 0 1200 900" preserveAspectRatio="none" aria-hidden="true">
-          <path class="rd-halo" id="heroHalo" d="M 60,50 C 260,120 300,250 470,330 C 640,410 620,540 760,620 C 900,700 980,760 1150,870"/>
-          <path class="rd-path" id="heroPath" d="M 60,50 C 260,120 300,250 470,330 C 640,410 620,540 760,620 C 900,700 980,760 1150,870"/>
-          <circle class="rd-head-glow" id="heroHeadGlow" cx="60" cy="50" r="16" opacity="0"/>
-          <circle class="rd-head" id="heroHead" cx="60" cy="50" r="6" opacity="0"/>
-        </svg>
-
-        <div class="prop dw" id="dw1" data-t="0.160" data-t-small="0.245" data-side="-1" data-off="230">
-          <div class="flat shadow" style="--w:290px;--h:120px"></div>
-          <div class="bb" style="--w:245px;--h:245px"><svg viewBox="0 0 355 355" xmlns="http://www.w3.org/2000/svg" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;" aria-hidden="true"><g transform="matrix(1,0,0,1,-1062.992126,-336.614173)"> <g id="Colour" transform="matrix(1,0,0,1,547.178172,-17.716535)"> <g transform="matrix(1,0,0,1,-145.007699,-1849.901382)"> <g transform="matrix(3.569381,0,0,3.569381,475.516344,2037.943894)"> <path d="M133.9,145.8L112.1,145.8L112.1,95.6L133.9,95.6L133.9,145.8ZM114.1,143.8L131.9,143.8L131.9,97.6L114.1,97.6L114.1,143.8Z" style="fill:var(--orange);fill-rule:nonzero;"/> </g> <g transform="matrix(3.569381,0,0,3.569381,475.516344,2037.943894)"> <path d="M91,117.6L69.2,117.6L69.2,95.8L91,95.8L91,117.6ZM71.2,115.6L89,115.6L89,97.8L71.2,97.8L71.2,115.6Z" style="fill:var(--orange);fill-rule:nonzero;"/> </g> <g transform="matrix(0.856651,0,0,0.763479,-259.018928,1929.450822)"> <path d="M1310.884,823.582L1109.161,823.356C1089.593,823.334 1073.746,805.277 1073.763,783.024L1073.981,499.056C1073.993,483.894 1081.487,470.023 1093.375,463.16L1264.653,364.272C1274.734,358.452 1286.652,358.452 1296.732,364.272L1467.992,463.149C1479.89,470.018 1487.386,483.906 1487.386,499.081L1487.386,783.443C1487.386,794.138 1483.648,804.394 1476.995,811.952C1470.343,819.51 1461.321,823.751 1451.918,823.74L1428.994,823.715L1428.994,784.662L1439.996,784.674C1443.131,784.678 1446.138,783.264 1448.355,780.745C1450.573,778.225 1451.819,774.807 1451.819,771.242L1451.819,507.986C1451.819,502.927 1449.32,498.298 1445.354,496.008L1286.016,404.015C1282.656,402.075 1278.684,402.075 1275.323,404.015L1115.979,496.012C1112.017,498.3 1109.519,502.924 1109.515,507.978L1109.31,770.872C1109.304,778.29 1114.586,784.309 1121.109,784.316L1310.884,784.529L1310.884,823.582Z" style="fill:var(--white);fill-rule:nonzero;"/> </g> </g> </g> </g></svg></div>
-          <div class="card3d" style="--w:250px;--h:38px;--rz:370px"><span class="lot-tag"><i>1</i><b>ORIGINAL HOME</b><em>&middot; as built</em></span></div>
-        </div>
-
-        <div class="prop dw" id="dw2" data-t="0.380" data-t-small="0.455" data-side="1" data-off="250">
-          <div class="flat shadow" style="--w:260px;--h:112px"></div>
-          <div class="bb" style="--w:212px;--h:353px"><svg viewBox="0 0 355 591" xmlns="http://www.w3.org/2000/svg" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;" aria-hidden="true"><g transform="matrix(1,0,0,1,-1062.992126,-950.363283)"> <g id="Colour" transform="matrix(1,0,0,1,547.178172,-17.716535)"> <g transform="matrix(1,0,0,1,-606.23329,-999.728677)"> <g transform="matrix(3.569381,0,0,3.569381,936.741935,2037.943894)"> <path d="M133.9,145.8L112.1,145.8L112.1,95.6L133.9,95.6L133.9,145.8ZM114.1,143.8L131.9,143.8L131.9,97.6L114.1,97.6L114.1,143.8Z" style="fill:var(--orange);fill-rule:nonzero;"/> </g> <g transform="matrix(3.569381,0,0,3.569381,936.741935,2037.943894)"> <path d="M91,117.6L69.2,117.6L69.2,95.8L91,95.8L91,117.6ZM71.2,115.6L89,115.6L89,97.8L71.2,97.8L71.2,115.6Z" style="fill:var(--orange);fill-rule:nonzero;"/> </g> <g transform="matrix(0.856651,0,0,0.763479,202.206662,1929.450822)"> <path d="M1073.763,783.024L1073.981,189.39C1073.993,174.228 1081.487,160.357 1093.375,153.494L1264.653,54.606C1274.734,48.786 1286.652,48.786 1296.732,54.606L1467.992,153.483C1479.89,160.352 1487.386,174.24 1487.386,189.415L1487.386,783.443C1487.386,794.138 1483.648,804.394 1476.995,811.952C1470.343,819.51 1461.321,823.751 1451.918,823.74L1428.994,823.715L1428.994,784.662L1439.996,784.674C1443.131,784.678 1446.138,783.264 1448.355,780.745C1450.573,778.225 1451.819,774.807 1451.819,771.242L1451.819,198.32C1451.819,193.261 1449.32,188.632 1445.354,186.342L1286.016,94.349C1282.656,92.409 1278.684,92.409 1275.323,94.349L1115.979,186.346C1112.017,188.634 1109.519,193.258 1109.515,198.312L1109.31,770.872C1109.304,778.29 1114.586,784.309 1121.109,784.316L1310.884,784.529L1310.884,823.582L1109.161,823.356C1089.593,823.334 1073.746,805.277 1073.763,783.024Z" style="fill:var(--white);fill-rule:nonzero;"/> </g> <g transform="matrix(3.569381,0,0,3.569381,936.741935,1801.520299)"> <path d="M91,117.6L69.2,117.6L69.2,95.8L91,95.8L91,117.6ZM71.2,115.6L89,115.6L89,97.8L71.2,97.8L71.2,115.6Z" style="fill:var(--orange);fill-rule:nonzero;"/> </g> <g transform="matrix(3.569381,0,0,3.569381,1089.86839,1801.520299)"> <path d="M91,117.6L69.2,117.6L69.2,95.8L91,95.8L91,117.6ZM71.2,115.6L89,115.6L89,97.8L71.2,97.8L71.2,115.6Z" style="fill:var(--orange);fill-rule:nonzero;"/> </g> </g> </g> </g></svg></div>
-          <div class="card3d" style="--w:250px;--h:38px;--rz:490px"><span class="lot-tag"><i>2</i><b>EXTENSION</b><em>&middot; added floor area</em></span></div>
-        </div>
-
-        <div class="prop dw" id="dw3" data-t="0.600" data-t-small="0.650" data-side="-1" data-off="292">
-          <div class="flat shadow" style="--w:390px;--h:140px"></div>
-          <div class="bb" style="--w:335px;--h:319px"><svg viewBox="0 0 547 521" xmlns="http://www.w3.org/2000/svg" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;" aria-hidden="true"><g transform="matrix(1,0,0,1,-966.934422,-1800.535988)"> <g id="Colour" transform="matrix(1,0,0,1,547.178172,-17.716535)"> <g transform="matrix(1,0,0,1,-155.844877,-912.58033)"> <g transform="matrix(1,0,0,1,-461.225591,811.16694)"> <path d="M1203.827,2440.011L1067.151,2439.923C1050.388,2439.907 1036.812,2426.121 1036.827,2409.131L1037.014,2075.904C1037.024,2064.328 1043.443,2053.737 1053.627,2048.497L1296.353,1922.999C1300.658,1920.784 1305.353,1919.673 1310.05,1919.666L1310.05,1919.803C1314.746,1919.81 1319.442,1920.921 1323.746,1923.136L1566.472,2048.635C1576.656,2053.875 1583.076,2064.465 1583.086,2076.041L1583.273,2409.268C1583.287,2426.258 1569.712,2440.044 1552.949,2440.061L1414.682,2440.15L1414.682,2410.335L1542.714,2410.255C1548.301,2410.249 1552.827,2405.654 1552.822,2399.991L1552.646,2082.852C1552.643,2078.994 1550.503,2075.464 1547.108,2073.717L1314.606,1953.479C1314.283,1953.313 1313.954,1953.165 1313.619,1953.037L1313.619,2385.91L1313.503,2385.91L1313.503,2440.215L1310.05,2440.217L1310.05,2440.08L1306.48,2440.077L1306.48,1952.899C1306.146,1953.028 1305.817,1953.175 1305.494,1953.341L1072.991,2073.58C1069.597,2075.326 1067.457,2078.856 1067.453,2082.715L1067.278,2399.853C1067.273,2405.516 1071.798,2410.112 1077.386,2410.117L1203.827,2410.197L1203.827,2440.011Z" style="fill:var(--white);fill-rule:nonzero;"/> </g> <g transform="matrix(3.569381,0,0,3.569381,463.696551,2730.968221)"> <path d="M133.9,145.8L112.1,145.8L112.1,95.6L133.9,95.6L133.9,145.8ZM114.1,143.8L131.9,143.8L131.9,97.6L114.1,97.6L114.1,143.8Z" style="fill:var(--orange);fill-rule:nonzero;"/> </g> <g transform="matrix(3.569381,0,0,3.569381,355.88404,2730.968221)"> <path d="M133.9,145.8L112.1,145.8L112.1,95.6L133.9,95.6L133.9,145.8ZM114.1,143.8L131.9,143.8L131.9,97.6L114.1,97.6L114.1,143.8Z" style="fill:var(--orange);fill-rule:nonzero;"/> </g> <g transform="matrix(3.569381,0,0,3.569381,395.162949,2730.254344)"> <path d="M91,117.6L69.2,117.6L69.2,95.8L91,95.8L91,117.6ZM71.2,115.6L89,115.6L89,97.8L71.2,97.8L71.2,115.6Z" style="fill:var(--orange);fill-rule:nonzero;"/> </g> <g transform="matrix(3.569381,0,0,3.569381,731.070103,2730.254344)"> <path d="M91,117.6L69.2,117.6L69.2,95.8L91,95.8L91,117.6ZM71.2,115.6L89,115.6L89,97.8L71.2,97.8L71.2,115.6Z" style="fill:var(--orange);fill-rule:nonzero;"/> </g> <g transform="matrix(3.569381,0,0,3.569381,395.162949,2551.071407)"> <path d="M91,117.6L69.2,117.6L69.2,95.8L91,95.8L91,117.6ZM71.2,115.6L89,115.6L89,97.8L71.2,97.8L71.2,115.6Z" style="fill:var(--orange);fill-rule:nonzero;"/> </g> <g transform="matrix(3.569381,0,0,3.569381,731.070103,2551.071407)"> <path d="M91,117.6L69.2,117.6L69.2,95.8L91,95.8L91,117.6ZM71.2,115.6L89,115.6L89,97.8L71.2,97.8L71.2,115.6Z" style="fill:var(--orange);fill-rule:nonzero;"/> </g> <g transform="matrix(3.569381,0,0,3.569381,617.222558,2551.071407)"> <path d="M91,117.6L69.2,117.6L69.2,95.8L91,95.8L91,117.6ZM71.2,115.6L89,115.6L89,97.8L71.2,97.8L71.2,115.6Z" style="fill:var(--orange);fill-rule:nonzero;"/> </g> <g transform="matrix(3.569381,0,0,3.569381,509.010494,2551.071407)"> <path d="M91,117.6L69.2,117.6L69.2,95.8L91,95.8L91,117.6ZM71.2,115.6L89,115.6L89,97.8L71.2,97.8L71.2,115.6Z" style="fill:var(--orange);fill-rule:nonzero;"/> </g> </g> </g> </g></svg></div>
-          <div class="card3d" style="--w:250px;--h:38px;--rz:450px"><span class="lot-tag"><i>3</i><b>DUPLEX</b><em>&middot; two dwellings</em></span></div>
-        </div>
-
-        <div class="prop dw" id="dw4" data-t="0.830" data-t-small="0.845" data-side="1" data-off="330">
-          <div class="flat shadow" style="--w:470px;--h:152px"></div>
-          <div class="bb" style="--w:410px;--h:358px"><svg viewBox="0 0 678 591" xmlns="http://www.w3.org/2000/svg" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;" aria-hidden="true"><g transform="matrix(1,0,0,1,-901.50888,-2580.708661)"> <g id="Colour" transform="matrix(1,0,0,1,547.178172,-17.716535)"> <g transform="matrix(1,0,0,1,-1223.708203,630.616702)"> <g transform="matrix(3.569381,0,0,3.569381,1392.733602,2037.943894)"> <path d="M133.9,145.8L112.1,145.8L112.1,95.6L133.9,95.6L133.9,145.8ZM114.1,143.8L131.9,143.8L131.9,97.6L114.1,97.6L114.1,143.8Z" style="fill:var(--orange);fill-rule:nonzero;"/> </g> <g transform="matrix(3.569381,0,0,3.569381,1392.733602,2037.943894)"> <path d="M91,117.6L69.2,117.6L69.2,95.8L91,95.8L91,117.6ZM71.2,115.6L89,115.6L89,97.8L71.2,97.8L71.2,115.6Z" style="fill:var(--orange);fill-rule:nonzero;"/> </g> <g transform="matrix(0.856651,0,0,0.763479,658.19833,1929.450822)"> <path d="M1450.773,192.794C1449.685,190.053 1447.798,187.753 1445.354,186.342L1286.016,94.349C1282.656,92.409 1278.684,92.409 1275.323,94.349L1115.979,186.346C1112.017,188.634 1109.519,193.258 1109.515,198.312L1109.31,770.872C1109.304,778.29 1114.586,784.309 1121.109,784.316L1310.884,784.529L1310.884,823.582L1109.161,823.356C1089.593,823.334 1073.746,805.277 1073.763,783.024L1073.981,189.39C1073.993,174.228 1081.487,160.357 1093.375,153.494L1264.653,54.606C1274.734,48.786 1286.652,48.786 1296.732,54.606L1467.992,153.483C1468.359,153.694 1468.721,153.913 1469.08,154.137C1469.438,153.913 1469.8,153.694 1470.167,153.483L1641.427,54.606C1651.507,48.786 1663.425,48.786 1673.506,54.606L1844.785,153.494C1856.672,160.357 1864.166,174.228 1864.178,189.39L1864.396,783.024C1864.413,805.277 1848.566,823.334 1828.998,823.356L1627.275,823.582L1627.275,784.529L1817.05,784.316C1823.573,784.309 1828.855,778.29 1828.85,770.872L1828.645,198.312C1828.641,193.258 1826.143,188.634 1822.18,186.346L1662.836,94.349C1659.475,92.409 1655.503,92.409 1652.143,94.349L1492.805,186.342C1490.361,187.753 1488.474,190.053 1487.386,192.794L1487.386,776.767C1487.968,778.234 1488.783,779.585 1489.804,780.745C1492.021,783.264 1495.029,784.678 1498.163,784.674L1509.165,784.662L1509.165,823.715L1428.994,823.715L1428.994,784.662L1439.996,784.674C1443.131,784.678 1446.138,783.264 1448.355,780.745C1449.376,779.585 1450.191,778.234 1450.773,776.767L1450.773,192.794Z" style="fill:var(--white);fill-rule:nonzero;"/> </g> <g transform="matrix(3.569381,0,0,3.569381,1392.733602,1801.520299)"> <path d="M91,117.6L69.2,117.6L69.2,95.8L91,95.8L91,117.6ZM71.2,115.6L89,115.6L89,97.8L71.2,97.8L71.2,115.6Z" style="fill:var(--orange);fill-rule:nonzero;"/> </g> <g transform="matrix(3.569381,0,0,3.569381,1545.860057,1801.520299)"> <path d="M91,117.6L69.2,117.6L69.2,95.8L91,95.8L91,117.6ZM71.2,115.6L89,115.6L89,97.8L71.2,97.8L71.2,115.6Z" style="fill:var(--orange);fill-rule:nonzero;"/> </g> <g transform="matrix(-3.569381,0,0,3.569381,2440.641421,2037.943894)"> <path d="M133.9,145.8L112.1,145.8L112.1,95.6L133.9,95.6L133.9,145.8ZM114.1,143.8L131.9,143.8L131.9,97.6L114.1,97.6L114.1,143.8Z" style="fill:var(--orange);fill-rule:nonzero;"/> </g> <g transform="matrix(-3.569381,0,0,3.569381,2440.641421,2037.943894)"> <path d="M91,117.6L69.2,117.6L69.2,95.8L91,95.8L91,117.6ZM71.2,115.6L89,115.6L89,97.8L71.2,97.8L71.2,115.6Z" style="fill:var(--orange);fill-rule:nonzero;"/> </g> <g transform="matrix(-3.569381,0,0,3.569381,2440.641421,1801.520299)"> <path d="M91,117.6L69.2,117.6L69.2,95.8L91,95.8L91,117.6ZM71.2,115.6L89,115.6L89,97.8L71.2,97.8L71.2,115.6Z" style="fill:var(--orange);fill-rule:nonzero;"/> </g> <g transform="matrix(-3.569381,0,0,3.569381,2287.514966,1801.520299)"> <path d="M91,117.6L69.2,117.6L69.2,95.8L91,95.8L91,117.6ZM71.2,115.6L89,115.6L89,97.8L71.2,97.8L71.2,115.6Z" style="fill:var(--orange);fill-rule:nonzero;"/> </g> </g> </g> </g></svg></div>
-          <div class="card3d" style="--w:260px;--h:38px;--rz:495px"><span class="lot-tag"><i>4</i><b>TOWNHOUSES</b><em>&middot; multi&#8209;dwelling</em></span></div>
-        </div>
-
-      </div>
-      <div class="scene-dim"></div>
-      <div class="fog-far"></div>
-      <div class="fog-near"></div>
-      <div class="fog-side"></div>
-    </div>
-
-    <div class="hero-copy" id="heroCopy">
-      <div class="eyebrow"><span class="eyebrow-dot"></span>Sydney &amp; NSW planning advisory &middot; Celebrating ten years in 2027</div>
-      <h1>Know what your site can <span class="accent">actually</span> become.</h1>
-      <p class="hero-sub">Planning-led feasibility and approvals for small to mid-scale developments — so you only spend on architects and consultants once you know the site stacks up.</p>
-      <div class="hero-actions">
-        <a href="contact.html" class="btn-primary">Get a site review →</a>
-        <a href="services.html" class="btn-secondary">See our services</a>
-      </div>
-    </div>
-
-    <div class="hud" id="heroHud" aria-hidden="true">
-      <div class="hud-readout">
-        <div class="nums">
-          <span data-n="1">1<span class="nm">&#8212; ORIGINAL HOME</span></span>
-          <span data-n="2">2<span class="nm">&#8212; EXTENSION</span></span>
-          <span data-n="3">3<span class="nm">&#8212; DUPLEX</span></span>
-          <span data-n="4">4<span class="nm">&#8212; TOWNHOUSES</span></span>
-        </div>
-        <div class="lbl">PATHWAYS MAPPED</div>
-      </div>
-      <div class="hud-note">
-        <span class="k">ON THIS LOT</span>
-        <span class="v" id="heroNote">One street. Four ways the same land can be developed — each with a different planning pathway behind it.</span>
-      </div>
-      <div class="hud-bar"><i></i></div>
-    </div>
-
-    <div class="scroll-hint" id="heroHint"><span class="mouse"></span>SCROLL</div>
-
-  </div>
-</section>
-
-<!-- HOW IT WORKS -->
-<div class="parallax-band">
-  <div class="pb-img" style="background-image:url('images/home-facade-sunset.jpg');"></div>
-  <div class="pb-overlay"></div>
-</div>
-<section class="on-white">
-  <div class="how wrap">
-    <div class="steps">
-      <div class="step reveal"><span class="step-index">01</span><div class="icon-chip"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></div><h3>Send your site</h3><p>An address, a concept, or a problem. No formal brief required.</p></div>
-      <div class="step reveal"><span class="step-index">02</span><div class="icon-chip"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div><h3>We assess it</h3><p>Zoning, the LEP and DCP controls, a realistic building envelope and yield — checked against what councils are approving in practice.</p></div>
-      <div class="step reveal"><span class="step-index">03</span><div class="icon-chip"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div><h3>You get a call</h3><p>Go, pause, or stop — with the reasoning, the key numbers, and a plain-English next step.</p></div>
-      <div class="step reveal"><span class="step-index">04</span><div class="icon-chip"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9,11 12,14 22,4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div><h3>You move, efficiently</h3><p>Brief your architect, builder or lender with exactly what they need.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- SERVICES PREVIEW -->
-<div class="parallax-band">
-  <div class="pb-img" style="background-image:url('images/aerial-estate.jpg');"></div>
-  <div class="pb-overlay"></div>
-</div>
-
-<section class="on-black">
+<div class="course-strip">
   <div class="wrap">
-    <div class="stat-strip reveal">
-      <div class="stat-cell"><div class="stat-num">Since 2017</div><div class="stat-lab">Advising on NSW planning</div></div>
-      <div class="stat-cell"><div class="stat-num">2 business days</div><div class="stat-lab">Typical reply to a new enquiry</div></div>
-      <div class="stat-cell"><div class="stat-num">From $600</div><div class="stat-lab">Site Check, GST inclusive</div></div>
-      <div class="stat-cell"><div class="stat-num">Fixed fees</div><div class="stat-lab">Agreed in writing before we start</div></div>
-    </div>
+    <span>UTS · 17912 Development Negotiation &amp; Community Engagement</span>
+    <span>Assessment 2 · Part A · 15%</span>
   </div>
-</section>
-
-<section class="on-white" id="services">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="tag">Services</span>
-      <h2>Three stages, one straight answer</h2>
-      <p>Each one covers a different point in the early development process.</p>
-    </div>
-    <div class="services-grid">
-      <div class="service-card reveal">
-        <span class="service-num">01 — Before you buy or commit</span>
-        <div class="icon-chip"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
-        <h3>Early-stage feasibility &amp; planning strategy</h3>
-        <p>A full read on your zoning, the controls that bite, realistic yield, and whether DA or complying development is the smarter path — with a go, pause, or stop at the end of it.</p>
-        <div class="service-meta">→ From $1,700 incl. GST · 5–7 business days</div>
-      </div>
-      <div class="service-card reveal">
-        <span class="service-num">02 — Before you brief your architect</span>
-        <div class="icon-chip"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M5 20V8l7-6 7 6v12"/><path d="M9 20v-6h6v6"/></svg></div>
-        <h3>Pre-design planning briefs &amp; envelope testing</h3>
-        <p>A practical massing and envelope test, turned into a brief your architect can pick up and run with.</p>
-        <div class="service-meta">→ From $1,000 incl. GST · 4–6 business days</div>
-      </div>
-      <div class="service-card reveal">
-        <span class="service-num">03 — When you're ready to lodge</span>
-        <div class="icon-chip"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg></div>
-        <h3>DA / CDC approvals &amp; planning reports</h3>
-        <p>Statement of Environmental Effects, clause 4.6 variation requests, and a planning argument your consent authority can say yes to — lodged through the NSW Planning Portal.</p>
-        <div class="service-meta">→ From $3,000 incl. GST · scoped per project</div>
-      </div>
-    </div>
-    <div class="section-more"><a href="services.html" class="btn-primary">See all services →</a></div>
-  </div>
-</section>
-
-<!-- PRICING PREVIEW -->
-<div class="parallax-band">
-  <div class="pb-img" style="background-image:url('images/plans-review.jpg');"></div>
-  <div class="pb-overlay"></div>
 </div>
-<section class="on-black" id="pricing">
+
+<header class="site">
+  <div class="wrap nav-row">
+    <a class="brand" href="index.html">
+      <img src="assets/uts-logo.svg" alt="University of Technology Sydney logo" class="uts-logo uts-logo-header">
+      <span>Cemetery Owners<small>Scenario 1 — Lane Cove National Park access road</small></span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle navigation">Menu ☰</button>
+    <nav class="main">
+      <a href="index.html" class="active">Case</a>
+      <a href="preparation.html">Preparation</a>
+      <a href="proposal.html">Proposal</a>
+      <a href="negotiation.html">Negotiation</a>
+      <a href="outcome.html">Outcome</a>
+    </nav>
+  </div>
+</header>
+
+<div class="flow-legend">
+  <span class="key"><span class="dot core"></span> Presented live in Week 5</span>
+  <span class="key"><span class="dot ref"></span> Supporting detail — reference only</span>
+  <span class="key"><span class="dot logistics"></span> Logistics — not part of the 15 minutes</span>
+</div>
+
+<section class="hero center sec-title">
   <div class="wrap">
-    <div class="section-head reveal">
-      <span class="tag">Pricing</span>
-      <h2>Fixed fees, agreed upfront</h2>
-      <p>Transparent, GST-inclusive pricing you can compare line for line.</p>
-    </div>
-    <div class="pricing-preview">
-      <div class="price-card reveal">
-        <span class="price-badge">Fastest entry</span>
-        <div class="icon-chip"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13,2 3,14 12,14 11,22 21,10 12,10"/></svg></div>
-        <div class="price-name">Site Check</div>
-        <div class="price-from">Single address review</div>
-        <div class="price-amount">$600</div>
-        <div class="price-desc">Zoning and controls read. Delivered in 3 business days.</div>
-      </div>
-      <div class="price-card featured reveal">
-        <span class="price-badge">Most common</span>
-        <div class="icon-chip"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg></div>
-        <div class="price-name">Feasibility &amp; Strategy</div>
-        <div class="price-from">Full planning review</div>
-        <div class="price-amount">$1,700<span>–$3,900</span></div>
-        <div class="price-desc">Zoning, yield, massing, pathway and written recommendation.</div>
-      </div>
-      <div class="price-card reveal">
-        <div class="icon-chip"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M5 20V8l7-6 7 6v12"/><path d="M9 20v-6h6v6"/></svg></div>
-        <div class="price-name">Pre-Design Brief</div>
-        <div class="price-from">Envelope testing</div>
-        <div class="price-amount">$1,000<span>–$2,500</span></div>
-        <div class="price-desc">Planning brief and massing tests for your architect.</div>
-      </div>
-      <div class="price-card reveal">
-        <div class="icon-chip"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg></div>
-        <div class="price-name">DA / CDC Report</div>
-        <div class="price-from">Lodgement-ready</div>
-        <div class="price-amount">$3,000<span>–$7,900</span></div>
-        <div class="price-desc">SEE, clause 4.6 where it's needed, and council liaison right through to determination.</div>
-      </div>
-    </div>
-    <div class="section-more"><a href="pricing.html" class="btn-primary">See full pricing →</a></div>
+    <span class="eyebrow">The brief · as handed to all three groups</span>
+    <h1>Scenario 1 — <span style="color:var(--accent);">Lane Cove National Park</span> access road, North Ryde.</h1>
+    <p class="lede">The case exactly as we received it, from our perspective as the Cemetery Owners. We only have 15 minutes in Week 5, so this page — like every page — is laid out in the order we'll actually present it: what we say first, below it what's there only if the room asks.</p>
+    <figure class="hero-media">
+      <img src="assets/lane-cove-map.jpg" alt="Map of North Ryde showing Delhi Road running from North Ryde station, past the Northern Suburbs Memorial Gardens and Crematorium, to the Lady Game Drive entrance of Lane Cove National Park.">
+      <figcaption>The road itself: Delhi Road becomes Lady Game Drive past the Cemetery, running from North Ryde station down into Lane Cove National Park. <span class="small">(Google Maps)</span></figcaption>
+    </figure>
   </div>
 </section>
 
-<!-- TEAM PREVIEW -->
-<div class="parallax-band">
-  <div class="pb-img" style="background-image:url('images/duplex-brick.jpg');"></div>
-  <div class="pb-overlay"></div>
-</div>
-<section class="on-white" id="about">
+<div class="group-divider">Presented live — Week 5</div>
+
+<section class="tight sec-core">
   <div class="wrap">
-    <div class="section-head reveal">
-      <span class="tag">The practice</span>
-      <h2>The planners you'll be dealing with.</h2>
-      <p>We started whatcani.build after watching too many good projects come unstuck early — not because the site was wrong, but because the planning advice turned up too late. Next year we tick over ten years of getting it in first.</p>
+    <div class="stats">
+      <div class="stat"><div class="num">$2.0M</div><div class="label">Total project cost at stake</div></div>
+      <div class="stat"><div class="num">3</div><div class="label">Parties negotiating</div></div>
     </div>
-    <div class="team-preview">
-      <div class="team-card reveal">
-        <div class="team-photo-wrap">
-          <img src="data:image/jpeg;base64,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" alt="Istvan Bakos" style="width:88px;height:88px;border-radius:50%;object-fit:cover;flex-shrink:0;border:2px solid rgba(255,119,0,0.35);">
-          <div><div class="team-name">Istvan Bakos</div><div class="team-role">Principal — Planning &amp; Feasibility</div></div>
+  </div>
+</section>
+
+<section class="sec-core">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="flow-row">
+        <span class="kicker">Who's at the table</span>
+        <span class="flow-tag core">Presented live · ~15s</span>
+      </div>
+      <div class="spread" style="align-items:flex-end;">
+        <h2 style="margin-bottom:0;">Three parties, one road</h2>
+        <div class="legend">
+          <span class="party us">Cemetery Owners (us)</span>
+          <span class="party council">Council</span>
+          <span class="party park">National Park</span>
         </div>
-        <p class="team-bio">Istvan runs the planning and feasibility side of the practice. He came up through architecture and urban design before moving into planning strategy, and built whatcani.build on a simple conviction: good planning advice should land before the money's spent, not after. He works directly with developers and builders on zoning strategy, feasibility, and the clause 4.6 and policy arguments that get good projects through council.</p>
-        <div class="team-tags"><span class="team-tag">NSW Planning System</span><span class="team-tag">Feasibility Strategy</span><span class="team-tag">SEPP &amp; LEP Policy</span><span class="team-tag">Urban Design</span></div>
-      </div>
-      <div class="team-card reveal">
-        <div class="team-photo-wrap">
-          <img src="data:image/jpeg;base64,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" alt="Nathan Evans" style="width:88px;height:88px;border-radius:50%;object-fit:cover;flex-shrink:0;border:2px solid rgba(255,119,0,0.35);">
-          <div><div class="team-name">Nathan Evans</div><div class="team-role">Principal — Design &amp; Approvals</div></div>
-        </div>
-        <p class="team-bio">Nathan is the design-literate half of the practice — he reads plans, sections and massing fluently enough to pick up planning issues while a scheme can still be changed cheaply. He leads the pre-design and approvals work, from envelope testing through to DA and CDC lodgement, turning planning controls into briefs architects can design to and planning reports councils can approve.</p>
-        <div class="team-tags"><span class="team-tag">DA / CDC Approvals</span><span class="team-tag">Envelope Testing</span><span class="team-tag">Council Coordination</span></div>
       </div>
     </div>
-    <div class="section-more"><a href="about.html" class="btn-primary">More about the practice →</a></div>
+    <p class="section-sub">The road serves a rail car park, the Cemetery and the Park entrance. All three of us have to agree how the $2M fix gets split.</p>
   </div>
 </section>
 
-<!-- TESTIMONIALS PREVIEW -->
-<div class="parallax-band">
-  <div class="pb-img" style="background-image:url('images/architect-drafting.jpg');"></div>
-  <div class="pb-overlay"></div>
-</div>
-<section class="on-black">
+<section class="tight sec-core">
   <div class="wrap">
-    <div class="section-head reveal">
-      <span class="tag">Client outcomes</span>
-      <h2>What working with us looks like</h2>
-    </div>
-    <div class="testi-grid">
-      <div class="testi-card reveal">
-        <span class="testi-mark">"</span>
-        <p class="testi-quote">We were three weeks from exchange on a corner site in Earlwood and needed to know whether the R3 zoning would actually carry four townhouses. The feasibility review came back in six business days: a realistic yield of three, not four, a clear read on the Canterbury-Bankstown DCP setbacks, and a DA risk profile our lender could work with. We bought at the right price because of it.</p>
-        <div class="testi-author"><div class="n">Owner-developer</div><div class="r">Earlwood, Canterbury-Bankstown, 2025</div></div>
+    <div class="section-head">
+      <div class="flow-row">
+        <span class="kicker">The scenario</span>
+        <span class="flow-tag core">Presented live · ~30s</span>
       </div>
-      <div class="testi-card reveal">
-        <span class="testi-mark">"</span>
-        <p class="testi-quote">Our architect's first scheme for a dual occupancy in Ryde blew the 8.5-metre height control and fell short on landscaped area — and we only found out after paying for it. The pre-design brief reset the envelope against the Ryde LEP before the redesign, and the second scheme went through without a single amended plan. It saved us roughly $15,000 in abortive design fees.</p>
-        <div class="testi-author"><div class="n">Residential builder</div><div class="r">Ryde, 2025</div></div>
-      </div>
+      <h2>What's actually wrong with the road, in brief</h2>
     </div>
-    <div class="section-more"><a href="testimonials.html" class="btn-primary">Read all testimonials →</a></div>
+    <p>The road runs from the rail car park at the top, past our Cemetery entrance halfway down, to the Park at the bottom — and it falls apart past us: no footpath, poor drainage, too narrow for two fire trucks to pass in a bushfire evacuation. Stormwater off that stretch also pollutes the Park. Fixing all of it costs $2M, and the sticking point for us is simple: the Park says our run-off is a big part of the pollution, we don't agree, and either way we don't think we should carry that cost alone.</p>
   </div>
 </section>
 
-<!-- CONTACT PREVIEW -->
-<div class="parallax-band">
-  <div class="pb-img" style="background-image:url('images/builder-on-frame.jpg');"></div>
-  <div class="pb-overlay"></div>
-</div>
-<section class="on-white" id="contact" style="position:relative;overflow:hidden;">
-  <div class="hero-glow" style="opacity:0.3;top:30%;pointer-events:none;position:absolute;"></div>
-  <div class="wrap contact-grid-idx">
-    <div class="contact-info reveal">
-      <span class="tag">Get in touch</span>
-      <h2>Talk to us about your site.</h2>
-      <p>Send us the address and a few lines on what you're weighing up. We'll get back to you within two business days — no charge for that first chat. Our fees are fixed, GST-inclusive, and set to be within reach of serious small developers.</p>
-      <div class="contact-detail">
-        <div class="contact-detail-row"><span class="contact-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></span>Sydney &amp; NSW</div>
-        <div class="contact-detail-row"><span class="contact-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 3H8a2 2 0 0 0-2 2v2h12V5a2 2 0 0 0-2-2z"/></svg></span>Bakos &amp; Evans Pty Ltd</div>
-        <div class="contact-detail-row"><span class="contact-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg></span>Response within 2 business days</div>
+<section class="sec-core">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="flow-row">
+        <span class="kicker">Budget</span>
+        <span class="flow-tag core">Presented live · ~20s</span>
       </div>
-      <div class="btn-group"><a href="contact.html" class="btn-primary">Go to full contact page →</a></div>
+      <h2>What the fix costs</h2>
     </div>
-    <div class="form-card reveal">
-      <form action="https://formspree.io/f/xgojqzjj" method="POST">
-      <div class="form-row">
-        <div class="form-field"><label>First name</label><input name="first_name" type="text" placeholder="Jamie" required></div>
-        <div class="form-field"><label>Last name</label><input name="last_name" type="text" placeholder="Lee" required></div>
+    <table class="styled">
+      <thead>
+        <tr><th>Item</th><th>Cost</th><th>Primarily benefits</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Road widening, resurfacing, new footpath</td><td class="mono">$1.2 million</td><td>Bushfire evacuation, pedestrian safety — mainly National Park &amp; public</td></tr>
+        <tr><td>Parking meters (lower section)</td><td class="mono">$0.3 million</td><td>Regulated commuter parking — mainly Council revenue &amp; amenity</td></tr>
+        <tr><td>Stormwater improvements</td><td class="mono">$0.5 million</td><td>Park ecology — disputed source of pollution</td></tr>
+        <tr><td><strong>Total</strong></td><td class="mono"><strong>$2.0 million</strong></td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="tight sec-core">
+  <div class="wrap">
+    <div class="callout note">
+      <div class="flex" style="justify-content:space-between;">
+        <strong>The negotiation task</strong>
+        <span class="flow-tag core">Presented live · ~15s</span>
       </div>
-      <div class="form-row"><div class="form-field full"><label>Email</label><input name="email" type="email" placeholder="jamie@email.com" required></div></div>
-      <div class="form-row">
-        <div class="form-field"><label>Property address or suburb</label><input name="address" type="text" placeholder="e.g. Earlwood NSW" required></div>
-        <div class="form-field"><label>Project type</label><select name="project_type"><option value="">Select…</option><option>Duplex</option><option>Townhouses</option><option>Small apartments</option><option>Mixed use</option><option>Other</option></select></div>
-      </div>
-      <div class="form-row"><div class="form-field full"><label>Where are you up to?</label><select name="stage"><option value="">Select…</option><option>Considering buying a site</option><option>Already own the site</option><option>Have a concept in mind</option><option>Ready to lodge</option></select></div></div>
-      <div class="form-row"><div class="form-field full"><label>Message</label><textarea name="message" placeholder="Tell us about the project or question…"></textarea></div></div>
-      <input type="hidden" name="_subject" value="New enquiry from whatcani.build">
-      <button type="submit" class="form-submit">Send message →</button>
-      </form>
+      <p style="margin-top:8px; margin-bottom:0;">The three parties have to agree a joint, long-term fix and how to share its costs and benefits across the bushfire risk, the parking and the stormwater. No party benefits equally from all three — which is what makes the split contestable.</p>
     </div>
   </div>
 </section>
 
-<footer>
-  <div class="footer-inner">
-    <div>
-      <a href="index.html" class="footer-logo">whatcani<span>.build</span></a>
-      <p style="margin-top:14px;font-size:14px;color:var(--muted);max-width:240px;line-height:1.6;">
-        Planning-led feasibility and approvals for small to mid-scale developments in Sydney and NSW.
-      </p>
+<div class="group-divider">Supporting detail — reference only</div>
+
+<section class="sec-ref">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="flow-row">
+        <span class="kicker">Who's at the table</span>
+        <span class="flow-tag ref">Supporting detail</span>
+      </div>
+      <h2>Each party, in more detail</h2>
     </div>
-    <div class="footer-nav">
-      <div class="footer-nav-title">Pages</div>
-    <a href="about.html">About us</a>
-    <a href="services.html">Services</a>
-    <a href="pricing.html">Pricing</a>
-    <a href="blog.html">Blog</a>
-    <a href="testimonials.html">Testimonials</a>
-    <a href="contact.html">Contact us</a>
-    <a href="legals.html">Legals</a>
-    </div>
-    <div>
-      <div class="footer-nav-title">Contact</div>
-      <p style="font-size:14px;color:var(--muted);line-height:1.8;">
-        Bakos &amp; Evans Pty Ltd<br>
-        Sydney &amp; NSW<br>
-        Response within 2 business days
-      </p>
-      <a href="https://www.linkedin.com/company/whatcanibuild/" target="_blank" rel="noopener" aria-label="whatcani.build on LinkedIn" style="display:inline-flex;align-items:center;gap:8px;margin-top:14px;font-size:14px;font-weight:600;color:var(--muted);text-decoration:none;">
-        <svg width="18" height="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="var(--blue)" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.59 0 4.26 2.37 4.26 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.11 20.45H3.55V9h3.56v11.45z"/></svg>
-        LinkedIn
-      </a>
+    <div class="grid cols-3">
+      <div class="card">
+        <span class="party us" style="margin-bottom:12px;">Cemetery Owners</span>
+        <p>Privately run cemetery, entrance halfway down the hill. Our position is on the <a href="preparation.html" style="color:var(--accent);">Preparation</a> page.</p>
+      </div>
+      <div class="card">
+        <span class="party council" style="margin-bottom:12px;">Council</span>
+        <p>City of Ryde — owns the road and is the local consent authority. It has metered the upper section and would fund or approve most of the public works.</p>
+      </div>
+      <div class="card">
+        <span class="party park" style="margin-bottom:12px;">National Park</span>
+        <p>Manages Lane Cove National Park under the National Parks and Wildlife Act 1974 (NSW). Wants the narrow section widened for bushfire evacuation, the parking controlled and the stormwater pollution stopped.</p>
+      </div>
     </div>
   </div>
-  <div class="footer-bottom wrap">
-    <div class="footer-copy">© Bakos &amp; Evans Pty Ltd ABN 25 622 644 464. 2026. All prices include GST.</div>
-    <div class="footer-tagline">Planning advice that lands before the money's spent.</div>
+</section>
+
+<section class="tight sec-ref">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="flow-row">
+        <span class="kicker">The scenario</span>
+        <span class="flow-tag ref">Supporting detail</span>
+      </div>
+      <h2>The full scenario, as briefed</h2>
+    </div>
+    <p>A council-owned road runs about two-thirds of a kilometre downhill, from its junction with a main RMS road to the Lane Cove National Park entrance. A heavy rail station (Epping–Chatswood line) sits at the top on the main road, so commuters now park along the upper section. Council has metered that stretch.</p>
+    <p>Halfway down, on the left, is the public entrance to a large privately run Cemetery. The road is wide and well-maintained to that point, then narrows and deteriorates — ruts, puddles, poor drainage, no footpath. Walkers to and from the Park have to use the road itself. Some commuters park past the Cemetery, but it's unregulated and "higgledy-piggledy."</p>
+    <p>For years the Park has warned that the narrow section is too tight for two fire trucks to pass — a real risk to the Park, its campsite and visitors trying to evacuate (as happened here in the early 1990s). Commuter parking makes it worse. Stormwater run-off from the Cemetery also carries weeds, sediment and pollutants into the Park, damaging its ecology.</p>
+    <p>The Park wants to widen the road, control the parking and fix the stormwater — but it needs both the Cemetery and Council on board to do it.</p>
+  </div>
+</section>
+
+<section class="tight sec-ref" id="documents">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="flow-row">
+        <span class="kicker">Before we started</span>
+        <span class="flow-tag ref">Supporting detail</span>
+      </div>
+      <h2>Source documents</h2>
+      <p class="section-sub">The two documents behind everything above, in full — worth having open if the room asks a detail question, not something we read out line by line.</p>
+    </div>
+    <div class="doc-list">
+      <details class="doc">
+        <summary>Four Scenarios brief — Scenario 1 only</summary>
+        <div class="doc-body">
+          <p class="small mono" style="margin-top:0;">Parties involved: Council · Privately operated Cemetery · Lane Cove National Park</p>
+          <h4>Scenario</h4>
+          <p>A council-owned local road leads down the hill from its junction with a main RMS-owned road to the entrance of Lane Cove National Park (approximately 2/3rds km). A heavy rail station (part of the Epping Chatswood Rail Link) is located at the top of the hill, on the main RMS-owned road. This means that train commuters now use the section of the council road towards the top of the hill as a car park.</p>
+          <p>Council has installed parking meters for the upper section of the road. Halfway down the hill on the left is the public entrance road to a large, privately operated Cemetery. The council road is wide and well-maintained all the way down to the Cemetery entrance. After passing the Cemetery entrance, however, the road narrows considerably and is in poor condition, with large ruts, puddles, poor drainage, and no footpath. This means that people walking to/from the National Park have to walk in the road. Some rail commuters park downhill from the Cemetery entrance, but it is poorly regulated and "higgledy-piggledy".</p>
+          <p>For several years, the National Park has been concerned that in the event of a bushfire, there would be insufficient width on the narrow section of the council road for two fire trucks to pass. The unregulated commuter car parking exacerbates this problem. This is a substantial risk to the National Park, its caravan/campsite and any visitors who might not be able to evacuate in the event of a serious bushfire (as was experienced in the National Park in the early 1990's). To make matters worse, stormwater run-off from the Cemetery conveys weeds, sediment and other pollutants into the Park, which damages its ecology. The National Park is keen to widen the poor section of road to mitigate bushfire risk, better control parking, and address stormwater pollution. To achieve these improvements, the National Park needs cooperation from the Cemetery and Council.</p>
+          <h4>Costs</h4>
+          <table class="styled">
+            <thead><tr><th>Item</th><th>Cost</th></tr></thead>
+            <tbody>
+              <tr><td>Road widening/resurfacing/new footpath</td><td class="mono">$1.2 mil</td></tr>
+              <tr><td>Parking meters</td><td class="mono">$0.3 mil</td></tr>
+              <tr><td>Stormwater improvements</td><td class="mono">$0.5 mil</td></tr>
+              <tr><td><strong>Total</strong></td><td class="mono"><strong>$2 mil</strong></td></tr>
+            </tbody>
+          </table>
+          <h4>Negotiation task</h4>
+          <p>The parties need to agree to work together and develop a joint approach that equitably shares the costs and benefits associated with a long-term solution to the bushfire risk, unregulated parking, and stormwater pollution.</p>
+          <p class="small" style="margin-top:16px;"><em>Source: four-scenarios-development-negotiation.pdf (UTS Canvas, subject 17912) — Scenario 1 only.</em></p>
+        </div>
+      </details>
+      <details class="doc">
+        <summary>Our negotiation brief — Cemetery Owners position</summary>
+        <div class="doc-body">
+          <h4>Challenges</h4>
+          <ul class="tick">
+            <li>Believes the Council should fix the stormwater pollution problem by upgrading road drainage.</li>
+            <li>Doesn't want to bear the full cost for the stormwater works.</li>
+            <li>Denies National Park's claim that stormwater runoff from the cemetery is causing weed and sediment problems. Believes that general runoff down the road is a major part of the pollution problem, which strengthens its case that it is the Council's responsibility to fix it up.</li>
+          </ul>
+          <h4>Opportunities</h4>
+          <ul class="tick">
+            <li>Knows that the Council might eventually force it to upgrade its stormwater system at its own cost and likes the idea of sharing the cost three ways.</li>
+            <li>Could potentially establish a stormwater detention pond on site, which could provide irrigation water for Cemetery lawns, thereby reducing reticulated water costs.</li>
+          </ul>
+          <p class="small" style="margin-top:16px;"><em>Source: scenario-1-lane-cove-national-park-cemetery-owners.docx — our negotiation brief, subject 17912.</em></p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="tight sec-ref">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="flow-row">
+        <span class="kicker">References</span>
+        <span class="flow-tag ref">Supporting detail</span>
+      </div>
+      <h2>Sources</h2>
+    </div>
+    <ul class="ref-list">
+      <li><em>Environmental Planning and Assessment Act 1979</em> (NSW).</li>
+      <li><em>Local Government Act 1993</em> (NSW).</li>
+      <li><em>National Parks and Wildlife Act 1974</em> (NSW).</li>
+      <li><em>Protection of the Environment Operations Act 1997</em> (NSW).</li>
+      <li><em>Rural Fires Act 1997</em> (NSW).</li>
+    </ul>
+    <p class="ref-note">Referencing follows APA 7th edition.</p>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="footer-brand">
+      <img src="assets/uts-logo.svg" alt="University of Technology Sydney logo" class="uts-logo uts-logo-footer">
+      <span>Cemetery Owners group · 17912 Development Negotiation and Community Engagement · UTS</span>
+    </div>
+    <div><a href="preparation.html">Our preparation →</a></div>
   </div>
 </footer>
-<script>
 
-  // Scroll reveal — threshold:0 + rootMargin ensures tall elements always trigger
-  const ro = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting){e.target.classList.add('visible');ro.unobserve(e.target);}
-    });
-  },{threshold:0, rootMargin:'0px 0px -60px 0px'});
-  document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
-
-  // Hamburger
-  const ham = document.getElementById('hamburger');
-  const mob = document.getElementById('mobile-menu');
-  if(ham && mob){
-    ham.addEventListener('click',()=>{
-      const open = ham.classList.toggle('open');
-      mob.classList.toggle('open');
-      document.body.style.overflow = open ? 'hidden' : '';
-    });
-    mob.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
-      ham.classList.remove('open');
-      mob.classList.remove('open');
-      document.body.style.overflow='';
-    }));
-  }
-
-  // Parallax (CSS background-attachment:fixed handles most of it;
-  // this adds a subtle JS layer for browsers that don't support it well)
-  const bands = document.querySelectorAll('.pb-img');
-  if(bands.length && window.matchMedia('(prefers-reduced-motion:no-preference)').matches){
-    window.addEventListener('scroll',()=>{
-      const sy = window.scrollY;
-      bands.forEach(b=>{
-        const rect = b.closest('.parallax-band').getBoundingClientRect();
-        if(rect.bottom > 0 && rect.top < window.innerHeight){
-          const pct = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
-          b.style.transform = `translateY(${(pct - 0.5) * 60}px)`;
-        }
-      });
-    },{passive:true});
-  }
-
-
-  /* ===== HERO SCROLL DIORAMA CONTROLLER =============================
-     A single scroll progress value p (0→1) drives the camera, the
-     pathway, and every element on the street. Nothing is time-based,
-     so scrolling back plays the whole scene in reverse. ============== */
-  (function(){
-    const track = document.getElementById('hero-track');
-    const stage = document.getElementById('heroStage');
-    if(!track || !stage || !stage.querySelector('#heroPath')) return;
-
-    const world  = document.getElementById('heroWorld');
-    const path   = document.getElementById('heroPath');
-    const headDot= document.getElementById('heroHead');
-    const headGlow= document.getElementById('heroHeadGlow');
-    const halo   = document.getElementById('heroHalo');
-    const copy   = document.getElementById('heroCopy');
-    const hud    = document.getElementById('heroHud');
-    const hint   = document.getElementById('heroHint');
-    const note   = document.getElementById('heroNote');
-    const glow   = stage.querySelector('.scene-glow');
-    const dim    = stage.querySelector('.scene-dim');
-    const nums   = stage.querySelectorAll('.hud-readout .nums > span');
-
-    const S = 2, GW = 1200 * S, GH = 900 * S;
-    /* on a portrait screen the street is pulled in tighter so the buildings —
-       and the labels above them — stay inside the frame */
-    const offK = 1 - 0.32 * Math.max(0, Math.min(1, (1360 - window.innerWidth) / 700));
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const small  = window.matchMedia('(max-width: 760px)').matches;
-
-    /* ---- static ground painted once into a bitmap ----------------------
-       Grid, road, kerbs and the soft edge fade never change, so they are
-       drawn a single time. The compositor then only has to re-scale a
-       texture as the camera moves, instead of re-rasterising vector
-       artwork on every scroll frame. ------------------------------------ */
-    (function paintGround(){
-      const cv = document.getElementById('heroGround');
-      if(!cv || !cv.getContext) return;
-      const BW = cv.width, BH = cv.height;
-      const x = cv.getContext('2d');
-      x.setTransform(BW / 1200, 0, 0, BH / 900, 0, 0);
-
-      x.lineWidth = 1;
-      for(let i = 0; i <= 1200; i += 60){
-        x.strokeStyle = (i % 240 === 0) ? 'rgba(255,255,255,0.085)' : 'rgba(255,255,255,0.05)';
-        x.beginPath(); x.moveTo(i, -300); x.lineTo(i, 1200); x.stroke();
-      }
-      for(let i = 0; i <= 900; i += 60){
-        x.strokeStyle = (i % 240 === 0) ? 'rgba(255,255,255,0.085)' : 'rgba(255,255,255,0.05)';
-        x.beginPath(); x.moveTo(-300, i); x.lineTo(1500, i); x.stroke();
-      }
-
-      function road(){
-        x.beginPath();
-        x.moveTo(-318, -82); x.lineTo(60, 50);
-        x.bezierCurveTo(260, 120, 300, 250, 470, 330);
-        x.bezierCurveTo(640, 410, 620, 540, 760, 620);
-        x.bezierCurveTo(900, 700, 980, 760, 1150, 870);
-        x.lineTo(1486, 1087);
-      }
-      x.lineCap = 'round'; x.lineJoin = 'round';
-      road(); x.strokeStyle = 'rgba(255,255,255,0.16)'; x.lineWidth = 96; x.stroke();
-      road(); x.strokeStyle = '#080808';                x.lineWidth = 90; x.stroke();
-      x.save();
-      x.setLineDash([18, 22]);
-      road(); x.strokeStyle = 'rgba(255,255,255,0.20)'; x.lineWidth = 2.6; x.stroke();
-      x.restore();
-
-      /* soft radial fade so the site dissolves into black at its edges */
-      const g = x.createRadialGradient(600, 450, 0, 600, 450, 900);
-      g.addColorStop(0.00, 'rgba(255,255,255,1)');
-      g.addColorStop(0.48, 'rgba(255,255,255,0.92)');
-      g.addColorStop(0.78, 'rgba(255,255,255,0.45)');
-      g.addColorStop(1.00, 'rgba(255,255,255,0)');
-      x.globalCompositeOperation = 'destination-in';
-      x.fillStyle = g;
-      x.fillRect(-320, -420, 2320, 1820);
-      x.globalCompositeOperation = 'source-over';
-    })();
-
-    /* ---- road geometry ---- */
-    const LEN = path.getTotalLength();
-    path.style.strokeDasharray  = LEN;
-    path.style.strokeDashoffset = LEN;
-    halo.style.strokeDasharray  = LEN;
-    halo.style.strokeDashoffset = LEN;
-
-    function at(t){
-      t = t < 0 ? 0 : t > 1 ? 1 : t;
-      const l = LEN * t;
-      const a = path.getPointAtLength(Math.max(0, l - 1.5));
-      const b = path.getPointAtLength(Math.min(LEN, l + 1.5));
-      const p = path.getPointAtLength(l);
-      let dx = b.x - a.x, dy = b.y - a.y;
-      const m = Math.hypot(dx, dy) || 1;
-      return { x:p.x, y:p.y, tx:dx/m, ty:dy/m };
-    }
-    function place(t, side, off){
-      const q = at(t);
-      return {
-        x: q.x * S + (-q.ty) * side * off,
-        y: q.y * S + ( q.tx) * side * off,
-        ang: Math.atan2(q.ty, q.tx) * 180 / Math.PI
-      };
-    }
-
-    /* ---- street furniture ---- */
-    const SVG = {
-      tree:'<svg viewBox="0 0 64 116"><path class="trk" d="M32 116V60"/><path class="br" d="M32 76 19 63M32 88 46 75"/><circle class="cnp" cx="32" cy="38" r="20"/><circle class="cnp" cx="18" cy="50" r="12"/><circle class="cnp" cx="46" cy="49" r="12.5"/></svg>',
-      gum:'<svg viewBox="0 0 56 156"><path class="trk" d="M28 156V70"/><path class="br" d="M28 92 16 80M28 104 40 92"/><ellipse class="cnp" cx="28" cy="40" rx="16" ry="28"/><ellipse class="cnp" cx="28" cy="66" rx="11" ry="17"/></svg>',
-      bush:'<svg viewBox="0 0 62 48"><circle class="cnp" cx="20" cy="30" r="14"/><circle class="cnp" cx="42" cy="29" r="12"/><circle class="cnp" cx="31" cy="19" r="13"/></svg>',
-      person:'<svg viewBox="0 0 34 96"><circle class="sil" cx="17" cy="12" r="9"/><path class="sil" d="M17 24c-7.5 0-11.5 5.5-11.5 13.5V60h4.5l1.8 36h4.2l1-29h.2l1 29h4.2L24.2 60h4.3V37.5C28.5 29.5 24.5 24 17 24z"/></svg>',
-      light:'<svg viewBox="0 0 62 172"><path class="pole" d="M13 172V26c0-9 7-14 16-14h16"/><circle class="lamp" cx="47" cy="13" r="5"/></svg>',
-      peg:'<svg viewBox="0 0 32 62"><path class="stk" d="M12 62V6"/><path class="flg" d="M12 6 31 13 12 20Z"/></svg>',
-      fence:'<svg viewBox="0 0 210 44"><path class="rl" d="M3 14h204M3 28h204"/><path class="rl" d="M9 44V7M62 44V7M115 44V7M168 44V7"/></svg>'
-    };
-    const SIZE = { tree:[99,180], gum:[97,270], bush:[47,36], person:[19,53], light:[54,150], peg:[12,24], fence:[240,50] };
-
-    /* t along the street, which side, how far off, type, scale */
-    const PROPS = [
-      [0.035,-1,180,'gum',1.00],  [0.075, 1,230,'tree',1.00], [0.115,-1,300,'tree',1.05],
-      [0.145, 1,115,'light',1.00],[0.205,-1,330,'fence',1.00],[0.250, 1,165,'person',0.95],
-      [0.295,-1,250,'gum',1.05],  [0.340, 1,330,'tree',0.90], [0.420,-1,120,'light',1.00],
-      [0.455, 1,270,'bush',1.10], [0.500,-1,330,'gum',0.95],  [0.545, 1,160,'person',1.00],
-      [0.650,-1,175,'tree',1.05], [0.690, 1,120,'light',1.00],[0.730,-1,320,'gum',1.00],
-      [0.775, 1,250,'bush',1.00], [0.880,-1,175,'tree',1.00], [0.915, 1,125,'light',1.00],
-      [0.950,-1,310,'gum',0.95],  [0.975, 1,330,'fence',1.00]
-    ];
-
-    const smallProps = [];
-    PROPS.forEach(function(d, i){
-      if(small && i % 2 === 1) return;
-      const t = d[0], side = d[1], off = d[2], type = d[3], sc = d[4];
-      const pos = place(t, side, off * offK);
-      const w = SIZE[type][0] * sc, h = SIZE[type][1] * sc;
-      const el = document.createElement('div');
-      el.className = 'prop';
-      el.style.transform = 'translate3d(' + pos.x.toFixed(1) + 'px,' + pos.y.toFixed(1) + 'px,0)';
-      el.innerHTML = '<div class="bb pr-' + type + '" style="--w:' + w.toFixed(0) + 'px;--h:' + h.toFixed(0) + 'px">' + SVG[type] + '</div>';
-      world.appendChild(el);
-      smallProps.push({ t:t, el:el.firstChild });
-    });
-
-    /* ---- dwellings ---- */
-    const NOTES = {
-      1:'A single dwelling on a standard lot — the baseline every feasibility starts from.',
-      2:'Adding floor area to what is already there. Often the fastest pathway to an approval.',
-      3:'Two dwellings on one lot. The yield doubles, and so do the controls that govern it.',
-      4:'Multi-dwelling housing. The largest uplift, and the longest planning argument to make.'
-    };
-    const DW = [];
-    ['dw1','dw2','dw3','dw4'].forEach(function(id, i){
-      const el = document.getElementById(id);
-      if(!el) return;
-      /* the first lot sits near the top-left corner of the site; on a portrait
-         screen it is moved further along the street so its label stays in frame */
-      const t = (offK < 1 && el.dataset.tSmall) ? parseFloat(el.dataset.tSmall)
-                                                : parseFloat(el.dataset.t);
-      const side = parseInt(el.dataset.side,10), off = parseFloat(el.dataset.off);
-      const pos = place(t, side, off * offK);
-      el.style.transform = 'translate3d(' + pos.x.toFixed(1) + 'px,' + pos.y.toFixed(1) + 'px,0)';
-      const pad = document.createElement('div');
-      pad.className = 'flat lot-pad';
-      const pw = [335,310,445,530][i], ph = [285,270,325,355][i];
-      pad.style.cssText = '--w:' + pw + 'px;--h:' + ph + 'px;transform:rotate(' + pos.ang.toFixed(1) + 'deg)';
-      el.insertBefore(pad, el.firstChild);
-      DW.push({ n:i+1, t:t, el:el, bb:el.querySelector('.bb'), tag:el.querySelector('.card3d'),
-                shadow:el.querySelector('.shadow'), pad:pad });
-    });
-
-    /* ---- helpers ---- */
-    function setv(el, k, v){                 /* skip no-op style writes */
-      if(el['_' + k] === v) return;
-      el['_' + k] = v; el.style.setProperty(k, v);
-    }
-    const cl  = function(v){ return v < 0 ? 0 : v > 1 ? 1 : v; };
-    const seg = function(v,a,b){ return cl((v - a) / (b - a)); };
-    const sm  = function(t){ return t * t * (3 - 2 * t); };
-    const lp  = function(a,b,t){ return a + (b - a) * t; };
-
-    /* ---- the sequence, in scroll-progress beats -------------------------
-       0.000  hero copy held
-       0.025  hero copy starts fading
-       0.105  hero copy fully gone      ─┐
-       0.170  diorama starts             │ pause
-       0.780  diorama finished          ─┘
-       0.850  diorama fully faded to black
-       0.905  hero copy starts returning ─ pause
-       0.970  hero copy fully back, held to the release
-    -------------------------------------------------------------------- */
-    const B = { outA:0.025, outB:0.105, animA:0.170, animB:0.780,
-                dark:0.850, inA:0.905, inB:0.970 };
-
-    let activeN = 0;
-
-    function render(p){
-      const vh = window.innerHeight, vw = window.innerWidth;
-      const narrow = cl((1360 - vw) / 700);
-      /* the diorama has its own 0→1 progress, so it sits still through the
-         two pauses instead of drifting behind the copy */
-      const a  = seg(p, B.animA, B.animB);
-      const ur = seg(a, 0.02, 0.90);
-      const u  = 0.38 * ur + 0.62 * sm(ur);
-      const q  = at(u);
-      const hx = q.x * S, hy = q.y * S;
-      const k  = sm(a);
-
-      /* camera */
-      const tilt = lp(50, 67, sm(seg(a, 0.00, 0.94)));
-      const hdg  = lp(-20, -3.5, k) * (1 - 0.62 * narrow);
-      const zf   = 1 + 0.66 * narrow;
-      const tz   = (a < 0.11
-        ? lp(-3800, -1060, sm(seg(a, 0, 0.11)))
-        : lp(-1060, -2680, sm(seg(a, 0.11, 1)))) * zf;
-      const foll = (0.58 - 0.40 * k) * (1 - 0.78 * narrow);
-      /* lot labels: +10% everywhere, and progressively larger as the viewport
-         narrows so they stay legible on a phone */
-      const tagS = 1.10 + 0.26 * narrow;
-      const cx = lp(GW * 0.52, hx, foll);
-      const cy = lp(GH * 0.54, hy, foll);
-
-      const st = stage.style;
-      st.setProperty('--tilt', tilt.toFixed(2) + 'deg');
-      st.setProperty('--head', hdg.toFixed(2) + 'deg');
-      st.setProperty('--tz',   tz.toFixed(1) + 'px');
-      st.setProperty('--ty',   (vh * (lp(0.16, 0.21, k) + 0.05 * narrow)).toFixed(1) + 'px');
-      st.setProperty('--cx',   (-cx).toFixed(1) + 'px');
-      st.setProperty('--cy',   (-cy).toFixed(1) + 'px');
-      st.setProperty('--po',   lp(46, 42, k).toFixed(1) + '%');
-      const lit  = sm(seg(p, B.outA + 0.03, B.animA));   /* scene comes up  */
-      const gone = sm(seg(p, B.animB + 0.02, B.dark));    /* scene goes out  */
-      const base = lp(0.82, 0.16, lit);
-      glow.style.opacity = ((0.30 + 0.70 * lit) * (1 - gone)).toFixed(3);
-      dim.style.opacity  = (base + (1 - base) * gone).toFixed(3);
-      st.setProperty('--p',    p.toFixed(4));
-
-      /* pathway */
-      const off = (LEN * (1 - u)).toFixed(1);
-      path.style.strokeDashoffset = off;
-      halo.style.strokeDashoffset = off;
-      const hv = (u > 0.004 && u < 0.997) ? '1' : '0';
-      [headDot, headGlow].forEach(function(el){
-        el.setAttribute('cx', q.x.toFixed(1));
-        el.setAttribute('cy', q.y.toFixed(1));
-        el.setAttribute('opacity', hv);
-      });
-
-      /* dwellings */
-      let act = 0;
-      DW.forEach(function(d, i){
-        d._next = DW[i+1] ? DW[i+1].t : 1.30;
-        const g1 = sm(seg(u, d.t - 0.010, d.t + 0.070));
-        const g2 = sm(seg(u, d.t + 0.030, d.t + 0.105));
-        setv(d.bb, '--q',  g1.toFixed(3));
-        setv(d.bb, '--qx', (0.88 + 0.12 * g1).toFixed(3));
-        setv(d.bb, '--o',  cl(g1 * 1.7).toFixed(3));
-        setv(d.shadow, '--q', g1.toFixed(3));
-        setv(d.pad, '--q', sm(seg(u, d.t - 0.075, d.t + 0.015)).toFixed(3));
-        const g3 = g2 * (1 - sm(seg(u, d._next - 0.055, d._next + 0.020)));
-        setv(d.tag, '--o',  g3.toFixed(3));
-        setv(d.tag, '--cs', ((1.90 + 0.35 * g2) * tagS).toFixed(3));
-        if(g1 > 0.45) act = d.n;
-      });
-
-      /* small props */
-      smallProps.forEach(function(s){
-        const v = sm(seg(u, s.t - 0.025, s.t + 0.045));
-        setv(s.el, '--q', v.toFixed(2));
-        setv(s.el, '--o', cl(v * 1.8).toFixed(2));
-      });
-
-      /* readout */
-      if(act !== activeN){
-        activeN = act;
-        nums.forEach(function(n){ n.classList.toggle('on', parseInt(n.dataset.n,10) === act); });
-        if(note) note.textContent = NOTES[act] || 'One street. Four ways the same land can be developed — each with a different planning pathway behind it.';
-      }
-
-      /* copy, hud, closing panel */
-      const fade   = sm(seg(p, B.outA, B.outB));   /* 1 = copy gone       */
-      const ret    = sm(seg(p, B.inA, B.inB));     /* 1 = copy fully back */
-      if(reduce){
-        dim.style.opacity  = 0.68;   /* keep the copy readable over the scene */
-        glow.style.opacity = 0.5;
-        copy.style.opacity = 1;
-        copy.style.setProperty('--copy-y', '0px');
-        copy.style.setProperty('--copy-s', 1);
-        hud.style.opacity = 0;
-        if(hint) hint.style.opacity = 0;
-        return;
-      }
-      const shown = Math.max(1 - fade, ret);
-      copy.style.opacity = shown.toFixed(3);
-      copy.style.setProperty('--copy-y',
-        (ret > 0 ? 26 * (1 - ret) : -46 * fade).toFixed(1) + 'px');
-      copy.style.setProperty('--copy-s', (1 - 0.045 * (1 - shown)).toFixed(3));
-      copy.style.pointerEvents = shown > 0.55 ? '' : 'none';
-
-      const hudO = sm(seg(p, B.animA + 0.02, B.animA + 0.11)) *
-                   (1 - sm(seg(p, B.animB - 0.05, B.animB + 0.01)));
-      hud.style.opacity = hudO.toFixed(3);
-
-      if(hint) hint.style.opacity = (1 - sm(seg(p, 0.004, 0.045))).toFixed(3);
-    }
-
-    /* ---- scroll driver ---- */
-    let ticking = false, lastP = -1, wasLive = false;
-
-    /* If the machine can't hold a frame rate, quietly shed the cheapest
-       detail rather than stuttering through the whole sequence. */
-    let fTime = 0, fCount = 0, fLast = 0, checked = false;
-    function sample(){
-      if(checked) return;
-      const now = performance.now();
-      if(fLast && now - fLast < 200){ fTime += now - fLast; fCount++; }
-      fLast = now;
-      if(fCount === 45){
-        checked = true;
-        if(fTime / fCount > 30) stage.classList.add('lite');
-      }
-    }
-    function frame(){
-      ticking = false;
-      const vh = window.innerHeight;
-      const rect = track.getBoundingClientRect();
-      const span = Math.max(1, track.offsetHeight - vh);
-      const y = -rect.top;
-      const p = cl(y / span);
-
-      if(!reduce){
-        const live = y > 0 && y < span;
-        if(y <= 0){ stage.classList.remove('is-pinned','is-after'); }
-        else if(y >= span){ stage.classList.remove('is-pinned'); stage.classList.add('is-after'); }
-        else { stage.classList.remove('is-after'); stage.classList.add('is-pinned'); }
-        if(live !== wasLive){ wasLive = live; document.body.classList.toggle('hero-live', live); }
-        if(live) sample();
-      }
-      if(Math.abs(p - lastP) > 0.0002 || lastP < 0){ lastP = p; render(reduce ? 0.77 : p); }
-    }
-    function onScroll(){ if(!ticking){ ticking = true; requestAnimationFrame(frame); } }
-
-    window.addEventListener('scroll', onScroll, { passive:true });
-    window.addEventListener('resize', function(){ lastP = -1; onScroll(); });
-    frame();
-    setTimeout(function(){ lastP = -1; frame(); }, 60);
-  })();
-</script>
+<script src="assets/script.js"></script>
 </body>
 </html>
