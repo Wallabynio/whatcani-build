@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="format-detection" content="telephone=no">
 <title>Planning & Feasibility for Sydney Developers — whatcani.build</title>
 <meta name="description" content="Planning-led feasibility and approvals for small to mid-scale developments in Sydney and NSW. Fixed fees, plain-language advice.">
 <link rel="canonical" href="https://whatcani.build/">
@@ -10,7 +11,18 @@
 <link rel="preload" as="image" href="https://whatcani.build/images/home-facade-sunset.jpg">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#000000">
-<link rel="icon" type="image/svg+xml" href="logo-mark.svg">
+<!-- PWA / app icons -->
+<link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.json">
+<meta name="application-name" content="whatcani.build">
+<meta name="apple-mobile-web-app-title" content="whatcani">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="author" content="Bakos &amp; Evans Pty Ltd">
 <meta property="og:title" content="Planning & Feasibility for Sydney Developers — whatcani.build">
 <meta property="og:description" content="Planning-led feasibility and approvals for small to mid-scale developments in Sydney and NSW. Fixed fees, plain-language advice.">
@@ -235,6 +247,10 @@
     display:flex;align-items:center;justify-content:space-between;
     flex-wrap:wrap;gap:12px;}
   .footer-copy{font-size:13px;color:var(--muted);}
+  /* Guard: iOS Safari can auto-link number strings (e.g. the ABN) as tel: links.
+     The format-detection meta in <head> disables this; this keeps any that slip
+     through looking like plain text. */
+  a[href^="tel:"]{color:inherit!important;text-decoration:none!important;-webkit-text-decoration:none!important;}
   .footer-tagline{font-size:13px;color:var(--muted);font-style:italic;}
 
   /* FORM */
