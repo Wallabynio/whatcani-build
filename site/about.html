@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="format-detection" content="telephone=no">
+<title>About Us — The Practice — whatcani.build</title>
+<meta name="description" content="Learn about whatcani.build, the principals, and the practice's scope of work in NSW urban planning.">
+<link rel="canonical" href="https://whatcani.build/about.html">
+<link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+<link rel="preload" as="image" href="https://whatcani.build/images/townhouses-brick.jpg">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#000000">
+<!-- PWA / app icons -->
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="shortcut icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.json">
+<meta name="application-name" content="whatcani.build">
+<meta name="apple-mobile-web-app-title" content="whatcani">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="author" content="Bakos &amp; Evans Pty Ltd">
+<meta property="og:title" content="About Us — The Practice — whatcani.build">
+<meta property="og:description" content="Learn about whatcani.build, the principals, and the practice's scope of work in NSW urban planning.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://whatcani.build/about.html">
+<meta property="og:site_name" content="whatcani.build">
+<meta property="og:locale" content="en_AU">
+<meta property="og:image" content="https://whatcani.build/images/townhouses-brick.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="About Us — The Practice — whatcani.build">
+<meta name="twitter:description" content="Learn about whatcani.build, the principals, and the practice's scope of work in NSW urban planning.">
+<meta name="twitter:image" content="https://whatcani.build/images/townhouses-brick.jpg">
+<style>
+
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Inter+Tight:wght@500;600;700;800&display=swap');
+  :root{
+    --black:#000000; --white:#FFFFFF;
+    --orange:#FF7700; --orange-soft:rgba(255,119,0,0.12);
+    --orange-border:rgba(255,119,0,0.30);
+    --blue:#4B8FE0; --blue-soft:rgba(75,143,224,0.14);
+    --blue-border:rgba(75,143,224,0.28);
+    --muted:#B8B6B0; --card-muted:#4A4845;
+    --hairline:rgba(255,255,255,0.1);
+    --card-hairline:rgba(0,0,0,0.09);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--black);color:var(--white);
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+    overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+  ::selection{background:var(--orange);color:var(--black);}
+
+  /* NAV */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:200;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:20px 5vw;
+    backdrop-filter:blur(24px) saturate(160%);
+    -webkit-backdrop-filter:blur(24px) saturate(160%);
+    background:rgba(0,0,0,0.72);
+    border-bottom:1px solid var(--hairline);
+    transition:padding .3s ease;
+  }
+  .logo{font-family:'Inter Tight',sans-serif;font-weight:700;font-size:20.4px;
+    letter-spacing:-0.02em;color:var(--white);text-decoration:none;}
+  .logo span{color:var(--orange);}
+  .nav-links{display:flex;gap:32px;list-style:none;}
+  .nav-links a{color:var(--white);text-decoration:none;font-size:15px;font-weight:500;
+    opacity:0.82;transition:opacity .25s ease;letter-spacing:-0.01em;}
+  .nav-links a:hover,.nav-links a.active{opacity:1;color:var(--orange);}
+  .nav-right{display:flex;align-items:center;gap:16px;}
+  .nav-cta{background:var(--orange);color:var(--black);padding:9px 20px;
+    border-radius:100px;font-size:13.5px;font-weight:700;text-decoration:none;
+    transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s ease;}
+  .nav-cta:hover{transform:scale(1.04);box-shadow:0 8px 24px rgba(255,119,0,0.4);}
+
+  /* HAMBURGER */
+  .hamburger{
+    display:none;flex-direction:column;justify-content:center;
+    gap:5px;cursor:pointer;padding:6px;background:none;border:none;
+    z-index:300;
+  }
+  .hamburger span{
+    display:block;width:24px;height:2px;background:var(--white);
+    border-radius:2px;transition:transform .35s cubic-bezier(.2,.8,.2,1),opacity .3s ease;
+    transform-origin:center;
+  }
+  .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0);}
+  .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+  /* MOBILE MENU OVERLAY */
+  .mobile-menu{
+    position:fixed;inset:0;z-index:150;
+    background:rgba(0,0,0,0.97);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    gap:0;
+    opacity:0;pointer-events:none;
+    transition:opacity .4s cubic-bezier(.2,.8,.2,1);
+  }
+  .mobile-menu.open{opacity:1;pointer-events:all;}
+  .mobile-menu a{
+    color:var(--white);text-decoration:none;
+    font-family:'Inter Tight',sans-serif;font-weight:700;
+    font-size:clamp(2rem,6vw,3.2rem);letter-spacing:-0.02em;
+    padding:18px 0;line-height:1;
+    transition:color .2s ease,transform .2s ease;
+    transform:translateY(12px);opacity:0;
+  }
+  .mobile-menu.open a{transform:translateY(0);opacity:1;}
+  .mobile-menu a:hover{color:var(--orange);}
+  .mobile-menu a.cta-link{
+    margin-top:28px;background:var(--orange);color:var(--black);
+    padding:16px 40px;border-radius:100px;font-size:1.1rem;
+  }
+  .mobile-menu .divider{
+    width:40px;height:1px;background:var(--hairline);margin:12px 0;
+  }
+
+  /* PARALLAX BAND */
+  .parallax-band{
+    position:relative;height:340px;overflow:hidden;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .parallax-band .pb-img{
+    position:absolute;inset:-30% 0;
+    background-size:cover;background-position:center;background-attachment:fixed;
+    filter:brightness(1);
+    will-change:transform;
+  }
+  .parallax-band .pb-overlay{
+    position:absolute;inset:0;
+    background:rgba(0,0,0,0.05);
+  }
+  /* pb-label removed — parallax bands are image-only */
+
+  /* SHARED SECTION STYLES */
+  section{padding:120px 6vw;}
+  .wrap{max-width:1180px;margin:0 auto;}
+  .on-black{background:var(--black);color:var(--white);}
+  .on-white{background:var(--white);color:var(--black);}
+  .section-head{text-align:center;max-width:580px;margin:0 auto 72px;}
+  .tag{display:block;font-size:13px;font-weight:700;letter-spacing:0.06em;
+    text-transform:uppercase;margin-bottom:14px;color:var(--orange);}
+  .section-head h2{font-family:'Inter Tight',sans-serif;font-weight:800;
+    font-size:clamp(2rem,3.6vw,3rem);letter-spacing:-0.03em;line-height:1.1;
+    color:var(--white);}
+  .on-white .section-head h2{color:var(--black);}
+  .section-head p{margin-top:18px;font-size:18px;line-height:1.6;color:var(--muted);}
+  .on-white .section-head p{color:var(--card-muted);}
+
+  /* CARDS */
+  .card-white{background:var(--white);border:1px solid var(--card-hairline);
+    border-radius:22px;padding:38px;}
+  .card-white h3{font-family:'Inter Tight',sans-serif;font-weight:700;font-size:21px;
+    letter-spacing:-0.015em;color:var(--black);margin-bottom:12px;line-height:1.25;}
+  .card-white p{font-size:15.5px;color:#2A2825;line-height:1.65;}
+
+  /* BUTTONS */
+  .btn-primary{background:var(--orange);color:var(--black);padding:14px 28px;
+    border-radius:100px;font-size:15px;font-weight:700;text-decoration:none;
+    display:inline-flex;align-items:center;gap:8px;
+    transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s ease;}
+  .btn-primary:hover{transform:translateY(-3px) scale(1.02);
+    box-shadow:0 14px 32px rgba(255,119,0,0.4);}
+  .btn-secondary{background:rgba(255,255,255,0.07);color:var(--white);
+    border:1px solid var(--hairline);padding:14px 28px;border-radius:100px;
+    font-size:15px;font-weight:600;text-decoration:none;backdrop-filter:blur(10px);
+    transition:background .3s ease,transform .3s ease;}
+  .btn-secondary:hover{background:rgba(255,255,255,0.13);transform:translateY(-3px);}
+  .btn-outline-dark{background:transparent;color:var(--black);
+    border:2px solid var(--black);padding:13px 28px;border-radius:100px;
+    font-size:15px;font-weight:700;text-decoration:none;
+    transition:background .3s ease,color .3s ease;}
+  .btn-outline-dark:hover{background:var(--black);color:var(--white);}
+  .btn-group{display:flex;gap:14px;flex-wrap:wrap;margin-top:32px;}
+
+  /* STEP/ICON CHIP */
+  .icon-chip{width:51px;height:51px;border-radius:13px;
+    background:var(--blue-soft);border:1px solid var(--blue-border);
+    display:flex;align-items:center;justify-content:center;
+    margin-bottom:20px;flex-shrink:0;}
+
+  /* REVEAL ANIMATION */
+  .reveal{opacity:0;transform:translateY(28px);
+    transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1);}
+  .reveal.visible{opacity:1;transform:translateY(0);}
+
+  /* PAGE HERO (inner pages) */
+  .page-hero{
+    min-height:52vh;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;text-align:center;
+    padding:160px 6vw 100px;position:relative;overflow:hidden;
+    background:var(--black);
+  }
+  .page-hero h1{font-family:'Inter Tight',sans-serif;font-weight:800;
+    font-size:clamp(2.4rem,5.5vw,4.8rem);letter-spacing:-0.035em;
+    line-height:1.06;max-width:900px;color:var(--white);}
+  .page-hero h1 span{color:var(--orange);font-style:italic;}
+  .page-hero p{margin-top:22px;font-size:clamp(1rem,1.6vw,1.25rem);
+    color:var(--muted);max-width:580px;line-height:1.6;}
+  .page-glow{position:absolute;width:700px;height:700px;top:50%;left:50%;
+    transform:translate(-50%,-50%);pointer-events:none;
+    background:radial-gradient(circle,rgba(255,119,0,0.12) 0%,transparent 70%);}
+
+  /* FOOTER */
+  footer{border-top:1px solid var(--hairline);padding:52px 6vw;
+    background:var(--black);}
+  .footer-inner{max-width:1180px;margin:0 auto;
+    display:flex;align-items:flex-start;justify-content:space-between;
+    flex-wrap:wrap;gap:32px;}
+  .footer-logo{font-family:'Inter Tight',sans-serif;font-weight:700;
+    font-size:18px;color:var(--white);text-decoration:none;}
+  .footer-logo span{color:var(--orange);}
+  .footer-nav{display:flex;flex-direction:column;gap:12px;}
+  .footer-nav-title{font-size:12px;font-weight:700;color:var(--orange);
+    letter-spacing:0.06em;text-transform:uppercase;margin-bottom:4px;}
+  .footer-nav a{color:var(--muted);text-decoration:none;font-size:14.5px;
+    transition:color .25s ease;}
+  .footer-nav a:hover{color:var(--white);}
+  .footer-bottom{border-top:1px solid var(--hairline);
+    padding-top:24px;margin-top:36px;
+    display:flex;align-items:center;justify-content:space-between;
+    flex-wrap:wrap;gap:12px;}
+  .footer-copy{font-size:13px;color:var(--muted);}
+  /* Guard: iOS Safari can auto-link number strings (e.g. the ABN) as tel: links.
+     The format-detection meta in <head> disables this; this keeps any that slip
+     through looking like plain text. */
+  a[href^="tel:"]{color:inherit!important;text-decoration:none!important;-webkit-text-decoration:none!important;}
+  .footer-tagline{font-size:13px;color:var(--muted);font-style:italic;}
+
+  /* FORM */
+  .form-card{background:var(--white);border:1px solid var(--card-hairline);
+    border-radius:24px;padding:44px;}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
+  .form-field{display:flex;flex-direction:column;gap:8px;min-width:0;}
+  .form-field.full{grid-column:1/-1;}
+  .form-field label{font-size:13px;font-weight:600;color:#444;letter-spacing:0.01em;}
+  .form-field input,.form-field select,.form-field textarea{
+    width:100%;min-width:0;
+    background:#F7F7F7;border:1px solid rgba(0,0,0,0.1);border-radius:12px;
+    padding:13px 16px;color:var(--black);font-family:'Inter',sans-serif;
+    font-size:14.5px;outline:none;
+    transition:border-color .25s ease,background .25s ease;}
+  .form-field input:focus,.form-field select:focus,.form-field textarea:focus{
+    border-color:var(--orange);background:var(--white);}
+  .form-field textarea{resize:vertical;min-height:110px;font-family:inherit;}
+  .form-submit{width:100%;background:var(--orange);color:var(--black);border:none;
+    padding:16px;border-radius:100px;font-size:15px;font-weight:700;cursor:pointer;
+    margin-top:8px;font-family:'Inter',sans-serif;
+    transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s ease;}
+  .form-submit:hover{transform:translateY(-2px) scale(1.01);
+    box-shadow:0 14px 32px rgba(255,119,0,0.35);}
+
+  /* RESPONSIVE */
+  @media(max-width:900px){
+    .nav-links,.nav-cta{display:none;}
+    .hamburger{display:flex;}
+    /* Inner page grids — 2-col max at tablet */
+    .about-grid-2col,
+    [style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr !important;}
+    [style*="grid-template-columns:repeat(3"]{grid-template-columns:1fr !important;}
+    [style*="grid-template-columns:repeat(4"]{grid-template-columns:1fr 1fr !important;}
+    [style*="grid-template-columns:1fr 1.6fr"]{grid-template-columns:1fr !important;}
+    [style*="grid-template-columns:1fr 1fr;gap:48px"]{grid-template-columns:1fr !important;}
+  }
+  @media(max-width:600px){
+    section{padding:80px 5vw;}
+    .footer-inner{flex-direction:column;gap:28px;}
+    /* Everything single column on mobile */
+    .form-row{grid-template-columns:1fr !important;}
+    [style*="grid-template-columns"]{grid-template-columns:1fr !important;}
+    [style*="grid-template-columns"] > *{min-width:0;max-width:100%;}
+    [style*="display:flex;gap:12px;"]{flex-direction:column;}
+    /* All multi-col grids → 1 col */
+    .blog-grid{grid-template-columns:1fr !important;}
+    .steps{grid-template-columns:1fr !important;}
+    .pricing-preview{grid-template-columns:1fr !important;}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{animation-duration:.01ms !important;transition-duration:.01ms !important;}
+    .parallax-band .pb-img{background-attachment:scroll;}
+  }
+
+
+
+  /* ===== REVERSED (LIGHT) SECTIONS ===== */
+  .on-white{background:var(--white);color:var(--black);}
+  .on-white .hero-glow{opacity:0.10!important;}
+  /* --- text sitting directly on the light background --- */
+  .on-white .wrap h1,.on-white .wrap h2,.on-white .wrap h3,.on-white .wrap h4,
+  .on-white .section-head h2{color:var(--black)!important;}
+  .on-white .wrap p,.on-white .wrap li,.on-white .section-head p{color:var(--card-muted)!important;}
+  .on-white .wrap div{color:var(--black)!important;}
+  .on-white .section-more a{color:var(--black)!important;}
+  .on-white input,.on-white select,.on-white textarea{
+    background:#F7F7F7!important;color:var(--black)!important;border-color:rgba(0,0,0,0.12)!important;}
+  .on-white ::placeholder{color:#8A8782!important;}
+  /* --- dark boxes ON the light background (declared after, so they win) --- */
+  .on-white .card-white,.on-white .step,.on-white .price-card,
+  .on-white .testi-card,.on-white .team-card,.on-white .snap-card,
+  .on-white .lga-col,.on-white .faq details,.on-white .cmp-wrap,.on-white .stat-cell{
+    background:var(--black)!important;border-color:rgba(255,255,255,0.18)!important;}
+  .on-white .steps{background:rgba(255,255,255,0.18)!important;border-color:rgba(0,0,0,0.14)!important;}
+  .on-white .stat-strip{background:rgba(255,255,255,0.18)!important;border-color:rgba(0,0,0,0.14)!important;}
+  .on-white .card-white h2,.on-white .card-white h3,.on-white .card-white h4,
+  .on-white .step h3,.on-white .price-card h3,.on-white .testi-card h3,
+  .on-white .team-card h3,.on-white .snap-card h3,.on-white .team-name,
+  .on-white .price-amount,.on-white .faq summary,
+  .on-white .cmp-table thead th,.on-white .cmp-table td:first-child{color:var(--white)!important;}
+  .on-white .cmp-table th,.on-white .cmp-table td{border-bottom-color:rgba(255,255,255,0.18)!important;}
+  .on-white .cmp-table thead th{background:rgba(255,255,255,0.05)!important;}
+  .on-white .card-white p,.on-white .card-white li,.on-white .step p,
+  .on-white .price-card p,.on-white .price-desc,.on-white .testi-card p,
+  .on-white .testi-quote,.on-white .team-card p,.on-white .team-bio,
+  .on-white .snap-card p,.on-white .faq .faq-a,.on-white .faq .faq-a p,
+  .on-white .cmp-table td{color:var(--muted)!important;}
+  .on-white .card-white div,.on-white .price-card div,.on-white .testi-card div,
+  .on-white .team-card div,.on-white .snap-card div,.on-white .lga-col div,
+  .on-white .stat-cell div{color:var(--white)!important;}
+  .on-white .snap-card strong{color:var(--white)!important;}
+  .on-white .lga-col li{color:var(--white)!important;background:rgba(255,255,255,0.06)!important;
+    border-color:rgba(255,255,255,0.18)!important;}
+  .on-white .stat-cell .stat-num,.on-white .lga-col h3,.on-white .snap-card .snap-meta{color:var(--orange)!important;}
+  .on-white .stat-cell .stat-lab{color:var(--muted)!important;}
+  .on-white .card-white input,.on-white .card-white select,.on-white .card-white textarea{
+    background:#F7F7F7!important;color:var(--black)!important;}
+  .on-white .testi-author,.on-white .snap-stat,
+  .on-white .card-white div[style*="border-top"],
+  .on-white .testi-card div[style*="border-top"]{border-top-color:rgba(255,255,255,0.18)!important;}
+  .on-white .card-white span,.on-white .price-card span,.on-white .testi-card span,
+  .on-white .team-card span,.on-white .snap-card span,.on-white .lga-col span,
+  .on-white .stat-cell span,.on-white .faq span{color:var(--muted)!important;}
+  .on-white .wrap span[style*="var(--orange)"]{color:var(--orange)!important;}
+  .on-white .wrap div[style*="var(--orange)"]{color:var(--orange)!important;}
+  .on-white .step:hover{background:#141414!important;}
+  /* --- additional dark boxes on light sections --- */
+  .on-white .price-card-full,.on-white .service-card,.on-white .form-card{
+    background:var(--black)!important;border-color:rgba(255,255,255,0.18)!important;}
+  .on-white .service-card:hover{background:#141414!important;}
+  .on-white .price-card-full h2,.on-white .price-card-full h3,.on-white .price-card-full h4,
+  .on-white .service-card h2,.on-white .service-card h3,.on-white .form-card h3{color:var(--white)!important;}
+  .on-white .price-card-full p,.on-white .service-card p,.on-white .form-card p{color:var(--muted)!important;}
+  .on-white .price-card-full div,.on-white .service-card div,.on-white .form-card div{color:var(--white)!important;}
+  .on-white .price-card-full span,.on-white .service-card span,.on-white .form-card span{color:var(--muted)!important;}
+  .on-white .price-card-full li,.on-white .service-card li{color:var(--muted)!important;}
+  .on-white .form-field label{color:#CFCDC8!important;}
+  .on-white .form-card input,.on-white .form-card select,.on-white .form-card textarea{
+    background:rgba(255,255,255,0.06)!important;color:var(--white)!important;
+    border-color:rgba(255,255,255,0.18)!important;}
+  .on-white .form-card select option{background:#111111;color:var(--white);}
+  .on-white .team-tag{color:var(--muted)!important;border-color:rgba(255,255,255,0.18)!important;}
+  .on-white .service-meta{border-top-color:rgba(255,255,255,0.18)!important;}
+  .on-white .service-card .service-num,.on-white .service-card .service-meta,.on-white .step-index{color:var(--orange)!important;}
+  .on-white .price-card-full .price-badge,.on-white .price-badge{color:var(--black)!important;}
+  .on-white .steps{background:rgba(255,255,255,0.22)!important;}
+  .on-white .card-white .btn-outline-dark,.on-white .price-card .btn-outline-dark{
+    color:var(--white)!important;border-color:var(--white)!important;}
+  .on-white .card-white .btn-outline-dark:hover{background:var(--white)!important;color:var(--black)!important;}
+
+  /* eyebrow tags: orange fails contrast on white, so use black on light sections */
+  .on-white .tag{color:var(--black)!important;}
+  .on-white .wrap span.tag{color:var(--black)!important;}
+  .on-white .card-white .tag,.on-white .service-card .tag,
+  .on-white .price-card-full .tag,.on-white .form-card .tag{color:var(--orange)!important;}
+  .on-white .team-card .team-role{color:var(--orange)!important;}
+
+  /* ===== STAT STRIP ===== */
+  .stat-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+    background:var(--card-hairline);border:1px solid var(--card-hairline);border-radius:20px;overflow:hidden;}
+  .on-white .stat-strip{background:rgba(255,255,255,0.18);border-color:rgba(0,0,0,0.14);}
+  .stat-cell{background:var(--white);padding:30px 22px;text-align:center;}
+  .stat-num{font-family:'Inter Tight',sans-serif;font-weight:800;font-size:25px;
+    letter-spacing:-0.02em;color:var(--black);line-height:1.15;}
+  .stat-lab{font-size:13.5px;color:var(--card-muted);margin-top:8px;line-height:1.5;}
+
+  /* ===== COMPARISON TABLE ===== */
+  .cmp-wrap{overflow-x:auto;border:1px solid var(--card-hairline);border-radius:20px;background:var(--white);}
+  .on-white .cmp-wrap{border-color:rgba(255,255,255,0.18);}
+  .cmp-table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:660px;}
+  .cmp-table th,.cmp-table td{padding:16px 18px;text-align:left;vertical-align:top;
+    border-bottom:1px solid var(--card-hairline);line-height:1.6;}
+  .cmp-table thead th{font-family:'Inter Tight',sans-serif;font-weight:700;font-size:14px;
+    color:var(--black);background:rgba(0,0,0,0.035);}
+  .cmp-table td:first-child{font-weight:600;color:var(--black);width:160px;}
+  .cmp-table td{color:var(--card-muted);}
+  .cmp-table tr:last-child td{border-bottom:none;}
+
+  /* ===== FAQ ACCORDION ===== */
+  .faq{display:flex;flex-direction:column;gap:12px;}
+  .faq details{border:1px solid var(--card-hairline);border-radius:16px;
+    background:var(--white);overflow:hidden;transition:border-color .3s ease;}
+  .on-white .faq details{background:var(--black);border-color:rgba(255,255,255,0.18);}
+  .faq details[open]{border-color:var(--blue-border);}
+  .faq summary{cursor:pointer;list-style:none;padding:20px 56px 20px 22px;position:relative;
+    font-family:'Inter Tight',sans-serif;font-weight:600;font-size:16.5px;
+    color:var(--black);line-height:1.45;}
+  .faq summary::-webkit-details-marker{display:none;}
+  .faq summary::after{content:"";position:absolute;right:24px;top:50%;width:10px;height:10px;
+    border-right:2px solid var(--blue);border-bottom:2px solid var(--blue);
+    transform:translateY(-70%) rotate(45deg);transition:transform .3s ease;}
+  .faq details[open] summary::after{transform:translateY(-25%) rotate(-135deg);}
+  .faq .faq-a{padding:0 22px 22px;font-size:15px;line-height:1.7;color:var(--card-muted);}
+  .faq .faq-a p+p{margin-top:12px;}
+
+  /* ===== LGA COVERAGE ===== */
+  .lga-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .lga-col{border:1px solid var(--card-hairline);border-radius:18px;padding:26px 24px;
+    background:var(--white);}
+  .on-white .lga-col{background:var(--black);border-color:rgba(255,255,255,0.18);}
+  .lga-col h3{font-family:'Inter Tight',sans-serif;font-weight:700;font-size:13px;
+    letter-spacing:0.06em;text-transform:uppercase;color:var(--black);margin-bottom:15px;}
+  .lga-col ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px;}
+  .lga-col li{font-size:13.5px;padding:6px 12px;border-radius:100px;
+    background:rgba(0,0,0,0.04);border:1px solid var(--card-hairline);color:var(--black);}
+
+  /* ===== PROJECT SNAPSHOTS ===== */
+  .snap-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;}
+  .snap-card{border:1px solid var(--card-hairline);border-radius:20px;padding:30px 28px;
+    background:var(--white);transition:transform .4s ease,border-color .4s ease;}
+  .on-white .snap-card{background:var(--black);border-color:rgba(255,255,255,0.18);}
+  .snap-card:hover{transform:translateY(-4px);border-color:var(--orange-border);}
+  .snap-meta{font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;
+    color:var(--black);margin-bottom:12px;}
+  .snap-card h3{font-family:'Inter Tight',sans-serif;font-weight:700;font-size:18px;
+    letter-spacing:-0.015em;color:var(--black);margin-bottom:10px;line-height:1.35;}
+  .snap-card p{font-size:14.5px;line-height:1.65;color:var(--card-muted);}
+  .snap-stat{margin-top:20px;padding-top:16px;border-top:1px solid var(--card-hairline);
+    display:flex;gap:26px;flex-wrap:wrap;}
+  .snap-stat div{font-size:12.5px;color:var(--card-muted);}
+  .snap-stat strong{display:block;font-family:'Inter Tight',sans-serif;font-size:17px;
+    font-weight:800;color:var(--black);letter-spacing:-0.01em;margin-bottom:2px;}
+
+  @media(max-width:900px){
+    .stat-strip{grid-template-columns:1fr 1fr;}
+    .lga-grid{grid-template-columns:1fr;}
+    .snap-grid{grid-template-columns:1fr;}
+  }
+
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo">whatcani<span>.build</span></a>
+  <ul class="nav-links">
+    <li><a href="about.html" class="active">About us</a></li>
+    <li><a href="services.html" >Services</a></li>
+    <li><a href="pricing.html" >Pricing</a></li>
+    <li><a href="blog.html" >Blog</a></li>
+    <li><a href="testimonials.html" >Testimonials</a></li>
+    <li><a href="contact.html" >Contact us</a></li>
+    <li><a href="legals.html" >Legals</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="contact.html" class="nav-cta">Get a site review</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="about.html">About us</a>
+  <a href="services.html">Services</a>
+  <a href="pricing.html">Pricing</a>
+  <a href="blog.html">Blog</a>
+  <a href="testimonials.html">Testimonials</a>
+  <a href="contact.html">Contact us</a>
+  <a href="legals.html">Legals</a>
+  <div class="divider"></div>
+  <a href="contact.html" class="cta-link">Get a site review →</a>
+</div>
+
+<div class="page-hero">
+  <div class="page-glow"></div>
+  <h1>The planners you'll<br>be <span>dealing with.</span></h1>
+  <p>We started whatcani.build after watching too many good projects come unstuck early — not because the site was wrong, but because the planning advice turned up too late. We're here to fix that.</p>
+</div>
+
+<div class="parallax-band">
+  <div class="pb-img" style="background-image:url('images/townhouses-brick.jpg');"></div>
+  <div class="pb-overlay"></div>
+</div>
+
+<section class="on-white">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="tag">Our principals</span>
+      <h2>Meet the team</h2>
+      <p>Between us we cover planning strategy, urban design, feasibility and the approvals process, end to end.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:36px;">
+      <div class="card-white reveal" style="border-radius:28px;padding:44px;">
+        <div style="display:flex;align-items:center;gap:20px;margin-bottom:24px;">
+          <img src="data:image/jpeg;base64,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" alt="Istvan Bakos" style="width:96px;height:96px;border-radius:50%;object-fit:cover;flex-shrink:0;border:2px solid rgba(255,119,0,0.35);">
+          <div>
+            <div style="font-family:'Inter Tight',sans-serif;font-weight:800;font-size:22px;letter-spacing:-0.02em;color:var(--black);">Istvan Bakos</div>
+            <div style="font-size:14px;color:var(--orange);font-weight:600;margin-top:3px;">Principal — Planning &amp; Feasibility</div>
+          </div>
+        </div>
+        <p style="font-size:15.5px;color:#2A2825;line-height:1.75;margin-bottom:20px;">Istvan runs the planning and feasibility side of the practice. He came up through architecture and urban design before moving into planning strategy. He has spent his career at the early, high-stakes point in a project — the decisions made before a single drawing is finalised — and built whatcani.build around the conviction that good planning advice should land before the money's spent, not after.</p>
+        <p style="font-size:15.5px;color:#2A2825;line-height:1.75;margin-bottom:24px;">He works directly with developers and builders on zoning strategy, feasibility, and the policy arguments that get good projects through council. That means reading a site the way an assessment planner will — controls, context, and precedent together — and shaping the case for approval early, while there is still room to change course cheaply.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;">
+          <span style="font-size:12.5px;font-weight:600;color:#555;border:1px solid rgba(0,0,0,0.09);padding:6px 12px;border-radius:100px;">NSW Planning System</span>
+          <span style="font-size:12.5px;font-weight:600;color:#555;border:1px solid rgba(0,0,0,0.09);padding:6px 12px;border-radius:100px;">Feasibility Strategy</span>
+          <span style="font-size:12.5px;font-weight:600;color:#555;border:1px solid rgba(0,0,0,0.09);padding:6px 12px;border-radius:100px;">SEPP &amp; LEP Policy</span>
+          <span style="font-size:12.5px;font-weight:600;color:#555;border:1px solid rgba(0,0,0,0.09);padding:6px 12px;border-radius:100px;">Urban Design</span>
+        </div>
+      </div>
+      <div class="card-white reveal" style="border-radius:28px;padding:44px;">
+        <div style="display:flex;align-items:center;gap:20px;margin-bottom:24px;">
+          <img src="data:image/jpeg;base64,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" alt="Nathan Evans" style="width:96px;height:96px;border-radius:50%;object-fit:cover;flex-shrink:0;border:2px solid rgba(255,119,0,0.35);">
+          <div>
+            <div style="font-family:'Inter Tight',sans-serif;font-weight:800;font-size:22px;letter-spacing:-0.02em;color:var(--black);">Nathan Evans</div>
+            <div style="font-size:14px;color:var(--orange);font-weight:600;margin-top:3px;">Principal — Design &amp; Approvals</div>
+          </div>
+        </div>
+        <p style="font-size:15.5px;color:#2A2825;line-height:1.75;margin-bottom:20px;">Nathan is the design-literate half of the practice — he reads plans, sections and massing fluently enough to pick up planning issues while a scheme can still be changed cheaply. Before co-founding whatcani.build, he worked across residential and mixed-use projects managing the DA and CDC process end to end, from first lodgement through to determination.</p>
+        <p style="font-size:15.5px;color:#2A2825;line-height:1.75;margin-bottom:24px;">He leads pre-design and approvals work, translating planning controls into briefs that architects can actually design to, and planning reports that councils can approve. That dual fluency — design on one side, planning policy on the other — is what keeps a project moving between the drawing board and the assessment desk without expensive rework in between.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;">
+          <span style="font-size:12.5px;font-weight:600;color:#555;border:1px solid rgba(0,0,0,0.09);padding:6px 12px;border-radius:100px;">DA / CDC Approvals</span>
+          <span style="font-size:12.5px;font-weight:600;color:#555;border:1px solid rgba(0,0,0,0.09);padding:6px 12px;border-radius:100px;">Design Review</span>
+          <span style="font-size:12.5px;font-weight:600;color:#555;border:1px solid rgba(0,0,0,0.09);padding:6px 12px;border-radius:100px;">Envelope Testing</span>
+          <span style="font-size:12.5px;font-weight:600;color:#555;border:1px solid rgba(0,0,0,0.09);padding:6px 12px;border-radius:100px;">Council Coordination</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="parallax-band">
+  <div class="pb-img" style="background-image:url('images/plans-review.jpg');"></div>
+  <div class="pb-overlay"></div>
+</div>
+
+<section class="on-black">
+  <div class="wrap">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;max-width:960px;margin:0 auto;">
+      <div class="card-white reveal" style="border-radius:22px;padding:40px;">
+        <div style="font-family:'Inter Tight',sans-serif;font-weight:700;font-size:18px;color:var(--black);margin-bottom:20px;">What we do</div>
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <div style="display:flex;gap:12px;"><span style="color:var(--orange);font-weight:700;margin-top:1px;">→</span><span style="font-size:15px;color:#2A2825;">Infill housing, duplexes, dual occupancies</span></div><div style="display:flex;gap:12px;"><span style="color:var(--orange);font-weight:700;margin-top:1px;">→</span><span style="font-size:15px;color:#2A2825;">Townhouses and small apartment buildings</span></div><div style="display:flex;gap:12px;"><span style="color:var(--orange);font-weight:700;margin-top:1px;">→</span><span style="font-size:15px;color:#2A2825;">Small-to-mid scale mixed-use development</span></div><div style="display:flex;gap:12px;"><span style="color:var(--orange);font-weight:700;margin-top:1px;">→</span><span style="font-size:15px;color:#2A2825;">DA and CDC approval pathways</span></div><div style="display:flex;gap:12px;"><span style="color:var(--orange);font-weight:700;margin-top:1px;">→</span><span style="font-size:15px;color:#2A2825;">Complying and exempt development assessment</span></div><div style="display:flex;gap:12px;"><span style="color:var(--orange);font-weight:700;margin-top:1px;">→</span><span style="font-size:15px;color:#2A2825;">LEP, DCP, SEPP and Housing SEPP work</span></div><div style="display:flex;gap:12px;"><span style="color:var(--orange);font-weight:700;margin-top:1px;">→</span><span style="font-size:15px;color:#2A2825;">Pre-purchase site feasibility</span></div><div style="display:flex;gap:12px;"><span style="color:var(--orange);font-weight:700;margin-top:1px;">→</span><span style="font-size:15px;color:#2A2825;">Pre-design envelope and massing testing</span></div><div style="display:flex;gap:12px;"><span style="color:var(--orange);font-weight:700;margin-top:1px;">→</span><span style="font-size:15px;color:#2A2825;">Planning reports and statements of environmental effects</span></div><div style="display:flex;gap:12px;"><span style="color:var(--orange);font-weight:700;margin-top:1px;">→</span><span style="font-size:15px;color:#2A2825;">Clause 4.6 variation justification</span></div>
+        </div>
+      </div>
+      <div class="card-white reveal" style="border-radius:22px;padding:40px;">
+        <div style="font-family:'Inter Tight',sans-serif;font-weight:700;font-size:18px;color:var(--black);margin-bottom:20px;">What we don't take on</div>
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <div style="display:flex;gap:12px;"><span style="color:var(--muted);font-weight:700;margin-top:1px;">—</span><span style="font-size:15px;color:var(--card-muted);">Major EIS or environmental impact statements</span></div><div style="display:flex;gap:12px;"><span style="color:var(--muted);font-weight:700;margin-top:1px;">—</span><span style="font-size:15px;color:var(--card-muted);">Large infrastructure approvals</span></div><div style="display:flex;gap:12px;"><span style="color:var(--muted);font-weight:700;margin-top:1px;">—</span><span style="font-size:15px;color:var(--card-muted);">Complex social impact assessments</span></div><div style="display:flex;gap:12px;"><span style="color:var(--muted);font-weight:700;margin-top:1px;">—</span><span style="font-size:15px;color:var(--card-muted);">Land and Environment Court representation</span></div><div style="display:flex;gap:12px;"><span style="color:var(--muted);font-weight:700;margin-top:1px;">—</span><span style="font-size:15px;color:var(--card-muted);">Projects outside the NSW planning framework</span></div>
+        </div>
+        <p style="margin-top:24px;font-size:14px;color:var(--card-muted);line-height:1.65;font-style:italic;">If a project isn't a good fit, we'll tell you in the first chat and point you towards someone who can help.</p>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:44px;"><a href="contact.html" class="btn-primary">Start a conversation →</a></div>
+  </div>
+</section>
+
+
+<section class="on-white">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="tag">Where we work</span>
+      <h2>Councils we work across</h2>
+      <p>Most of our work is metropolitan Sydney, with regular jobs on the Central Coast, in the Illawarra and across the Blue Mountains. If your council is not listed, ask &mdash; we will tell you honestly whether we know it well enough to help.</p>
+    </div>
+    <div class="lga-grid reveal">
+      <div class="lga-col"><h3>Inner West &amp; inner south</h3><ul><li>Inner West</li><li>Canterbury-Bankstown</li><li>Georges River</li><li>City of Sydney</li><li>Burwood</li><li>Strathfield</li></ul></div>
+      <div class="lga-col"><h3>Eastern suburbs</h3><ul><li>Randwick</li><li>Waverley</li><li>Woollahra</li><li>Bayside</li></ul></div>
+      <div class="lga-col"><h3>Lower North Shore</h3><ul><li>Ryde</li><li>Lane Cove</li><li>Willoughby</li><li>North Sydney</li><li>Hunters Hill</li><li>Mosman</li></ul></div>
+      <div class="lga-col"><h3>Upper north &amp; beaches</h3><ul><li>Northern Beaches</li><li>Ku-ring-gai</li><li>Hornsby</li></ul></div>
+      <div class="lga-col"><h3>Western Sydney</h3><ul><li>Parramatta</li><li>Cumberland</li><li>Blacktown</li><li>The Hills</li><li>Penrith</li><li>Fairfield</li><li>Liverpool</li></ul></div>
+      <div class="lga-col"><h3>South &amp; regional NSW</h3><ul><li>Sutherland Shire</li><li>Campbelltown</li><li>Camden</li><li>Wollondilly</li><li>Central Coast</li><li>Wollongong</li><li>Blue Mountains</li></ul></div>
+    </div>
+    <p style="text-align:center;margin-top:34px;font-size:14px;color:var(--muted);">Every council reads its LEP and DCP a little differently. Knowing how yours assesses is often worth more than the controls themselves.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <a href="index.html" class="footer-logo" aria-label="whatcani.build" style="display:inline-block;">
+        <svg width="132" height="32" viewBox="0 0 1463 355" xmlns="http://www.w3.org/2000/svg" style="display:block;fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+          <g transform="matrix(1,0,0,1,-508.741443,-2610.23622)">
+            <g id="Colour">
+              <g transform="matrix(0.857143,0,0,0.857143,66.729737,686.726659)">
+                <g transform="matrix(1,0,0,1,450.545645,1051.181102)">
+                  <g transform="matrix(1,0,0,0.891237,284.386273,872.15136)">
+                    <path d="M1337.856,823.548L1109.161,823.356C1089.593,823.334 1073.746,805.277 1073.763,783.024L1073.981,499.056C1073.993,483.894 1081.487,470.023 1093.375,463.16L1264.653,364.272C1274.734,358.452 1286.652,358.452 1296.732,364.272L1467.992,463.149C1479.89,470.018 1487.386,483.906 1487.386,499.081L1487.386,783.443C1487.386,794.138 1483.648,804.394 1476.995,811.952C1470.343,819.51 1461.321,823.751 1451.918,823.74L1393.388,823.726C1398.225,816.975 1401.118,808.421 1401.118,799.12C1401.118,794.02 1400.249,789.145 1398.666,784.668L1439.996,784.674C1443.131,784.678 1446.138,783.264 1448.355,780.745C1450.573,778.225 1451.819,774.807 1451.819,771.242L1451.819,507.986C1451.819,502.927 1449.32,498.298 1445.354,496.008L1286.016,404.015C1282.656,402.075 1278.684,402.075 1275.323,404.015L1115.979,496.012C1112.017,498.3 1109.519,502.924 1109.515,507.978L1109.31,770.872C1109.304,778.29 1114.586,784.309 1121.109,784.316L1332.768,784.491C1331.145,789.016 1330.252,793.953 1330.252,799.12C1330.252,808.34 1333.095,816.826 1337.856,823.548Z" style="fill:var(--white);fill-rule:nonzero;"/>
+                  </g>
+                  <g transform="matrix(1,0,0,1,-265.176632,31.630859)">
+                    <path d="M1843.983,1414.121C1843.983,1404.844 1846.962,1395.445 1852.919,1385.923C1858.876,1376.402 1867.567,1368.516 1878.993,1362.266C1890.419,1356.016 1903.749,1352.891 1918.983,1352.891C1933.144,1352.891 1945.644,1355.503 1956.483,1360.728C1967.323,1365.953 1975.697,1373.057 1981.606,1382.041C1987.514,1391.026 1990.468,1400.791 1990.468,1411.338C1990.468,1419.639 1988.783,1426.914 1985.414,1433.164C1982.045,1439.414 1978.041,1444.81 1973.402,1449.351C1968.764,1453.892 1960.439,1461.534 1948.427,1472.276C1945.107,1475.303 1942.445,1477.964 1940.443,1480.259C1938.441,1482.554 1936.952,1484.654 1935.976,1486.558C1934.999,1488.462 1934.242,1490.367 1933.705,1492.271C1933.168,1494.175 1932.362,1497.52 1931.288,1502.305C1929.433,1512.461 1923.622,1517.539 1913.857,1517.539C1908.778,1517.539 1904.506,1515.879 1901.039,1512.559C1897.572,1509.239 1895.839,1504.307 1895.839,1497.764C1895.839,1489.561 1897.108,1482.456 1899.648,1476.451C1902.187,1470.445 1905.556,1465.171 1909.755,1460.63C1913.954,1456.089 1919.618,1450.694 1926.747,1444.444C1932.997,1438.975 1937.514,1434.849 1940.297,1432.066C1943.08,1429.283 1945.424,1426.182 1947.328,1422.764C1949.233,1419.346 1950.185,1415.635 1950.185,1411.631C1950.185,1403.819 1947.279,1397.227 1941.469,1391.856C1935.658,1386.485 1928.163,1383.799 1918.983,1383.799C1908.241,1383.799 1900.331,1386.509 1895.253,1391.929C1890.175,1397.349 1885.878,1405.332 1882.362,1415.879C1879.042,1426.914 1872.743,1432.432 1863.466,1432.432C1857.997,1432.432 1853.383,1430.503 1849.623,1426.646C1845.863,1422.788 1843.983,1418.614 1843.983,1414.121ZM1915.468,1574.668C1909.511,1574.668 1904.311,1572.74 1899.867,1568.882C1895.424,1565.025 1893.202,1559.629 1893.202,1552.696C1893.202,1546.543 1895.351,1541.368 1899.648,1537.168C1903.944,1532.969 1909.218,1530.87 1915.468,1530.87C1921.62,1530.87 1926.796,1532.969 1930.995,1537.168C1935.194,1541.368 1937.294,1546.543 1937.294,1552.696C1937.294,1559.532 1935.097,1564.903 1930.702,1568.809C1926.308,1572.715 1921.23,1574.668 1915.468,1574.668Z" style="fill:var(--orange);fill-rule:nonzero;"/>
+                  </g>
+                </g>
+                <g transform="matrix(0.877178,0,0,0.877178,10.476981,39.977748)">
+                  <path d="M604.457,2981.894L575.941,2872.714L610.863,2872.714L625.589,2942.714L626.45,2942.714L642.348,2872.714L676.253,2872.714L692.543,2942.207L693.402,2942.207L707.66,2872.714L742.581,2872.714L714.065,2981.894L676.878,2981.894L659.886,2918.26L658.636,2918.26L641.644,2981.894L604.457,2981.894Z" style="fill:var(--white);fill-rule:nonzero;"/>
+                  <path d="M785.667,2919.707L785.667,2981.894L750.942,2981.894L750.942,2836.386L784.418,2836.386L784.418,2892.871L785.667,2892.871C788.155,2886.165 792.201,2880.902 797.806,2877.08C803.411,2873.258 810.302,2871.347 818.48,2871.347C826.11,2871.347 832.764,2873.049 838.441,2876.454C844.118,2879.859 848.531,2884.631 851.682,2890.771C854.833,2896.91 856.409,2904.121 856.409,2912.402L856.409,2981.894L821.645,2981.894L821.645,2919.199C821.645,2913.131 820.115,2908.384 817.055,2904.96C813.995,2901.535 809.665,2899.823 804.067,2899.823C800.407,2899.823 797.198,2900.617 794.437,2902.206C791.676,2903.794 789.524,2906.06 787.981,2909.003C786.439,2911.946 785.667,2915.514 785.667,2919.707Z" style="fill:var(--white);fill-rule:nonzero;"/>
+                  <path d="M903.674,2983.807C896.722,2983.807 890.53,2982.619 885.101,2980.243C879.671,2977.867 875.426,2974.302 872.366,2969.55C869.307,2964.797 867.777,2958.821 867.777,2951.62C867.777,2945.579 868.831,2940.478 870.941,2936.318C873.05,2932.158 875.976,2928.773 879.72,2926.162C883.463,2923.551 887.773,2921.549 892.649,2920.156C897.525,2918.763 902.737,2917.845 908.284,2917.401C914.509,2916.868 919.506,2916.295 923.275,2915.683C927.045,2915.071 929.785,2914.146 931.497,2912.909C933.209,2911.672 934.065,2909.953 934.065,2907.753L934.065,2907.324C934.065,2903.691 932.825,2900.875 930.345,2898.876C927.864,2896.878 924.495,2895.879 920.238,2895.879C915.629,2895.879 911.931,2896.878 909.144,2898.876C906.357,2900.875 904.573,2903.625 903.792,2907.129L871.839,2905.995C872.776,2899.355 875.221,2893.424 879.173,2888.203C883.125,2882.982 888.568,2878.867 895.502,2875.859C902.435,2872.851 910.798,2871.347 920.589,2871.347C927.49,2871.347 933.87,2872.158 939.729,2873.779C945.589,2875.4 950.696,2877.769 955.052,2880.888C959.407,2884.006 962.792,2887.815 965.208,2892.313C967.623,2896.812 968.831,2901.933 968.831,2907.675L968.831,2981.894L936.096,2981.894L936.096,2966.582L935.315,2966.582C933.323,2970.331 930.823,2973.479 927.815,2976.025C924.807,2978.57 921.301,2980.504 917.298,2981.825C913.294,2983.147 908.753,2983.807 903.674,2983.807ZM914.339,2960.956C918.063,2960.956 921.435,2960.201 924.456,2958.691C927.477,2957.181 929.886,2955.088 931.683,2952.412C933.48,2949.736 934.378,2946.621 934.378,2943.066L934.378,2932.793C933.402,2933.274 932.207,2933.739 930.794,2934.189C929.381,2934.638 927.831,2935.045 926.145,2935.41C924.459,2935.774 922.763,2936.096 921.058,2936.376C919.353,2936.656 917.699,2936.92 916.097,2937.167C912.776,2937.65 909.97,2938.447 907.678,2939.56C905.387,2940.673 903.645,2942.089 902.454,2943.808C901.263,2945.527 900.667,2947.571 900.667,2949.94C900.667,2953.548 901.946,2956.285 904.505,2958.154C907.064,2960.022 910.342,2960.956 914.339,2960.956Z" style="fill:var(--white);fill-rule:nonzero;"/>
+                  <path d="M1046.8,2872.714L1046.8,2898.378L978.01,2898.378L978.01,2872.714L1046.8,2872.714ZM992.386,2846.738L1027.112,2846.738L1027.112,2947.519C1027.112,2950.475 1027.815,2952.673 1029.221,2954.111C1030.627,2955.55 1032.88,2956.27 1035.98,2956.27C1037.139,2956.27 1038.476,2956.153 1039.993,2955.918C1041.51,2955.684 1042.698,2955.436 1043.557,2955.176L1048.791,2980.371C1044.886,2981.478 1041.25,2982.275 1037.884,2982.764C1034.518,2983.252 1031.201,2983.496 1027.932,2983.496C1016.384,2983.496 1007.572,2980.736 1001.497,2975.214C995.423,2969.693 992.386,2961.75 992.386,2951.385L992.386,2846.738Z" style="fill:var(--white);fill-rule:nonzero;"/>
+                  <path d="M1108.851,2983.925C1097.341,2983.925 1087.474,2981.552 1079.251,2976.806C1071.028,2972.06 1064.732,2965.468 1060.364,2957.03C1055.995,2948.593 1053.811,2938.808 1053.811,2927.675C1053.811,2916.49 1056.005,2906.676 1060.394,2898.232C1064.782,2889.787 1071.087,2883.195 1079.31,2878.456C1087.532,2873.717 1097.366,2871.347 1108.811,2871.347C1118.942,2871.347 1127.748,2873.18 1135.228,2876.845C1142.708,2880.51 1148.561,2885.656 1152.786,2892.284C1157.011,2898.912 1159.241,2906.712 1159.475,2915.683L1127.053,2915.683C1126.624,2911.946 1125.641,2908.742 1124.104,2906.073C1122.568,2903.404 1120.553,2901.356 1118.06,2899.931C1115.566,2898.505 1112.653,2897.792 1109.319,2897.792C1105.256,2897.792 1101.721,2898.912 1098.714,2901.151C1095.706,2903.391 1093.369,2906.714 1091.702,2911.122C1090.036,2915.53 1089.202,2920.956 1089.202,2927.402C1089.202,2933.821 1090.029,2939.273 1091.682,2943.759C1093.336,2948.245 1095.67,2951.654 1098.685,2953.984C1101.699,2956.315 1105.244,2957.48 1109.319,2957.48C1114.072,2957.48 1118.05,2955.862 1121.253,2952.627C1124.457,2949.391 1126.39,2944.889 1127.053,2939.12L1159.475,2939.12C1159.189,2948.118 1156.966,2955.983 1152.805,2962.714C1148.645,2969.446 1142.844,2974.664 1135.403,2978.368C1127.961,2982.073 1119.111,2983.925 1108.851,2983.925Z" style="fill:var(--white);fill-rule:nonzero;"/>
+                  <path d="M1202.326,2983.807C1195.373,2983.807 1189.182,2982.619 1183.753,2980.243C1178.323,2977.867 1174.078,2974.302 1171.018,2969.55C1167.958,2964.797 1166.429,2958.821 1166.429,2951.62C1166.429,2945.579 1167.483,2940.478 1169.592,2936.318C1171.702,2932.158 1174.628,2928.773 1178.372,2926.162C1182.115,2923.551 1186.425,2921.549 1191.301,2920.156C1196.177,2918.763 1201.389,2917.845 1206.936,2917.401C1213.161,2916.868 1218.158,2916.295 1221.927,2915.683C1225.696,2915.071 1228.437,2914.146 1230.149,2912.909C1231.861,2911.672 1232.717,2909.953 1232.717,2907.753L1232.717,2907.324C1232.717,2903.691 1231.477,2900.875 1228.996,2898.876C1226.516,2896.878 1223.147,2895.879 1218.89,2895.879C1214.281,2895.879 1210.583,2896.878 1207.796,2898.876C1205.009,2900.875 1203.225,2903.625 1202.444,2907.129L1170.49,2905.995C1171.428,2899.355 1173.873,2893.424 1177.825,2888.203C1181.777,2882.982 1187.22,2878.867 1194.154,2875.859C1201.087,2872.851 1209.45,2871.347 1219.241,2871.347C1226.142,2871.347 1232.522,2872.158 1238.381,2873.779C1244.241,2875.4 1249.348,2877.769 1253.703,2880.888C1258.059,2884.006 1261.444,2887.815 1263.86,2892.313C1266.275,2896.812 1267.483,2901.933 1267.483,2907.675L1267.483,2981.894L1234.748,2981.894L1234.748,2966.582L1233.967,2966.582C1231.975,2970.331 1229.475,2973.479 1226.467,2976.025C1223.459,2978.57 1219.953,2980.504 1215.949,2981.825C1211.945,2983.147 1207.404,2983.807 1202.326,2983.807ZM1212.991,2960.956C1216.715,2960.956 1220.087,2960.201 1223.108,2958.691C1226.129,2957.181 1228.538,2955.088 1230.335,2952.412C1232.132,2949.736 1233.03,2946.621 1233.03,2943.066L1233.03,2932.793C1232.054,2933.274 1230.859,2933.739 1229.446,2934.189C1228.033,2934.638 1226.483,2935.045 1224.797,2935.41C1223.111,2935.774 1221.415,2936.096 1219.71,2936.376C1218.005,2936.656 1216.351,2936.92 1214.749,2937.167C1211.428,2937.65 1208.622,2938.447 1206.33,2939.56C1204.038,2940.673 1202.297,2942.089 1201.106,2943.808C1199.914,2945.527 1199.319,2947.571 1199.319,2949.94C1199.319,2953.548 1200.598,2956.285 1203.157,2958.154C1205.716,2960.022 1208.994,2960.956 1212.991,2960.956Z" style="fill:var(--white);fill-rule:nonzero;"/>
+                  <path d="M1318.694,2919.707L1318.694,2981.894L1283.968,2981.894L1283.968,2872.714L1318.264,2872.714L1318.264,2892.871L1319.202,2892.871C1321.636,2886.178 1325.575,2880.917 1331.018,2877.089C1336.461,2873.261 1343.238,2871.347 1351.349,2871.347C1359.019,2871.347 1365.687,2873.053 1371.351,2876.464C1377.015,2879.875 1381.406,2884.664 1384.524,2890.829C1387.643,2896.995 1389.202,2904.186 1389.202,2912.402L1389.202,2981.894L1354.476,2981.894L1354.476,2919.199C1354.476,2913.17 1352.933,2908.434 1349.846,2904.99C1346.76,2901.545 1342.463,2899.823 1336.956,2899.823C1333.336,2899.823 1330.153,2900.617 1327.405,2902.206C1324.658,2903.794 1322.519,2906.06 1320.989,2909.003C1319.459,2911.946 1318.694,2915.514 1318.694,2919.707Z" style="fill:var(--white);fill-rule:nonzero;"/>
+                  <path d="M1405.647,2981.894L1405.647,2872.714L1440.413,2872.714L1440.413,2981.894L1405.647,2981.894ZM1422.932,2860.214C1418.049,2860.214 1413.85,2858.587 1410.334,2855.331C1406.819,2852.076 1405.061,2848.137 1405.061,2843.515C1405.061,2838.893 1406.819,2834.97 1410.334,2831.747C1413.85,2828.525 1418.049,2826.913 1422.932,2826.913C1427.88,2826.913 1432.095,2828.525 1435.579,2831.747C1439.062,2834.97 1440.803,2838.893 1440.803,2843.515C1440.803,2848.137 1439.062,2852.076 1435.579,2855.331C1432.095,2858.587 1427.88,2860.214 1422.932,2860.214Z" style="fill:var(--white);fill-rule:nonzero;"/>
+                  <path d="M1481.369,2984.003C1476.083,2984.003 1471.652,2982.242 1468.078,2978.72C1464.504,2975.198 1462.717,2970.82 1462.717,2965.585C1462.717,2960.351 1464.504,2955.972 1468.078,2952.451C1471.652,2948.929 1476.083,2947.168 1481.369,2947.168C1486.656,2947.168 1491.086,2948.929 1494.661,2952.451C1498.235,2955.972 1500.022,2960.351 1500.022,2965.585C1500.022,2970.82 1498.235,2975.198 1494.661,2978.72C1491.086,2982.242 1486.656,2984.003 1481.369,2984.003Z" style="fill:var(--orange);fill-rule:nonzero;"/>
+                  <path d="M1588.381,2983.456C1582.925,2983.456 1578.172,2982.542 1574.123,2980.712C1570.073,2978.883 1566.701,2976.506 1564.005,2973.583C1561.31,2970.66 1559.24,2967.519 1557.794,2964.16L1556.622,2964.16L1556.622,2981.894L1522.327,2981.894L1522.327,2836.386L1557.053,2836.386L1557.053,2891.504L1557.794,2891.504C1559.188,2888.157 1561.2,2884.938 1563.83,2881.845C1566.46,2878.753 1569.819,2876.23 1573.908,2874.277C1577.996,2872.324 1582.911,2871.347 1588.654,2871.347C1596.271,2871.347 1603.367,2873.342 1609.943,2877.333C1616.518,2881.324 1621.841,2887.457 1625.91,2895.731C1629.979,2904.006 1632.013,2914.576 1632.013,2927.441C1632.013,2939.798 1630.06,2950.133 1626.154,2958.446C1622.247,2966.76 1616.994,2973.007 1610.392,2977.187C1603.791,2981.366 1596.453,2983.456 1588.381,2983.456ZM1576.389,2956.386C1580.699,2956.386 1584.325,2955.191 1587.267,2952.802C1590.21,2950.413 1592.453,2947.038 1593.996,2942.676C1595.539,2938.314 1596.311,2933.222 1596.311,2927.402C1596.311,2921.542 1595.542,2916.445 1594.006,2912.109C1592.469,2907.773 1590.233,2904.407 1587.296,2902.011C1584.36,2899.615 1580.724,2898.418 1576.389,2898.418C1572.157,2898.418 1568.537,2899.593 1565.529,2901.943C1562.521,2904.294 1560.219,2907.633 1558.624,2911.963C1557.029,2916.292 1556.232,2921.439 1556.232,2927.402C1556.232,2933.261 1557.033,2938.356 1558.634,2942.685C1560.236,2947.014 1562.544,2950.38 1565.559,2952.782C1568.573,2955.185 1572.183,2956.386 1576.389,2956.386Z" style="fill:var(--orange);fill-rule:nonzero;"/>
+                  <path d="M1714.631,2934.863L1714.631,2872.714L1749.357,2872.714L1749.357,2981.894L1716.194,2981.894L1716.194,2961.621L1715.022,2961.621C1712.625,2968.248 1708.533,2973.528 1702.745,2977.46C1696.958,2981.393 1689.982,2983.326 1681.819,2983.261C1674.357,2983.261 1667.807,2981.572 1662.169,2978.193C1656.531,2974.814 1652.147,2970.052 1649.015,2963.906C1645.884,2957.76 1644.319,2950.579 1644.319,2942.363L1644.319,2872.714L1679.045,2872.714L1679.045,2935.605C1679.045,2941.451 1680.591,2946.086 1683.683,2949.511C1686.776,2952.936 1690.998,2954.615 1696.35,2954.55C1699.787,2954.55 1702.876,2953.792 1705.617,2952.275C1708.358,2950.758 1710.546,2948.532 1712.18,2945.596C1713.814,2942.659 1714.631,2939.082 1714.631,2934.863Z" style="fill:var(--orange);fill-rule:nonzero;"/>
+                  <path d="M1765.802,2981.894L1765.802,2872.714L1800.568,2872.714L1800.568,2981.894L1765.802,2981.894ZM1783.087,2860.214C1778.205,2860.214 1774.005,2858.587 1770.49,2855.331C1766.974,2852.076 1765.216,2848.137 1765.216,2843.515C1765.216,2838.893 1766.974,2834.97 1770.49,2831.747C1774.005,2828.525 1778.205,2826.913 1783.087,2826.913C1788.035,2826.913 1792.251,2828.525 1795.734,2831.747C1799.217,2834.97 1800.959,2838.893 1800.959,2843.515C1800.959,2848.137 1799.217,2852.076 1795.734,2855.331C1792.251,2858.587 1788.035,2860.214 1783.087,2860.214Z" style="fill:var(--orange);fill-rule:nonzero;"/>
+                  <rect x="1817.053" y="2836.386" width="34.726" height="145.508" style="fill:var(--orange);fill-rule:nonzero;"/>
+                  <path d="M1907.717,2983.456C1899.696,2983.456 1892.371,2981.366 1885.743,2977.187C1879.115,2973.007 1873.848,2966.76 1869.942,2958.446C1866.036,2950.133 1864.083,2939.798 1864.083,2927.441C1864.083,2914.576 1866.117,2904.006 1870.186,2895.731C1874.255,2887.457 1879.591,2881.324 1886.193,2877.333C1892.795,2873.342 1899.878,2871.347 1907.442,2871.347C1913.198,2871.347 1918.116,2872.324 1922.199,2874.277C1926.281,2876.23 1929.65,2878.753 1932.306,2881.845C1934.962,2884.938 1936.961,2888.157 1938.301,2891.504L1939.044,2891.504L1939.044,2836.386L1973.77,2836.386L1973.77,2981.894L1939.473,2981.894L1939.473,2964.16L1938.301,2964.16C1936.857,2967.519 1934.787,2970.66 1932.091,2973.583C1929.395,2976.506 1926.039,2978.883 1922.022,2980.712C1918.006,2982.542 1913.237,2983.456 1907.717,2983.456ZM1919.708,2956.386C1923.927,2956.386 1927.54,2955.185 1930.548,2952.782C1933.556,2950.38 1935.861,2947.014 1937.462,2942.685C1939.063,2938.356 1939.864,2933.261 1939.864,2927.402C1939.864,2921.439 1939.07,2916.292 1937.481,2911.963C1935.893,2907.633 1933.591,2904.294 1930.577,2901.943C1927.563,2899.593 1923.94,2898.418 1919.708,2898.418C1915.437,2898.418 1911.817,2899.615 1908.848,2902.011C1905.879,2904.407 1903.627,2907.773 1902.091,2912.109C1900.555,2916.445 1899.787,2921.542 1899.787,2927.402C1899.787,2933.222 1900.558,2938.314 1902.101,2942.676C1903.643,2947.038 1905.899,2950.413 1908.868,2952.802C1911.837,2955.191 1915.45,2956.386 1919.708,2956.386Z" style="fill:var(--orange);fill-rule:nonzero;"/>
+                </g>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </a>
+      <p style="margin-top:14px;font-size:14px;color:var(--muted);max-width:240px;line-height:1.6;">
+        Planning-led feasibility and approvals for small to mid-scale developments in Sydney and NSW.
+      </p>
+    </div>
+    <div class="footer-nav">
+      <div class="footer-nav-title">Pages</div>
+    <a href="about.html">About us</a>
+    <a href="services.html">Services</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="blog.html">Blog</a>
+    <a href="testimonials.html">Testimonials</a>
+    <a href="contact.html">Contact us</a>
+    <a href="legals.html">Legals</a>
+    </div>
+    <div>
+      <div class="footer-nav-title">Contact</div>
+      <p style="font-size:14px;color:var(--muted);line-height:1.8;">
+        Bakos &amp; Evans Pty Ltd<br>
+        Sydney &amp; NSW<br>
+        Response within 2 business days
+      </p>
+      <a href="https://www.linkedin.com/company/whatcanibuild/" target="_blank" rel="noopener" aria-label="whatcani.build on LinkedIn" style="display:inline-flex;align-items:center;gap:8px;margin-top:14px;font-size:14px;font-weight:600;color:var(--muted);text-decoration:none;">
+        <svg width="18" height="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="var(--blue)" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.59 0 4.26 2.37 4.26 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.11 20.45H3.55V9h3.56v11.45z"/></svg>
+        LinkedIn
+      </a>
+    </div>
+  </div>
+  <div class="footer-bottom wrap">
+    <div class="footer-copy">© Bakos &amp; Evans Pty Ltd ABN 25 622 644 464. 2026. All prices include GST.</div>
+    <div class="footer-tagline">Planning advice that lands before the money's spent.</div>
+  </div>
+</footer>
+<script>
+
+  // Scroll reveal — threshold:0 + rootMargin ensures tall elements always trigger
+  const ro = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){e.target.classList.add('visible');ro.unobserve(e.target);}
+    });
+  },{threshold:0, rootMargin:'0px 0px -60px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+
+  // Hamburger
+  const ham = document.getElementById('hamburger');
+  const mob = document.getElementById('mobile-menu');
+  if(ham && mob){
+    ham.addEventListener('click',()=>{
+      const open = ham.classList.toggle('open');
+      mob.classList.toggle('open');
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    mob.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+      ham.classList.remove('open');
+      mob.classList.remove('open');
+      document.body.style.overflow='';
+    }));
+  }
+
+  // Parallax (CSS background-attachment:fixed handles most of it;
+  // this adds a subtle JS layer for browsers that don't support it well)
+  const bands = document.querySelectorAll('.pb-img');
+  if(bands.length && window.matchMedia('(prefers-reduced-motion:no-preference)').matches){
+    window.addEventListener('scroll',()=>{
+      const sy = window.scrollY;
+      bands.forEach(b=>{
+        const rect = b.closest('.parallax-band').getBoundingClientRect();
+        if(rect.bottom > 0 && rect.top < window.innerHeight){
+          const pct = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
+          b.style.transform = `translateY(${(pct - 0.5) * 60}px)`;
+        }
+      });
+    },{passive:true});
+  }
+
+</script>
+</body>
+</html>

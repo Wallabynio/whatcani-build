@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="format-detection" content="telephone=no">
+<title>Blog — Planning Insights for NSW Developers — whatcani.build</title>
+<meta name="description" content="Plain-language guides to the NSW planning system for developers, investors and owner-builders.">
+<link rel="canonical" href="https://whatcani.build/blog.html">
+<link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+<link rel="preload" as="image" href="https://whatcani.build/images/floor-plan.jpg">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#000000">
+<!-- PWA / app icons -->
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="shortcut icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.json">
+<meta name="application-name" content="whatcani.build">
+<meta name="apple-mobile-web-app-title" content="whatcani">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="author" content="Bakos &amp; Evans Pty Ltd">
+<meta property="og:title" content="Blog — Planning Insights for NSW Developers — whatcani.build">
+<meta property="og:description" content="Plain-language guides to the NSW planning system for developers, investors and owner-builders.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://whatcani.build/blog.html">
+<meta property="og:site_name" content="whatcani.build">
+<meta property="og:locale" content="en_AU">
+<meta property="og:image" content="https://whatcani.build/images/floor-plan.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Blog — Planning Insights for NSW Developers — whatcani.build">
+<meta name="twitter:description" content="Plain-language guides to the NSW planning system for developers, investors and owner-builders.">
+<meta name="twitter:image" content="https://whatcani.build/images/floor-plan.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "whatcani.build — Planning Insights for NSW Developers",
+  "url": "https://whatcani.build/blog.html",
+  "publisher": {"@type": "Organization", "name": "whatcani.build", "url": "https://whatcani.build/"},
+  "blogPost": [{
+    "@type": "BlogPosting",
+    "headline": "DA vs CDC: which path suits your project?",
+    "datePublished": "2026-07-09",
+    "author": {"@type": "Organization", "name": "whatcani.build"},
+    "url": "https://whatcani.build/blog.html"
+  }]
+}
+</script>
+<style>
+
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Inter+Tight:wght@500;600;700;800&display=swap');
+  :root{
+    --black:#000000; --white:#FFFFFF;
+    --orange:#FF7700; --orange-soft:rgba(255,119,0,0.12);
+    --orange-border:rgba(255,119,0,0.30);
+    --blue:#4B8FE0; --blue-soft:rgba(75,143,224,0.14);
+    --blue-border:rgba(75,143,224,0.28);
+    --muted:#B8B6B0; --card-muted:#4A4845;
+    --hairline:rgba(255,255,255,0.1);
+    --card-hairline:rgba(0,0,0,0.09);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--black);color:var(--white);
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+    overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+  ::selection{background:var(--orange);color:var(--black);}
+
+  /* NAV */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:200;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:20px 5vw;
+    backdrop-filter:blur(24px) saturate(160%);
+    -webkit-backdrop-filter:blur(24px) saturate(160%);
+    background:rgba(0,0,0,0.72);
+    border-bottom:1px solid var(--hairline);
+    transition:padding .3s ease;
+  }
+  .logo{font-family:'Inter Tight',sans-serif;font-weight:700;font-size:20.4px;
+    letter-spacing:-0.02em;color:var(--white);text-decoration:none;}
+  .logo span{color:var(--orange);}
+  .nav-links{display:flex;gap:32px;list-style:none;}
+  .nav-links a{color:var(--white);text-decoration:none;font-size:15px;font-weight:500;
+    opacity:0.82;transition:opacity .25s ease;letter-spacing:-0.01em;}
+  .nav-links a:hover,.nav-links a.active{opacity:1;color:var(--orange);}
+  .nav-right{display:flex;align-items:center;gap:16px;}
+  .nav-cta{background:var(--orange);color:var(--black);padding:9px 20px;
+    border-radius:100px;font-size:13.5px;font-weight:700;text-decoration:none;
+    transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s ease;}
+  .nav-cta:hover{transform:scale(1.04);box-shadow:0 8px 24px rgba(255,119,0,0.4);}
+
+  /* HAMBURGER */
+  .hamburger{
+    display:none;flex-direction:column;justify-content:center;
+    gap:5px;cursor:pointer;padding:6px;background:none;border:none;
+    z-index:300;
+  }
+  .hamburger span{
+    display:block;width:24px;height:2px;background:var(--white);
+    border-radius:2px;transition:transform .35s cubic-bezier(.2,.8,.2,1),opacity .3s ease;
+    transform-origin:center;
+  }
+  .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0);}
+  .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+  /* MOBILE MENU OVERLAY */
+  .mobile-menu{
+    position:fixed;inset:0;z-index:150;
+    background:rgba(0,0,0,0.97);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    gap:0;
+    opacity:0;pointer-events:none;
+    transition:opacity .4s cubic-bezier(.2,.8,.2,1);
+  }
+  .mobile-menu.open{opacity:1;pointer-events:all;}
+  .mobile-menu a{
+    color:var(--white);text-decoration:none;
+    font-family:'Inter Tight',sans-serif;font-weight:700;
+    font-size:clamp(2rem,6vw,3.2rem);letter-spacing:-0.02em;
+    padding:18px 0;line-height:1;
+    transition:color .2s ease,transform .2s ease;
+    transform:translateY(12px);opacity:0;
+  }
+  .mobile-menu.open a{transform:translateY(0);opacity:1;}
+  .mobile-menu a:hover{color:var(--orange);}
+  .mobile-menu a.cta-link{
+    margin-top:28px;background:var(--orange);color:var(--black);
+    padding:16px 40px;border-radius:100px;font-size:1.1rem;
+  }
+  .mobile-menu .divider{
+    width:40px;height:1px;background:var(--hairline);margin:12px 0;
+  }
+
+  /* PARALLAX BAND */
+  .parallax-band{
+    position:relative;height:340px;overflow:hidden;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .parallax-band .pb-img{
+    position:absolute;inset:-30% 0;
+    background-size:cover;background-position:center;background-attachment:fixed;
+    filter:brightness(1);
+    will-change:transform;
+  }
+  .parallax-band .pb-overlay{
+    position:absolute;inset:0;
+    background:rgba(0,0,0,0.05);
+  }
+  /* pb-label removed — parallax bands are image-only */
+
+  /* SHARED SECTION STYLES */
+  section{padding:120px 6vw;}
+  .wrap{max-width:1180px;margin:0 auto;}
+  .on-black{background:var(--black);color:var(--white);}
+  .on-white{background:var(--white);color:var(--black);}
+  .section-head{text-align:center;max-width:580px;margin:0 auto 72px;}
+  .tag{display:block;font-size:13px;font-weight:700;letter-spacing:0.06em;
+    text-transform:uppercase;margin-bottom:14px;color:var(--orange);}
+  .section-head h2{font-family:'Inter Tight',sans-serif;font-weight:800;
+    font-size:clamp(2rem,3.6vw,3rem);letter-spacing:-0.03em;line-height:1.1;
+    color:var(--white);}
+  .on-white .section-head h2{color:var(--black);}
+  .section-head p{margin-top:18px;font-size:18px;line-height:1.6;color:var(--muted);}
+  .on-white .section-head p{color:var(--card-muted);}
+
+  /* CARDS */
+  .card-white{background:var(--white);border:1px solid var(--card-hairline);
+    border-radius:22px;padding:38px;}
+  .card-white h3{font-family:'Inter Tight',sans-serif;font-weight:700;font-size:21px;
+    letter-spacing:-0.015em;color:var(--black);margin-bottom:12px;line-height:1.25;}
+  .card-white p{font-size:15.5px;color:#2A2825;line-height:1.65;}
+
+  /* BUTTONS */
+  .btn-primary{background:var(--orange);color:var(--black);padding:14px 28px;
+    border-radius:100px;font-size:15px;font-weight:700;text-decoration:none;
+    display:inline-flex;align-items:center;gap:8px;
+    transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s ease;}
+  .btn-primary:hover{transform:translateY(-3px) scale(1.02);
+    box-shadow:0 14px 32px rgba(255,119,0,0.4);}
+  .btn-secondary{background:rgba(255,255,255,0.07);color:var(--white);
+    border:1px solid var(--hairline);padding:14px 28px;border-radius:100px;
+    font-size:15px;font-weight:600;text-decoration:none;backdrop-filter:blur(10px);
+    transition:background .3s ease,transform .3s ease;}
+  .btn-secondary:hover{background:rgba(255,255,255,0.13);transform:translateY(-3px);}
+  .btn-outline-dark{background:transparent;color:var(--black);
+    border:2px solid var(--black);padding:13px 28px;border-radius:100px;
+    font-size:15px;font-weight:700;text-decoration:none;
+    transition:background .3s ease,color .3s ease;}
+  .btn-outline-dark:hover{background:var(--black);color:var(--white);}
+  .btn-group{display:flex;gap:14px;flex-wrap:wrap;margin-top:32px;}
+
+  /* STEP/ICON CHIP */
+  .icon-chip{width:51px;height:51px;border-radius:13px;
+    background:var(--blue-soft);border:1px solid var(--blue-border);
+    display:flex;align-items:center;justify-content:center;
+    margin-bottom:20px;flex-shrink:0;}
+
+  /* REVEAL ANIMATION */
+  .reveal{opacity:0;transform:translateY(28px);
+    transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1);}
+  .reveal.visible{opacity:1;transform:translateY(0);}
+
+  /* PAGE HERO (inner pages) */
+  .page-hero{
+    min-height:52vh;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;text-align:center;
+    padding:160px 6vw 100px;position:relative;overflow:hidden;
+    background:var(--black);
+  }
+  .page-hero h1{font-family:'Inter Tight',sans-serif;font-weight:800;
+    font-size:clamp(2.4rem,5.5vw,4.8rem);letter-spacing:-0.035em;
+    line-height:1.06;max-width:900px;color:var(--white);}
+  .page-hero h1 span{color:var(--orange);font-style:italic;}
+  .page-hero p{margin-top:22px;font-size:clamp(1rem,1.6vw,1.25rem);
+    color:var(--muted);max-width:580px;line-height:1.6;}
+  .page-glow{position:absolute;width:700px;height:700px;top:50%;left:50%;
+    transform:translate(-50%,-50%);pointer-events:none;
+    background:radial-gradient(circle,rgba(255,119,0,0.12) 0%,transparent 70%);}
+
+  /* FOOTER */
+  footer{border-top:1px solid var(--hairline);padding:52px 6vw;
+    background:var(--black);}
+  .footer-inner{max-width:1180px;margin:0 auto;
+    display:flex;align-items:flex-start;justify-content:space-between;
+    flex-wrap:wrap;gap:32px;}
+  .footer-logo{font-family:'Inter Tight',sans-serif;font-weight:700;
+    font-size:18px;color:var(--white);text-decoration:none;}
+  .footer-logo span{color:var(--orange);}
+  .footer-nav{display:flex;flex-direction:column;gap:12px;}
+  .footer-nav-title{font-size:12px;font-weight:700;color:var(--orange);
+    letter-spacing:0.06em;text-transform:uppercase;margin-bottom:4px;}
+  .footer-nav a{color:var(--muted);text-decoration:none;font-size:14.5px;
+    transition:color .25s ease;}
+  .footer-nav a:hover{color:var(--white);}
+  .footer-bottom{border-top:1px solid var(--hairline);
+    padding-top:24px;margin-top:36px;
+    display:flex;align-items:center;justify-content:space-between;
+    flex-wrap:wrap;gap:12px;}
+  .footer-copy{font-size:13px;color:var(--muted);}
+  /* Guard: iOS Safari can auto-link number strings (e.g. the ABN) as tel: links.
+     The format-detection meta in <head> disables this; this keeps any that slip
+     through looking like plain text. */
+  a[href^="tel:"]{color:inherit!important;text-decoration:none!important;-webkit-text-decoration:none!important;}
+  .footer-tagline{font-size:13px;color:var(--muted);font-style:italic;}
+
+  /* FORM */
+  .form-card{background:var(--white);border:1px solid var(--card-hairline);
+    border-radius:24px;padding:44px;}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
+  .form-field{display:flex;flex-direction:column;gap:8px;min-width:0;}
+  .form-field.full{grid-column:1/-1;}
+  .form-field label{font-size:13px;font-weight:600;color:#444;letter-spacing:0.01em;}
+  .form-field input,.form-field select,.form-field textarea{
+    width:100%;min-width:0;
+    background:#F7F7F7;border:1px solid rgba(0,0,0,0.1);border-radius:12px;
+    padding:13px 16px;color:var(--black);font-family:'Inter',sans-serif;
+    font-size:14.5px;outline:none;
+    transition:border-color .25s ease,background .25s ease;}
+  .form-field input:focus,.form-field select:focus,.form-field textarea:focus{
+    border-color:var(--orange);background:var(--white);}
+  .form-field textarea{resize:vertical;min-height:110px;font-family:inherit;}
+  .form-submit{width:100%;background:var(--orange);color:var(--black);border:none;
+    padding:16px;border-radius:100px;font-size:15px;font-weight:700;cursor:pointer;
+    margin-top:8px;font-family:'Inter',sans-serif;
+    transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s ease;}
+  .form-submit:hover{transform:translateY(-2px) scale(1.01);
+    box-shadow:0 14px 32px rgba(255,119,0,0.35);}
+
+  /* RESPONSIVE */
+  @media(max-width:900px){
+    .nav-links,.nav-cta{display:none;}
+    .hamburger{display:flex;}
+    /* Inner page grids — 2-col max at tablet */
+    .about-grid-2col,
+    [style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr !important;}
+    [style*="grid-template-columns:repeat(3"]{grid-template-columns:1fr !important;}
+    [style*="grid-template-columns:repeat(4"]{grid-template-columns:1fr 1fr !important;}
+    [style*="grid-template-columns:1fr 1.6fr"]{grid-template-columns:1fr !important;}
+    [style*="grid-template-columns:1fr 1fr;gap:48px"]{grid-template-columns:1fr !important;}
+  }
+  @media(max-width:600px){
+    section{padding:80px 5vw;}
+    .footer-inner{flex-direction:column;gap:28px;}
+    /* Everything single column on mobile */
+    .form-row{grid-template-columns:1fr !important;}
+    [style*="grid-template-columns"]{grid-template-columns:1fr !important;}
+    [style*="grid-template-columns"] > *{min-width:0;max-width:100%;}
+    [style*="display:flex;gap:12px;"]{flex-direction:column;}
+    /* All multi-col grids → 1 col */
+    .blog-grid{grid-template-columns:1fr !important;}
+    .steps{grid-template-columns:1fr !important;}
+    .pricing-preview{grid-template-columns:1fr !important;}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{animation-duration:.01ms !important;transition-duration:.01ms !important;}
+    .parallax-band .pb-img{background-attachment:scroll;}
+  }
+
+
+
+  /* ARTICLE FLOATING CARD */
+  .article-overlay{position:fixed;inset:0;z-index:400;background:rgba(0,0,0,0.8);
+    display:none;align-items:center;justify-content:center;padding:5vh 4vw;}
+  .article-overlay.open{display:flex;}
+  .article-card{position:relative;background:var(--white);border-radius:24px;
+    max-width:860px;width:100%;max-height:88vh;overflow-y:auto;
+    padding:32px 60px 56px;color:#2A2825;-webkit-overflow-scrolling:touch;}
+  .article-close{position:sticky;top:0;margin-left:auto;display:flex;align-items:center;justify-content:center;
+    width:44px;height:44px;border-radius:50%;background:var(--white);
+    border:1px solid var(--card-hairline);cursor:pointer;z-index:2;
+    box-shadow:0 4px 16px rgba(0,0,0,0.12);}
+  .article-close:hover{border-color:var(--blue);}
+  .article-body h2{font-family:'Inter Tight',sans-serif;font-weight:800;font-size:26px;
+    letter-spacing:-0.02em;color:var(--black);margin-bottom:10px;line-height:1.25;}
+  .article-body .article-meta{font-size:13px;color:#8A8782;margin-bottom:32px;}
+  .article-body h3{font-family:'Inter Tight',sans-serif;font-weight:700;font-size:19px;
+    letter-spacing:-0.01em;color:var(--black);margin:32px 0 14px;}
+  .article-body p{font-size:15.5px;color:#2A2825;line-height:1.75;margin-bottom:16px;}
+  .article-body table{width:100%;border-collapse:collapse;margin:8px 0 16px;font-size:14px;}
+  .article-body th{font-family:'Inter Tight',sans-serif;font-weight:700;color:var(--black);
+    text-align:left;padding:10px 12px;border:1px solid var(--card-hairline);background:rgba(0,0,0,0.04);}
+  .article-body td{padding:10px 12px;border:1px solid var(--card-hairline);vertical-align:top;line-height:1.6;color:#2A2825;}
+  .article-body .refs p{font-size:13.5px;line-height:1.65;margin-bottom:10px;word-break:break-word;}
+  .article-body a{color:var(--orange);text-decoration:none;}
+  @media(max-width:600px){
+    .article-card{padding:20px 22px 40px;border-radius:18px;}
+    .article-body h2{font-size:22px;}
+    .article-body table{font-size:12.5px;display:block;overflow-x:auto;}
+    .article-body th,.article-body td{padding:8px;}
+  }
+
+  /* ===== REVERSED (LIGHT) SECTIONS ===== */
+  .on-white{background:var(--white);color:var(--black);}
+  .on-white .hero-glow{opacity:0.10!important;}
+  /* --- text sitting directly on the light background --- */
+  .on-white .wrap h1,.on-white .wrap h2,.on-white .wrap h3,.on-white .wrap h4,
+  .on-white .section-head h2{color:var(--black)!important;}
+  .on-white .wrap p,.on-white .wrap li,.on-white .section-head p{color:var(--card-muted)!important;}
+  .on-white .wrap div{color:var(--black)!important;}
+  .on-white .section-more a{color:var(--black)!important;}
+  .on-white input,.on-white select,.on-white textarea{
+    background:#F7F7F7!important;color:var(--black)!important;border-color:rgba(0,0,0,0.12)!important;}
+  .on-white ::placeholder{color:#8A8782!important;}
+  /* --- dark boxes ON the light background (declared after, so they win) --- */
+  .on-white .card-white,.on-white .step,.on-white .price-card,
+  .on-white .testi-card,.on-white .team-card,.on-white .snap-card,
+  .on-white .lga-col,.on-white .faq details,.on-white .cmp-wrap,.on-white .stat-cell{
+    background:var(--black)!important;border-color:rgba(255,255,255,0.18)!important;}
+  .on-white .steps{background:rgba(255,255,255,0.18)!important;border-color:rgba(0,0,0,0.14)!important;}
+  .on-white .stat-strip{background:rgba(255,255,255,0.18)!important;border-color:rgba(0,0,0,0.14)!important;}
+  .on-white .card-white h2,.on-white .card-white h3,.on-white .card-white h4,
+  .on-white .step h3,.on-white .price-card h3,.on-white .testi-card h3,
+  .on-white .team-card h3,.on-white .snap-card h3,.on-white .team-name,
+  .on-white .price-amount,.on-white .faq summary,
+  .on-white .cmp-table thead th,.on-white .cmp-table td:first-child{color:var(--white)!important;}
+  .on-white .cmp-table th,.on-white .cmp-table td{border-bottom-color:rgba(255,255,255,0.18)!important;}
+  .on-white .cmp-table thead th{background:rgba(255,255,255,0.05)!important;}
+  .on-white .card-white p,.on-white .card-white li,.on-white .step p,
+  .on-white .price-card p,.on-white .price-desc,.on-white .testi-card p,
+  .on-white .testi-quote,.on-white .team-card p,.on-white .team-bio,
+  .on-white .snap-card p,.on-white .faq .faq-a,.on-white .faq .faq-a p,
+  .on-white .cmp-table td{color:var(--muted)!important;}
+  .on-white .card-white div,.on-white .price-card div,.on-white .testi-card div,
+  .on-white .team-card div,.on-white .snap-card div,.on-white .lga-col div,
+  .on-white .stat-cell div{color:var(--white)!important;}
+  .on-white .snap-card strong{color:var(--white)!important;}
+  .on-white .lga-col li{color:var(--white)!important;background:rgba(255,255,255,0.06)!important;
+    border-color:rgba(255,255,255,0.18)!important;}
+  .on-white .stat-cell .stat-num,.on-white .lga-col h3,.on-white .snap-card .snap-meta{color:var(--orange)!important;}
+  .on-white .stat-cell .stat-lab{color:var(--muted)!important;}
+  .on-white .card-white input,.on-white .card-white select,.on-white .card-white textarea{
+    background:#F7F7F7!important;color:var(--black)!important;}
+  .on-white .testi-author,.on-white .snap-stat,
+  .on-white .card-white div[style*="border-top"],
+  .on-white .testi-card div[style*="border-top"]{border-top-color:rgba(255,255,255,0.18)!important;}
+  .on-white .card-white span,.on-white .price-card span,.on-white .testi-card span,
+  .on-white .team-card span,.on-white .snap-card span,.on-white .lga-col span,
+  .on-white .stat-cell span,.on-white .faq span{color:var(--muted)!important;}
+  .on-white .wrap span[style*="var(--orange)"]{color:var(--orange)!important;}
+  .on-white .step:hover{background:#141414!important;}
+  /* --- additional dark boxes on light sections --- */
+  .on-white .price-card-full,.on-white .service-card,.on-white .form-card{
+    background:var(--black)!important;border-color:rgba(255,255,255,0.18)!important;}
+  .on-white .service-card:hover{background:#141414!important;}
+  .on-white .price-card-full h2,.on-white .price-card-full h3,.on-white .price-card-full h4,
+  .on-white .service-card h2,.on-white .service-card h3,.on-white .form-card h3{color:var(--white)!important;}
+  .on-white .price-card-full p,.on-white .service-card p,.on-white .form-card p{color:var(--muted)!important;}
+  .on-white .price-card-full div,.on-white .service-card div,.on-white .form-card div{color:var(--white)!important;}
+  .on-white .price-card-full span,.on-white .service-card span,.on-white .form-card span{color:var(--muted)!important;}
+  .on-white .price-card-full li,.on-white .service-card li{color:var(--muted)!important;}
+  .on-white .form-field label{color:#CFCDC8!important;}
+  .on-white .form-card input,.on-white .form-card select,.on-white .form-card textarea{
+    background:rgba(255,255,255,0.06)!important;color:var(--white)!important;
+    border-color:rgba(255,255,255,0.18)!important;}
+  .on-white .form-card select option{background:#111111;color:var(--white);}
+  .on-white .team-tag{color:var(--muted)!important;border-color:rgba(255,255,255,0.18)!important;}
+  .on-white .service-meta{border-top-color:rgba(255,255,255,0.18)!important;}
+  .on-white .service-card .service-num,.on-white .service-card .service-meta,.on-white .step-index{color:var(--orange)!important;}
+  .on-white .price-card-full .price-badge,.on-white .price-badge{color:var(--black)!important;}
+  .on-white .steps{background:rgba(255,255,255,0.22)!important;}
+  .on-white .card-white .btn-outline-dark,.on-white .price-card .btn-outline-dark{
+    color:var(--white)!important;border-color:var(--white)!important;}
+  .on-white .card-white .btn-outline-dark:hover{background:var(--white)!important;color:var(--black)!important;}
+
+  /* eyebrow tags: orange fails contrast on white, so use black on light sections */
+  .on-white .tag{color:var(--black)!important;}
+  .on-white .wrap span.tag{color:var(--black)!important;}
+  .on-white .card-white .tag,.on-white .service-card .tag,
+  .on-white .price-card-full .tag,.on-white .form-card .tag{color:var(--orange)!important;}
+  .on-white .team-card .team-role{color:var(--orange)!important;}
+
+  /* ===== STAT STRIP ===== */
+  .stat-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+    background:var(--card-hairline);border:1px solid var(--card-hairline);border-radius:20px;overflow:hidden;}
+  .on-white .stat-strip{background:rgba(255,255,255,0.18);border-color:rgba(0,0,0,0.14);}
+  .stat-cell{background:var(--white);padding:30px 22px;text-align:center;}
+  .stat-num{font-family:'Inter Tight',sans-serif;font-weight:800;font-size:25px;
+    letter-spacing:-0.02em;color:var(--black);line-height:1.15;}
+  .stat-lab{font-size:13.5px;color:var(--card-muted);margin-top:8px;line-height:1.5;}
+
+  /* ===== COMPARISON TABLE ===== */
+  .cmp-wrap{overflow-x:auto;border:1px solid var(--card-hairline);border-radius:20px;background:var(--white);}
+  .on-white .cmp-wrap{border-color:rgba(255,255,255,0.18);}
+  .cmp-table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:660px;}
+  .cmp-table th,.cmp-table td{padding:16px 18px;text-align:left;vertical-align:top;
+    border-bottom:1px solid var(--card-hairline);line-height:1.6;}
+  .cmp-table thead th{font-family:'Inter Tight',sans-serif;font-weight:700;font-size:14px;
+    color:var(--black);background:rgba(0,0,0,0.035);}
+  .cmp-table td:first-child{font-weight:600;color:var(--black);width:160px;}
+  .cmp-table td{color:var(--card-muted);}
+  .cmp-table tr:last-child td{border-bottom:none;}
+
+  /* ===== FAQ ACCORDION ===== */
+  .faq{display:flex;flex-direction:column;gap:12px;}
+  .faq details{border:1px solid var(--card-hairline);border-radius:16px;
+    background:var(--white);overflow:hidden;transition:border-color .3s ease;}
+  .on-white .faq details{background:var(--black);border-color:rgba(255,255,255,0.18);}
+  .faq details[open]{border-color:var(--blue-border);}
+  .faq summary{cursor:pointer;list-style:none;padding:20px 56px 20px 22px;position:relative;
+    font-family:'Inter Tight',sans-serif;font-weight:600;font-size:16.5px;
+    color:var(--black);line-height:1.45;}
+  .faq summary::-webkit-details-marker{display:none;}
+  .faq summary::after{content:"";position:absolute;right:24px;top:50%;width:10px;height:10px;
+    border-right:2px solid var(--blue);border-bottom:2px solid var(--blue);
+    transform:translateY(-70%) rotate(45deg);transition:transform .3s ease;}
+  .faq details[open] summary::after{transform:translateY(-25%) rotate(-135deg);}
+  .faq .faq-a{padding:0 22px 22px;font-size:15px;line-height:1.7;color:var(--card-muted);}
+  .faq .faq-a p+p{margin-top:12px;}
+
+  /* ===== LGA COVERAGE ===== */
+  .lga-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .lga-col{border:1px solid var(--card-hairline);border-radius:18px;padding:26px 24px;
+    background:var(--white);}
+  .on-white .lga-col{background:var(--black);border-color:rgba(255,255,255,0.18);}
+  .lga-col h3{font-family:'Inter Tight',sans-serif;font-weight:700;font-size:13px;
+    letter-spacing:0.06em;text-transform:uppercase;color:var(--black);margin-bottom:15px;}
+  .lga-col ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px;}
+  .lga-col li{font-size:13.5px;padding:6px 12px;border-radius:100px;
+    background:rgba(0,0,0,0.04);border:1px solid var(--card-hairline);color:var(--black);}
+
+  /* ===== PROJECT SNAPSHOTS ===== */
+  .snap-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;}
+  .snap-card{border:1px solid var(--card-hairline);border-radius:20px;padding:30px 28px;
+    background:var(--white);transition:transform .4s ease,border-color .4s ease;}
+  .on-white .snap-card{background:var(--black);border-color:rgba(255,255,255,0.18);}
+  .snap-card:hover{transform:translateY(-4px);border-color:var(--orange-border);}
+  .snap-meta{font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;
+    color:var(--black);margin-bottom:12px;}
+  .snap-card h3{font-family:'Inter Tight',sans-serif;font-weight:700;font-size:18px;
+    letter-spacing:-0.015em;color:var(--black);margin-bottom:10px;line-height:1.35;}
+  .snap-card p{font-size:14.5px;line-height:1.65;color:var(--card-muted);}
+  .snap-stat{margin-top:20px;padding-top:16px;border-top:1px solid var(--card-hairline);
+    display:flex;gap:26px;flex-wrap:wrap;}
+  .snap-stat div{font-size:12.5px;color:var(--card-muted);}
+  .snap-stat strong{display:block;font-family:'Inter Tight',sans-serif;font-size:17px;
+    font-weight:800;color:var(--black);letter-spacing:-0.01em;margin-bottom:2px;}
+
+  @media(max-width:900px){
+    .stat-strip{grid-template-columns:1fr 1fr;}
+    .lga-grid{grid-template-columns:1fr;}
+    .snap-grid{grid-template-columns:1fr;}
+  }
+
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo">whatcani<span>.build</span></a>
+  <ul class="nav-links">
+    <li><a href="about.html" >About us</a></li>
+    <li><a href="services.html" >Services</a></li>
+    <li><a href="pricing.html" >Pricing</a></li>
+    <li><a href="blog.html" class="active">Blog</a></li>
+    <li><a href="testimonials.html" >Testimonials</a></li>
+    <li><a href="contact.html" >Contact us</a></li>
+    <li><a href="legals.html" >Legals</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="contact.html" class="nav-cta">Get a site review</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="about.html">About us</a>
+  <a href="services.html">Services</a>
+  <a href="pricing.html">Pricing</a>
+  <a href="blog.html">Blog</a>
+  <a href="testimonials.html">Testimonials</a>
+  <a href="contact.html">Contact us</a>
+  <a href="legals.html">Legals</a>
+  <div class="divider"></div>
+  <a href="contact.html" class="cta-link">Get a site review →</a>
+</div>
+
+<div class="page-hero">
+  <div class="page-glow"></div>
+  <h1>Planning insights for<br>people who <span>build.</span></h1>
+  <p>Plain-English guides to the NSW planning system — written for developers, investors and owner-builders who want to get their head around the rules before they bring in consultants.</p>
+</div>
+
+<div class="parallax-band">
+  <div class="pb-img" style="background-image:url('images/floor-plan.jpg');"></div>
+  <div class="pb-overlay"></div>
+</div>
+
+<section class="on-white">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="tag">Latest articles</span>
+      <h2>From the practice</h2>
+      <p>New articles every fortnight — covering the NSW planning system, development feasibility, and case studies from the practice.</p>
+    </div>
+    <div class="blog-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
+      
+<div class="card-white reveal" style="border-radius:22px;overflow:hidden;padding:0;display:flex;flex-direction:column;">
+  <div style="height:200px;background-image:url('images/architect-drafting.jpg');background-size:cover;background-position:center;filter:brightness(0.98);"></div>
+  <div style="padding:32px 28px 36px;flex:1;display:flex;flex-direction:column;">
+    <span style="font-size:12px;font-weight:700;color:var(--orange);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px;display:block;">Feasibility</span>
+    <h3 style="font-family:'Inter Tight',sans-serif;font-weight:700;font-size:20px;letter-spacing:-0.015em;color:var(--black);margin-bottom:12px;line-height:1.3;">DA vs CDC: which path suits your project?</h3>
+    <p style="font-size:14.5px;color:#2A2825;line-height:1.65;flex:1;">The choice between a Development Application and a Complying Development Certificate shapes your timeline, risk profile, and design flexibility. Here's how to think through the decision before you commit to either.</p>
+    <div style="margin-top:20px;display:flex;align-items:center;justify-content:space-between;">
+      <span style="font-size:13px;color:#8A8782;">9 Jul 2026 · 10 min read</span>
+      <a href="#" id="open-article-1" style="font-size:13.5px;font-weight:700;color:var(--orange);text-decoration:none;">Read →</a>
+    </div>
+  </div>
+</div>
+      
+<div class="card-white reveal" style="border-radius:22px;overflow:hidden;padding:0;display:flex;flex-direction:column;">
+  <div style="height:200px;background-image:url('images/plans-review.jpg');background-size:cover;background-position:center;filter:brightness(0.98);"></div>
+  <div style="padding:32px 28px 36px;flex:1;display:flex;flex-direction:column;">
+    <span style="font-size:12px;font-weight:700;color:var(--orange);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px;display:block;">Planning guides</span>
+    <h3 style="font-family:'Inter Tight',sans-serif;font-weight:700;font-size:20px;letter-spacing:-0.015em;color:var(--black);margin-bottom:12px;line-height:1.3;">What zoning R2 actually means for your site</h3>
+    <p style="font-size:14.5px;color:#2A2825;line-height:1.65;flex:1;">R2 Low Density Residential is one of the most common zones in Sydney, and one of the most misunderstood. Here's what it permits, what it prohibits, and what your LEP says about your specific site.</p>
+    <div style="margin-top:20px;display:flex;align-items:center;justify-content:space-between;">
+      <span style="font-size:13px;color:#8A8782;">23 Jul 2026 &middot; 9 min read</span>
+      <a href="#" id="open-article-2" style="font-size:13.5px;font-weight:700;color:var(--orange);text-decoration:none;">Read &rarr;</a>
+    </div>
+  </div>
+</div>
+      
+<div class="card-white reveal" style="border-radius:22px;overflow:hidden;padding:0;display:flex;flex-direction:column;">
+  <div style="height:200px;background-image:url('images/aerial-suburb.jpg');background-size:cover;background-position:center;filter:brightness(0.98);"></div>
+  <div style="padding:32px 28px 36px;flex:1;display:flex;flex-direction:column;">
+    <span style="font-size:12px;font-weight:700;color:var(--orange);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px;display:block;">Development tips</span>
+    <h3 style="font-family:'Inter Tight',sans-serif;font-weight:700;font-size:20px;letter-spacing:-0.015em;color:var(--black);margin-bottom:12px;line-height:1.3;">5 things to check before buying a development site</h3>
+    <p style="font-size:14.5px;color:#2A2825;line-height:1.65;flex:1;">Most development sites that fail do so because of information that was available before purchase. Here are the five checks every buyer should run before exchanging contracts.</p>
+    <div style="margin-top:20px;display:flex;align-items:center;justify-content:space-between;">
+      <span style="font-size:13px;color:#8A8782;">6 Aug 2026</span>
+    </div>
+  </div>
+</div>
+      
+<div class="card-white reveal" style="border-radius:22px;overflow:hidden;padding:0;display:flex;flex-direction:column;">
+  <div style="height:200px;background-image:url('images/aerial-estate.jpg');background-size:cover;background-position:center;filter:brightness(0.98);"></div>
+  <div style="padding:32px 28px 36px;flex:1;display:flex;flex-direction:column;">
+    <span style="font-size:12px;font-weight:700;color:var(--orange);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px;display:block;">Policy updates</span>
+    <h3 style="font-family:'Inter Tight',sans-serif;font-weight:700;font-size:20px;letter-spacing:-0.015em;color:var(--black);margin-bottom:12px;line-height:1.3;">Housing SEPP changes: what they mean for duplexes</h3>
+    <p style="font-size:14.5px;color:#2A2825;line-height:1.65;flex:1;">The Housing SEPP has been amended multiple times since 2021. Here's a plain-language summary of where things currently stand for duplex and dual occupancy development in NSW.</p>
+    <div style="margin-top:20px;display:flex;align-items:center;justify-content:space-between;">
+      <span style="font-size:13px;color:#8A8782;">20 Aug 2026</span>
+    </div>
+  </div>
+</div>
+      
+<div class="card-white reveal" style="border-radius:22px;overflow:hidden;padding:0;display:flex;flex-direction:column;">
+  <div style="height:200px;background-image:url('images/duplex-brick.jpg');background-size:cover;background-position:center;filter:brightness(0.98);"></div>
+  <div style="padding:32px 28px 36px;flex:1;display:flex;flex-direction:column;">
+    <span style="font-size:12px;font-weight:700;color:var(--orange);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px;display:block;">Case study</span>
+    <h3 style="font-family:'Inter Tight',sans-serif;font-weight:700;font-size:20px;letter-spacing:-0.015em;color:var(--black);margin-bottom:12px;line-height:1.3;">Townhouse feasibility: inner west site, 2025</h3>
+    <p style="font-size:14.5px;color:#2A2825;line-height:1.65;flex:1;">A walkthrough of a real feasibility review — how we assessed a 650m² site in the inner west, what the controls allowed, what the numbers looked like, and what we recommended.</p>
+    <div style="margin-top:20px;display:flex;align-items:center;justify-content:space-between;">
+      <span style="font-size:13px;color:#8A8782;">3 Sep 2026</span>
+    </div>
+  </div>
+</div>
+      
+<div class="card-white reveal" style="border-radius:22px;overflow:hidden;padding:0;display:flex;flex-direction:column;">
+  <div style="height:200px;background-image:url('images/townhouses-brick.jpg');background-size:cover;background-position:center;filter:brightness(0.98);"></div>
+  <div style="padding:32px 28px 36px;flex:1;display:flex;flex-direction:column;">
+    <span style="font-size:12px;font-weight:700;color:var(--orange);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px;display:block;">Feasibility</span>
+    <h3 style="font-family:'Inter Tight',sans-serif;font-weight:700;font-size:20px;letter-spacing:-0.015em;color:var(--black);margin-bottom:12px;line-height:1.3;">Understanding FSR: floor space ratio explained</h3>
+    <p style="font-size:14.5px;color:#2A2825;line-height:1.65;flex:1;">Floor Space Ratio (FSR) is the single most important number in most residential feasibilities. Here's what it means, how it's calculated, and how to use it to size a development before you engage an architect.</p>
+    <div style="margin-top:20px;display:flex;align-items:center;justify-content:space-between;">
+      <span style="font-size:13px;color:#8A8782;">17 Sep 2026</span>
+    </div>
+  </div>
+</div>
+    </div>
+  </div>
+</section>
+
+<section class="on-black">
+  <div class="wrap">
+    <div class="card-white reveal" style="border-radius:22px;padding:48px;text-align:center;max-width:640px;margin:0 auto;">
+      <div style="font-family:'Inter Tight',sans-serif;font-weight:700;font-size:22px;color:var(--black);margin-bottom:12px;">Get new articles direct to your inbox</div>
+      <p style="font-size:15px;color:#2A2825;line-height:1.65;margin-bottom:28px;">One email when we publish. No marketing. Unsubscribe anytime.</p>
+      <form action="https://formspree.io/f/xaqgkbrd" method="POST" style="display:flex;gap:12px;max-width:420px;margin:0 auto;">
+        <input name="email" type="email" placeholder="your@email.com" required style="flex:1;background:#F7F7F7;border:1px solid rgba(0,0,0,0.1);border-radius:12px;padding:13px 16px;color:var(--black);font-family:'Inter',sans-serif;font-size:14.5px;outline:none;">
+        <input type="hidden" name="_subject" value="New newsletter subscriber">
+        <button type="submit" style="background:var(--orange);color:var(--black);border:none;padding:13px 22px;border-radius:12px;font-size:14.5px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;white-space:nowrap;">Subscribe</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+
+<!-- ARTICLE 1 FLOATING CARD -->
+<div class="article-overlay" id="article-1" role="dialog" aria-modal="true" aria-label="DA vs CDC: which path suits your project?">
+  <div class="article-card">
+    <button class="article-close" aria-label="Close article and return to the blog"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    <div class="article-body">
+<span style="font-size:12px;font-weight:700;color:var(--orange);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px;display:block;">Feasibility</span>
+<h2>DA vs CDC: which path suits your project?</h2>
+<div class="article-meta">9 Jul 2026 &middot; 10 min read</div>
+
+<p>The core distinction is this: a Complying Development Certificate (CDC) is a fast-tracked, rules-based approval for standard, low-impact projects, while a Development Application (DA) is a slower, merit-based assessment that buys you more design flexibility and discretion from council planners. Choosing between them is primarily a feasibility decision about how tightly your design can fit the code, how much risk you can tolerate, and how much control you need over the outcome.</p>
+
+<h3>1. What DA and CDC actually are</h3>
+<p>A Development Application in NSW is a formal request for development consent under the Environmental Planning and Assessment Act 1979, assessed by your local council against State Environmental Planning Policies (SEPPs), the Local Environmental Plan (LEP) and relevant Development Control Plans (DCPs). It is merit-based: planners weigh impacts (bulk and scale, overshadowing, character, traffic, heritage, amenity) and can exercise discretion, request changes, or refuse the application outright.</p>
+<p>A Complying Development Certificate is a combined planning and construction approval for straightforward development that meets pre-set numerical standards in State codes, most commonly the Housing and other Codes SEPP. If the proposal and site meet every listed control (height, setbacks, private open space, landscaping, car parking, etc.), an accredited certifier or council must issue the CDC within statutory time frames; if it fails any control, the application simply cannot proceed as complying development.</p>
+<p>Under current NSW settings, all DA and CDC applications must be lodged through the NSW Planning Portal, with defined document sets (plans, reports, certificates) and online payment of fees. This means both pathways now share a digitised process, but they diverge sharply in how they treat discretion, public participation, and time frames.</p>
+
+<h3>2. Timeframes: speed vs certainty</h3>
+<p>CDC approvals are typically issued within 10&ndash;20 business days for standard projects, and as little as 10 days under the NSW Housing Pattern Book complying development pathway, provided the proposal is fully compliant and the documentation is complete. This accelerated turn-around is a deliberate policy choice: complying development is meant to clear low-impact, standardised projects quickly, freeing councils from routine assessments.</p>
+<p>DA assessments routinely take months rather than weeks, with published ranges of roughly 3&ndash;12 months depending on council resourcing, complexity, neighbour objections and the need for redesign. The process includes notification periods, possible referrals to design review panels or heritage advisers, and iterative negotiations over changes, all of which extend the timeline and can introduce significant uncertainty.</p>
+<p>In practice, the time advantage of a CDC evaporates if your design only marginally fits the codes and needs repeated redesign to achieve strict compliance. Conversely, although DAs are slower on paper, a well-prepared DA that aligns with council controls and engages stakeholders early can avoid major delays, particularly in councils with established processes for pre-lodgement meetings and design review.</p>
+
+<h3>3. Risk profile: approval risk vs design risk</h3>
+<p>Risk under a CDC pathway is primarily binary: if your project and site satisfy every relevant standard, approval must be granted; if not, it cannot be approved as complying development at all. The approval risk is lower once compliance is proven, but the design risk is higher upfront because even minor deviations (for example, a setback short by a few hundred millimetres) can force a complete change of pathway.</p>
+<p>By contrast, DA outcomes sit on a spectrum: council planners can approve, approve with conditions, or refuse, and they may accept modest variations from numeric standards where the overall impact is acceptable. This introduces higher approval risk in the sense that outcomes are less predictable, but lower design risk in that you can argue for performance-based solutions rather than strict rule adherence.</p>
+<p>Neighbour and community risk also diverge. CDCs generally do not require formal neighbour notification or a public exhibition period, which limits third-party input and objection risk but can create political and reputational sensitivities where projects are perceived as &ldquo;bypassing council&rdquo;. DAs require public notification and allow submissions; objections can delay assessment, trigger additional conditions, or even lead to refusal, particularly in politically sensitive or character-focused neighbourhoods.</p>
+<p>For complex or contentious projects, some practitioners treat the DA process as a managed risk environment: you accept the possibility of objection and delay in exchange for the chance to negotiate outcomes, adjust the design, and demonstrate merit. For standard low-impact work in benign contexts, a CDC often represents a lower-risk pathway provided feasibility work confirms compliance at the outset.</p>
+
+<h3>4. Design flexibility and project typology</h3>
+<p>CDC standards are tight and prescriptive. They specify maximum heights, setbacks, site coverage, private open space, car parks, and sometimes materiality or fa&ccedil;ade treatments, with little scope to deviate without leaving the complying development framework. For straightforward detached dwellings, secondary dwellings, simple extensions, and some duplex or small commercial projects, these standards can be met with relatively conventional designs.</p>
+<p>DA assessment, being merit-based, allows more freedom to pursue non-standard forms, complex site responses (steep slopes, irregular lots), and context-specific design moves that might not sit neatly within CDC tables. Heritage-listed properties, conservation areas, mixed-use developments, and ambitious architectural projects almost always require DA because the planning system expects case-by-case evaluation of their impacts and contributions.</p>
+<p>Recent NSW policy proposals around &ldquo;CDC variations&rdquo; aim to allow minor deviations from strict complying development standards while retaining a fast-track character, but these mechanisms are still emerging and details are subject to change. Until they are fully implemented, the working assumption should be that CDCs are effectively zero-tolerance on standards, and anything non-standard belongs in a DA.</p>
+<p>For production-heavy or design-intensive projects (for example, high-concept dwellings or small studios where spatial and aesthetic choices are central), the DA pathway typically aligns better with the need to negotiate unusual solutions with planners. For more utilitarian builds where speed and cost control dominate over formal innovation, CDC is closer to a code-compliant checklist that trades flexibility for predictability.</p>
+
+<h3>5. Practical feasibility: how to decide DA vs CDC</h3>
+<p>NSW practice increasingly treats DA vs CDC as a feasibility question answered early, before detailed design fees are committed. Typical feasibility steps include: checking zoning and overlays, reviewing the applicable SEPP codes and LEP/DCP controls, mapping site constraints (slope, flooding, heritage, easements), and sketching test layouts against key CDC standards such as setbacks, private open space, and solar access.</p>
+<p>Pre-lodgement meetings with council planners are recommended for both pathways but are especially useful if you anticipate needing a DA; they allow you to test appetite for variations and to identify likely conditions or concerns before committing to a design. For CDC, feasibility often involves liaison with an accredited certifier early on, to confirm the site and concept are eligible under the chosen code.</p>
+<p>Documentation demands are similar at a baseline level: both pathways require site plans, floor plans, elevations, sections, BASIX certificates for residential projects, and design verification statements confirming code compliance. DA typically adds impact assessments (Statement of Environmental Effects, traffic reports, heritage reports, view or overshadowing studies), whereas CDC focuses on evidence that each relevant numeric control is satisfied.</p>
+<p>Costs are highly project-specific, but available industry guidance suggests that CDC approvals have lower and more predictable statutory costs due to shorter time frames and simpler documentation, whereas DAs tend to incur higher council fees and professional costs over longer assessment periods. This distinction is material in feasibility studies, but should be weighed against the potential for expensive redesign if you attempt a marginal CDC and later discover it does not comply.</p>
+
+<h3>6. Summary table: key differentiators</h3>
+<table>
+  <tr><th>Dimension</th><th>Complying Development Certificate (CDC)</th><th>Development Application (DA)</th></tr>
+  <tr><td>Legal basis</td><td>Fast-tracked approval under SEPP complying development codes; issued by council or accredited certifier if standards met.</td><td>Merit-based council consent under Environmental Planning and Assessment Act, LEP and DCP.</td></tr>
+  <tr><td>Timeframe</td><td>Typically 10&ndash;20 business days; some pattern-book pathways around 10 days.</td><td>Often 3&ndash;12 months depending on council, complexity and objections.</td></tr>
+  <tr><td>Assessment style</td><td>Tick-box compliance with predefined numeric standards; no discretion once rules are set.</td><td>Discretionary assessment of impacts and merit; capacity for conditions and negotiated changes.</td></tr>
+  <tr><td>Design flexibility</td><td>Low; little tolerance for deviation from prescribed controls.</td><td>Higher; non-standard designs can be assessed case-by-case.</td></tr>
+  <tr><td>Neighbour input</td><td>Generally no formal notification or public exhibition.</td><td>Mandatory notification and opportunity for submissions.</td></tr>
+  <tr><td>Typical projects</td><td>Standard houses, secondary dwellings, simple extensions, some duplex and small commercial where site and design are straightforward.</td><td>Complex, heritage-affected, mixed-use, or contextually sensitive developments; ambitious or unusual architecture.</td></tr>
+  <tr><td>Primary risks</td><td>High design risk if initial feasibility is poor; ineligible projects cannot proceed as CDC at all.</td><td>Higher approval and time risk from objections and planner discretion, but better scope to negotiate and adapt.</td></tr>
+  <tr><td>Cost tendencies</td><td>Lower and more predictable statutory and consultant costs due to speed and standardisation.</td><td>Higher and more variable costs from extended assessment, additional reports and potential redesign.</td></tr>
+</table>
+
+<h3>7. Critical limitations and uncertainties</h3>
+<p>Most publicly available commentary on DA vs CDC in NSW comes from consultants, designers, builders or certifiers with commercial interests in particular pathways, which introduces bias in favour of whichever process they specialise in or can deliver fastest. These sources rarely provide systematic empirical data on approval times, refusal rates or cost differentials, and instead rely on indicative ranges and anecdotal experience, which limits the statistical robustness of their claims.</p>
+<p>The regulatory framework is also volatile. NSW has recently proposed new &ldquo;complying development variations&rdquo; pathways to allow minor deviations from CDC standards, but these are subject to ongoing consultation and may change materially before full implementation. Relying on early descriptions of such mechanisms for strategic decision-making is therefore risky; project teams should treat them as provisional until the final instruments are gazetted.</p>
+<p>Finally, while rules-based CDC pathways appear more objective, their strictness means small errors in interpretation or documentation can have disproportionate consequences, and guidance on how certifiers will treat borderline cases is limited. DA processes, despite their flexibility, suffer from inconsistency between councils and over time, and there is little publicly accessible, peer-reviewed research quantifying this variation across NSW, which leaves practitioners reliant on local experience rather than generalisable evidence.</p>
+
+<h3>References</h3>
+<div class="refs">
+<p>AllCert Group. (2026, February 5). Complying development certificate &ndash; Fast CDC approval. AllCert Group Pty Ltd. <a href="https://allcertgroup.com.au/services/complying-development-certificate/" target="_blank" rel="noopener">https://allcertgroup.com.au/services/complying-development-certificate/</a></p>
+<p>Approved. (n.d.). What is a complying development certificate? Approved Building Certifiers. <a href="https://www.approved.au/blog/what-is-a-complying-development-certificate" target="_blank" rel="noopener">https://www.approved.au/blog/what-is-a-complying-development-certificate</a></p>
+<p>Artico Homes. (2026, April 13). Duplex approvals NSW: CDC vs DA, steps and common traps. Artico Homes. <a href="https://articohomes.com.au/duplex-approvals-nsw-cdc-vs-da/" target="_blank" rel="noopener">https://articohomes.com.au/duplex-approvals-nsw-cdc-vs-da/</a></p>
+<p>Castle Crew. (2025, February 25). Understanding the CDC vs DA approval processes in NSW. Castle Crew. <a href="https://www.castlecrew.com.au/understanding-the-cdc-vs-da-approval-processes-in-nsw" target="_blank" rel="noopener">https://www.castlecrew.com.au/understanding-the-cdc-vs-da-approval-processes-in-nsw</a></p>
+<p>Crush Architecture. (2026, March 23). CDC vs DA &ndash; Understanding building approvals in NSW. Crush Architecture. <a href="https://crusharchitecture.com.au/blog/cdc-vs-da-nsw/" target="_blank" rel="noopener">https://crusharchitecture.com.au/blog/cdc-vs-da-nsw/</a></p>
+<p>Dura Group. (2025, July 10). Understanding DA vs CDC approvals in NSW. Dura Group. <a href="https://www.duragroup.com.au/builder/da-vs-cdc-approvals/" target="_blank" rel="noopener">https://www.duragroup.com.au/builder/da-vs-cdc-approvals/</a></p>
+<p>Duplex Building Design. (2025, December 16). NSW development approval process: DA vs CDC, steps, fees. Duplex Building Design. <a href="https://duplexbuildingdesign.com/development-approval-process-nsw/" target="_blank" rel="noopener">https://duplexbuildingdesign.com/development-approval-process-nsw/</a></p>
+<p>Lindsay Taylor Lawyers. (2016, October 28). Changes to complying development in NSW. Lindsay Taylor Lawyers. <a href="https://www.lindsaytaylorlawyers.com.au/in_focus/changes-to-complying-development-in-nsw/" target="_blank" rel="noopener">https://www.lindsaytaylorlawyers.com.au/in_focus/changes-to-complying-development-in-nsw/</a></p>
+<p>M+M Architects. (2025, March 26). DA vs CDC &ndash; What&rsquo;s the difference? M+M Architects. <a href="https://mmarchitects.com.au/da-vs-cdc/" target="_blank" rel="noopener">https://mmarchitects.com.au/da-vs-cdc/</a></p>
+<p>Mileham. (2025, February 28). DA vs. CDC &ndash; What&rsquo;s the difference? Mileham. <a href="https://www.mileham.com.au/blog/da-vs-cdc" target="_blank" rel="noopener">https://www.mileham.com.au/blog/da-vs-cdc</a></p>
+<p>MK. (2026, June 9). Complying development variations NSW: New CDC pathway &hellip; MK. <a href="https://mk.com.au/complying-development-variations-nsw/" target="_blank" rel="noopener">https://mk.com.au/complying-development-variations-nsw/</a></p>
+<p>My Building Certifier. (n.d.). Submitting a complying development certificate application [PDF]. My Building Certifier. <a href="https://mybuildingcertifier.com.au/forms/Submitting-a-Complying-Development-Certificate-Application.pdf" target="_blank" rel="noopener">https://mybuildingcertifier.com.au/forms/Submitting-a-Complying-Development-Certificate-Application.pdf</a></p>
+<p>NSW Department of Planning and Environment. (2018, March 1). How to use complying development [Video]. YouTube. <a href="https://www.youtube.com/watch?v=5_F_AOLG36I" target="_blank" rel="noopener">https://www.youtube.com/watch?v=5_F_AOLG36I</a></p>
+<p>NSW Department of Planning and Environment. (2026, June 24). Complying development &ndash; NSW Planning Portal. NSW Government. <a href="https://www.planning.nsw.gov.au/assess-and-regulate/development-assessment/planning-approval-pathways/complying-development" target="_blank" rel="noopener">https://www.planning.nsw.gov.au/assess-and-regulate/development-assessment/planning-approval-pathways/complying-development</a></p>
+<p>NSW Department of Planning and Environment. (n.d.). Complying development &ndash; Department of Planning and Environment. NSW Government. <a href="https://www.planningportal.nsw.gov.au/onlinecdc" target="_blank" rel="noopener">https://www.planningportal.nsw.gov.au/onlinecdc</a></p>
+<p>Sorensen Design. (2026, March 4). Understanding the development application process in NSW. Sorensen Design Studio. <a href="https://sorensendesign.com.au/news/understanding-the-development-application-process-in-nsw" target="_blank" rel="noopener">https://sorensendesign.com.au/news/understanding-the-development-application-process-in-nsw</a></p>
+<p>Stoneybark. (2026, May 24). Complying development certificate (CDC) NSW. Stoneybark. <a href="https://stoneybark.com.au/complying-development-certificate/" target="_blank" rel="noopener">https://stoneybark.com.au/complying-development-certificate/</a></p>
+<p>Taylor, D. (2023, February 20). NSW planning approvals &ndash; DA vs CC vs CDC [Video]. YouTube. <a href="https://www.youtube.com/watch?v=GSRfeh7hzVg" target="_blank" rel="noopener">https://www.youtube.com/watch?v=GSRfeh7hzVg</a></p>
+<p>DMR Designs. (2018, December 31). DA plans vs CDC plans. DMR Designs. <a href="https://www.dmrdesigns.com.au/blog/tag/DA+plans+vs+CDC+plans" target="_blank" rel="noopener">https://www.dmrdesigns.com.au/blog/tag/DA+plans+vs+CDC+plans</a></p>
+<p>C&amp;A Surveyors. (2025, August 31). CDC vs DA in NSW: What&rsquo;s the difference? C&amp;A Surveyors. <a href="https://candasurveyors.com.au/blog/cdc-vs-da-in-nsw-whats-the-difference/" target="_blank" rel="noopener">https://candasurveyors.com.au/blog/cdc-vs-da-in-nsw-whats-the-difference/</a></p>
+</div>
+
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <a href="index.html" class="footer-logo" aria-label="whatcani.build" style="display:inline-block;">
+        <svg width="132" height="32" viewBox="0 0 1463 355" xmlns="http://www.w3.org/2000/svg" style="display:block;fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+          <g transform="matrix(1,0,0,1,-508.741443,-2610.23622)">
+            <g id="Colour">
+              <g transform="matrix(0.857143,0,0,0.857143,66.729737,686.726659)">
+                <g transform="matrix(1,0,0,1,450.545645,1051.181102)">
+                  <g transform="matrix(1,0,0,0.891237,284.386273,872.15136)">
+                    <path d="M1337.856,823.548L1109.161,823.356C1089.593,823.334 1073.746,805.277 1073.763,783.024L1073.981,499.056C1073.993,483.894 1081.487,470.023 1093.375,463.16L1264.653,364.272C1274.734,358.452 1286.652,358.452 1296.732,364.272L1467.992,463.149C1479.89,470.018 1487.386,483.906 1487.386,499.081L1487.386,783.443C1487.386,794.138 1483.648,804.394 1476.995,811.952C1470.343,819.51 1461.321,823.751 1451.918,823.74L1393.388,823.726C1398.225,816.975 1401.118,808.421 1401.118,799.12C1401.118,794.02 1400.249,789.145 1398.666,784.668L1439.996,784.674C1443.131,784.678 1446.138,783.264 1448.355,780.745C1450.573,778.225 1451.819,774.807 1451.819,771.242L1451.819,507.986C1451.819,502.927 1449.32,498.298 1445.354,496.008L1286.016,404.015C1282.656,402.075 1278.684,402.075 1275.323,404.015L1115.979,496.012C1112.017,498.3 1109.519,502.924 1109.515,507.978L1109.31,770.872C1109.304,778.29 1114.586,784.309 1121.109,784.316L1332.768,784.491C1331.145,789.016 1330.252,793.953 1330.252,799.12C1330.252,808.34 1333.095,816.826 1337.856,823.548Z" style="fill:var(--white);fill-rule:nonzero;"/>
+                  </g>
+                  <g transform="matrix(1,0,0,1,-265.176632,31.630859)">
+                    <path d="M1843.983,1414.121C1843.983,1404.844 1846.962,1395.445 1852.919,1385.923C1858.876,1376.402 1867.567,1368.516 1878.993,1362.266C1890.419,1356.016 1903.749,1352.891 1918.983,1352.891C1933.144,1352.891 1945.644,1355.503 1956.483,1360.728C1967.323,1365.953 1975.697,1373.057 1981.606,1382.041C1987.514,1391.026 1990.468,1400.791 1990.468,1411.338C1990.468,1419.639 1988.783,1426.914 1985.414,1433.164C1982.045,1439.414 1978.041,1444.81 1973.402,1449.351C1968.764,1453.892 1960.439,1461.534 1948.427,1472.276C1945.107,1475.303 1942.445,1477.964 1940.443,1480.259C1938.441,1482.554 1936.952,1484.654 1935.976,1486.558C1934.999,1488.462 1934.242,1490.367 1933.705,1492.271C1933.168,1494.175 1932.362,1497.52 1931.288,1502.305C1929.433,1512.461 1923.622,1517.539 1913.857,1517.539C1908.778,1517.539 1904.506,1515.879 1901.039,1512.559C1897.572,1509.239 1895.839,1504.307 1895.839,1497.764C1895.839,1489.561 1897.108,1482.456 1899.648,1476.451C1902.187,1470.445 1905.556,1465.171 1909.755,1460.63C1913.954,1456.089 1919.618,1450.694 1926.747,1444.444C1932.997,1438.975 1937.514,1434.849 1940.297,1432.066C1943.08,1429.283 1945.424,1426.182 1947.328,1422.764C1949.233,1419.346 1950.185,1415.635 1950.185,1411.631C1950.185,1403.819 1947.279,1397.227 1941.469,1391.856C1935.658,1386.485 1928.163,1383.799 1918.983,1383.799C1908.241,1383.799 1900.331,1386.509 1895.253,1391.929C1890.175,1397.349 1885.878,1405.332 1882.362,1415.879C1879.042,1426.914 1872.743,1432.432 1863.466,1432.432C1857.997,1432.432 1853.383,1430.503 1849.623,1426.646C1845.863,1422.788 1843.983,1418.614 1843.983,1414.121ZM1915.468,1574.668C1909.511,1574.668 1904.311,1572.74 1899.867,1568.882C1895.424,1565.025 1893.202,1559.629 1893.202,1552.696C1893.202,1546.543 1895.351,1541.368 1899.648,1537.168C1903.944,1532.969 1909.218,1530.87 1915.468,1530.87C1921.62,1530.87 1926.796,1532.969 1930.995,1537.168C1935.194,1541.368 1937.294,1546.543 1937.294,1552.696C1937.294,1559.532 1935.097,1564.903 1930.702,1568.809C1926.308,1572.715 1921.23,1574.668 1915.468,1574.668Z" style="fill:var(--orange);fill-rule:nonzero;"/>
+                  </g>
+                </g>
+                <g transform="matrix(0.877178,0,0,0.877178,10.476981,39.977748)">
+                  <path d="M604.457,2981.894L575.941,2872.714L610.863,2872.714L625.589,2942.714L626.45,2942.714L642.348,2872.714L676.253,2872.714L692.543,2942.207L693.402,2942.207L707.66,2872.714L742.581,2872.714L714.065,2981.894L676.878,2981.894L659.886,2918.26L658.636,2918.26L641.644,2981.894L604.457,2981.894Z" style="fill:var(--white);fill-rule:nonzero;"/>
+                  <path d="M785.667,2919.707L785.667,2981.894L750.942,2981.894L750.942,2836.386L784.418,2836.386L784.418,2892.871L785.667,2892.871C788.155,2886.165 792.201,2880.902 797.806,2877.08C803.411,2873.258 810.302,2871.347 818.48,2871.347C826.11,2871.347 832.764,2873.049 838.441,2876.454C844.118,2879.859 848.531,2884.631 851.682,2890.771C854.833,2896.91 856.409,2904.121 856.409,2912.402L856.409,2981.894L821.645,2981.894L821.645,2919.199C821.645,2913.131 820.115,2908.384 817.055,2904.96C813.995,2901.535 809.665,2899.823 804.067,2899.823C800.407,2899.823 797.198,2900.617 794.437,2902.206C791.676,2903.794 789.524,2906.06 787.981,2909.003C786.439,2911.946 785.667,2915.514 785.667,2919.707Z" style="fill:var(--white);fill-rule:nonzero;"/>
+                  <path d="M903.674,2983.807C896.722,2983.807 890.53,2982.619 885.101,2980.243C879.671,2977.867 875.426,2974.302 872.366,2969.55C869.307,2964.797 867.777,2958.821 867.777,2951.62C867.777,2945.579 868.831,2940.478 870.941,2936.318C873.05,2932.158 875.976,2928.773 879.72,2926.162C883.463,2923.551 887.773,2921.549 892.649,2920.156C897.525,2918.763 902.737,2917.845 908.284,2917.401C914.509,2916.868 919.506,2916.295 923.275,2915.683C927.045,2915.071 929.785,2914.146 931.497,2912.909C933.209,2911.672 934.065,2909.953 934.065,2907.753L934.065,2907.324C934.065,2903.691 932.825,2900.875 930.345,2898.876C927.864,2896.878 924.495,2895.879 920.238,2895.879C915.629,2895.879 911.931,2896.878 909.144,2898.876C906.357,2900.875 904.573,2903.625 903.792,2907.129L871.839,2905.995C872.776,2899.355 875.221,2893.424 879.173,2888.203C883.125,2882.982 888.568,2878.867 895.502,2875.859C902.435,2872.851 910.798,2871.347 920.589,2871.347C927.49,2871.347 933.87,2872.158 939.729,2873.779C945.589,2875.4 950.696,2877.769 955.052,2880.888C959.407,2884.006 962.792,2887.815 965.208,2892.313C967.623,2896.812 968.831,2901.933 968.831,2907.675L968.831,2981.894L936.096,2981.894L936.096,2966.582L935.315,2966.582C933.323,2970.331 930.823,2973.479 927.815,2976.025C924.807,2978.57 921.301,2980.504 917.298,2981.825C913.294,2983.147 908.753,2983.807 903.674,2983.807ZM914.339,2960.956C918.063,2960.956 921.435,2960.201 924.456,2958.691C927.477,2957.181 929.886,2955.088 931.683,2952.412C933.48,2949.736 934.378,2946.621 934.378,2943.066L934.378,2932.793C933.402,2933.274 932.207,2933.739 930.794,2934.189C929.381,2934.638 927.831,2935.045 926.145,2935.41C924.459,2935.774 922.763,2936.096 921.058,2936.376C919.353,2936.656 917.699,2936.92 916.097,2937.167C912.776,2937.65 909.97,2938.447 907.678,2939.56C905.387,2940.673 903.645,2942.089 902.454,2943.808C901.263,2945.527 900.667,2947.571 900.667,2949.94C900.667,2953.548 901.946,2956.285 904.505,2958.154C907.064,2960.022 910.342,2960.956 914.339,2960.956Z" style="fill:var(--white);fill-rule:nonzero;"/>
+                  <path d="M1046.8,2872.714L1046.8,2898.378L978.01,2898.378L978.01,2872.714L1046.8,2872.714ZM992.386,2846.738L1027.112,2846.738L1027.112,2947.519C1027.112,2950.475 1027.815,2952.673 1029.221,2954.111C1030.627,2955.55 1032.88,2956.27 1035.98,2956.27C1037.139,2956.27 1038.476,2956.153 1039.993,2955.918C1041.51,2955.684 1042.698,2955.436 1043.557,2955.176L1048.791,2980.371C1044.886,2981.478 1041.25,2982.275 1037.884,2982.764C1034.518,2983.252 1031.201,2983.496 1027.932,2983.496C1016.384,2983.496 1007.572,2980.736 1001.497,2975.214C995.423,2969.693 992.386,2961.75 992.386,2951.385L992.386,2846.738Z" style="fill:var(--white);fill-rule:nonzero;"/>
+                  <path d="M1108.851,2983.925C1097.341,2983.925 1087.474,2981.552 1079.251,2976.806C1071.028,2972.06 1064.732,2965.468 1060.364,2957.03C1055.995,2948.593 1053.811,2938.808 1053.811,2927.675C1053.811,2916.49 1056.005,2906.676 1060.394,2898.232C1064.782,2889.787 1071.087,2883.195 1079.31,2878.456C1087.532,2873.717 1097.366,2871.347 1108.811,2871.347C1118.942,2871.347 1127.748,2873.18 1135.228,2876.845C1142.708,2880.51 1148.561,2885.656 1152.786,2892.284C1157.011,2898.912 1159.241,2906.712 1159.475,2915.683L1127.053,2915.683C1126.624,2911.946 1125.641,2908.742 1124.104,2906.073C1122.568,2903.404 1120.553,2901.356 1118.06,2899.931C1115.566,2898.505 1112.653,2897.792 1109.319,2897.792C1105.256,2897.792 1101.721,2898.912 1098.714,2901.151C1095.706,2903.391 1093.369,2906.714 1091.702,2911.122C1090.036,2915.53 1089.202,2920.956 1089.202,2927.402C1089.202,2933.821 1090.029,2939.273 1091.682,2943.759C1093.336,2948.245 1095.67,2951.654 1098.685,2953.984C1101.699,2956.315 1105.244,2957.48 1109.319,2957.48C1114.072,2957.48 1118.05,2955.862 1121.253,2952.627C1124.457,2949.391 1126.39,2944.889 1127.053,2939.12L1159.475,2939.12C1159.189,2948.118 1156.966,2955.983 1152.805,2962.714C1148.645,2969.446 1142.844,2974.664 1135.403,2978.368C1127.961,2982.073 1119.111,2983.925 1108.851,2983.925Z" style="fill:var(--white);fill-rule:nonzero;"/>
+                  <path d="M1202.326,2983.807C1195.373,2983.807 1189.182,2982.619 1183.753,2980.243C1178.323,2977.867 1174.078,2974.302 1171.018,2969.55C1167.958,2964.797 1166.429,2958.821 1166.429,2951.62C1166.429,2945.579 1167.483,2940.478 1169.592,2936.318C1171.702,2932.158 1174.628,2928.773 1178.372,2926.162C1182.115,2923.551 1186.425,2921.549 1191.301,2920.156C1196.177,2918.763 1201.389,2917.845 1206.936,2917.401C1213.161,2916.868 1218.158,2916.295 1221.927,2915.683C1225.696,2915.071 1228.437,2914.146 1230.149,2912.909C1231.861,2911.672 1232.717,2909.953 1232.717,2907.753L1232.717,2907.324C1232.717,2903.691 1231.477,2900.875 1228.996,2898.876C1226.516,2896.878 1223.147,2895.879 1218.89,2895.879C1214.281,2895.879 1210.583,2896.878 1207.796,2898.876C1205.009,2900.875 1203.225,2903.625 1202.444,2907.129L1170.49,2905.995C1171.428,2899.355 1173.873,2893.424 1177.825,2888.203C1181.777,2882.982 1187.22,2878.867 1194.154,2875.859C1201.087,2872.851 1209.45,2871.347 1219.241,2871.347C1226.142,2871.347 1232.522,2872.158 1238.381,2873.779C1244.241,2875.4 1249.348,2877.769 1253.703,2880.888C1258.059,2884.006 1261.444,2887.815 1263.86,2892.313C1266.275,2896.812 1267.483,2901.933 1267.483,2907.675L1267.483,2981.894L1234.748,2981.894L1234.748,2966.582L1233.967,2966.582C1231.975,2970.331 1229.475,2973.479 1226.467,2976.025C1223.459,2978.57 1219.953,2980.504 1215.949,2981.825C1211.945,2983.147 1207.404,2983.807 1202.326,2983.807ZM1212.991,2960.956C1216.715,2960.956 1220.087,2960.201 1223.108,2958.691C1226.129,2957.181 1228.538,2955.088 1230.335,2952.412C1232.132,2949.736 1233.03,2946.621 1233.03,2943.066L1233.03,2932.793C1232.054,2933.274 1230.859,2933.739 1229.446,2934.189C1228.033,2934.638 1226.483,2935.045 1224.797,2935.41C1223.111,2935.774 1221.415,2936.096 1219.71,2936.376C1218.005,2936.656 1216.351,2936.92 1214.749,2937.167C1211.428,2937.65 1208.622,2938.447 1206.33,2939.56C1204.038,2940.673 1202.297,2942.089 1201.106,2943.808C1199.914,2945.527 1199.319,2947.571 1199.319,2949.94C1199.319,2953.548 1200.598,2956.285 1203.157,2958.154C1205.716,2960.022 1208.994,2960.956 1212.991,2960.956Z" style="fill:var(--white);fill-rule:nonzero;"/>
+                  <path d="M1318.694,2919.707L1318.694,2981.894L1283.968,2981.894L1283.968,2872.714L1318.264,2872.714L1318.264,2892.871L1319.202,2892.871C1321.636,2886.178 1325.575,2880.917 1331.018,2877.089C1336.461,2873.261 1343.238,2871.347 1351.349,2871.347C1359.019,2871.347 1365.687,2873.053 1371.351,2876.464C1377.015,2879.875 1381.406,2884.664 1384.524,2890.829C1387.643,2896.995 1389.202,2904.186 1389.202,2912.402L1389.202,2981.894L1354.476,2981.894L1354.476,2919.199C1354.476,2913.17 1352.933,2908.434 1349.846,2904.99C1346.76,2901.545 1342.463,2899.823 1336.956,2899.823C1333.336,2899.823 1330.153,2900.617 1327.405,2902.206C1324.658,2903.794 1322.519,2906.06 1320.989,2909.003C1319.459,2911.946 1318.694,2915.514 1318.694,2919.707Z" style="fill:var(--white);fill-rule:nonzero;"/>
+                  <path d="M1405.647,2981.894L1405.647,2872.714L1440.413,2872.714L1440.413,2981.894L1405.647,2981.894ZM1422.932,2860.214C1418.049,2860.214 1413.85,2858.587 1410.334,2855.331C1406.819,2852.076 1405.061,2848.137 1405.061,2843.515C1405.061,2838.893 1406.819,2834.97 1410.334,2831.747C1413.85,2828.525 1418.049,2826.913 1422.932,2826.913C1427.88,2826.913 1432.095,2828.525 1435.579,2831.747C1439.062,2834.97 1440.803,2838.893 1440.803,2843.515C1440.803,2848.137 1439.062,2852.076 1435.579,2855.331C1432.095,2858.587 1427.88,2860.214 1422.932,2860.214Z" style="fill:var(--white);fill-rule:nonzero;"/>
+                  <path d="M1481.369,2984.003C1476.083,2984.003 1471.652,2982.242 1468.078,2978.72C1464.504,2975.198 1462.717,2970.82 1462.717,2965.585C1462.717,2960.351 1464.504,2955.972 1468.078,2952.451C1471.652,2948.929 1476.083,2947.168 1481.369,2947.168C1486.656,2947.168 1491.086,2948.929 1494.661,2952.451C1498.235,2955.972 1500.022,2960.351 1500.022,2965.585C1500.022,2970.82 1498.235,2975.198 1494.661,2978.72C1491.086,2982.242 1486.656,2984.003 1481.369,2984.003Z" style="fill:var(--orange);fill-rule:nonzero;"/>
+                  <path d="M1588.381,2983.456C1582.925,2983.456 1578.172,2982.542 1574.123,2980.712C1570.073,2978.883 1566.701,2976.506 1564.005,2973.583C1561.31,2970.66 1559.24,2967.519 1557.794,2964.16L1556.622,2964.16L1556.622,2981.894L1522.327,2981.894L1522.327,2836.386L1557.053,2836.386L1557.053,2891.504L1557.794,2891.504C1559.188,2888.157 1561.2,2884.938 1563.83,2881.845C1566.46,2878.753 1569.819,2876.23 1573.908,2874.277C1577.996,2872.324 1582.911,2871.347 1588.654,2871.347C1596.271,2871.347 1603.367,2873.342 1609.943,2877.333C1616.518,2881.324 1621.841,2887.457 1625.91,2895.731C1629.979,2904.006 1632.013,2914.576 1632.013,2927.441C1632.013,2939.798 1630.06,2950.133 1626.154,2958.446C1622.247,2966.76 1616.994,2973.007 1610.392,2977.187C1603.791,2981.366 1596.453,2983.456 1588.381,2983.456ZM1576.389,2956.386C1580.699,2956.386 1584.325,2955.191 1587.267,2952.802C1590.21,2950.413 1592.453,2947.038 1593.996,2942.676C1595.539,2938.314 1596.311,2933.222 1596.311,2927.402C1596.311,2921.542 1595.542,2916.445 1594.006,2912.109C1592.469,2907.773 1590.233,2904.407 1587.296,2902.011C1584.36,2899.615 1580.724,2898.418 1576.389,2898.418C1572.157,2898.418 1568.537,2899.593 1565.529,2901.943C1562.521,2904.294 1560.219,2907.633 1558.624,2911.963C1557.029,2916.292 1556.232,2921.439 1556.232,2927.402C1556.232,2933.261 1557.033,2938.356 1558.634,2942.685C1560.236,2947.014 1562.544,2950.38 1565.559,2952.782C1568.573,2955.185 1572.183,2956.386 1576.389,2956.386Z" style="fill:var(--orange);fill-rule:nonzero;"/>
+                  <path d="M1714.631,2934.863L1714.631,2872.714L1749.357,2872.714L1749.357,2981.894L1716.194,2981.894L1716.194,2961.621L1715.022,2961.621C1712.625,2968.248 1708.533,2973.528 1702.745,2977.46C1696.958,2981.393 1689.982,2983.326 1681.819,2983.261C1674.357,2983.261 1667.807,2981.572 1662.169,2978.193C1656.531,2974.814 1652.147,2970.052 1649.015,2963.906C1645.884,2957.76 1644.319,2950.579 1644.319,2942.363L1644.319,2872.714L1679.045,2872.714L1679.045,2935.605C1679.045,2941.451 1680.591,2946.086 1683.683,2949.511C1686.776,2952.936 1690.998,2954.615 1696.35,2954.55C1699.787,2954.55 1702.876,2953.792 1705.617,2952.275C1708.358,2950.758 1710.546,2948.532 1712.18,2945.596C1713.814,2942.659 1714.631,2939.082 1714.631,2934.863Z" style="fill:var(--orange);fill-rule:nonzero;"/>
+                  <path d="M1765.802,2981.894L1765.802,2872.714L1800.568,2872.714L1800.568,2981.894L1765.802,2981.894ZM1783.087,2860.214C1778.205,2860.214 1774.005,2858.587 1770.49,2855.331C1766.974,2852.076 1765.216,2848.137 1765.216,2843.515C1765.216,2838.893 1766.974,2834.97 1770.49,2831.747C1774.005,2828.525 1778.205,2826.913 1783.087,2826.913C1788.035,2826.913 1792.251,2828.525 1795.734,2831.747C1799.217,2834.97 1800.959,2838.893 1800.959,2843.515C1800.959,2848.137 1799.217,2852.076 1795.734,2855.331C1792.251,2858.587 1788.035,2860.214 1783.087,2860.214Z" style="fill:var(--orange);fill-rule:nonzero;"/>
+                  <rect x="1817.053" y="2836.386" width="34.726" height="145.508" style="fill:var(--orange);fill-rule:nonzero;"/>
+                  <path d="M1907.717,2983.456C1899.696,2983.456 1892.371,2981.366 1885.743,2977.187C1879.115,2973.007 1873.848,2966.76 1869.942,2958.446C1866.036,2950.133 1864.083,2939.798 1864.083,2927.441C1864.083,2914.576 1866.117,2904.006 1870.186,2895.731C1874.255,2887.457 1879.591,2881.324 1886.193,2877.333C1892.795,2873.342 1899.878,2871.347 1907.442,2871.347C1913.198,2871.347 1918.116,2872.324 1922.199,2874.277C1926.281,2876.23 1929.65,2878.753 1932.306,2881.845C1934.962,2884.938 1936.961,2888.157 1938.301,2891.504L1939.044,2891.504L1939.044,2836.386L1973.77,2836.386L1973.77,2981.894L1939.473,2981.894L1939.473,2964.16L1938.301,2964.16C1936.857,2967.519 1934.787,2970.66 1932.091,2973.583C1929.395,2976.506 1926.039,2978.883 1922.022,2980.712C1918.006,2982.542 1913.237,2983.456 1907.717,2983.456ZM1919.708,2956.386C1923.927,2956.386 1927.54,2955.185 1930.548,2952.782C1933.556,2950.38 1935.861,2947.014 1937.462,2942.685C1939.063,2938.356 1939.864,2933.261 1939.864,2927.402C1939.864,2921.439 1939.07,2916.292 1937.481,2911.963C1935.893,2907.633 1933.591,2904.294 1930.577,2901.943C1927.563,2899.593 1923.94,2898.418 1919.708,2898.418C1915.437,2898.418 1911.817,2899.615 1908.848,2902.011C1905.879,2904.407 1903.627,2907.773 1902.091,2912.109C1900.555,2916.445 1899.787,2921.542 1899.787,2927.402C1899.787,2933.222 1900.558,2938.314 1902.101,2942.676C1903.643,2947.038 1905.899,2950.413 1908.868,2952.802C1911.837,2955.191 1915.45,2956.386 1919.708,2956.386Z" style="fill:var(--orange);fill-rule:nonzero;"/>
+                </g>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </a>
+      <p style="margin-top:14px;font-size:14px;color:var(--muted);max-width:240px;line-height:1.6;">
+        Planning-led feasibility and approvals for small to mid-scale developments in Sydney and NSW.
+      </p>
+    </div>
+    <div class="footer-nav">
+      <div class="footer-nav-title">Pages</div>
+    <a href="about.html">About us</a>
+    <a href="services.html">Services</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="blog.html">Blog</a>
+    <a href="testimonials.html">Testimonials</a>
+    <a href="contact.html">Contact us</a>
+    <a href="legals.html">Legals</a>
+    </div>
+    <div>
+      <div class="footer-nav-title">Contact</div>
+      <p style="font-size:14px;color:var(--muted);line-height:1.8;">
+        Bakos &amp; Evans Pty Ltd<br>
+        Sydney &amp; NSW<br>
+        Response within 2 business days
+      </p>
+      <a href="https://www.linkedin.com/company/whatcanibuild/" target="_blank" rel="noopener" aria-label="whatcani.build on LinkedIn" style="display:inline-flex;align-items:center;gap:8px;margin-top:14px;font-size:14px;font-weight:600;color:var(--muted);text-decoration:none;">
+        <svg width="18" height="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="var(--blue)" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.59 0 4.26 2.37 4.26 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.11 20.45H3.55V9h3.56v11.45z"/></svg>
+        LinkedIn
+      </a>
+    </div>
+  </div>
+  <div class="footer-bottom wrap">
+    <div class="footer-copy">© Bakos &amp; Evans Pty Ltd ABN 25 622 644 464. 2026. All prices include GST.</div>
+    <div class="footer-tagline">Planning advice that lands before the money's spent.</div>
+  </div>
+</footer>
+
+<!-- ARTICLE 2 FLOATING CARD -->
+<div class="article-overlay" id="article-2" role="dialog" aria-modal="true" aria-label="What zoning R2 actually means for your site">
+  <div class="article-card">
+    <button class="article-close" aria-label="Close article and return to the blog"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    <div class="article-body">
+<span style="font-size:12px;font-weight:700;color:var(--orange);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px;display:block;">Planning guides</span>
+<h2>What zoning R2 actually means for your site</h2>
+<div class="article-meta">23 Jul 2026 &middot; 9 min read</div>
+
+<p>R2 Low Density Residential is the most common residential zone in Sydney, and the one most often misread. The zone label tells you which uses are on the menu; it does not tell you what you can build. The numbers that decide that &mdash; minimum lot size, height, floor space ratio, setbacks, landscaped area &mdash; sit in separate clauses of your Local Environmental Plan, in the Development Control Plan behind it, and increasingly in a State policy that overrides both. Two sites in the same R2 zone, a few streets apart, can carry very different development.</p>
+
+<h3>1. Where the R2 rules actually come from</h3>
+<p>R2 is not a council invention. It is one of the standard residential zones in the Standard Instrument (Local Environmental Plans) Order 2006, the template every council in NSW must use when it writes its LEP. That is why the zone name, the zone objectives and the broad shape of the land use table look familiar from one council to the next: they are drawn from a single State template rather than written locally.</p>
+<p>The standard objectives of the R2 zone are to provide for the housing needs of the community within a low density residential environment, and to enable other land uses that provide facilities or services to meet the day to day needs of residents. Those objectives matter more than they appear. When a proposal sits at the edge of a control, an assessing planner will test it against the objectives of the zone, and a scheme that plainly reads as medium density in a low density street will struggle regardless of how the numbers stack up.</p>
+<p>Beneath the objectives sits the land use table, which sorts every use into three buckets: permitted without consent, permitted with consent, and prohibited. Councils adapt the table within limits, so R2 in Ryde is not identical to R2 in Sutherland Shire. The zone gets you to the right chapter; only the specific LEP tells you the rules.</p>
+
+<h3>2. What you can build in R2</h3>
+<p>The core of the R2 land use table is a dwelling house, a secondary dwelling (a granny flat), a dual occupancy and semi-detached dwellings, all with development consent. Around that core, most councils also permit a longer list with consent: boarding houses, child care centres, community facilities, educational establishments, group homes, health consulting rooms, home businesses and home industries, neighbourhood shops, respite day care centres and, in some LEPs, shop top housing. The exact list is set by your council&rsquo;s land use table, and the differences between councils are real.</p>
+<p>Two State reforms have widened that core materially. From 1 July 2024, dual occupancies and semi-detached dwellings became permissible with consent across R2 zones throughout NSW, removing the patchwork where some councils allowed duplexes and neighbouring councils did not. From 28 February 2025, the second stage of the Low and Mid-Rise Housing Policy went further, permitting terraces, manor houses and multi dwelling housing, and in places low-rise residential flat buildings, on R2 land within roughly 800 metres walking distance of a list of nominated town centres and transport hubs.</p>
+<p>That second reform is geographically targeted rather than universal. Whether your R2 site sits inside or outside one of those walking catchments is often the single largest determinant of what it is worth, and it is not something the zone colour on a map will tell you.</p>
+
+<h3>3. The controls that actually decide yield</h3>
+<p>Permissibility is the beginning of the analysis, not the end. In practice the binding constraints are numerical, and they live outside the land use table:</p>
+<p><strong>Minimum lot size.</strong> Clause 4.1 of the LEP sets the minimum lot size for subdivision, commonly 450 square metres in R2 but ranging widely by council and by locality. It is the control that most often decides whether a dual occupancy can be subdivided into two saleable lots, which is usually where the margin sits.</p>
+<p><strong>Height of buildings.</strong> Mapped under clause 4.3, typically 8.5 or 9.5 metres in R2. The difference between those two figures decides whether a genuine two-storey scheme with a pitched roof works on a sloping site.</p>
+<p><strong>Floor space ratio.</strong> Mapped under clause 4.4 where it applies. Not every R2 area has a mapped FSR, and where it does not, bulk is governed by height, setbacks and landscaped area instead.</p>
+<p><strong>The DCP layer.</strong> Setbacks, landscaped area, deep soil, private open space, solar access, driveway widths, parking and tree retention are usually in the Development Control Plan rather than the LEP. A DCP is not law in the same way an LEP is, but a scheme that ignores it will attract conditions, objections and delay.</p>
+<p>Under the Stage 2 reforms, dual occupancy on qualifying R2 land is subject to non-discretionary development standards, including a minimum lot size of 450 square metres, a minimum lot width of 12 metres, a maximum floor space ratio of 0.65:1 and a maximum height of 9.5 metres, with subdivision permitted down to 225 square metres per lot at a minimum 6 metre width. These State standards override the equivalent LEP and DCP provisions, except where the local control is more generous.</p>
+
+<h3>4. What R2 prohibits, and where projects come unstuck</h3>
+<p>Outside the mapped Stage 2 catchments, residential flat buildings remain prohibited in R2, as do most commercial, retail beyond a neighbourhood shop, and industrial uses. Prohibition is absolute: there is no variation clause that makes a prohibited use permissible, and clause 4.6 cannot be used to overcome it. This is a common and expensive misunderstanding &mdash; clause 4.6 varies a development standard such as height or floor space ratio, not the permissibility of a use.</p>
+<p>The more frequent problem, though, is not the zone at all. It is the overlays sitting on top of it. Heritage conservation areas, bushfire prone land, flood planning areas, acid sulfate soils, biodiversity values land, and easements or rights of carriageway do not change what the zone permits, but any one of them can stop a scheme or reshape it entirely. A site can be perfectly zoned for a duplex and still be undevelopable in the form the buyer had in mind. Checking the zone without checking the overlays is the single most common failure we see in pre-purchase due diligence.</p>
+
+<h3>5. Practical implications for a feasibility</h3>
+<p>A defensible R2 feasibility works through four questions in order. Is the use permissible under this council&rsquo;s land use table, and does the Housing SEPP widen that? Does the site meet the numeric thresholds for the form you want, particularly minimum lot size and width? What do the overlays and site constraints do to the developable envelope once setbacks, landscaped area and deep soil are applied? And finally, what is this council actually approving on comparable sites, which is a question the controls alone will not answer.</p>
+<p>Yield should be derived from that sequence, not assumed from the zone. The gap between a theoretical yield calculated off site area and a realistic yield after controls and constraints are applied is routinely one dwelling, and one dwelling is usually the difference between a project that works and one that does not.</p>
+
+<h3>6. Summary table: reading an R2 site</h3>
+<table>
+  <tr><th>Question</th><th>Where the answer sits</th><th>Why it matters</th></tr>
+  <tr><td>Is the use permitted?</td><td>LEP land use table for Zone R2, as widened by the Housing SEPP</td><td>Prohibition cannot be varied; clause 4.6 does not apply to permissibility.</td></tr>
+  <tr><td>Can it be subdivided?</td><td>LEP clause 4.1 minimum lot size; Housing SEPP standards where they apply</td><td>Usually decides whether two saleable lots are achievable.</td></tr>
+  <tr><td>How tall?</td><td>LEP clause 4.3 and the height of buildings map</td><td>8.5 versus 9.5 metres often decides two storeys on a slope.</td></tr>
+  <tr><td>How much floor area?</td><td>LEP clause 4.4 where FSR is mapped; otherwise height and setbacks</td><td>Not all R2 land has a mapped FSR.</td></tr>
+  <tr><td>What shape can it take?</td><td>Council DCP: setbacks, landscaped area, deep soil, private open space, parking</td><td>Drives the real envelope more than most buyers expect.</td></tr>
+  <tr><td>Is it in a reform catchment?</td><td>Low and Mid-Rise Housing Policy mapping, by walking distance to nominated centres</td><td>Can be the difference between a duplex and townhouses.</td></tr>
+  <tr><td>What else is on the land?</td><td>Heritage, bushfire, flood, biodiversity and acid sulfate mapping; title and easements</td><td>Overlays stop more R2 projects than the zone itself.</td></tr>
+</table>
+
+<h3>7. Critical limitations and uncertainties</h3>
+<p>Much of the accessible commentary on R2 zoning and the low and mid-rise reforms is published by designers, builders, certifiers and agents with a commercial interest in a particular outcome, and it tends to describe the most favourable reading of the rules rather than the assessed reality. Very little of it is accompanied by data on approval rates, refusals or the conditions councils are imposing under the new standards.</p>
+<p>The policy settings are also still moving. The Low and Mid-Rise Housing Policy has commenced in stages, its mapped catchments and non-discretionary standards have been refined since first exhibition, and councils have applied them inconsistently while their own instruments catch up. Where a State standard and a local control conflict, the resolution is not always obvious on the face of the documents, and practice is still forming.</p>
+<p>Finally, none of this substitutes for the instruments themselves. The only reliable answer for a specific property comes from that council&rsquo;s LEP and DCP as currently in force, the mapping on the NSW Planning Portal, the title and any restrictions on it, and where the question is finely balanced, a pre-lodgement discussion with the council. Zone labels are a starting point for a conversation, not a development yield.</p>
+
+<h3>References</h3>
+<div class="refs">
+<p>Allen Price &amp; Associates. (2025). How NSW&rsquo;s planning reforms are changing R2 zones. Allen Price &amp; Associates. <a href="https://allenprice.com.au/blog/how-nsws-planning-reforms-are-changing-r2-zones/" target="_blank" rel="noopener">https://allenprice.com.au/blog/how-nsws-planning-reforms-are-changing-r2-zones/</a></p>
+<p>Baiss Designs. (2025). Stage 2 of NSW&rsquo;s low and mid-rise housing reforms now in effect. Baiss Designs. <a href="https://baissdesigns.com.au/news/stage-2-of-nsws-low-and-mid-rise-housing-reforms-now-in-effect/" target="_blank" rel="noopener">https://baissdesigns.com.au/news/stage-2-of-nsws-low-and-mid-rise-housing-reforms-now-in-effect/</a></p>
+<p>Bartier Perry. (2025). Low and Mid-Rise Housing Policy &ndash; Stage 2 is here! Bartier Perry Lawyers. <a href="https://www.bartier.com.au/insights/articles/low-and-mid-rise-housing-policy-stage-2-is-here" target="_blank" rel="noopener">https://www.bartier.com.au/insights/articles/low-and-mid-rise-housing-policy-stage-2-is-here</a></p>
+<p>Duplex Building Design. (2025). NSW&rsquo;s low and mid-rise housing reforms (Stage 2): What you need to know. Duplex Building Design. <a href="https://duplexbuildingdesign.com/nsws-low-and-mid-rise-housing-reforms-stage-2-what-you-need-to-know/" target="_blank" rel="noopener">https://duplexbuildingdesign.com/nsws-low-and-mid-rise-housing-reforms-stage-2-what-you-need-to-know/</a></p>
+<p>Feasly. (2025). NSW low and mid-rise housing reform: Developer guide. Feasly. <a href="https://www.feasly.com.au/guides/nsw-low-and-mid-rise-housing-reform-developer-guide" target="_blank" rel="noopener">https://www.feasly.com.au/guides/nsw-low-and-mid-rise-housing-reform-developer-guide</a></p>
+<p>instantSEE. (n.d.). Medium density housing SEPP NSW: What it means. instantSEE. <a href="https://instantsee.com.au/guides/medium-density-housing-sepp-nsw" target="_blank" rel="noopener">https://instantsee.com.au/guides/medium-density-housing-sepp-nsw</a></p>
+<p>instantSEE. (n.d.). R2 zone NSW: What you can build on low density. instantSEE. <a href="https://instantsee.com.au/guides/r2-zone-nsw" target="_blank" rel="noopener">https://instantsee.com.au/guides/r2-zone-nsw</a></p>
+<p>NSW Department of Planning, Housing and Infrastructure. (n.d.). Low and Mid-Rise Housing Policy: Summary of key provisions. NSW Government. <a href="https://www.planning.nsw.gov.au/policy-and-legislation/housing/low-and-mid-rise-housing-policy/summary-of-key-provisions" target="_blank" rel="noopener">https://www.planning.nsw.gov.au/policy-and-legislation/housing/low-and-mid-rise-housing-policy/summary-of-key-provisions</a></p>
+<p>NSW Department of Planning. (2011). Practice note PN 11-001: Preparing LEPs using the Standard Instrument &ndash; standard clauses [PDF]. NSW Government. <a href="https://www.planning.nsw.gov.au/sites/default/files/2023-04/practice-note-pn-11-001-preparing-leps-using-the-standard-instrument-standard-clauses.pdf" target="_blank" rel="noopener">https://www.planning.nsw.gov.au/sites/default/files/2023-04/practice-note-pn-11-001-preparing-leps-using-the-standard-instrument-standard-clauses.pdf</a></p>
+<p>NSW Legislation. (n.d.). Standard Instrument&mdash;Principal Local Environmental Plan (2006 EPI 155a). NSW Government. <a href="https://legislation.nsw.gov.au/view/whole/html/inforce/current/epi-2006-155a" target="_blank" rel="noopener">https://legislation.nsw.gov.au/view/whole/html/inforce/current/epi-2006-155a</a></p>
+<p>Owner Inspections. (n.d.). R2 vs R3 zoning in NSW explained. Owner Inspections. <a href="https://ownerinspections.com.au/articles/what-is-land-zoning-r2-vs-r3-zoning" target="_blank" rel="noopener">https://ownerinspections.com.au/articles/what-is-land-zoning-r2-vs-r3-zoning</a></p>
+<p>Town Planning Online. (n.d.). NSW planning zones explained &mdash; LEP land use zones. Town Planning Online. <a href="https://www.townplanning.com.au/nsw/zones" target="_blank" rel="noopener">https://www.townplanning.com.au/nsw/zones</a></p>
+<p>Zoning NSW Reports. (n.d.). What is R2 zoning in NSW? Uses, controls and examples. Zoning NSW Reports. <a href="https://www.zoningnswreports.com.au/guides/what-is-r2-zoning-nsw" target="_blank" rel="noopener">https://www.zoningnswreports.com.au/guides/what-is-r2-zoning-nsw</a></p>
+</div>
+    </div>
+  </div>
+</div>
+
+<script>
+
+  // Scroll reveal — threshold:0 + rootMargin ensures tall elements always trigger
+  const ro = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){e.target.classList.add('visible');ro.unobserve(e.target);}
+    });
+  },{threshold:0, rootMargin:'0px 0px -60px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+
+  // Hamburger
+  const ham = document.getElementById('hamburger');
+  const mob = document.getElementById('mobile-menu');
+  if(ham && mob){
+    ham.addEventListener('click',()=>{
+      const open = ham.classList.toggle('open');
+      mob.classList.toggle('open');
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    mob.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+      ham.classList.remove('open');
+      mob.classList.remove('open');
+      document.body.style.overflow='';
+    }));
+  }
+
+  // Parallax (CSS background-attachment:fixed handles most of it;
+  // this adds a subtle JS layer for browsers that don't support it well)
+  const bands = document.querySelectorAll('.pb-img');
+  if(bands.length && window.matchMedia('(prefers-reduced-motion:no-preference)').matches){
+    window.addEventListener('scroll',()=>{
+      const sy = window.scrollY;
+      bands.forEach(b=>{
+        const rect = b.closest('.parallax-band').getBoundingClientRect();
+        if(rect.bottom > 0 && rect.top < window.innerHeight){
+          const pct = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
+          b.style.transform = `translateY(${(pct - 0.5) * 60}px)`;
+        }
+      });
+    },{passive:true});
+  }
+
+
+  // Article floating cards (works for any number of articles)
+  document.querySelectorAll('.article-overlay').forEach((overlay) => {
+    const opener = document.getElementById('open-' + overlay.id);
+    if(!opener) return;
+    const close = () => { overlay.classList.remove('open'); document.body.style.overflow=''; };
+    opener.addEventListener('click', (e) => {
+      e.preventDefault();
+      overlay.classList.add('open');
+      overlay.querySelector('.article-card').scrollTop = 0;
+      document.body.style.overflow='hidden';
+    });
+    overlay.querySelector('.article-close').addEventListener('click', close);
+    overlay.addEventListener('click', (e) => { if(e.target === overlay) close(); });
+    document.addEventListener('keydown', (e) => {
+      if(e.key === 'Escape' && overlay.classList.contains('open')) close();
+    });
+  });
+</script>
+</body>
+</html>
