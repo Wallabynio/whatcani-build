@@ -1,6 +1,6 @@
 # whatcani.build
 
-Static website for **whatcani.build** — the trading name of Bakos & Evans Pty Ltd
+Static web site for **whatcani.build** — the trading name of Bakos & Evans Pty Ltd
 (ABN 25 622 644 464), an urban-planning consultancy in Sydney, NSW.
 
 Eight hand-written HTML pages. No CMS, no build step, no generator.
