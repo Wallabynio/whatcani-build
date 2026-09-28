@@ -49,7 +49,7 @@ before.
 | `planning-dictionary.html` | A–Z of NSW planning terms |
 | `wcib.css` | The shared stylesheet for all pages |
 | `images/` | Site photography, plus an image map in `images/README.md` |
-| `images/illustrations/` | The drawing set used in the menu and on How we work, Knowledge hub and the dictionary |
+| `illustrations/` | The drawing set used in the menu and on How we work, Knowledge hub and the dictionary |
 | `logo-*.svg`, `dwelling-type-*.svg` | Brand and illustration assets |
 
 All pages share one stylesheet, `wcib.css`. Style fixes and new components go there
