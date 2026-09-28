@@ -82,8 +82,11 @@ p { margin: 0; }
 .num { font-family: var(--font-display-sans); font-size: 15px; font-weight: 500; }
 
 /* ---------- logo (live text) ---------- */
-.logo { font-family: var(--font-display-sans); font-weight: 800; font-size: 22px; line-height: 24px; letter-spacing: -0.03em; text-decoration: none; color: inherit; white-space: nowrap; }
-.logo span { color: var(--orange); }
+.logo { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-display-sans); font-weight: 800; font-size: 22px; line-height: 24px; letter-spacing: -0.03em; text-decoration: none; color: inherit; white-space: nowrap; }
+.logo__mark { flex: none; width: 30px; height: 30px; }
+.logo__q { fill: var(--orange); }
+.logo__word > span { color: var(--orange); }
+@media (max-width: 360px) { .logo { font-size: 20px; gap: 8px; } .logo__mark { width: 26px; height: 26px; } }
 
 /* ---------- buttons & links ---------- */
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2); font-family: var(--font-sans); font-size: 14px; line-height: 20px; font-weight: 600; padding: 13px 24px; min-height: 48px; border-radius: var(--radius-pill); border: 1.5px solid transparent; text-decoration: none; cursor: pointer; transition: background .2s ease, color .2s ease, border-color .2s ease; }
@@ -656,3 +659,21 @@ body.menu-open .menu-btn .i-close { display: block; }
 @media (max-width: 1080px) { .soon-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 600px) { .soon-grid { grid-template-columns: minmax(0, 1fr); } }
 .cs-card__result { flex-wrap: wrap; row-gap: var(--space-3); }
+
+/* ============================================================
+   ARTICLE SHELF — upcoming article titles (September 2026)
+   Box steps one tone from its section. Titles only, no links.
+   ============================================================ */
+.shelf { margin-top: var(--space-7); background: var(--stone); color: var(--ink); border-radius: var(--radius-md); padding: var(--space-6); min-width: 0; }
+.on-stone .shelf, .on-black .shelf, .on-sky .shelf { background: var(--paper); }
+.shelf__head { display: flex; align-items: center; gap: var(--space-3); }
+.shelf__head svg { flex: none; }
+.shelf__head h3 { font-family: var(--font-serif); font-weight: 400; font-size: 24px; line-height: 30px; margin: 0; }
+.shelf__intro { margin: var(--space-2) 0 0; font-size: 15px; line-height: 24px; color: var(--charcoal); max-width: var(--measure); }
+.shelf__cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-4) var(--space-6); margin-top: var(--space-5); }
+.shelf__label { display: block; font-size: 12px; line-height: 18px; font-weight: 700; color: var(--accent-text); margin-bottom: var(--space-2); }
+.shelf__list { list-style: none; margin: 0; padding: 0; }
+.shelf__list li { font-family: var(--font-serif); font-weight: 400; font-size: 18px; line-height: 26px; padding: var(--space-3) 0; border-top: 1px solid var(--stone-deep); min-width: 0; overflow-wrap: anywhere; }
+.shelf__next { display: inline-flex; align-items: center; vertical-align: 2px; margin-right: var(--space-2); padding: 2px 10px; border-radius: var(--radius-pill); background: var(--orange); color: var(--ink); font-family: var(--font-sans); font-size: 12px; line-height: 18px; font-weight: 700; }
+@media (max-width: 1080px) { .shelf__cols { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 760px) { .shelf { padding: var(--space-5); } .shelf__cols { grid-template-columns: minmax(0, 1fr); } }
