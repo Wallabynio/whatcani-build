@@ -49,6 +49,12 @@
     "datePublished": "2026-07-09",
     "author": {"@type": "Organization", "name": "whatcani.build"},
     "url": "https://whatcani.build/blog.html"
+  }, {
+    "@type": "BlogPosting",
+    "headline": "What zoning R2 actually means for your site",
+    "datePublished": "2026-07-23",
+    "author": {"@type": "Organization", "name": "whatcani.build"},
+    "url": "https://whatcani.build/blog.html"
   }]
 }
 </script>
@@ -63,28 +69,39 @@
   <div class="container">
     <a href="index.html" class="logo" aria-label="whatcani.build home">whatcani<span>.build</span></a>
     <nav aria-label="Main">
-      <ul class="nav-links">
-        <li><a href="about.html">About us</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="pricing.html">Pricing</a></li>
-        <li><a href="blog.html" aria-current="page">Blog</a></li>
-        <li><a href="testimonials.html">Testimonials</a></li>
-        <li><a href="contact.html">Contact us</a></li>
+      <ul class="nav-groups">
+        <li><button class="nav-group-btn" type="button" aria-expanded="false" aria-controls="site-menu" data-group="our-work">Our work <svg viewBox="0 0 12 12" aria-hidden="true"><polyline points="2.5,4.5 6,8 9.5,4.5"/></svg></button></li>
+        <li><button class="nav-group-btn" type="button" aria-expanded="false" aria-controls="site-menu" data-group="about-us">About us <svg viewBox="0 0 12 12" aria-hidden="true"><polyline points="2.5,4.5 6,8 9.5,4.5"/></svg></button></li>
+        <li><button class="nav-group-btn" type="button" aria-expanded="false" aria-controls="site-menu" data-group="knowledge-hub">Knowledge hub <svg viewBox="0 0 12 12" aria-hidden="true"><polyline points="2.5,4.5 6,8 9.5,4.5"/></svg></button></li>
       </ul>
     </nav>
-    <a href="contact.html" class="btn btn-primary">Get a site review</a>
-    <button class="menu-btn" id="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="4" y1="8" x2="20" y2="8"/><line x1="4" y1="16" x2="20" y2="16"/></svg></button>
+    <a href="contact.html" class="btn btn-primary">Contact us</a>
+    <button class="menu-btn menu-btn--label" id="menu-btn" type="button" aria-expanded="false" aria-controls="site-menu"><span class="menu-btn__text">Menu</span><svg class="i-open" viewBox="0 0 24 24" aria-hidden="true"><line x1="4" y1="8" x2="20" y2="8"/><line x1="4" y1="16" x2="20" y2="16"/></svg><svg class="i-close" viewBox="0 0 24 24" aria-hidden="true"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></button>
   </div>
 </header>
-<div class="mobile-menu" id="mobile-menu">
-  <a href="about.html">About us</a>
-  <a href="services.html">Services</a>
-  <a href="pricing.html">Pricing</a>
-  <a href="blog.html">Blog</a>
-  <a href="testimonials.html">Testimonials</a>
-  <a href="contact.html">Contact us</a>
-  <a href="legals.html">Legals</a>
-  <a href="contact.html" class="btn btn-primary" style="margin-top: 16px">Get a site review</a>
+<div class="site-menu" id="site-menu">
+  <div class="container">
+    <nav class="site-menu__grid" aria-label="Site menu">
+      <div class="site-menu__group" id="menu-our-work">
+        <h2>Our work</h2>
+        <a class="menu-row" href="services.html"><img class="menu-row__art" src="images/illustrations/layer-1-feasibility.svg" alt=""><span class="menu-row__text"><span class="menu-row__name">Services</span><span class="menu-row__desc">What we assess, from extensions to townhouses</span></span><svg class="menu-row__arrow" viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13,6 19,12 13,18"/></svg></a>
+        <a class="menu-row" href="pricing.html"><img class="menu-row__art" src="images/illustrations/menu-pricing.svg" alt=""><span class="menu-row__text"><span class="menu-row__name">Pricing</span><span class="menu-row__desc">Fixed fees, GST included</span></span><svg class="menu-row__arrow" viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13,6 19,12 13,18"/></svg></a>
+        <a class="menu-row" href="how-we-work.html"><img class="menu-row__art" src="images/illustrations/layer-5-implementation.svg" alt=""><span class="menu-row__text"><span class="menu-row__name">How we work</span><span class="menu-row__desc">Five questions behind every site, from feasibility to delivery</span></span><svg class="menu-row__arrow" viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13,6 19,12 13,18"/></svg></a>
+        <a class="menu-row" href="testimonials.html"><img class="menu-row__art" src="images/illustrations/menu-case-studies.svg" alt=""><span class="menu-row__text"><span class="menu-row__name">Case studies</span><span class="menu-row__desc">Real sites, what they could build and why</span></span><svg class="menu-row__arrow" viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13,6 19,12 13,18"/></svg></a>
+      </div>
+      <div class="site-menu__group" id="menu-about-us">
+        <h2>About us</h2>
+        <a class="menu-row" href="about.html"><img class="menu-row__art" src="images/illustrations/menu-the-practice.svg" alt=""><span class="menu-row__text"><span class="menu-row__name">The practice</span><span class="menu-row__desc">Who we are, and the two planners you’ll talk to</span></span><svg class="menu-row__arrow" viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13,6 19,12 13,18"/></svg></a>
+        <a class="menu-row" href="about.html#councils"><img class="menu-row__art" src="images/illustrations/menu-councils.svg" alt=""><span class="menu-row__text"><span class="menu-row__name">Councils we cover</span><span class="menu-row__desc">The Sydney and NSW councils we work across</span></span><svg class="menu-row__arrow" viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13,6 19,12 13,18"/></svg></a>
+      </div>
+      <div class="site-menu__group" id="menu-knowledge-hub">
+        <h2>Knowledge hub</h2>
+        <a class="menu-row" href="blog.html" aria-current="page"><img class="menu-row__art" src="images/illustrations/menu-articles.svg" alt=""><span class="menu-row__text"><span class="menu-row__name">Articles</span><span class="menu-row__desc">Plain-language guides to NSW planning</span></span><svg class="menu-row__arrow" viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13,6 19,12 13,18"/></svg></a>
+        <a class="menu-row" href="planning-dictionary.html"><img class="menu-row__art" src="images/illustrations/menu-planning-dictionary.svg" alt=""><span class="menu-row__text"><span class="menu-row__name">Planning dictionary</span><span class="menu-row__desc">FSR, LEP, DCP, CDC and clause 4.6, in plain words</span></span><svg class="menu-row__arrow" viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13,6 19,12 13,18"/></svg></a>
+      </div>
+    </nav>
+    <div class="site-menu__foot"><a href="contact.html" class="btn btn-primary">Contact us</a><p>Replies within 2 business days.</p></div>
+  </div>
 </div>
 
 <main id="main">
@@ -366,11 +383,12 @@
       </div>
       <div class="footer-col footer-pages">
         <span class="label">Pages</span>
-        <a href="about.html">About us</a>
         <a href="services.html">Services</a>
         <a href="pricing.html">Pricing</a>
-        <a href="blog.html">Blog</a>
-        <a href="testimonials.html">Testimonials</a>
+        <a href="how-we-work.html">How we work</a>
+        <a href="testimonials.html">Case studies</a>
+        <a href="about.html">The practice</a>
+        <a href="knowledge-hub.html">Knowledge hub</a>
         <a href="contact.html">Contact us</a>
         <a href="legals.html">Legals</a>
       </div>
@@ -402,19 +420,31 @@ if (hdr) {
   window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
 }
 
-// Mobile menu
+// Grouped menu: a group button (desktop) or the Menu button (phone) opens it
+const siteMenu = document.getElementById('site-menu');
 const menuBtn = document.getElementById('menu-btn');
-const menu = document.getElementById('mobile-menu');
-if (menuBtn && menu) {
-  const setOpen = (open) => {
-    menu.classList.toggle('open', open);
-    menuBtn.setAttribute('aria-expanded', String(open));
-    menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+const openers = document.querySelectorAll('.nav-group-btn, #menu-btn');
+if (siteMenu && menuBtn) {
+  let lastOpener = null;
+  const setOpen = (open, from) => {
+    siteMenu.classList.toggle('open', open);
+    document.body.classList.toggle('menu-open', open);
     document.body.style.overflow = open ? 'hidden' : '';
+    openers.forEach(b => b.setAttribute('aria-expanded', String(open && (b === from || b === menuBtn))));
+    menuBtn.querySelector('.menu-btn__text').textContent = open ? 'Close' : 'Menu';
+    if (open) {
+      lastOpener = from;
+      const g = from && from.dataset.group ? document.getElementById('menu-' + from.dataset.group) : null;
+      const first = (g || siteMenu).querySelector('a');
+      if (g && window.innerWidth <= 1080) g.scrollIntoView({ block: 'start' });
+      if (first) first.focus({ preventScroll: true });
+    } else if (lastOpener) {
+      (lastOpener.offsetParent ? lastOpener : menuBtn).focus();
+    }
   };
-  menuBtn.addEventListener('click', () => setOpen(!menu.classList.contains('open')));
-  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setOpen(false)));
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setOpen(false); });
+  openers.forEach(b => b.addEventListener('click', () => setOpen(!siteMenu.classList.contains('open'), b)));
+  siteMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setOpen(false)));
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && siteMenu.classList.contains('open')) setOpen(false); });
 }
 
 // Blog article reader (works for any number of articles: needs id="article-N" + id="open-article-N")

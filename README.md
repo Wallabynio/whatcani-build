@@ -1,9 +1,9 @@
 # whatcani.build
 
-Static web site for **whatcani.build** — the trading name of Bakos & Evans Pty Ltd
+Static website for **whatcani.build** — the trading name of Bakos & Evans Pty Ltd
 (ABN 25 622 644 464), an urban-planning consultancy in Sydney, NSW.
 
-Eight hand-written HTML pages. No CMS, no build step, no generator.
+Eleven hand-written HTML pages. No CMS, no build step, no generator.
 
 ---
 
@@ -44,11 +44,25 @@ before.
 | `testimonials.html` | Client outcomes and project snapshots |
 | `contact.html` | Enquiry form (Formspree) |
 | `legals.html` | Legal notices — do not edit without instruction |
+| `how-we-work.html` | The five layers of "What can I build?" |
+| `knowledge-hub.html` | Knowledge hub: all articles and the dictionary |
+| `planning-dictionary.html` | A–Z of NSW planning terms |
+| `wcib.css` | The shared stylesheet for all pages |
 | `images/` | Site photography, plus an image map in `images/README.md` |
+| `images/illustrations/` | The drawing set used in the menu and on How we work, Knowledge hub and the dictionary |
 | `logo-*.svg`, `dwelling-type-*.svg` | Brand and illustration assets |
 
-Each page carries its own complete copy of the CSS. Any style fix or new component
-must be applied identically to all eight files.
+All pages share one stylesheet, `wcib.css`. Style fixes and new components go there
+(never in per-page `<style>` blocks). When `wcib.css` changes, upload it together with
+the pages — a page without its matching stylesheet renders unstyled.
+
+## Navigation
+
+Every page carries the same grouped menu: **Our work** (Services, Pricing, How we work,
+Case studies), **About us** (The practice, Councils we cover) and **Knowledge hub**
+(Articles, Planning dictionary), plus a Contact us button. The header and menu markup is
+identical on every page; change it on all eleven together. The footer page list is the
+same on every page too.
 
 ## Progressive Web App
 
