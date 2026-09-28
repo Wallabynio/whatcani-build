@@ -643,3 +643,16 @@ body.menu-open .menu-btn .i-close { display: block; }
   .dict-entry { grid-template-columns: minmax(0, 1fr); row-gap: var(--space-2); }
   .closing-statement p { font-size: 32px; line-height: 40px; }
 }
+
+/* ---------- coming-soon services (services.html) ---------- */
+.soon-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-5); }
+.soon-card { background: var(--stone); color: var(--ink); border-radius: var(--radius-md); padding: 28px; display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-3); min-width: 0; }
+.on-stone .soon-card, .on-black .soon-card { background: var(--paper); }
+.soon-badge { display: inline-flex; align-items: center; min-height: 28px; padding: 4px 12px; border-radius: var(--radius-pill); background: var(--orange); color: var(--ink); font-size: 13px; line-height: 18px; font-weight: 700; }
+.soon-card h3 { font-family: var(--font-serif); font-weight: 400; font-size: 24px; line-height: 30px; margin: 0; }
+.soon-card p { margin: 0; font-size: 15px; line-height: 24px; }
+.soon-foot { margin-top: var(--space-7); display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-5); }
+.soon-foot p { margin: 0; max-width: var(--measure); }
+@media (max-width: 1080px) { .soon-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .soon-grid { grid-template-columns: minmax(0, 1fr); } }
+.cs-card__result { flex-wrap: wrap; row-gap: var(--space-3); }

@@ -41,13 +41,14 @@ before.
 | `services.html` | Service tiers |
 | `pricing.html` | Fixed fees, GST inclusive |
 | `blog.html` | Articles, published as in-page overlays |
-| `testimonials.html` | Client outcomes and project snapshots |
+| `testimonials.html` | Case studies & testimonials: client quotes and case-study cards |
 | `contact.html` | Enquiry form (Formspree) |
 | `legals.html` | Legal notices — do not edit without instruction |
 | `how-we-work.html` | The five layers of "What can I build?" |
 | `knowledge-hub.html` | Knowledge hub: all articles and the dictionary |
 | `planning-dictionary.html` | A–Z of NSW planning terms |
 | `wcib.css` | The shared stylesheet for all pages |
+| `sitemap.xml`, `robots.txt` | Page list for search engines; add any new page to `sitemap.xml` |
 | `images/` | Site photography, plus an image map in `images/README.md` |
 | `illustrations/` | The drawing set used in the menu and on How we work, Knowledge hub and the dictionary |
 | `logo-*.svg`, `dwelling-type-*.svg` | Brand and illustration assets |
