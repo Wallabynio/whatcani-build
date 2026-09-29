@@ -86,6 +86,12 @@ p { margin: 0; }
 .logo__mark { flex: none; width: 30px; height: 30px; }
 .logo__q { fill: var(--orange); }
 .logo__word > span { color: var(--orange); }
+.hero-eyebrow__part { white-space: nowrap; }
+/* The LinkedIn mark: LinkedIn allows only its own blue, black on light grounds or white on dark grounds.
+   Pure black and white here are LinkedIn's rule, the one exception to the palette tokens. */
+.li-mark { fill: #000000; flex: none; }
+.on-ink .li-mark, .site-footer .li-mark { fill: #FFFFFF; }
+@media (max-width: 600px) { .hero-eyebrow__part { display: block; } .hero-eyebrow__sep { display: none; } }
 @media (max-width: 360px) { .logo { font-size: 20px; gap: 8px; } .logo__mark { width: 26px; height: 26px; } }
 
 /* ---------- buttons & links ---------- */
