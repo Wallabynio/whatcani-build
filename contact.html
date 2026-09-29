@@ -228,5 +228,12 @@ if (siteMenu && menuBtn) {
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && siteMenu.classList.contains('open')) setOpen(false); });
 }
 </script>
+<button class="to-top" type="button" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg></button>
+<script>
+(function(){var b=document.querySelector('.to-top');if(!b)return;var t=false;
+function u(){b.classList.toggle('is-visible',window.scrollY>window.innerHeight*0.8);t=false;}
+window.addEventListener('scroll',function(){if(!t){t=true;requestAnimationFrame(u);}},{passive:true});u();
+b.addEventListener('click',function(){var r=window.matchMedia('(prefers-reduced-motion: reduce)').matches;window.scrollTo({top:0,behavior:r?'auto':'smooth'});});})();
+</script>
 </body>
 </html>
