@@ -38,6 +38,7 @@ before.
 |---|---|
 | `index.html` | Home |
 | `about.html` | The practice and its principals |
+| `councils.html` | Councils we cover: regions, what changes between councils, FAQ |
 | `services.html` | Service tiers |
 | `pricing.html` | Fixed fees, GST inclusive |
 | `blog.html` | Articles, published as in-page overlays |
@@ -45,12 +46,11 @@ before.
 | `contact.html` | Enquiry form (Formspree) |
 | `legals.html` | Legal notices — do not edit without instruction |
 | `how-we-work.html` | The five layers of "What can I build?" |
-| `knowledge-hub.html` | Knowledge hub: all articles and the dictionary |
 | `planning-dictionary.html` | A–Z of NSW planning terms |
 | `wcib.css` | The shared stylesheet for all pages |
 | `sitemap.xml`, `robots.txt` | Page list for search engines; add any new page to `sitemap.xml` |
 | `images/` | Site photography, plus an image map in `images/README.md` |
-| `illustrations/` | The drawing set used in the menu and on How we work, Knowledge hub and the dictionary |
+| `illustrations/` | The drawing set used in the menu and on How we work and the dictionary |
 | `logo-*.svg`, `dwelling-type-*.svg` | Brand and illustration assets |
 
 All pages share one stylesheet, `wcib.css`. Style fixes and new components go there
@@ -61,9 +61,9 @@ the pages — a page without its matching stylesheet renders unstyled.
 
 Every page carries the same grouped menu: **Our work** (Services, Pricing, How we work,
 Case studies), **About us** (The practice, Councils we cover) and **Knowledge hub**
-(Articles, Planning dictionary), plus a Contact us button. The header and menu markup is
-identical on every page; change it on all eleven together. The footer page list is the
-same on every page too.
+(Articles, Planning dictionary), plus a Contact us button. Every menu row is its own page. The header and menu markup is
+identical on every page; change it on all eleven together. The footer repeats the same three
+groups, then Contact and Legals, on every page.
 
 ## Progressive Web App
 
