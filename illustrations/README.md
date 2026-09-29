@@ -1,1 +1,1 @@
-Drawing set used in the site menu and on How we work, Knowledge hub and the Planning dictionary.
+Drawing set used in the site menu and on How we work and the Planning dictionary.
