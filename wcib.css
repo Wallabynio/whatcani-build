@@ -249,7 +249,7 @@ p { margin: 0; }
   .media-hero { height: 280px; }
   .media-card { height: 220px; }
   .row.stretch-mobile { flex-direction: column; align-items: stretch; }
-  .card, .price { padding: var(--space-5); }
+  .card:not(.card-flush), .price { padding: var(--space-5); }
   .person { flex-direction: column; gap: var(--space-4); padding-top: var(--space-5); }
   .person-photo { width: 88px; height: 88px; }
   .form-panel { grid-template-columns: 1fr; padding: var(--space-5); }
@@ -698,3 +698,10 @@ body.menu-open .menu-btn .i-close { display: block; }
 @media (max-width: 1080px) { .council-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 760px) { .lga-grid--notes, .council-cards, .council-steps { grid-template-columns: minmax(0, 1fr); } }
 @media (max-width: 600px) { .lga-grid--notes .lga-col { padding: var(--space-6); } }
+
+/* ---------- Homepage: latest articles (October 2026) ----------
+   Photo, category, title and date only (Gehl-style); links open the article on blog.html. */
+.latest-card { color: inherit; text-decoration: none; min-width: 0; }
+.latest-card .h3 { margin: 0; }
+.latest-card:hover .h3, .latest-card:focus-visible .h3 { text-decoration: underline; text-underline-offset: 4px; }
+.latest-card__meta { font-size: 13px; line-height: 18px; color: var(--charcoal); }

@@ -821,6 +821,8 @@ document.querySelectorAll('.article-overlay').forEach((overlay) => {
   overlay.addEventListener('click', (e) => { if (e.target === overlay) close(); });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && overlay.classList.contains('open')) close(); });
 });
+// Open an article straight away when the link ends in #article-N (used by the homepage cards)
+(function(){ const h = location.hash.slice(1); if (/^article-\d+$/.test(h)) { const op = document.getElementById('open-' + h); if (op) op.click(); } })();
 </script>
 <button class="to-top" type="button" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg></button>
 <script>
