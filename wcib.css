@@ -710,3 +710,7 @@ body.menu-open .menu-btn .i-close { display: block; }
 .cs-card__facts { font-size: 13px; line-height: 18px; font-weight: 600; color: var(--charcoal); }
 .cs-card__link { font-size: 14px; line-height: 20px; font-weight: 600; color: var(--accent-text); text-decoration: none; margin-top: var(--space-2); }
 .cs-card__link:hover, .cs-card__link:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
+
+/* ---------- Acknowledgement of Country, footer (October 2026) ---------- */
+.footer-ack { margin-top: var(--space-8); max-width: 680px; font-size: 14px; line-height: 21px; color: var(--paper); }
+.footer-ack + .footer-legal { margin-top: var(--space-4); }
