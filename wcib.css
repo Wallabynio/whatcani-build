@@ -753,3 +753,24 @@ body.menu-open .menu-btn .i-close { display: block; }
   .reveal { opacity: 1 !important; transform: none !important; }
   section.on-white, section.on-black { padding: 24px 0 !important; background: #fff !important; }
 }
+
+/* ---------- Checklist download form (October 2026) ----------
+   A small dialog asks for first name, email and role before a checklist PDF downloads.
+   Sent to Formspree in the background; once sent, all five PDFs are unlocked on that device. */
+.dl-dialog { border: 0; padding: 0; background: transparent; color: var(--ink); width: calc(100% - 32px); max-width: 560px; max-height: calc(100% - 32px); }
+.dl-dialog::backdrop { background: rgba(30, 25, 25, 0.72); }
+.dl-dialog__card { position: relative; background: var(--stone); border-radius: var(--radius-lg); padding: var(--space-7); }
+.dl-dialog h2 { font-family: var(--font-serif); font-weight: 400; font-size: 30px; line-height: 36px; margin: var(--space-2) 0 var(--space-3); padding-right: 48px; }
+.dl-dialog p { font-size: 15px; line-height: 24px; margin: 0 0 var(--space-5); }
+.dl-dialog__close { position: absolute; top: 16px; right: 16px; width: 44px; height: 44px; border-radius: 50%; border: 0; background: var(--paper); display: flex; align-items: center; justify-content: center; cursor: pointer; }
+.dl-dialog__close svg { width: 20px; height: 20px; fill: none; stroke: var(--ink); stroke-width: 1.75; stroke-linecap: round; }
+.dl-form .form-field { margin-bottom: var(--space-4); }
+.dl-check { display: flex; gap: var(--space-3); align-items: flex-start; font-size: 15px; line-height: 22px; margin: var(--space-2) 0 var(--space-5); cursor: pointer; }
+.dl-check input { width: 18px; height: 18px; margin: 2px 0 0; accent-color: var(--navy); flex: none; }
+.dl-submit { width: 100%; justify-content: center; }
+.dl-submit:disabled { opacity: .7; cursor: progress; }
+.dl-error { font-weight: 600; margin: var(--space-4) 0 0 !important; }
+.dl-privacy { font-size: 13px !important; line-height: 19px !important; color: var(--charcoal); margin: var(--space-4) 0 0 !important; }
+.dl-hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+@media (max-width: 600px) { .dl-dialog__card { padding: var(--space-6) var(--space-5); } .dl-dialog h2 { font-size: 26px; line-height: 32px; } }
+@media print { .dl-dialog { display: none !important; } }
