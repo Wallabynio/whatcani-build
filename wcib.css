@@ -705,3 +705,8 @@ body.menu-open .menu-btn .i-close { display: block; }
 .latest-card .h3 { margin: 0; }
 .latest-card:hover .h3, .latest-card:focus-visible .h3 { text-decoration: underline; text-underline-offset: 4px; }
 .latest-card__meta { font-size: 13px; line-height: 18px; color: var(--charcoal); }
+
+/* ---------- Case-study fact line and contact link (October 2026) ---------- */
+.cs-card__facts { font-size: 13px; line-height: 18px; font-weight: 600; color: var(--charcoal); }
+.cs-card__link { font-size: 14px; line-height: 20px; font-weight: 600; color: var(--accent-text); text-decoration: none; margin-top: var(--space-2); }
+.cs-card__link:hover, .cs-card__link:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
