@@ -772,5 +772,7 @@ body.menu-open .menu-btn .i-close { display: block; }
 .dl-error { font-weight: 600; margin: var(--space-4) 0 0 !important; }
 .dl-privacy { font-size: 13px !important; line-height: 19px !important; color: var(--charcoal); margin: var(--space-4) 0 0 !important; }
 .dl-hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.dl-actions { display: flex; flex-wrap: wrap; gap: var(--space-3); }
+.dl-help { font-size: 13px !important; line-height: 19px !important; color: var(--charcoal); margin: var(--space-5) 0 0 !important; }
 @media (max-width: 600px) { .dl-dialog__card { padding: var(--space-6) var(--space-5); } .dl-dialog h2 { font-size: 26px; line-height: 32px; } }
 @media print { .dl-dialog { display: none !important; } }
