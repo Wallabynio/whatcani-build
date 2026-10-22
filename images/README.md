@@ -12,6 +12,10 @@ hot-linked.
 - Every photo carries the site's colour grade: warm, soft Sydney light
   (gently muted colour, warm highlights, shadows lifted towards ink,
   highlights rolled off towards paper). Apply the same grade to any new photo.
+- Each photo also has AVIF and WebP versions at 1600px and 800px wide
+  (`name.avif`, `name-800.avif`, `name.webp`, `name-800.webp`), made from the
+  graded JPG. Browsers that can use them do; the rest get the JPG. A new or
+  replaced photo needs all four versions too.
 - Edits to a real photo (removing a logo, say) are made with Nano Banana Pro
   on Higgsfield, using the original as the reference, so the rest of the
   photograph stays untouched. New photos are made the same way from existing
