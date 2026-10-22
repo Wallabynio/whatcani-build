@@ -785,3 +785,277 @@ body.menu-open .menu-btn .i-close { display: block; }
 .dl-help { font-size: 13px !important; line-height: 19px !important; color: var(--charcoal); margin: var(--space-5) 0 0 !important; }
 @media (max-width: 600px) { .dl-dialog__card { padding: var(--space-6) var(--space-5); } .dl-dialog h2 { font-size: 26px; line-height: 32px; } }
 @media print { .dl-dialog { display: none !important; } }
+
+/* ===== Modern refinements (round 1, October 2026) ===== */
+/* Optical sizes: Newsreader (6–72) and Inter (14–32) load with their opsz axis; the browser matches letterforms to the size. */
+body { font-optical-sizing: auto; }
+/* Balanced headings (no one-word last lines) and tidier paragraph endings. */
+h1, h2, h3, h4, .display, .h1, .h2, .h3, .h4 { text-wrap: balance; }
+p, li, dd, figcaption { text-wrap: pretty; }
+/* Modern image formats: <picture> wraps each photo but takes no part in layout. */
+picture { display: contents; }
+picture > source { display: none; }
+/* Page-to-page transitions: a short cross-fade; the header stays put. Browsers without support load pages as before. */
+@view-transition { navigation: auto; }
+.site-header { view-transition-name: site-header; }
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: .28s; animation-timing-function: ease; }
+@media (prefers-reduced-motion: reduce) {
+  @view-transition { navigation: none; }
+  ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
+}
+
+/* ===== Question hero (round 2, October 2026) ===== */
+/* "What can I build on…" types each ending beneath the homepage headline, on a stone-deep rule ending in the logo mark. */
+.qhero { display: flex; align-items: flex-end; gap: var(--space-4); padding-bottom: var(--space-4); border-bottom: 1px solid var(--stone-deep); min-width: 0; }
+.qhero__q { flex: 1; min-width: 0; margin: 0; font-family: var(--font-serif); font-weight: 400; font-size: 30px; line-height: 38px; text-wrap: initial; }
+.qhero__ask { display: block; color: var(--charcoal); }
+.qhero__stage { display: grid; color: var(--ink); }
+.qhero__stage > * { grid-area: 1 / 1; min-width: 0; }
+.qhero__ghost { visibility: hidden; }
+.qhero__spacer { display: inline-block; width: 1.15em; }
+.qhero__live { white-space: normal; }
+.qhero__tail { white-space: nowrap; }
+.qhero__caret { display: inline-block; width: 2px; height: .9em; margin-left: 3px; vertical-align: -0.08em; background: var(--orange); opacity: 0; }
+.qhero.is-typing .qhero__caret { opacity: 1; }
+.qhero__mark { display: inline-block; width: .85em; height: .85em; margin-left: .3em; vertical-align: -0.04em; color: var(--ink); }
+.qhero__mark .logo__q { fill: var(--orange); }
+.qhero__pause { width: 36px; height: 36px; margin-bottom: 2px; }
+.qhero__pause svg { width: 16px; height: 16px; }
+.qhero__pause[hidden] { display: none; }
+@media (max-width: 600px) { .qhero__q { font-size: 24px; line-height: 31px; } }
+
+/* ===== Numbers strip with labels and icons (round 2, October 2026) ===== */
+.stats--labelled { text-align: left; }
+.stats-head { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); padding-bottom: 10px; margin-bottom: var(--space-5); border-bottom: 1px solid var(--navy); }
+.stats-icon { width: 24px; height: 24px; flex: none; fill: none; stroke: var(--navy); stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+.on-ink .stats-head { border-bottom-color: var(--sky); }
+.on-ink .stats-icon { stroke: var(--sky); }
+
+/* ===== Long reads: contents rail, section bar, filters, reading progress (round 3, October 2026) ===== */
+/* Anchored sections land below the sticky header (and the section bar where there is one). */
+:root { --hdr: 84px; }
+[id] { scroll-margin-top: calc(var(--hdr) + 24px); }
+.has-section-bar [id] { scroll-margin-top: calc(var(--hdr) + 72px); }
+
+/* Contents rail: a sticky list on the left from 1080px; a "Contents" button above the content below that. */
+.toc-layout { display: block; }
+.toc { margin: 0 0 var(--space-6); min-width: 0; }
+.toc > summary { display: inline-flex; align-items: center; gap: var(--space-2); min-height: 44px; padding: 0 18px; border: 1.5px solid currentColor; border-radius: var(--radius-pill); font-size: 14px; font-weight: 600; cursor: pointer; list-style: none; }
+.toc > summary::-webkit-details-marker { display: none; }
+.toc > summary svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; transition: transform .2s ease; }
+.toc[open] > summary svg { transform: rotate(180deg); }
+.toc__title { display: none; }
+.toc__list { list-style: none; margin: var(--space-4) 0 0; padding: 0; border-left: 1px solid var(--stone-deep); }
+.toc__list a { display: block; margin-left: -1px; padding: 7px 0 7px 16px; border-left: 2px solid transparent; font-size: 14px; line-height: 20px; color: var(--charcoal); text-decoration: none; transition: color .2s ease, border-color .2s ease; }
+.toc__list a:hover { color: var(--ink); }
+.toc__list a[aria-current="true"] { color: var(--ink); font-weight: 600; border-left-color: var(--ink); }
+@media (min-width: 1080px) {
+  .toc-layout { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: var(--space-8); align-items: start; }
+  .toc { position: sticky; top: calc(var(--hdr) + 32px); margin: 0; max-height: calc(100vh - var(--hdr) - 64px); overflow-y: auto; }
+  .toc > summary { display: none; }
+  .toc__title { display: block; }
+  .toc-main { min-width: 0; }
+}
+
+/* Planning dictionary: the A–Z and the term filter live in the rail. */
+.dict-find { margin: 0 0 var(--space-5); }
+.dict-find label { display: block; font-size: 13px; line-height: 18px; font-weight: 700; margin-bottom: var(--space-2); }
+.dict-find input { box-sizing: border-box; width: 100%; min-width: 0; min-height: 48px; padding: 10px 14px; border: 1px solid var(--taupe); border-radius: var(--radius-sm); background: var(--paper); color: var(--ink); font: inherit; font-size: 16px; }
+.dict-find input:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+.dict-find__count { margin: var(--space-2) 0 0; font-size: 13px; line-height: 18px; color: var(--charcoal); }
+.dict-az a[aria-current="true"] { background: var(--ink); color: var(--paper); }
+.dict-az .is-empty { opacity: .35; pointer-events: none; }
+.dict-none { display: none; font-family: var(--font-serif); font-size: 22px; line-height: 31px; margin: 0 0 var(--space-7); }
+.dict-none.is-shown { display: block; }
+.is-filtered-out { display: none !important; }
+@media (min-width: 1080px) {
+  .toc--az .dict-az { display: grid; grid-template-columns: repeat(4, 44px); gap: var(--space-1); margin: 0; }
+}
+
+/* Section bar: page-wide contents under the sticky header (Councils we cover). */
+.section-bar { position: sticky; top: var(--hdr); z-index: 150; background: var(--paper); border-bottom: 1px solid var(--stone-deep); }
+.section-bar__list { display: flex; gap: var(--space-6); margin: 0; padding: 0; list-style: none; overflow-x: auto; scrollbar-width: none; }
+.section-bar__list::-webkit-scrollbar { display: none; }
+.section-bar__list a { display: inline-flex; align-items: center; min-height: 48px; white-space: nowrap; font-size: 14px; line-height: 20px; font-weight: 600; color: var(--charcoal); text-decoration: none; border-bottom: 2px solid transparent; margin-bottom: -1px; transition: color .2s ease, border-color .2s ease; }
+.section-bar__list a:hover { color: var(--ink); }
+.section-bar__list a[aria-current="true"] { color: var(--ink); border-bottom-color: var(--ink); }
+@media (max-width: 600px) { .section-bar__list { gap: var(--space-5); } }
+
+/* Article filters: category chips above the blog grid. */
+.filter-chips { display: flex; flex-wrap: wrap; gap: var(--space-2); margin: 0 0 var(--space-6); padding: 0; list-style: none; }
+.filter-chip { min-height: 40px; padding: 8px 16px; border: 0; border-radius: var(--radius-pill); background: var(--stone); color: var(--ink); font: inherit; font-size: 14px; line-height: 20px; font-weight: 600; cursor: pointer; transition: background .2s ease, color .2s ease; }
+.filter-chip:hover { background: var(--stone-deep); }
+.filter-chip[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+.on-stone .filter-chip, .on-black .filter-chip { background: var(--paper); }
+.filter-status { margin: 0 0 var(--space-5); font-size: 13px; line-height: 18px; color: var(--charcoal); }
+
+/* Article reader: contents rail and a 2px orange reading-progress line. */
+.reader-progress { position: sticky; top: -32px; z-index: 3; height: 2px; margin: -32px -64px 30px; background: var(--orange); transform-origin: 0 50%; transform: scaleX(0); }
+.article-card.has-toc .toc { margin-top: var(--space-2); }
+@media (min-width: 1080px) {
+  .article-card.has-toc { max-width: 1120px; display: grid; grid-template-columns: 190px minmax(0, 1fr); column-gap: var(--space-8); align-content: start; }
+  .article-card.has-toc > .reader-progress, .article-card.has-toc > .article-close { grid-column: 1 / -1; }
+  .article-card.has-toc .toc { top: 64px; max-height: calc(88vh - 120px); margin-top: 0; }
+  .article-card.has-toc .article-body { max-width: 720px; }
+}
+@media (max-width: 600px) { .reader-progress { top: -16px; margin: -16px -20px 14px; } }
+@media (prefers-reduced-motion: reduce) { .toc__list a, .section-bar__list a, .filter-chip { transition: none; } }
+
+/* ===== Change pair and checklist covers (round 4, October 2026) ===== */
+/* Change pair: the approved dwellings show a case study's site as found (taupe, stone-deep windows) and what it can become (ink, orange windows). */
+.change-pair { display: flex; align-items: flex-end; gap: var(--space-4); margin: var(--space-2) 0; padding: 0; min-width: 0; }
+.change-pair > div { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-2); min-width: 0; }
+.change-pair figcaption { font-size: 12px; line-height: 16px; font-weight: 600; color: var(--charcoal); }
+.change-pair__from figcaption { white-space: nowrap; }
+.change-pair__art { display: block; width: auto; }
+.change-pair__from .change-pair__art { height: 52px; fill: var(--taupe); }
+.change-pair__from .change-pair__art path[style*="255,119,0"] { fill: var(--stone-deep) !important; }
+.change-pair__to .change-pair__art { height: 92px; fill: var(--ink); }
+.change-pair__link { flex-direction: column; align-items: center !important; gap: 4px !important; padding-bottom: 30px; }
+.change-pair__tag { display: inline-block; padding: 2px 10px; border-radius: var(--radius-pill); background: var(--orange); color: var(--ink); font-size: 12px; line-height: 18px; font-weight: 700; }
+.change-pair__arrow { width: 40px; height: 24px; fill: none; stroke: var(--navy); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+@media (max-width: 360px) { .change-pair { gap: var(--space-3); } .change-pair__to .change-pair__art { height: 76px; } .change-pair__from .change-pair__art { height: 44px; } }
+
+/* Checklist covers: each free checklist shown as an A4 page with the wordmark, title, its drawing and "1 page · PDF". */
+.checklist-card--cover { position: relative; }
+.checklist-card__brand { font-family: var(--font-display-sans); font-weight: 800; font-size: 13px; line-height: 16px; letter-spacing: -0.03em; }
+.checklist-card__brand span { color: var(--orange); }
+.checklist-card__art { display: block; width: 72%; max-width: 150px; height: auto; margin: auto auto 0; }
+.checklist-card__meta { font-size: 12px; line-height: 16px; color: var(--charcoal); }
+.checklist-card--cover h3 { flex: 0 0 auto; }
+@media (min-width: 601px) {
+  .checklist-card--cover { min-height: 380px; }
+}
+@media (max-width: 600px) {
+  .checklist-card--cover { display: grid; grid-template-columns: minmax(0, 1fr) 88px; grid-template-areas: "brand art" "label art" "title art" "meta art" "more art"; column-gap: var(--space-4); align-items: start; }
+  .checklist-card--cover .checklist-card__brand { grid-area: brand; } .checklist-card--cover .label { grid-area: label; } .checklist-card--cover h3 { grid-area: title; }
+  .checklist-card--cover .checklist-card__meta { grid-area: meta; } .checklist-card--cover .checklist-card__more { grid-area: more; }
+  .checklist-card--cover .checklist-card__art { grid-area: art; width: 88px; margin: 0; align-self: center; }
+}
+
+/* ===== Councils map (round 5, October 2026) ===== */
+/* ABS council boundaries drawn in palette tones; region notes and council names are read from the cards it replaces on screen. */
+.cmap { display: flex; flex-direction: column; gap: var(--space-6); }
+.cmap[hidden] { display: none; }
+.cmap__pills { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.cmap__pill { display: inline-flex; align-items: center; gap: var(--space-2); min-height: 44px; padding: 6px 16px 6px 6px; border: 0; border-radius: var(--radius-pill); background: var(--stone); color: var(--ink); font: inherit; font-size: 14px; line-height: 20px; font-weight: 600; cursor: pointer; transition: background .2s ease, color .2s ease; }
+.cmap__pill:hover { background: var(--stone-deep); }
+.cmap__n { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; background: var(--paper); font-family: var(--font-display-sans); font-weight: 500; font-size: 13px; }
+.cmap__pill[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+.cmap__pill[aria-pressed="true"] .cmap__n { background: var(--orange); color: var(--ink); }
+.cmap__body { display: grid; grid-template-columns: minmax(0, 600px) minmax(0, 1fr); gap: var(--space-8); align-items: start; }
+.cmap__mapcol { display: flex; flex-direction: column; gap: var(--space-3); min-width: 0; }
+.cmap__frame { position: relative; width: 100%; aspect-ratio: 600 / 736; overflow: hidden; border-radius: var(--radius-md); }
+.cmap__svg { display: block; width: 100%; height: 100%; }
+.cmap__g { transform-origin: 0 0; transition: transform .8s cubic-bezier(.3,.7,.2,1); }
+.cmap__lga { fill: var(--stone); stroke: var(--paper); stroke-width: 1px; vector-effect: non-scaling-stroke; cursor: pointer; transition: fill .25s ease; }
+.cmap__lga:hover { stroke: var(--ink); stroke-width: 1.5px; }
+.cmap__lga.is-region { fill: var(--sky); }
+.cmap__lga.is-council { fill: var(--navy); }
+.cmap__ctx { fill: var(--paper); stroke: var(--stone-deep); stroke-width: 1px; stroke-dasharray: 3 3; vector-effect: non-scaling-stroke; }
+.cmap__outline { fill: none; stroke: var(--ink); stroke-width: 1.25px; vector-effect: non-scaling-stroke; pointer-events: none; }
+.cmap__marker { cursor: pointer; }
+.cmap__marker circle { fill: var(--ink); stroke: var(--paper); stroke-width: 2px; }
+.cmap__marker text { font-family: var(--font-display-sans); font-weight: 500; font-size: 13px; fill: var(--paper); }
+.cmap__marker.is-on circle { fill: var(--orange); }
+.cmap__marker.is-on text { fill: var(--ink); }
+.cmap__cbd { pointer-events: none; }
+.cmap__cbd circle { fill: var(--orange); stroke: var(--ink); stroke-width: 1.25px; }
+.cmap__label { font-family: var(--font-sans); font-size: 12px; font-weight: 600; fill: var(--ink); paint-order: stroke; stroke: var(--paper); stroke-width: 3px; stroke-linejoin: round; pointer-events: none; }
+.cmap__all { position: absolute; top: 16px; left: 16px; min-height: 40px; padding: 8px 16px; border: 1.5px solid var(--ink); border-radius: var(--radius-pill); background: var(--paper); color: var(--ink); font: inherit; font-size: 14px; font-weight: 600; cursor: pointer; }
+.cmap__all:hover { background: var(--ink); color: var(--paper); }
+.cmap__all[hidden] { display: none; }
+.cmap__key { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-5); margin: 0; padding: 0; list-style: none; font-size: 13px; line-height: 18px; color: var(--charcoal); }
+.cmap__key li { display: inline-flex; align-items: center; gap: var(--space-2); }
+.cmap__key i { display: inline-block; width: 14px; height: 14px; border-radius: 3px; }
+.cmap__key .k-cover { background: var(--stone); } .cmap__key .k-region { background: var(--sky); } .cmap__key .k-council { background: var(--navy); }
+.cmap__key .k-cbd { background: var(--orange); border-radius: 50%; } .cmap__key .k-out { border: 1px dashed var(--stone-deep); box-sizing: border-box; }
+.cmap__source { margin: 0; font-size: 12px; line-height: 17px; color: var(--charcoal); }
+.cmap__panel { display: flex; flex-direction: column; gap: var(--space-4); min-width: 0; padding-top: var(--space-2); }
+.cmap__name { margin: 0; font-family: var(--font-serif); font-weight: 400; font-size: 32px; line-height: 38px; }
+.cmap__note { margin: 0; font-size: 16px; line-height: 26px; }
+.cmap__chips { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.cmap__chip { min-height: 40px; padding: 8px 14px; border: 0; border-radius: var(--radius-pill); background: var(--stone); color: var(--ink); font: inherit; font-size: 14px; line-height: 20px; font-weight: 600; cursor: pointer; transition: background .2s ease, color .2s ease; }
+.cmap__chip:hover { background: var(--stone-deep); }
+.cmap__chip[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+.cmap__cta { margin-top: var(--space-2); font-size: 14px; line-height: 20px; font-weight: 600; color: var(--accent-text); text-decoration: none; }
+.cmap__cta:hover { text-decoration: underline; text-underline-offset: 3px; }
+.cmap__cta[hidden] { display: none; }
+@media (max-width: 1080px) { .cmap__body { grid-template-columns: minmax(0, 1fr); gap: var(--space-6); } .cmap__mapcol { max-width: 600px; } }
+@media (max-width: 600px) {
+  .cmap__pills { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin: 0 calc(-1 * var(--gutter)); padding: 0 var(--gutter); }
+  .cmap__pills::-webkit-scrollbar { display: none; }
+  .cmap__pill { flex: none; white-space: nowrap; }
+  .cmap__panel { background: var(--stone); border-radius: var(--radius-md); padding: var(--space-5); }
+  .cmap__panel .cmap__chip { background: var(--paper); }
+  .cmap__panel .cmap__chip[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+  .cmap__name { font-size: 26px; line-height: 32px; }
+  .cmap__note { font-size: 15px; line-height: 24px; }
+  .cmap__label { font-size: 18px; stroke-width: 5px; }
+  .cmap__marker circle { r: 22px; } .cmap__marker text { font-size: 21px; }
+}
+@media (prefers-reduced-motion: reduce) { .cmap__g { transition: none; } .cmap__lga, .cmap__pill, .cmap__chip { transition: none; } }
+
+/* ===== Finishing touches (round 6, October 2026) ===== */
+/* Page drawing beside the title: the page's own menu drawing; it carries view-transition-name so the menu row's drawing glides into it. */
+.page-art { view-transition-name: page-art; }
+::view-transition-group(page-art) { animation-duration: .45s; animation-timing-function: cubic-bezier(.3,.7,.2,1); }
+.page-hero--art { display: grid; grid-template-columns: minmax(0, 1fr) 240px; column-gap: var(--space-8); align-items: center; }
+.page-hero--art > :not(.page-hero__art) { grid-column: 1; }
+.page-hero__art { grid-column: 2; grid-row: 1 / span 2; width: 100%; height: auto; justify-self: end; }
+@media (max-width: 1080px) { .page-hero--art { grid-template-columns: minmax(0, 1fr) 160px; column-gap: var(--space-6); } }
+@media (max-width: 600px) { .page-hero--art { grid-template-columns: minmax(0, 1fr); } .page-hero__art { grid-column: 1; grid-row: auto; order: -1; width: 96px; justify-self: start; margin-bottom: var(--space-4); } }
+
+/* Hero tone by menu group: About us pages open on stone, Knowledge hub pages on sky (their only sky band). */
+.page-hero.hero-stone { background: var(--stone); }
+.page-hero.hero-sky, section.hero-sky { background: var(--sky); color: var(--ink); }
+
+/* Ruled-line titles: each line of an inner page title sits on a 1px rule (navy on sky). */
+.page-hero h1, .illo-hero__text h1 { --tl: 1.06em; --rule: var(--stone-deep); line-height: var(--tl); background-image: repeating-linear-gradient(to bottom, transparent 0, transparent calc(var(--tl) - 1px), var(--rule) calc(var(--tl) - 1px), var(--rule) var(--tl)); }
+.hero-sky h1 { --rule: var(--navy); }
+@media (max-width: 600px) { .page-hero h1, .illo-hero__text h1 { --tl: 1.1em; } }
+
+/* Site menu footing: a planning-term lookup beside Contact us; pinned to the bottom of the menu below 1080px. */
+.site-menu__foot { flex-wrap: wrap; justify-content: space-between; row-gap: var(--space-5); }
+.menu-lookup { display: flex; flex-direction: column; gap: var(--space-2); flex: 1 1 360px; max-width: 520px; min-width: 0; }
+.menu-lookup label { font-size: 13px; line-height: 18px; font-weight: 700; }
+.menu-lookup__row { display: flex; gap: var(--space-2); min-width: 0; }
+.menu-lookup input { flex: 1; min-width: 0; box-sizing: border-box; min-height: 48px; padding: 10px 14px; border: 1px solid var(--taupe); border-radius: var(--radius-sm); background: var(--paper); color: var(--ink); font: inherit; font-size: 16px; }
+.menu-lookup input:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+.menu-lookup .btn { flex: none; }
+.site-menu__contact { display: flex; align-items: center; gap: var(--space-5); }
+@media (max-width: 1080px) {
+  .site-menu__foot { position: sticky; bottom: calc(-1 * var(--space-7)); z-index: 2; background: var(--paper); padding-bottom: var(--space-5); text-align: left; }
+  .menu-lookup { flex: none; width: 100%; max-width: none; box-sizing: border-box; }
+  .site-menu__contact { flex-direction: column; align-items: stretch; text-align: center; width: 100%; gap: var(--space-3); }
+}
+
+/* Footer: the tagline opens the footer at heading size. */
+.footer-tagline--lead { font-family: var(--font-serif); font-weight: 400; font-size: clamp(30px, 1.2rem + 2.2vw, 48px); line-height: 1.15; letter-spacing: -0.01em; max-width: 900px; margin: 0 0 var(--space-7); text-wrap: balance; }
+
+/* Fluid type: sizes scale smoothly between phone and desktop instead of stepping at 1080 and 600. */
+.display { font-size: clamp(44px, 1.5rem + 3.9vw, 80px); line-height: 1.03; }
+.page-hero h1, .illo-hero__text h1 { font-size: clamp(40px, 1.25rem + 3.6vw, 72px); }
+.section-head h2, section h2 { font-size: clamp(32px, 1.6rem + 1.1vw, 40px); line-height: 1.1; }
+.lead, .page-hero p, .section-head p { font-size: clamp(19px, 1rem + .42vw, 22px); line-height: 1.41; }
+.qhero__q { font-size: clamp(24px, 1.2rem + .8vw, 30px); line-height: 1.27; }
+section h2.dict-letter { font-size: 40px; line-height: 44px; }
+
+/* Scroll-linked reveal where supported: the fade-up follows scrolling itself; elsewhere the IntersectionObserver reveal stays. */
+@keyframes wcib-reveal { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal, .reveal.visible { opacity: 1; transform: none; transition: none; animation: wcib-reveal linear both; animation-timeline: view(); animation-range: entry 0% entry 40%; }
+  }
+}
+@media print { .reveal { animation: none !important; opacity: 1 !important; transform: none !important; } }
+
+/* Container queries: cards adapt to the width they are given, not the window. */
+.cs-card, .checklist-card--cover { container-type: inline-size; }
+@container (max-width: 380px) {
+  .cs-card__body { padding: 22px; }
+  .change-pair { gap: var(--space-3); }
+  .change-pair__to .change-pair__art { height: 76px; }
+  .change-pair__from .change-pair__art { height: 44px; }
+}
+@container (max-width: 210px) { .checklist-card--cover h3 { font-size: 18px; line-height: 24px; } }

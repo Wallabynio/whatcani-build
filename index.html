@@ -7,7 +7,7 @@
 <title>Planning & Feasibility for Sydney Developers — whatcani.build</title>
 <meta name="description" content="Planning-led feasibility and approvals for small to mid-scale developments in Sydney and NSW. Fixed fees, plain-language advice.">
 <link rel="canonical" href="https://whatcani.build/">
-<link rel="preload" as="image" href="https://whatcani.build/images/home-facade-sunset.jpg">
+<link rel="preload" as="image" type="image/avif" href="images/home-facade-sunset.avif" imagesrcset="images/home-facade-sunset-800.avif 800w, images/home-facade-sunset.avif 1600w" imagesizes="(max-width: 600px) 100vw, (max-width: 1080px) 50vw, 620px">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#FCFBFA">
 <!-- PWA / app icons -->
@@ -57,7 +57,7 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Inter:wght@400;600;700&family=Inter+Tight:wght@500;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&family=Inter+Tight:wght@500;800&display=swap">
 <link rel="stylesheet" href="wcib.css">
 </head>
 <body>
@@ -99,7 +99,7 @@
         <a class="menu-row" href="free-checklists.html"><img class="menu-row__art" src="illustrations/layer-2-design-quality.svg" alt=""><span class="menu-row__text"><span class="menu-row__name">Free checklists</span><span class="menu-row__desc">One-page NSW checklists to read or download</span></span><svg class="menu-row__arrow" viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13,6 19,12 13,18"/></svg></a>
       </div>
     </nav>
-    <div class="site-menu__foot"><a href="contact.html" class="btn btn-primary">Contact us</a><p>Replies within 2 business days.</p></div>
+    <div class="site-menu__foot"><form class="menu-lookup" action="planning-dictionary.html" method="get" role="search"><label for="menu-q">Look up a planning term</label><span class="menu-lookup__row"><input id="menu-q" name="q" type="search" autocomplete="off" spellcheck="false" placeholder="FSR, setback, heritage"><button type="submit" class="btn btn-secondary">Look up</button></span></form><span class="site-menu__contact"><a href="contact.html" class="btn btn-primary">Contact us</a><p>Replies within 2 business days.</p></span></div>
   </div>
 </div>
 
@@ -110,11 +110,15 @@
     <div class="span-6 stack" style="gap: 32px">
       <span class="label hero-eyebrow"><span class="hero-eyebrow__part">Sydney &amp; NSW planning advisory</span><span class="hero-eyebrow__sep" aria-hidden="true"> · </span><span class="hero-eyebrow__part">Celebrating ten years in 2027</span></span>
       <h1 class="display">Know what your site can become.</h1>
+      <div class="qhero">
+        <p class="qhero__q"><span class="visually-hidden">What can I build on a 650 m² block in Earlwood, a corner lot in Ryde, an R2 site near a station, or the backyard behind my semi?</span><span class="qhero__ask" aria-hidden="true">What can I build on</span><span class="qhero__stage" aria-hidden="true"><span class="qhero__ghost">a 650 m² block in <span class="qhero__tail">Earlwood?<i class="qhero__spacer"></i></span></span><span class="qhero__ghost">a corner lot in <span class="qhero__tail">Ryde?<i class="qhero__spacer"></i></span></span><span class="qhero__ghost">an R2 site near a <span class="qhero__tail">station?<i class="qhero__spacer"></i></span></span><span class="qhero__ghost">the backyard behind my <span class="qhero__tail">semi?<i class="qhero__spacer"></i></span></span><span class="qhero__live"><span class="qhero__text">a 650 m² block in </span><span class="qhero__tail"><span class="qhero__last">Earlwood?</span><span class="qhero__caret"></span><svg class="qhero__mark" viewBox="0 0 355 355" aria-hidden="true" focusable="false"><g transform="matrix(1,0,0,1,-1062.890506,-1370.07874)"><g><g transform="matrix(0.857143,0,0,0.857143,-101.237345,347.581552)"><g transform="matrix(1,0,0,0.891237,284.386273,872.15136)"><path fill="currentColor" d="M1337.856,823.548L1109.161,823.356C1089.593,823.334 1073.746,805.277 1073.763,783.024L1073.981,499.056C1073.993,483.894 1081.487,470.023 1093.375,463.16L1264.653,364.272C1274.734,358.452 1286.652,358.452 1296.732,364.272L1467.992,463.149C1479.89,470.018 1487.386,483.906 1487.386,499.081L1487.386,783.443C1487.386,794.138 1483.648,804.394 1476.995,811.952C1470.343,819.51 1461.321,823.751 1451.918,823.74L1393.388,823.726C1398.225,816.975 1401.118,808.421 1401.118,799.12C1401.118,794.02 1400.249,789.145 1398.666,784.668L1439.996,784.674C1443.131,784.678 1446.138,783.264 1448.355,780.745C1450.573,778.225 1451.819,774.807 1451.819,771.242L1451.819,507.986C1451.819,502.927 1449.32,498.298 1445.354,496.008L1286.016,404.015C1282.656,402.075 1278.684,402.075 1275.323,404.015L1115.979,496.012C1112.017,498.3 1109.519,502.924 1109.515,507.978L1109.31,770.872C1109.304,778.29 1114.586,784.309 1121.109,784.316L1332.768,784.491C1331.145,789.016 1330.252,793.953 1330.252,799.12C1330.252,808.34 1333.095,816.826 1337.856,823.548Z"/></g><g transform="matrix(1,0,0,1,-265.176632,31.630859)"><path d="M1843.983,1414.121C1843.983,1404.844 1846.962,1395.445 1852.919,1385.923C1858.876,1376.402 1867.567,1368.516 1878.993,1362.266C1890.419,1356.016 1903.749,1352.891 1918.983,1352.891C1933.144,1352.891 1945.644,1355.503 1956.483,1360.728C1967.323,1365.953 1975.697,1373.057 1981.606,1382.041C1987.514,1391.026 1990.468,1400.791 1990.468,1411.338C1990.468,1419.639 1988.783,1426.914 1985.414,1433.164C1982.045,1439.414 1978.041,1444.81 1973.402,1449.351C1968.764,1453.892 1960.439,1461.534 1948.427,1472.276C1945.107,1475.303 1942.445,1477.964 1940.443,1480.259C1938.441,1482.554 1936.952,1484.654 1935.976,1486.558C1934.999,1488.462 1934.242,1490.367 1933.705,1492.271C1933.168,1494.175 1932.362,1497.52 1931.288,1502.305C1929.433,1512.461 1923.622,1517.539 1913.857,1517.539C1908.778,1517.539 1904.506,1515.879 1901.039,1512.559C1897.572,1509.239 1895.839,1504.307 1895.839,1497.764C1895.839,1489.561 1897.108,1482.456 1899.648,1476.451C1902.187,1470.445 1905.556,1465.171 1909.755,1460.63C1913.954,1456.089 1919.618,1450.694 1926.747,1444.444C1932.997,1438.975 1937.514,1434.849 1940.297,1432.066C1943.08,1429.283 1945.424,1426.182 1947.328,1422.764C1949.233,1419.346 1950.185,1415.635 1950.185,1411.631C1950.185,1403.819 1947.279,1397.227 1941.469,1391.856C1935.658,1386.485 1928.163,1383.799 1918.983,1383.799C1908.241,1383.799 1900.331,1386.509 1895.253,1391.929C1890.175,1397.349 1885.878,1405.332 1882.362,1415.879C1879.042,1426.914 1872.743,1432.432 1863.466,1432.432C1857.997,1432.432 1853.383,1430.503 1849.623,1426.646C1845.863,1422.788 1843.983,1418.614 1843.983,1414.121ZM1915.468,1574.668C1909.511,1574.668 1904.311,1572.74 1899.867,1568.882C1895.424,1565.025 1893.202,1559.629 1893.202,1552.696C1893.202,1546.543 1895.351,1541.368 1899.648,1537.168C1903.944,1532.969 1909.218,1530.87 1915.468,1530.87C1921.62,1530.87 1926.796,1532.969 1930.995,1537.168C1935.194,1541.368 1937.294,1546.543 1937.294,1552.696C1937.294,1559.532 1935.097,1564.903 1930.702,1568.809C1926.308,1572.715 1921.23,1574.668 1915.468,1574.668Z" class="logo__q"/></g></g></g></g></svg></span></span></span></p>
+        <button type="button" class="street-pause qhero__pause" id="qhero-pause" aria-label="Pause animation" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="9" y1="6" x2="9" y2="18"/><line x1="15" y1="6" x2="15" y2="18"/><polygon points="8,5 19,12 8,19" class="play"/></svg></button>
+      </div>
       <p class="lead">Planning-led feasibility and approvals for small to mid-scale developments — so you only spend on architects and consultants once you know the site stacks up.</p>
       <div class="row stretch-mobile" style="margin-top: 8px"><a class="btn btn-primary" href="contact.html">Get a site review</a><a class="btn btn-secondary" href="services.html">See our services</a></div>
     </div>
     <div class="start-8">
-      <img class="media media-hero" src="images/home-facade-sunset.jpg" alt="Brick home facade at sunset" width="1600" height="1052" fetchpriority="high">
+      <picture><source type="image/avif" srcset="images/home-facade-sunset-800.avif 800w, images/home-facade-sunset.avif 1600w" sizes="(max-width: 600px) 100vw, (max-width: 1080px) 50vw, 620px"><source type="image/webp" srcset="images/home-facade-sunset-800.webp 800w, images/home-facade-sunset.webp 1600w" sizes="(max-width: 600px) 100vw, (max-width: 1080px) 50vw, 620px"><img class="media media-hero" src="images/home-facade-sunset.jpg" alt="Brick home facade at sunset" width="1600" height="1052" fetchpriority="high"></picture>
     </div>
   </div>
 </section>
@@ -187,11 +191,11 @@
 </section>
 
 <section class="section on-sky" style="padding: 96px 0" aria-label="At a glance">
-  <div class="container stats">
-    <div class="reveal"><div class="stats-num">2017</div><div class="stats-cap">advising on NSW planning since</div></div>
-    <div class="reveal"><div class="stats-num">2 days</div><div class="stats-cap">typical reply to a new enquiry</div></div>
-    <div class="reveal"><div class="stats-num">$600</div><div class="stats-cap">Site Check, GST inclusive</div></div>
-    <div class="reveal"><div class="stats-num">Fixed</div><div class="stats-cap">fees, agreed in writing before work starts</div></div>
+  <div class="container stats stats--labelled">
+    <div class="reveal"><div class="stats-head"><span class="label">Experience</span><svg class="stats-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div><div class="stats-num">2017</div><div class="stats-cap">advising on NSW planning since</div></div>
+    <div class="reveal"><div class="stats-head"><span class="label">Reply</span><svg class="stats-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><div class="stats-num">2 days</div><div class="stats-cap">typical reply to a new enquiry</div></div>
+    <div class="reveal"><div class="stats-head"><span class="label">Price</span><svg class="stats-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div><div class="stats-num">$600</div><div class="stats-cap">Site Check, GST inclusive</div></div>
+    <div class="reveal"><div class="stats-head"><span class="label">Fees</span><svg class="stats-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="m9 15 2 2 4-4"/></svg></div><div class="stats-num">Fixed</div><div class="stats-cap">fees, agreed in writing before work starts</div></div>
   </div>
 </section>
 
@@ -202,9 +206,9 @@
       <p class="lead start-7 align-end reveal">Each one covers a different point in the early development process.</p>
     </div>
     <div class="cols-3">
-      <article class="card card-flush reveal"><img class="media media-card" src="images/duplex-brick.jpg" alt="Brick duplex" loading="lazy" width="1600" height="1067"><span class="label">01 — Before you buy or commit</span><h3 class="h3">Early-stage feasibility &amp; planning strategy</h3><p>A full read on your zoning, the controls that bite, realistic yield, and whether DA or complying development is the smarter path — with a go, pause, or stop at the end of it.</p><p class="secondary small">From $1,700 incl. GST · 5–7 business days</p></article>
-      <article class="card card-flush reveal"><img class="media media-card" src="images/plans-review.jpg" alt="Reviewing plans on a desk" loading="lazy" width="1110" height="1600"><span class="label">02 — Before you brief your architect</span><h3 class="h3">Pre-design planning briefs &amp; envelope testing</h3><p>A practical massing and envelope test, turned into a brief your architect can pick up and run with.</p><p class="secondary small">From $1,000 incl. GST · 4–6 business days</p></article>
-      <article class="card card-flush reveal"><img class="media media-card" src="images/house-framing.jpg" alt="Timber roof framing under construction" loading="lazy" width="1600" height="1067"><span class="label">03 — When you're ready to lodge</span><h3 class="h3">DA / CDC approvals &amp; planning reports</h3><p>Statement of Environmental Effects, clause 4.6 variation requests, and a planning argument your consent authority can say yes to — lodged through the NSW Planning Portal.</p><p class="secondary small">From $3,000 incl. GST · scoped per project</p></article>
+      <article class="card card-flush reveal"><picture><source type="image/avif" srcset="images/duplex-brick-800.avif 800w, images/duplex-brick.avif 1600w" sizes="(max-width: 600px) 100vw, (max-width: 1080px) 50vw, 620px"><source type="image/webp" srcset="images/duplex-brick-800.webp 800w, images/duplex-brick.webp 1600w" sizes="(max-width: 600px) 100vw, (max-width: 1080px) 50vw, 620px"><img class="media media-card" src="images/duplex-brick.jpg" alt="Brick duplex" loading="lazy" width="1600" height="1067"></picture><span class="label">01 — Before you buy or commit</span><h3 class="h3">Early-stage feasibility &amp; planning strategy</h3><p>A full read on your zoning, the controls that bite, realistic yield, and whether DA or complying development is the smarter path — with a go, pause, or stop at the end of it.</p><p class="secondary small">From $1,700 incl. GST · 5–7 business days</p></article>
+      <article class="card card-flush reveal"><picture><source type="image/avif" srcset="images/plans-review-800.avif 800w, images/plans-review.avif 1600w" sizes="(max-width: 600px) 100vw, (max-width: 1080px) 50vw, 620px"><source type="image/webp" srcset="images/plans-review-800.webp 800w, images/plans-review.webp 1600w" sizes="(max-width: 600px) 100vw, (max-width: 1080px) 50vw, 620px"><img class="media media-card" src="images/plans-review.jpg" alt="Reviewing plans on a desk" loading="lazy" width="1110" height="1600"></picture><span class="label">02 — Before you brief your architect</span><h3 class="h3">Pre-design planning briefs &amp; envelope testing</h3><p>A practical massing and envelope test, turned into a brief your architect can pick up and run with.</p><p class="secondary small">From $1,000 incl. GST · 4–6 business days</p></article>
+      <article class="card card-flush reveal"><picture><source type="image/avif" srcset="images/house-framing-800.avif 800w, images/house-framing.avif 1600w" sizes="(max-width: 600px) 100vw, (max-width: 1080px) 50vw, 620px"><source type="image/webp" srcset="images/house-framing-800.webp 800w, images/house-framing.webp 1600w" sizes="(max-width: 600px) 100vw, (max-width: 1080px) 50vw, 620px"><img class="media media-card" src="images/house-framing.jpg" alt="Timber roof framing under construction" loading="lazy" width="1600" height="1067"></picture><span class="label">03 — When you're ready to lodge</span><h3 class="h3">DA / CDC approvals &amp; planning reports</h3><p>Statement of Environmental Effects, clause 4.6 variation requests, and a planning argument your consent authority can say yes to — lodged through the NSW Planning Portal.</p><p class="secondary small">From $3,000 incl. GST · scoped per project</p></article>
     </div>
     <div style="margin-top: 48px"><a class="btn btn-secondary" href="services.html">See all services</a></div>
   </div>
@@ -257,9 +261,9 @@
       <p class="lead start-7 align-end reveal">Plain-language guides to NSW planning, published as they&rsquo;re ready.</p>
     </div>
     <div class="cols-3">
-      <a class="card card-flush latest-card reveal" href="blog.html#article-6"><img class="media media-card" src="images/townhouses-brick.jpg" alt="" loading="lazy" width="1600" height="1067"><span class="label">Feasibility</span><h3 class="h3">Understanding FSR: floor space ratio explained</h3><span class="latest-card__meta">29 Sep 2026 &middot; 8 min read</span></a>
-      <a class="card card-flush latest-card reveal" href="blog.html#article-5"><img class="media media-card" src="images/duplex-brick.jpg" alt="" loading="lazy" width="1600" height="1067"><span class="label">Case study</span><h3 class="h3">Townhouse feasibility: inner west site, 2025</h3><span class="latest-card__meta">28 Sep 2026 &middot; 7 min read</span></a>
-      <a class="card card-flush latest-card reveal" href="blog.html#article-4"><img class="media media-card" src="images/aerial-estate.jpg" alt="" loading="lazy" width="1600" height="899"><span class="label">Policy updates</span><h3 class="h3">Housing SEPP changes: what they mean for duplexes</h3><span class="latest-card__meta">28 Sep 2026 &middot; 7 min read</span></a>
+      <a class="card card-flush latest-card reveal" href="blog.html#article-6"><picture><source type="image/avif" srcset="images/townhouses-brick-800.avif 800w, images/townhouses-brick.avif 1600w" sizes="(max-width: 600px) 100vw, (max-width: 1080px) 50vw, 620px"><source type="image/webp" srcset="images/townhouses-brick-800.webp 800w, images/townhouses-brick.webp 1600w" sizes="(max-width: 600px) 100vw, (max-width: 1080px) 50vw, 620px"><img class="media media-card" src="images/townhouses-brick.jpg" alt="" loading="lazy" width="1600" height="1067"></picture><span class="label">Feasibility</span><h3 class="h3">Understanding FSR: floor space ratio explained</h3><span class="latest-card__meta">29 Sep 2026 &middot; 8 min read</span></a>
+      <a class="card card-flush latest-card reveal" href="blog.html#article-5"><picture><source type="image/avif" srcset="images/duplex-brick-800.avif 800w, images/duplex-brick.avif 1600w" sizes="(max-width: 600px) 100vw, (max-width: 1080px) 50vw, 620px"><source type="image/webp" srcset="images/duplex-brick-800.webp 800w, images/duplex-brick.webp 1600w" sizes="(max-width: 600px) 100vw, (max-width: 1080px) 50vw, 620px"><img class="media media-card" src="images/duplex-brick.jpg" alt="" loading="lazy" width="1600" height="1067"></picture><span class="label">Case study</span><h3 class="h3">Townhouse feasibility: inner west site, 2025</h3><span class="latest-card__meta">28 Sep 2026 &middot; 7 min read</span></a>
+      <a class="card card-flush latest-card reveal" href="blog.html#article-4"><picture><source type="image/avif" srcset="images/aerial-estate-800.avif 800w, images/aerial-estate.avif 1600w" sizes="(max-width: 600px) 100vw, (max-width: 1080px) 50vw, 620px"><source type="image/webp" srcset="images/aerial-estate-800.webp 800w, images/aerial-estate.webp 1600w" sizes="(max-width: 600px) 100vw, (max-width: 1080px) 50vw, 620px"><img class="media media-card" src="images/aerial-estate.jpg" alt="" loading="lazy" width="1600" height="899"></picture><span class="label">Policy updates</span><h3 class="h3">Housing SEPP changes: what they mean for duplexes</h3><span class="latest-card__meta">28 Sep 2026 &middot; 7 min read</span></a>
     </div>
     <div style="margin-top: 48px"><a class="btn btn-secondary" href="blog.html">See all articles</a></div>
   </div>
@@ -291,10 +295,11 @@
 
 <footer class="site-footer on-ink">
   <div class="container">
+    <p class="footer-tagline footer-tagline--lead">Planning advice that lands before the money's spent.</p>
     <div class="grid-12 top">
       <div class="span-4 stack">
         <a href="index.html" class="logo" aria-label="whatcani.build home"><span class="logo__word">whatcani<span>.build</span></span><svg class="logo__mark" viewBox="0 0 355 355" aria-hidden="true" focusable="false"><g transform="matrix(1,0,0,1,-1062.890506,-1370.07874)"><g><g transform="matrix(0.857143,0,0,0.857143,-101.237345,347.581552)"><g transform="matrix(1,0,0,0.891237,284.386273,872.15136)"><path fill="currentColor" d="M1337.856,823.548L1109.161,823.356C1089.593,823.334 1073.746,805.277 1073.763,783.024L1073.981,499.056C1073.993,483.894 1081.487,470.023 1093.375,463.16L1264.653,364.272C1274.734,358.452 1286.652,358.452 1296.732,364.272L1467.992,463.149C1479.89,470.018 1487.386,483.906 1487.386,499.081L1487.386,783.443C1487.386,794.138 1483.648,804.394 1476.995,811.952C1470.343,819.51 1461.321,823.751 1451.918,823.74L1393.388,823.726C1398.225,816.975 1401.118,808.421 1401.118,799.12C1401.118,794.02 1400.249,789.145 1398.666,784.668L1439.996,784.674C1443.131,784.678 1446.138,783.264 1448.355,780.745C1450.573,778.225 1451.819,774.807 1451.819,771.242L1451.819,507.986C1451.819,502.927 1449.32,498.298 1445.354,496.008L1286.016,404.015C1282.656,402.075 1278.684,402.075 1275.323,404.015L1115.979,496.012C1112.017,498.3 1109.519,502.924 1109.515,507.978L1109.31,770.872C1109.304,778.29 1114.586,784.309 1121.109,784.316L1332.768,784.491C1331.145,789.016 1330.252,793.953 1330.252,799.12C1330.252,808.34 1333.095,816.826 1337.856,823.548Z"/></g><g transform="matrix(1,0,0,1,-265.176632,31.630859)"><path d="M1843.983,1414.121C1843.983,1404.844 1846.962,1395.445 1852.919,1385.923C1858.876,1376.402 1867.567,1368.516 1878.993,1362.266C1890.419,1356.016 1903.749,1352.891 1918.983,1352.891C1933.144,1352.891 1945.644,1355.503 1956.483,1360.728C1967.323,1365.953 1975.697,1373.057 1981.606,1382.041C1987.514,1391.026 1990.468,1400.791 1990.468,1411.338C1990.468,1419.639 1988.783,1426.914 1985.414,1433.164C1982.045,1439.414 1978.041,1444.81 1973.402,1449.351C1968.764,1453.892 1960.439,1461.534 1948.427,1472.276C1945.107,1475.303 1942.445,1477.964 1940.443,1480.259C1938.441,1482.554 1936.952,1484.654 1935.976,1486.558C1934.999,1488.462 1934.242,1490.367 1933.705,1492.271C1933.168,1494.175 1932.362,1497.52 1931.288,1502.305C1929.433,1512.461 1923.622,1517.539 1913.857,1517.539C1908.778,1517.539 1904.506,1515.879 1901.039,1512.559C1897.572,1509.239 1895.839,1504.307 1895.839,1497.764C1895.839,1489.561 1897.108,1482.456 1899.648,1476.451C1902.187,1470.445 1905.556,1465.171 1909.755,1460.63C1913.954,1456.089 1919.618,1450.694 1926.747,1444.444C1932.997,1438.975 1937.514,1434.849 1940.297,1432.066C1943.08,1429.283 1945.424,1426.182 1947.328,1422.764C1949.233,1419.346 1950.185,1415.635 1950.185,1411.631C1950.185,1403.819 1947.279,1397.227 1941.469,1391.856C1935.658,1386.485 1928.163,1383.799 1918.983,1383.799C1908.241,1383.799 1900.331,1386.509 1895.253,1391.929C1890.175,1397.349 1885.878,1405.332 1882.362,1415.879C1879.042,1426.914 1872.743,1432.432 1863.466,1432.432C1857.997,1432.432 1853.383,1430.503 1849.623,1426.646C1845.863,1422.788 1843.983,1418.614 1843.983,1414.121ZM1915.468,1574.668C1909.511,1574.668 1904.311,1572.74 1899.867,1568.882C1895.424,1565.025 1893.202,1559.629 1893.202,1552.696C1893.202,1546.543 1895.351,1541.368 1899.648,1537.168C1903.944,1532.969 1909.218,1530.87 1915.468,1530.87C1921.62,1530.87 1926.796,1532.969 1930.995,1537.168C1935.194,1541.368 1937.294,1546.543 1937.294,1552.696C1937.294,1559.532 1935.097,1564.903 1930.702,1568.809C1926.308,1572.715 1921.23,1574.668 1915.468,1574.668Z" class="logo__q"/></g></g></g></g></svg></a>
-        <p class="footer-tagline">Planning advice that lands before the money's spent.</p>
+        
       </div>
       <div class="footer-col">
         <span class="label">Our work</span>
@@ -368,7 +373,9 @@ if (siteMenu && menuBtn) {
     }
   };
   openers.forEach(b => b.addEventListener('click', () => setOpen(!siteMenu.classList.contains('open'), b)));
-  siteMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setOpen(false)));
+  siteMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { if (a.pathname === location.pathname) setOpen(false); }));
+  // Leaving for another page keeps the menu up so its drawing can glide into the next page's hero; close it if the page is restored from the back/forward cache
+  window.addEventListener('pageshow', (e) => { if (e.persisted && siteMenu.classList.contains('open')) setOpen(false); });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && siteMenu.classList.contains('open')) setOpen(false); });
 }
 
@@ -423,6 +430,41 @@ if (siteMenu && menuBtn) {
     inView ? run() : stop();
   }, { threshold: 0.3 }).observe(street);
   if (reduced) setPaused(true);
+})();
+</script>
+<script>
+// Question hero: types each ending, holds, clears, moves on. Pausable; static with reduced motion.
+(function(){
+  var live=document.querySelector('.qhero__text'), last=document.querySelector('.qhero__last'), btn=document.getElementById('qhero-pause'), box=document.querySelector('.qhero');
+  if(!live||!last||!btn) return;
+  function show(x){ var k=x.lastIndexOf(' '); live.textContent=x.slice(0,k+1); last.textContent=x.slice(k+1); }
+  var P=['a 650 m\u00b2 block in Earlwood?','a corner lot in Ryde?','an R2 site near a station?','the backyard behind my semi?'];
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  btn.hidden=false;
+  var i=0, n=P[0].length, dir=0, paused=false, seen=true, t=null;
+  function tick(){
+    t=null; if(paused||!seen) return;
+    var w=P[i], d;
+    if(dir===0){ dir=-1; d=2600; box.classList.add('is-typing'); }
+    else if(dir===-1){ n--; show(w.slice(0,n)); d=22; if(n<=0){ dir=1; i=(i+1)%P.length; d=380; } }
+    else { w=P[i]; n++; show(w.slice(0,n)); d=48; if(n>=w.length){ dir=0; d=0; box.classList.remove('is-typing'); } }
+    t=setTimeout(tick,d);
+  }
+  function go(){ if(!t&&!paused&&seen) t=setTimeout(tick,dir===0?2600:40); }
+  btn.addEventListener('click',function(){ paused=!paused; btn.classList.toggle('is-paused',paused); btn.setAttribute('aria-label',paused?'Play animation':'Pause animation'); if(paused){ clearTimeout(t); t=null; show(P[i]); n=P[i].length; dir=0; box.classList.remove('is-typing'); } else go(); });
+  if('IntersectionObserver' in window){ new IntersectionObserver(function(e){ seen=e[0].isIntersecting; if(!seen){clearTimeout(t);t=null;} else go(); }).observe(box); }
+  document.addEventListener('visibilitychange',function(){ if(document.hidden){clearTimeout(t);t=null;} else go(); });
+  go();
+})();
+</script>
+<script>
+// Menu drawing glides into the next page's hero drawing (round 6)
+(function(){
+  document.querySelectorAll('.menu-row').forEach(function(a){ a.addEventListener('click', function(){
+    document.querySelectorAll('.page-art').forEach(function(e){ e.style.viewTransitionName='none'; });
+    var i=a.querySelector('.menu-row__art'); if(i) i.style.viewTransitionName='page-art';
+  }); });
+  window.addEventListener('pageshow', function(){ document.querySelectorAll('.menu-row__art, .page-art').forEach(function(e){ e.style.viewTransitionName=''; }); });
 })();
 </script>
 <button class="to-top" type="button" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg></button>
