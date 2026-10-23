@@ -31,7 +31,7 @@ hot-linked.
 | duplex-brick.jpg | Brick semi and neighbours | index, blog and hub (townhouse case study), testimonials |
 | house-framing.jpg | Timber roof trusses | index |
 | builder-on-frame.jpg | Builder on a timber frame | spare |
-| home-renovation.jpg | Weatherboard Federation cottage | pricing hero, testimonials |
+| home-renovation.jpg | Weatherboard Federation cottage | pricing hero, testimonials, blog and homepage (planning certificate article) |
 | plans-review.jpg | Reviewing plans at a table (logos removed) | index, about, blog and hub, how we work (share image) |
 | floor-plan.jpg | Drawing a floor plan (ruler brand removed) | services, blog, planning dictionary (share image) |
 | architect-drafting.jpg | Architect sketching (shirt logo and caption removed) | blog and hub |
