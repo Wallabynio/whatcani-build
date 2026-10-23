@@ -1114,3 +1114,31 @@ section h2.dict-letter { font-size: 40px; line-height: 44px; }
 .svc-card { position: relative; }
 .svc-card > .chip { position: absolute; top: 12px; left: 12px; z-index: 1; }
 .svc-card > .chip-accent { background: var(--orange); color: var(--ink); }
+
+/* ===== Homepage round 2 (October 2026): where whatcani.build works, Knowledge hub band ===== */
+/* Region list: the six council regions, numbered like the councils map markers */
+.region-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; min-width: 0; }
+.region-list__item { display: flex; align-items: flex-start; gap: var(--space-4); padding: var(--space-4) 0; border-top: 1px solid var(--stone-deep); min-width: 0; }
+.region-list__item:last-child { border-bottom: 1px solid var(--stone-deep); }
+.region-list__n { flex: none; display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background: var(--ink); color: var(--paper); font-family: var(--font-display-sans); font-weight: 500; font-size: 15px; line-height: 1; }
+.region-list__text { flex: 1; display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.region-list__name { font-family: var(--font-serif); font-size: 20px; line-height: 26px; }
+.region-list__councils { font-size: 13px; line-height: 19px; color: var(--charcoal); }
+.region-list__count { flex: none; font-size: 13px; line-height: 26px; font-weight: 600; white-space: nowrap; }
+@media (max-width: 400px) { .region-list__count { display: none; } }
+
+/* Knowledge hub band: free checklists and the term lookup under the latest articles */
+.hub-extras { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-5); margin-top: var(--space-7); }
+.hub-box { display: flex; gap: var(--space-5); align-items: center; background: var(--stone); color: var(--ink); border-radius: var(--radius-md); padding: var(--space-5) var(--space-6); min-width: 0; text-decoration: none; }
+.on-stone .hub-box { background: var(--paper); }
+.hub-box__art { flex: none; width: 88px; height: 88px; }
+.hub-box__text { display: flex; flex-direction: column; gap: var(--space-2); min-width: 0; }
+.hub-box__title { font-family: var(--font-serif); font-size: 21px; line-height: 27px; }
+.hub-box__more { font-size: 14px; line-height: 20px; font-weight: 600; color: var(--accent-text); }
+.hub-box--link:hover .hub-box__more, .hub-box--link:focus-visible .hub-box__more { text-decoration: underline; text-underline-offset: 3px; }
+.hub-lookup { flex-direction: column; align-items: stretch; justify-content: center; gap: var(--space-3); }
+.hub-lookup input { flex: 1; min-width: 0; box-sizing: border-box; min-height: 48px; padding: 10px 14px; border: 1px solid var(--taupe); border-radius: var(--radius-sm); background: var(--paper); color: var(--ink); font: inherit; font-size: 16px; }
+.hub-lookup input:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+.hub-lookup .btn { flex: none; }
+@media (max-width: 900px) { .hub-extras { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 400px) { .hub-box { padding: var(--space-5); gap: var(--space-4); } .hub-box__art { width: 64px; height: 64px; } }
