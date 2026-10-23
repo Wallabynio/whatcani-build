@@ -1142,3 +1142,7 @@ section h2.dict-letter { font-size: 40px; line-height: 44px; }
 .hub-lookup .btn { flex: none; }
 @media (max-width: 900px) { .hub-extras { grid-template-columns: minmax(0, 1fr); } }
 @media (max-width: 400px) { .hub-box { padding: var(--space-5); gap: var(--space-4); } .hub-box__art { width: 64px; height: 64px; } }
+
+/* ===== Hero badge (October 2026): "Tenth year · since 2017" after the eyebrow ===== */
+.hero-eyebrow { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-3); }
+.hero-badge { font-size: 13px; line-height: 18px; padding: 4px 12px; white-space: nowrap; }
