@@ -39,8 +39,7 @@ before.
 | `index.html` | Home |
 | `about.html` | The practice and its principals |
 | `councils.html` | Councils we cover: regions, what changes between councils, FAQ |
-| `services.html` | Service tiers |
-| `pricing.html` | Fixed fees, GST inclusive |
+| `services.html` | Services and fees: the five services, entry points, fees and retainers |
 | `blog.html` | Articles, published as in-page overlays |
 | `testimonials.html` | Case studies & testimonials: client quotes and case-study cards |
 | `contact.html` | Enquiry form (Formspree) |
