@@ -8,11 +8,11 @@ Eight drawings in the same style (paper shapes, stone offset shadow, 7 px ink ou
 | File | Used on |
 |---|---|
 | street-tree.svg | Homepage question line (Earlwood); Front fence to back fence: Trees and the wider street |
-| street-letterbox.svg | Homepage question line (Ryde); Front fence to back fence: The street edge |
+| street-letterbox.svg | Homepage question line (Ryde); Front fence to back fence: The street edge; homepage Services and fees note (Front fence to back fence) |
 | street-bike.svg | Homepage question line (station) |
 | street-dog-walker.svg | Homepage question line (backyard); dictionary "No terms match" |
 | street-walker.svg | Front fence to back fence: Arriving |
 | street-pram.svg | Front fence to back fence: The backyard |
-| street-bench.svg | Front fence to back fence: The neighbours |
+| street-bench.svg | Front fence to back fence: The neighbours; homepage Services and fees note (advisory retainers) |
 | street-cafe.svg | Contact page hero |
 
