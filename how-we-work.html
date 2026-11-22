@@ -107,7 +107,52 @@
   </div>
 </section>
 
-<section class="on-white">
+<section class="on-white vc2-section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="tag">Checked, not generated</span>
+      <h2>Every yield is checked by a principal.</h2>
+      <p>Scroll through a corner site like the one in our Earlwood case study, from mapped controls to a yield a principal will sign.</p>
+    </div>
+  </div>
+
+  <div class="vc2" id="vc2" data-phase="0">
+    <div class="vc2-stage">
+      <div class="vc2-inner">
+        <div class="vc2-text">
+          <span class="vc2-step" id="vc2-step">1 of 3 · Mapped</span>
+          <div class="vc2-yield" aria-hidden="true"><span class="vc2-num" id="vc2-num">?</span><span class="vc2-unit">townhouses</span></div>
+          <h3 class="vc2-title" id="vc2-title">Software maps the site.</h3>
+          <p class="vc2-line" id="vc2-line">Zone, floor space ratio, height and overlays, read from the planning maps in minutes.</p>
+          <dl class="vc2-data">
+            <div><dt>Site area</dt><dd><span id="vc2-area">0</span> m²</dd></div>
+            <div><dt>Street frontages</dt><dd id="vc2-front">0</dd></div>
+            <div><dt>DCP rules checked</dt><dd><span id="vc2-rules">0</span> of 3</dd></div>
+          </dl>
+          <p class="visually-hidden" id="vc2-live" aria-live="polite"></p>
+        </div>
+        <div class="vc2-fig">
+          <svg class="vc2-svg" id="vc2-svg" viewBox="-360 -150 800 480" role="img" aria-label="Three-dimensional model of a corner lot." xmlns="http://www.w3.org/2000/svg"></svg>
+          <div class="vc2-overlay" id="vc2-overlay"></div>
+        </div>
+      </div>
+      <div class="vc2-rail" role="group" aria-label="Jump to a step">
+        <button type="button" data-to="0"><span class="vc2-rail__bar"><i></i></span><span>Mapped</span></button>
+        <button type="button" data-to="1"><span class="vc2-rail__bar"><i></i></span><span>Theoretical</span></button>
+        <button type="button" data-to="2"><span class="vc2-rail__bar"><i></i></span><span>Checked</span></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="vcheck-note reveal">
+      <p>whatcani.build uses software, including AI, to gather the mapped controls. A principal checks every one, and the other principal reviews each report before it’s issued.</p>
+      <a href="testimonials.html">Read the Earlwood case study &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<section class="on-black">
   <div class="wrap">
     <div class="closing-statement reveal">
       <p>Every site starts with the same question: what can I build?</p>
@@ -213,6 +258,179 @@ if (siteMenu && menuBtn) {
     var i=a.querySelector('.menu-row__art'); if(i) i.style.viewTransitionName='page-art';
   }); });
   window.addEventListener('pageshow', function(){ document.querySelectorAll('.menu-row__art, .page-art').forEach(function(e){ e.style.viewTransitionName=''; }); });
+})();
+</script>
+<script>
+// Scroll-driven 3D site model: mapped → theoretical → checked (November 2026)
+(function(){
+  var root = document.getElementById('vc2'); if (!root) return;
+  var svg = document.getElementById('vc2-svg'), ov = document.getElementById('vc2-overlay');
+  var textBox = root.querySelector('.vc2-text');
+  var $ = function(id){ return document.getElementById(id); };
+  var VBD = { x: -380, y: -175, w: 875, h: 550 }, VBM = { x: -245, y: -150, w: 610, h: 500 }, VB = VBD;
+  var S = 10, C = 0.866;
+  function P(x, y, z) { return [((x - y) * C * S), ((x + y) * 0.5 * S - (z || 0) * S)]; }
+  function pts(a) { return a.map(function(p){ return p[0].toFixed(1) + ',' + p[1].toFixed(1); }).join(' '); }
+  function poly(a, cls, extra) { return '<polygon class="' + cls + '" points="' + pts(a) + '"' + (extra || '') + '/>'; }
+  function line(a, b, cls, extra) { return '<line class="' + cls + '" x1="' + a[0].toFixed(1) + '" y1="' + a[1].toFixed(1) + '" x2="' + b[0].toFixed(1) + '" y2="' + b[1].toFixed(1) + '"' + (extra || '') + '/>'; }
+  function clamp(v) { return v < 0 ? 0 : v > 1 ? 1 : v; }
+  function seg(p, a, b) { return clamp((p - a) / (b - a)); }
+  function ease(t) { return t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
+  function mix(a, b, t) { return a + (b - a) * t; }
+
+  function box(x0, y0, z0, w, d, h, kind, op) {
+    var x1 = x0 + w, y1 = y0 + d, zt = z0 + h, o = op == null ? '' : ' opacity="' + op.toFixed(2) + '"';
+    var c = kind === 'nb' ? ['nb nb-l', 'nb nb-r', 'nb nb-top'] : ['u u-l', 'u u-r', 'u u-top'];
+    return '<g' + o + '>' +
+      poly([P(x0,y1,z0), P(x1,y1,z0), P(x1,y1,zt), P(x0,y1,zt)], c[0]) +
+      poly([P(x1,y0,z0), P(x1,y1,z0), P(x1,y1,zt), P(x1,y0,zt)], c[1]) +
+      poly([P(x0,y0,zt), P(x1,y0,zt), P(x1,y1,zt), P(x0,y1,zt)], c[2]) + '</g>';
+  }
+  function tree(x, y, k) {
+    if (k <= 0) return '';
+    var b = P(x, y, 0), t = P(x, y, 2.2 * k), c = P(x, y, 3.4 * k);
+    return line(b, t, 'trunk') + '<circle class="canopy" cx="' + c[0].toFixed(1) + '" cy="' + c[1].toFixed(1) + '" r="' + (17 * k).toFixed(1) + '"/>';
+  }
+
+  var steps = [
+    { step: '1 of 3 · Mapped', num: '?', title: 'Software maps the site.', line: 'Zone, floor space ratio, height and overlays, read from the planning maps in minutes.' },
+    { step: '2 of 3 · Theoretical', num: '4', title: 'The maps fit four townhouses.', line: 'But the maps don’t hold the council’s development control plan (DCP), where the detailed rules sit.' },
+    { step: '3 of 3 · Checked', num: '3', title: 'A principal decides what fits.', line: 'Set back from both streets, clear of the neighbour’s winter sun, with deep soil for trees. Peer-reviewed before issue.' }
+  ];
+  var tags = [
+    { t: 'Zone R3', at: [8, 6, 0], on: .12, l: 64 },
+    { t: 'Floor space ratio', at: [20, 12, 0], on: .32, l: 30 },
+    { t: 'Height limit', at: [26, 0, 8.5], on: .52, l: 36 },
+    { t: 'Overlay maps', at: [2, 23, 0], on: .72, l: 34 }
+  ];
+  var tick = '<svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="5,12.5 10,17 19,7"/></svg>';
+  var pins = [
+    { t: 'Side street setback', a: [26.2, 12, 5], b: [23.5, 12, 0] },
+    { t: 'Neighbour’s winter sun', a: [9, -9, 6], b: [9, -9, 6] },
+    { t: 'Deep soil and trees', a: [12, 24.6, 4], b: [12, 22.5, 0] }
+  ];
+  ov.innerHTML = tags.map(function(g){ return '<span class="vc2-tag">' + g.t + '</span>'; }).join('') +
+    pins.map(function(g, i){ return '<span class="vc2-pin vc2-pin--' + (i + 1) + '"><b><span>' + (i + 1) + '</span>' + tick + '</b>' + g.t + '</span>'; }).join('');
+  var tagEls = ov.querySelectorAll('.vc2-tag'), pinEls = ov.querySelectorAll('.vc2-pin');
+  var railBars = root.querySelectorAll('.vc2-rail__bar i');
+
+  function toScreen(pt) {
+    var r = svg.getBoundingClientRect(), s = Math.min(r.width / VB.w, r.height / VB.h);
+    var ox = (r.width - VB.w * s) / 2, oy = (r.height - VB.h * s) / 2;
+    return [ox + (pt[0] - VB.x) * s, oy + (pt[1] - VB.y) * s, s];
+  }
+
+  var phase = -1;
+  function setPhase(n) {
+    if (n === phase) return; phase = n; root.dataset.phase = n;
+    var s = steps[n];
+    $('vc2-step').textContent = s.step; $('vc2-title').textContent = s.title; $('vc2-line').textContent = s.line;
+    var num = $('vc2-num'); num.textContent = s.num; num.classList.remove('flip'); void num.offsetWidth; num.classList.add('flip');
+    textBox.classList.remove('swap'); void textBox.offsetWidth; textBox.classList.add('swap');
+    $('vc2-live').textContent = s.step + '. ' + s.title + ' ' + s.line;
+    svg.setAttribute('aria-label', n === 0 ? 'Model of a corner lot of about 650 square metres, with its mapped controls.' : n === 1 ? 'Model of the corner lot filled with four townhouses, with three DCP rules still open.' : 'Model of the corner lot with three townhouses set back from both streets, trees in the setbacks and all three DCP rules checked.');
+  }
+
+  function draw(p) {
+    var a = seg(p, .02, .26), b = seg(p, .33, .58), c = seg(p, .66, .92), ec = ease(c);
+    setPhase(c > .02 ? 2 : b > .02 ? 1 : 0);
+    var o = '';
+    // base plate, streets, lot
+    var X0 = -8, X1 = 35, Y0 = -20, Y1 = 34, T = 1.5;
+    o += poly([P(X0,Y1,0), P(X1,Y1,0), P(X1,Y1,-T), P(X0,Y1,-T)], 'plate-side');
+    o += poly([P(X1,Y0,0), P(X1,Y1,0), P(X1,Y1,-T), P(X1,Y0,-T)], 'plate-side');
+    o += poly([P(X0,Y0,0), P(X1,Y0,0), P(X1,Y1,0), P(X0,Y1,0)], 'plate-top');
+    o += poly([P(27.5,Y0,0), P(X1,Y0,0), P(X1,Y1,0), P(27.5,Y1,0)], 'road');
+    o += poly([P(X0,26.5,0), P(X1,26.5,0), P(X1,Y1,0), P(X0,Y1,0)], 'road');
+    o += line(P(31.25,Y0,0), P(31.25,Y1,0), 'roadmark') + line(P(X0,30.25,0), P(X1,30.25,0), 'roadmark');
+    o += line(P(X0,0,0), P(0,0,0), 'bound') + line(P(0,Y0,0), P(0,0,0), 'bound') + line(P(26,Y0,0), P(26,0,0), 'bound') + line(P(X0,25,0), P(0,25,0), 'bound');
+    o += poly([P(0,0,0), P(26,0,0), P(26,25,0), P(0,25,0)], 'lot');
+    for (var g = 2; g < 26; g += 2) o += line(P(g,0,0), P(g,25,0), 'grid');
+    for (g = 2; g < 25; g += 2) o += line(P(0,g,0), P(26,g,0), 'grid');
+    o += poly([P(0,0,0), P(26,0,0), P(26,25,0), P(0,25,0)], 'lot', ' fill="none"');
+    // checked envelope outline
+    if (c > 0) o += '<g opacity="' + seg(c, 0, .35).toFixed(2) + '">' + poly([P(1.2,5,0), P(21,5,0), P(21,19,0), P(1.2,19,0)], 'setback') + '</g>';
+    // scan line while mapping
+    if (a > 0 && a < 1) {
+      var sy = a * 25;
+      o += poly([P(0,Math.max(0, sy - 3),0), P(26,Math.max(0, sy - 3),0), P(26,sy,0), P(0,sy,0)], 'scan-band');
+      o += line(P(0,sy,0), P(26,sy,0), 'scan');
+    }
+    // neighbours
+    o += box(5, -17, 0, 16, 10, 6, 'nb');
+    // units: four rise, then three are pulled in and one sinks
+    var units = [];
+    for (var i = 0; i < 4; i++) {
+      var rise = ease(seg(b, .05 + i * .1, .4 + i * .1));
+      var tx = .6 + i * 6.2, tw = 6.2, ty = .8, td = 23.4;
+      var cx = i < 3 ? 1.2 + i * 6.6 : 21, cw = i < 3 ? 6.6 : 0, cy = 5, cd = 14;
+      var h = 7 * rise * (i < 3 ? 1 : 1 - ec);
+      units.push({ x: mix(tx, cx, ec), w: mix(tw, cw, ec), y: mix(ty, cy, ec), d: mix(td, cd, ec), h: h, op: i < 3 ? 1 : 1 - ec });
+    }
+    // winter shadows fall south, towards the rear neighbour
+    units.forEach(function(u){ if (u.h > .05 && u.w > .05) { var L = 11 * u.h / 7; o += '<g opacity="' + u.op.toFixed(2) + '">' + poly([P(u.x,u.y - L,0), P(u.x + u.w,u.y - L,0), P(u.x + u.w,u.y,0), P(u.x,u.y,0)], 'shadow') + '</g>'; } });
+    o += box(-7, 5, 0, 6, 15, 6, 'nb');
+    var tk = ease(seg(c, .45, .9));
+    o += tree(3, 2.5, tk) + tree(14, 2.5, tk) + tree(23.5, 3, tk);
+    units.forEach(function(u){
+      if (u.h > .05 && u.w > .05) {
+        o += box(u.x, u.y, 0, u.w, u.d, u.h, 'u', u.op);
+        if (u.h > 2.4) { var dx = u.x + u.w / 2, dy = u.y + u.d + .02; o += '<g opacity="' + u.op.toFixed(2) + '">' + poly([P(dx - .7,dy,0), P(dx + .7,dy,0), P(dx + .7,dy,2.2), P(dx - .7,dy,2.2)], 'door') + '</g>'; }
+      }
+    });
+    o += tree(23.5, 9, tk) + tree(23.5, 17, tk) + tree(6, 22.5, tk) + tree(16, 22.5, tk);
+    // height limit plane while mapping
+    var hp = seg(a, .45, .75) * (1 - seg(b, 0, .25));
+    if (hp > 0) {
+      var Z = 8.5;
+      o += '<g opacity="' + hp.toFixed(2) + '">' + poly([P(0,0,Z), P(26,0,Z), P(26,25,Z), P(0,25,Z)], 'hplane') +
+        line(P(26,0,0), P(26,0,Z), 'hpost') + line(P(26,25,0), P(26,25,Z), 'hpost') + line(P(0,25,0), P(0,25,Z), 'hpost') + '</g>';
+    }
+    // leader lines for the mapped tags
+    var tagVis = 1 - seg(b, 0, .15);
+    tags.forEach(function(t, k){
+      var on = seg(a, t.on, t.on + .1) * tagVis;
+      var A = P(t.at[0], t.at[1], t.at[2]), B = [A[0], A[1] - t.l];
+      if (on > 0) o += '<g opacity="' + on.toFixed(2) + '">' + line(A, B, 'lead') + '<circle class="lead-dot" cx="' + A[0].toFixed(1) + '" cy="' + A[1].toFixed(1) + '" r="3"/></g>';
+      var sc = toScreen(B), tw = tagEls[k].offsetWidth / 2, W2 = ov.clientWidth; sc[0] = Math.min(Math.max(sc[0], tw + 2), W2 - tw - 2); tagEls[k].style.left = sc[0] + 'px'; tagEls[k].style.top = (sc[1] - 2) + 'px'; tagEls[k].style.opacity = on;
+    });
+    svg.innerHTML = o;
+    // pins
+    pins.forEach(function(pn, k){
+      var on = seg(b, .62 + k * .1, .7 + k * .1);
+      var pt = P(mix(pn.a[0], pn.b[0], ec), mix(pn.a[1], pn.b[1], ec), mix(pn.a[2], pn.b[2], ec));
+      var sc = toScreen(pt), pw = pinEls[k].offsetWidth, W = ov.clientWidth, lo = k === 0 ? 14 : k === 2 ? pw - 14 : pw / 2, hi = k === 0 ? W - pw + 14 : k === 2 ? W - 14 : W - pw / 2; sc[0] = Math.min(Math.max(sc[0], lo + 2), hi - 2); pinEls[k].style.left = sc[0] + 'px'; pinEls[k].style.top = sc[1] + 'px'; pinEls[k].style.opacity = on;
+      pinEls[k].classList.toggle('ok', c > .35 + k * .15);
+    });
+    // live data
+    $('vc2-area').textContent = Math.round(650 * ease(seg(a, 0, .7)));
+    $('vc2-front').textContent = a > .55 ? 2 : a > .3 ? 1 : 0;
+    $('vc2-rules').textContent = c > .65 ? 3 : c > .5 ? 2 : c > .35 ? 1 : 0;
+    railBars[0].style.width = (a * 100) + '%'; railBars[1].style.width = (b * 100) + '%'; railBars[2].style.width = (c * 100) + '%';
+  }
+
+  var hdr = document.querySelector('.site-header');
+  function progress() {
+    var r = root.getBoundingClientRect(), stage = root.querySelector('.vc2-stage').offsetHeight;
+    var top = hdr ? hdr.offsetHeight : 0;
+    return clamp((top - r.top) / Math.max(1, r.height - stage));
+  }
+  var queued = false;
+  function frame() { queued = false; draw(progress()); var r = root.getBoundingClientRect(), t = hdr ? hdr.offsetHeight : 0; document.body.classList.toggle('vc2-pinned', r.top <= t + 1 && r.bottom >= window.innerHeight - 1); }
+  function req() { if (!queued) { queued = true; requestAnimationFrame(frame); } }
+  function setTop() { VB = svg.parentNode.clientWidth < 560 ? VBM : VBD; svg.setAttribute('viewBox', VB.x + ' ' + VB.y + ' ' + VB.w + ' ' + VB.h); root.style.setProperty('--vc-top', (hdr ? hdr.offsetHeight : 0) + 'px'); req(); }
+  window.addEventListener('scroll', req, { passive: true });
+  window.addEventListener('resize', setTop);
+  root.querySelectorAll('.vc2-rail button').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var target = [.27, .61, .95][+btn.dataset.to];
+      var r = root.getBoundingClientRect(), stage = root.querySelector('.vc2-stage').offsetHeight, top = hdr ? hdr.offsetHeight : 0;
+      var y = window.scrollY + r.top - top + target * (r.height - stage);
+      var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({ top: y, behavior: reduced ? 'auto' : 'smooth' });
+    });
+  });
+  setTop(); draw(progress());
 })();
 </script>
 <button class="to-top" type="button" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg></button>

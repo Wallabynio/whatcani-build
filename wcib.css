@@ -1146,3 +1146,160 @@ section h2.dict-letter { font-size: 40px; line-height: 44px; }
 /* ===== Hero badge (October 2026): "Tenth year · since 2017" after the eyebrow ===== */
 .hero-eyebrow { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-3); }
 .hero-badge { font-size: 13px; line-height: 18px; padding: 4px 12px; white-space: nowrap; }
+
+/* ===== Scroll-driven 3D site model (How we work, November 2026) =====
+   VOICE: a planner's desk model, calm and exact. IDEA: the architect's massing model on its base.
+   The stage pins under the header while the visitor scrolls through three steps. */
+.vc2-section { padding-bottom: var(--space-8); }
+.vc2-section .section-head { margin-bottom: var(--space-6); }
+.vc2 { position: relative; height: 340vh; --vc-top: 76px; }
+.vc2-stage { position: sticky; top: var(--vc-top); height: calc(100vh - var(--vc-top)); height: calc(100svh - var(--vc-top)); display: flex; flex-direction: column; overflow: hidden; }
+.vc2-inner { flex: 1; min-height: 0; width: 100%; max-width: calc(var(--container) + 2 * var(--gutter)); margin: 0 auto; padding: var(--space-5) var(--gutter) 0;
+  display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: var(--space-6); align-items: center; }
+.vc2-text { display: flex; flex-direction: column; gap: var(--space-3); min-width: 0; }
+.vc2-step { font-family: var(--font-display-sans); font-size: 15px; font-weight: 500; color: var(--charcoal); }
+.vc2-yield { display: flex; align-items: baseline; gap: var(--space-3); }
+.vc2-num { display: inline-block; font-family: var(--font-display-sans); font-weight: 500; font-size: clamp(96px, 12vw, 176px); line-height: .86; letter-spacing: -0.03em; min-width: .62em; }
+.vc2-num.flip { animation: vc2-flip .55s cubic-bezier(.3,.7,.2,1); }
+@keyframes vc2-flip { 0% { opacity: 0; transform: translateY(32%); } 100% { opacity: 1; transform: none; } }
+.vc2-unit { font-size: 15px; font-weight: 600; }
+.vc2-title { font-family: var(--font-serif); font-weight: 400; font-size: clamp(26px, 2.6vw, 36px); line-height: 1.1; margin: var(--space-2) 0 0; text-wrap: balance; }
+.vc2-line { font-size: 16px; line-height: 25px; color: var(--charcoal); max-width: 34ch; }
+.vc2-text.swap .vc2-title, .vc2-text.swap .vc2-line, .vc2-text.swap .vc2-step { animation: label-in .5s ease; }
+.vc2-data { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-3); margin: var(--space-4) 0 0; padding-top: var(--space-4); border-top: 1px solid var(--stone-deep); }
+.vc2-data div { min-width: 0; }
+.vc2-data dt { font-size: 12.5px; line-height: 17px; color: var(--charcoal); }
+.vc2-data dd { margin: 2px 0 0; font-family: var(--font-display-sans); font-weight: 500; font-size: 22px; line-height: 28px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+.vc2-fig { position: relative; min-width: 0; width: 100%; height: 100%; max-height: 800px; align-self: center; }
+.vc2-svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: hidden; }
+.vc2-overlay { position: absolute; inset: 0; pointer-events: none; }
+
+/* model faces */
+.vc2-svg .plate-top { fill: var(--stone); }
+.vc2-svg .plate-side { fill: var(--stone-deep); }
+.vc2-svg .road { fill: var(--stone-deep); }
+.vc2-svg .roadmark { fill: none; stroke: var(--paper); stroke-width: 2; stroke-dasharray: 10 9; }
+.vc2-svg .lot { fill: var(--paper); stroke: var(--ink); stroke-width: 2; stroke-linejoin: round; }
+.vc2-svg .grid { stroke: var(--stone); stroke-width: 1; }
+.vc2-svg .bound { fill: none; stroke: var(--taupe); stroke-width: 1.2; stroke-dasharray: 5 5; }
+.vc2-svg .nb-top { fill: var(--paper); } .vc2-svg .nb-l { fill: var(--stone); } .vc2-svg .nb-r { fill: var(--stone-deep); }
+.vc2-svg .nb { stroke: var(--taupe); stroke-width: 1.2; stroke-linejoin: round; }
+.vc2-svg .u { stroke: var(--ink); stroke-width: 1.6; stroke-linejoin: round; }
+.vc2-svg .u-top { fill: var(--paper); } .vc2-svg .u-l { fill: var(--stone); } .vc2-svg .u-r { fill: var(--stone-deep); }
+.vc2-svg .door { fill: var(--orange); }
+.vc2-svg .shadow { fill: var(--ink); fill-opacity: .13; }
+.vc2-svg .scan { stroke: var(--orange); stroke-width: 2.5; stroke-linecap: round; }
+.vc2-svg .scan-band { fill: var(--orange); fill-opacity: .12; }
+.vc2-svg .hplane { fill: none; stroke: var(--navy); stroke-width: 1.4; stroke-dasharray: 6 5; }
+.vc2-svg .hpost { stroke: var(--navy); stroke-width: 1.2; stroke-dasharray: 3 4; }
+.vc2-svg .lead { stroke: var(--ink); stroke-width: 1.2; }
+.vc2-svg .lead-dot { fill: var(--ink); }
+.vc2-svg .trunk { stroke: var(--taupe); stroke-width: 2.5; stroke-linecap: round; }
+.vc2-svg .canopy { fill: var(--stone); stroke: var(--taupe); stroke-width: 1.4; }
+.vc2-svg .setback { fill: none; stroke: var(--navy); stroke-width: 1.4; stroke-dasharray: 4 4; }
+
+/* HTML tags and pins over the model, so they stay readable on phones */
+.vc2-tag, .vc2-pin { position: absolute; transform: translate(-50%, -100%); white-space: nowrap; transition: opacity .3s ease; }
+.vc2-tag { background: var(--paper); color: var(--ink); border: 1.5px solid var(--ink); border-radius: var(--radius-pill); padding: 4px 11px; font-size: 13px; line-height: 18px; font-weight: 600; }
+.vc2-pin { display: inline-flex; align-items: center; gap: 7px; background: var(--orange); color: var(--ink); border-radius: var(--radius-pill); padding: 4px 11px 4px 4px; font-size: 13px; line-height: 18px; font-weight: 700; transition: background-color .4s ease, opacity .3s ease; }
+.vc2-pin--1 { transform: translate(-14px, -100%); }
+.vc2-pin--3 { transform: translate(calc(-100% + 14px), -100%); }
+.vc2-pin--2 { transform: translate(-50%, -100%); }
+.vc2-pin b { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; border-radius: 50%; background: var(--paper); font-family: var(--font-display-sans); font-weight: 500; font-size: 12px; }
+.vc2-pin svg { display: none; width: 13px; height: 13px; fill: none; stroke: var(--navy); stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
+.vc2-pin.ok { background: var(--paper); box-shadow: inset 0 0 0 1.5px var(--navy); }
+.vc2-pin.ok b { background: var(--paper); }
+.vc2-pin.ok b span { display: none; }
+.vc2-pin.ok svg { display: block; }
+
+/* the back-to-top button steps aside while the model is pinned */
+body.vc2-pinned .to-top { opacity: 0; pointer-events: none; }
+
+/* progress rail */
+.vc2-rail { flex: none; width: 100%; max-width: calc(var(--container) + 2 * var(--gutter)); margin: 0 auto; padding: var(--space-4) var(--gutter) var(--space-5); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-3); }
+.vc2-rail button { font: inherit; font-size: 13px; line-height: 18px; font-weight: 600; color: var(--ink); background: none; border: 0; padding: 6px 0 4px; cursor: pointer; display: flex; flex-direction: column; gap: 8px; text-align: left; min-height: 44px; }
+.vc2-rail__bar { display: block; height: 3px; background: var(--stone); border-radius: 2px; overflow: hidden; }
+.vc2-rail__bar i { display: block; height: 100%; width: 0; background: var(--ink); }
+
+@media (max-width: 900px) {
+  .vc2 { height: 320vh; }
+  .vc2-inner { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr); gap: var(--space-2); align-items: stretch; padding-top: var(--space-3); }
+  .vc2-text { gap: var(--space-2); display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: var(--space-4); align-items: end; }
+  .vc2-step { grid-column: 1 / -1; }
+  .vc2-yield { grid-row: span 2; flex-direction: column; gap: 4px; align-items: flex-start; }
+  .vc2-num { font-size: clamp(72px, 20vw, 120px); }
+  .vc2-title { font-size: clamp(21px, 5.4vw, 28px); margin: 0; }
+  .vc2-line { font-size: 14.5px; line-height: 21px; max-width: none; }
+  .vc2-data { grid-column: 1 / -1; margin-top: var(--space-2); padding-top: var(--space-2); }
+  .vc2-data dd { font-size: 18px; line-height: 24px; }
+  .vc2-fig { max-height: none; }
+  .vc2-tag, .vc2-pin { font-size: 12px; line-height: 16px; }
+}
+@media (max-width: 900px) and (max-height: 760px) {
+  .vc2-line { display: none; }
+}
+@media (max-width: 420px) {
+  .vc2-tag { padding: 3px 8px; }
+  .vc2-pin { padding: 3px 8px 3px 3px; gap: 5px; }
+  .vc2-pin--1 { transform: translate(-14px, -100%); }
+.vc2-pin--3 { transform: translate(calc(-100% + 14px), -100%); }
+.vc2-pin--2 { transform: translate(-50%, -100%); }
+.vc2-pin b { width: 18px; height: 18px; }
+}
+
+/* short laptop screens: tighten the text column so it clears the rail */
+@media (min-width: 901px) and (max-height: 780px) {
+  .vc2-inner { padding-top: var(--space-3); }
+  .vc2-text { gap: var(--space-2); }
+  .vc2-num { font-size: clamp(80px, 9vw, 128px); }
+  .vc2-title { font-size: clamp(24px, 2.2vw, 30px); }
+  .vc2-line { font-size: 15px; line-height: 22px; }
+  .vc2-data { margin-top: var(--space-2); padding-top: var(--space-3); }
+  .vc2-data dd { font-size: 19px; line-height: 25px; }
+  .vc2-rail { padding-top: var(--space-3); padding-bottom: var(--space-3); }
+}
+@media (min-width: 901px) and (max-height: 640px) {
+  .vc2-line { display: none; }
+  .vc2-num { font-size: clamp(72px, 8vw, 104px); }
+}
+/* small phones: give the model more of the screen */
+@media (max-width: 900px) and (max-height: 700px) {
+  .vc2-num { font-size: 64px; }
+  .vc2-yield { gap: 0; }
+  .vc2-unit { font-size: 13px; }
+  .vc2-title { font-size: 20px; line-height: 1.15; }
+  .vc2-data { padding-top: 6px; margin-top: 4px; }
+  .vc2-data dt { font-size: 11.5px; line-height: 15px; }
+  .vc2-data dd { font-size: 16px; line-height: 21px; }
+  .vc2-rail { padding-top: var(--space-2); padding-bottom: var(--space-3); }
+  .vc2-rail button { min-height: 40px; gap: 6px; }
+}
+@media (max-width: 360px) {
+  .vc2-tag, .vc2-pin { font-size: 11.5px; }
+}
+/* phones on their side: text beside the model */
+@media (max-width: 1100px) and (max-height: 520px) and (orientation: landscape) {
+  .vc2 { height: 300vh; }
+  .vc2-inner { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); grid-template-rows: minmax(0, 1fr); align-items: center; gap: var(--space-4); padding-top: var(--space-2); }
+  .vc2-text { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
+  .vc2-data { align-self: stretch; }
+  .vc2-yield { flex-direction: row; align-items: baseline; gap: var(--space-2); }
+  .vc2-num { font-size: 56px; }
+  .vc2-title { font-size: 19px; line-height: 1.15; }
+  .vc2-line { display: none; }
+  .vc2-data { margin-top: 4px; padding-top: 6px; }
+  .vc2-data dt { font-size: 11px; line-height: 14px; }
+  .vc2-data dd { font-size: 15px; line-height: 20px; }
+  .vc2-fig { height: 100%; }
+  .vc2-rail { padding-top: 4px; padding-bottom: var(--space-2); }
+  .vc2-rail button { min-height: 36px; gap: 4px; font-size: 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .vc2-num.flip, .vc2-text.swap .vc2-title, .vc2-text.swap .vc2-line, .vc2-text.swap .vc2-step { animation: none; }
+}
+
+/* AI note under the site model */
+.vcheck-note { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: var(--space-3) var(--space-6); margin-top: var(--space-5); }
+.vcheck-note p { max-width: var(--measure); font-size: 15px; line-height: 23px; color: var(--charcoal); }
+.vcheck-note a { font-size: 15px; line-height: 23px; font-weight: 600; text-underline-offset: 3px; }
